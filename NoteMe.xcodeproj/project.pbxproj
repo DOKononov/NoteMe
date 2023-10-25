@@ -15,6 +15,7 @@
 		56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DD82AE834E300248F85 /* UIFont+Consts.swift */; };
 		56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DDB2AE8382800248F85 /* UIImage+Consts.swift */; };
 		56E67DDF2AE83AF400248F85 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 56E67DDE2AE83AF400248F85 /* SnapKit */; };
+		56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DE32AE83DE000248F85 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		56E67DD62AE82E7400248F85 /* UIColor+Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Consts.swift"; sourceTree = "<group>"; };
 		56E67DD82AE834E300248F85 /* UIFont+Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Consts.swift"; sourceTree = "<group>"; };
 		56E67DDB2AE8382800248F85 /* UIImage+Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Consts.swift"; sourceTree = "<group>"; };
+		56E67DE32AE83DE000248F85 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				56E67DD32AE82D0A00248F85 /* App */,
 				56E67DD42AE82DAA00248F85 /* Resource */,
+				56E67DE02AE83D7800248F85 /* Modules */,
 			);
 			path = NoteMe;
 			sourceTree = "<group>";
@@ -94,6 +97,30 @@
 				56E67DDB2AE8382800248F85 /* UIImage+Consts.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		56E67DE02AE83D7800248F85 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				56E67DE12AE83D9B00248F85 /* Auth */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		56E67DE12AE83D9B00248F85 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				56E67DE22AE83DC500248F85 /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		56E67DE22AE83DC500248F85 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				56E67DE32AE83DE000248F85 /* LoginVC.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +201,7 @@
 			files = (
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
+				56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
