@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  NoteMe
+
+  Created by Dmitry Kononov on 25.10.23.
+  
+*/
+"email" = "Электронная почта";
+"enterEmail" = "Введите адрес электронной почты";
+"forgotPassword" = "Забыли Пароль";
+"password" = "Пароль";
+"enterPassword" = "Введите Пароль";
+"welcomeBack" = "С возвращением!";
+"login" = "Войти";
+"newAccount" = "Новый Аккаунт";
+"cancel" = "Отмена";
