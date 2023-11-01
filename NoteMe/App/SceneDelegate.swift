@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = LoginVC()
+        window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }
 

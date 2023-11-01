@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE42AF15EE400A79CDC /* View+Layer.swift */; };
+		56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */; };
+		56414AEB2AF16EC200A79CDC /* LineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AEA2AF16EC200A79CDC /* LineTextField.swift */; };
+		56414AEF2AF288B000A79CDC /* PasswordLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AEE2AF288B000A79CDC /* PasswordLineTextField.swift */; };
+		56414AF12AF29BAA00A79CDC /* UIView+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AF02AF29BAA00A79CDC /* UIView+Styles.swift */; };
+		56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AF22AF29D4900A79CDC /* UILabel+Styles.swift */; };
 		56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBD2AE824E900248F85 /* AppDelegate.swift */; };
 		56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBF2AE824E900248F85 /* SceneDelegate.swift */; };
 		56E67DC72AE824EA00248F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DC62AE824EA00248F85 /* Assets.xcassets */; };
@@ -16,15 +22,18 @@
 		56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DDB2AE8382800248F85 /* UIImage+Consts.swift */; };
 		56E67DDF2AE83AF400248F85 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 56E67DDE2AE83AF400248F85 /* SnapKit */; };
 		56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DE32AE83DE000248F85 /* LoginVC.swift */; };
-		56E67DE62AE8E2B900248F85 /* AppTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DE52AE8E2B900248F85 /* AppTextFieldView.swift */; };
 		56E67DEB2AE9062500248F85 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DED2AE9062500248F85 /* Localizable.strings */; };
 		56E67DF12AE906F900248F85 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DF02AE906F900248F85 /* String+localized.swift */; };
-		56E67DF32AE90F0800248F85 /* String+Underline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DF22AE90F0800248F85 /* String+Underline.swift */; };
 		56E67DF52AE9110500248F85 /* UIView+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DF42AE9110500248F85 /* UIView+addShadow.swift */; };
-		56E67DF82AE9182900248F85 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DF72AE9182900248F85 /* AppButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56414AE42AF15EE400A79CDC /* View+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Layer.swift"; sourceTree = "<group>"; };
+		56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Styles.swift"; sourceTree = "<group>"; };
+		56414AEA2AF16EC200A79CDC /* LineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTextField.swift; sourceTree = "<group>"; };
+		56414AEE2AF288B000A79CDC /* PasswordLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordLineTextField.swift; sourceTree = "<group>"; };
+		56414AF02AF29BAA00A79CDC /* UIView+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Styles.swift"; sourceTree = "<group>"; };
+		56414AF22AF29D4900A79CDC /* UILabel+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Styles.swift"; sourceTree = "<group>"; };
 		56E67DBA2AE824E900248F85 /* NoteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E67DBD2AE824E900248F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56E67DBF2AE824E900248F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,13 +44,10 @@
 		56E67DD82AE834E300248F85 /* UIFont+Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Consts.swift"; sourceTree = "<group>"; };
 		56E67DDB2AE8382800248F85 /* UIImage+Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Consts.swift"; sourceTree = "<group>"; };
 		56E67DE32AE83DE000248F85 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		56E67DE52AE8E2B900248F85 /* AppTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextFieldView.swift; sourceTree = "<group>"; };
 		56E67DEC2AE9062500248F85 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56E67DEE2AE9065300248F85 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56E67DF02AE906F900248F85 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
-		56E67DF22AE90F0800248F85 /* String+Underline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Underline.swift"; sourceTree = "<group>"; };
 		56E67DF42AE9110500248F85 /* UIView+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addShadow.swift"; sourceTree = "<group>"; };
-		56E67DF72AE9182900248F85 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56414AE32AF15EC800A79CDC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				56414AE42AF15EE400A79CDC /* View+Layer.swift */,
+				56E67DF02AE906F900248F85 /* String+localized.swift */,
+				56E67DF42AE9110500248F85 /* UIView+addShadow.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		56414AE62AF1600900A79CDC /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */,
+				56414AF02AF29BAA00A79CDC /* UIView+Styles.swift */,
+				56414AF22AF29D4900A79CDC /* UILabel+Styles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		56414AE92AF16EAB00A79CDC /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				56414AEA2AF16EC200A79CDC /* LineTextField.swift */,
+				56414AEE2AF288B000A79CDC /* PasswordLineTextField.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		56E67DB12AE824E900248F85 = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +110,12 @@
 		56E67DBC2AE824E900248F85 /* NoteMe */ = {
 			isa = PBXGroup;
 			children = (
-				56E67DEF2AE906D500248F85 /* Extensions */,
 				56E67DD32AE82D0A00248F85 /* App */,
-				56E67DD42AE82DAA00248F85 /* Resource */,
+				56414AE92AF16EAB00A79CDC /* Custom */,
 				56E67DE02AE83D7800248F85 /* Modules */,
+				56E67DD42AE82DAA00248F85 /* Resource */,
+				56414AE62AF1600900A79CDC /* Styles */,
+				56414AE32AF15EC800A79CDC /* Utils */,
 			);
 			path = NoteMe;
 			sourceTree = "<group>";
@@ -117,7 +154,6 @@
 		56E67DE02AE83D7800248F85 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				56E67DF62AE9181300248F85 /* CustomViews */,
 				56E67DE12AE83D9B00248F85 /* Auth */,
 			);
 			path = Modules;
@@ -137,25 +173,6 @@
 				56E67DE32AE83DE000248F85 /* LoginVC.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		56E67DEF2AE906D500248F85 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				56E67DF02AE906F900248F85 /* String+localized.swift */,
-				56E67DF22AE90F0800248F85 /* String+Underline.swift */,
-				56E67DF42AE9110500248F85 /* UIView+addShadow.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		56E67DF62AE9181300248F85 /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				56E67DE52AE8E2B900248F85 /* AppTextFieldView.swift */,
-				56E67DF72AE9182900248F85 /* AppButton.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,16 +253,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E67DF82AE9182900248F85 /* AppButton.swift in Sources */,
-				56E67DF32AE90F0800248F85 /* String+Underline.swift in Sources */,
+				56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
+				56414AEB2AF16EC200A79CDC /* LineTextField.swift in Sources */,
 				56E67DF12AE906F900248F85 /* String+localized.swift in Sources */,
+				56414AEF2AF288B000A79CDC /* PasswordLineTextField.swift in Sources */,
 				56E67DF52AE9110500248F85 /* UIView+addShadow.swift in Sources */,
 				56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */,
-				56E67DE62AE8E2B900248F85 /* AppTextFieldView.swift in Sources */,
+				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
+				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
+				56414AF12AF29BAA00A79CDC /* UIView+Styles.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

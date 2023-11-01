@@ -10,73 +10,28 @@ import SnapKit
 
 final class LoginVC: UIViewController {
     
-    private lazy var contentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .appGray
+    private lazy var contentView: UIView = .contentView()
+    private lazy var logoImageView: UIImageView = .init(image: .General.logo)
+    private lazy var welcomeLabel: UILabel = .titleLabel(.LoginVC.welcomeBack)
+    private lazy var infoView: UIView = .infoView()
+    
+    private lazy var emailTextView: LineTextField = {
+        let view = LineTextField()
+        view.title = .LoginVC.email
+        view.placeholder = .LoginVC.enterEmail
         return view
     }()
     
-    private lazy var logoImageView: UIImageView = {
-        let view = UIImageView(image: .General.logo)
+    private lazy var passwordTextView: PasswordLineTextField = {
+        let view = PasswordLineTextField()
+        view.title = .LoginVC.password
+        view.placeholder = .LoginVC.enterPassword
         return view
     }()
     
-    private lazy var welcomeLabel: UILabel = {
-       let label = UILabel()
-        label.text = .LoginVC.welcomeBack
-        label.font = .appTitleFont
-        label.textColor = .black
-        return label
-    }()
-    
-    private lazy var middleContentView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 5
-        view.addShadow()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    private lazy var emailTextView: AppTextFieldView = {
-        let view = AppTextFieldView(title: .LoginVC.email,
-                                    placeholder: .LoginVC.enterEmail,
-                                    type: .textView)
-        return view
-    }()
-    
-    private lazy var passwordTextView: AppTextFieldView = {
-        let view = AppTextFieldView(title: .LoginVC.password,
-                                    placeholder: .LoginVC.enterPassword,
-                                    type: .passwordView)
-        return view
-    }()
-    
-    private lazy var forgotPasswordButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitleColor(.appLabel, for: .normal)
-        let title = String.LoginVC.forgotPassword
-        button.setAttributedTitle(title.makeUnderline(.appLabel),
-                                  for: .normal)
-        button.titleLabel?.font = .appBoldFont15
-        button.addTarget(self,
-                         action: #selector(forgotButtonDidTapped),
-                         for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var loginButton: AppButton = {
-        let button = AppButton(style: .primary, title: .LoginVC.login)
-        button.addTarget(self, action: #selector(loginButtonDidTapped),
-                         for: .touchUpInside)
-        return button
-    }()
-    
-    private lazy var newAccountButton: AppButton = {
-        let button = AppButton(style: .underline, title: .LoginVC.newAccount)
-        button.addTarget(self, action: #selector(newAccountButtonDidTapped),
-                         for: .touchUpInside)
-        return button
-    }()
+    private lazy var forgotPasswordButton: UIButton = .underlineGrayButton(.LoginVC.forgotPassword)
+    private lazy var loginButton: UIButton = .yellowRoundedButton(.LoginVC.login)
+    private lazy var newAccountButton: UIButton = .underlineYellowButton(.LoginVC.newAccount)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +42,7 @@ final class LoginVC: UIViewController {
         super.viewWillLayoutSubviews()
         setupConstraints()
     }
-  
+    
 }
 
 //MARK: -Private methods
@@ -113,10 +68,10 @@ private extension LoginVC {
         view.addSubview(contentView)
         contentView.addSubview(logoImageView)
         contentView.addSubview(welcomeLabel)
-        contentView.addSubview(middleContentView)
-        middleContentView.addSubview(emailTextView)
-        middleContentView.addSubview(passwordTextView)
-        middleContentView.addSubview(forgotPasswordButton)
+        contentView.addSubview(infoView)
+        infoView.addSubview(emailTextView)
+        infoView.addSubview(passwordTextView)
+        infoView.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
         view.addSubview(newAccountButton)
     }
@@ -136,17 +91,16 @@ private extension LoginVC {
         
         welcomeLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(middleContentView.snp.top).inset(-8)
+            make.bottom.equalTo(infoView.snp.top).inset(-8)
         }
         
-        middleContentView.snp.makeConstraints { make in
+        infoView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.horizontalEdges.equalToSuperview().inset(16)
         }
         
         emailTextView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(16)
-            make.top.equalToSuperview().inset(16)
+            make.horizontalEdges.top.equalToSuperview().inset(16)
         }
         
         passwordTextView.snp.makeConstraints { make in
@@ -156,6 +110,7 @@ private extension LoginVC {
         
         forgotPasswordButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextView.snp.bottom).inset(-20)
+            make.height.equalTo(17)
             make.leading.bottom.equalToSuperview().inset(16)
         }
         

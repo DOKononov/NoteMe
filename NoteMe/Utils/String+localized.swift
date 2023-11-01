@@ -50,4 +50,8 @@ extension String.LoginVC {
     static var newAccount: String {
         "newAccount".localized
     }
+    
+    static var cancel: String {
+        "cancel".localized
+    }
 }
