@@ -14,3 +14,7 @@
 "login" = "Login";
 "newAccount" = "New Account";
 "cancel" = "Cancel";
+"niceToMeetYou" = "Nice to meet you!";
+"repeatPassword" = "Repeat Password";
+"register" = "Register";
+"iHaveAnAccount" = "I have an Account";

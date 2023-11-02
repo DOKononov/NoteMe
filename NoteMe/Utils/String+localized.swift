@@ -54,4 +54,20 @@ extension String.LoginVC {
     static var cancel: String {
         "cancel".localized
     }
+    
+    static var niceToMeetYou: String {
+        "niceToMeetYou".localized
+    }
+    
+    static var repeatPassword: String {
+        "repeatPassword".localized
+    }
+    
+    static var register: String {
+        "register".localized
+    }
+    
+    static var iHaveAnAccount: String {
+        "iHaveAnAccount".localized
+    }
 }
