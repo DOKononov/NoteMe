@@ -14,3 +14,7 @@
 "login" = "Войти";
 "newAccount" = "Новый Аккаунт";
 "cancel" = "Отмена";
+"niceToMeetYou" = "Рады знакомству!";
+"repeatPassword" = "Повторите пароль";
+"register" = "Зарегестрироваться";
+"iHaveAnAccount" = "У меня есть аккаунт";
