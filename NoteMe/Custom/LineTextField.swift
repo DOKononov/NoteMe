@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
- class LineTextField: UIView {
+final class LineTextField: UIView {
     
     private lazy var titleLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.font = .appBoldFont.withSize(13)
         label.textColor = .appText
         label.textAlignment = .left
         return label
     }()
     
-    internal lazy var textField: UITextField = {
+    private lazy var textField: UITextField = {
         let textfield = UITextField()
         textfield.borderStyle = .none
         textfield.autocorrectionType = .no
@@ -30,13 +30,13 @@ import SnapKit
     }()
     
     private lazy var separator: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .appText
         return view
     }()
     
     private lazy var errorLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.font = .appBoldFont.withSize(12)
         label.textColor = .appRed
         label.textAlignment = .left
@@ -114,4 +114,53 @@ import SnapKit
         
     }
     
+}
+
+//MARK: -Styles
+extension LineTextField {
+    static func resetPasswordView() -> LineTextField {
+        let view = LineTextField()
+        view.titleLabel.font = .appFont.withSize(13)
+        view.titleLabel.numberOfLines = 2
+        view.title = .LoginVC.enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword
+        view.placeholder = .LoginVC.enterEmail
+        return view
+    }
+    
+    static func passwordView() -> LineTextField {
+        let view = LineTextField()
+        view.configPasswordView()
+        return view
+    }
+}
+
+
+//MARK: - private methods for passwordView
+
+extension LineTextField {
+    private func configPasswordView() {
+        textField.isSecureTextEntry = true
+        let button = UIButton()
+        setPasswordToggleImage(button)
+        button.addTarget(self,
+                         action: #selector(togglePasswordView),
+                         for: .touchUpInside)
+        textField.rightView = button
+        textField.rightViewMode = .always
+    }
+    
+    @objc private func togglePasswordView(_ sender: UIButton) {
+        textField.isSecureTextEntry.toggle()
+        setPasswordToggleImage(sender)
+    }
+    
+    private func setPasswordToggleImage(_ button: UIButton) {
+        textField.isSecureTextEntry ?
+        button.setImage(.init(systemName: "eye.slash")?
+            .withRenderingMode(.alwaysOriginal)
+            .withTintColor(.appBlack), for: .normal) :
+        button.setImage(.init(systemName: "eye")?
+            .withRenderingMode(.alwaysOriginal)
+            .withTintColor(.appRed), for: .normal)
+    }
 }

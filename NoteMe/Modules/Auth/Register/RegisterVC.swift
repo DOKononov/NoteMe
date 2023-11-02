@@ -12,7 +12,7 @@ final class RegisterVC: UIViewController {
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
-    private lazy var welcomeLabel: UILabel = .titleLabel(.LoginVC.niceToMeetYou)
+    private lazy var titleLabel: UILabel = .titleLabel(.LoginVC.niceToMeetYou)
     private lazy var infoView: UIView = .infoView()
     
     private lazy var emailTextView: LineTextField = {
@@ -22,15 +22,15 @@ final class RegisterVC: UIViewController {
         return view
     }()
     
-    private lazy var passwordTextView: PasswordLineTextField = {
-        let view = PasswordLineTextField()
+    private lazy var passwordTextView: LineTextField = {
+        let view: LineTextField = .passwordView()
         view.title = .LoginVC.password
         view.placeholder = .LoginVC.enterPassword
         return view
     }()
     
-    private lazy var repeatPasswordTextView: PasswordLineTextField = {
-        let view = PasswordLineTextField()
+    private lazy var repeatPasswordTextView: LineTextField = {
+        let view: LineTextField = .passwordView()
         view.title = .LoginVC.repeatPassword
         view.placeholder = .LoginVC.enterPassword
         return view
@@ -57,7 +57,7 @@ private extension RegisterVC {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
         contentView.addSubview(logoImageView)
-        contentView.addSubview(welcomeLabel)
+        contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
         infoView.addSubview(emailTextView)
         infoView.addSubview(passwordTextView)
@@ -79,7 +79,7 @@ private extension RegisterVC {
             make.size.equalTo(96)
         }
         
-        welcomeLabel.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(infoView.snp.top).inset(-8)
         }

@@ -18,3 +18,7 @@
 "repeatPassword" = "Repeat Password";
 "register" = "Register";
 "iHaveAnAccount" = "I have an Account";
+"reset" = "Reset";
+"enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword" = "Enter your email address and we will share a link to create a new password.";
+"resetPassword" = "Reset Password";
+
