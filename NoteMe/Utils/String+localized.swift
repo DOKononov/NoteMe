@@ -70,4 +70,17 @@ extension String.LoginVC {
     static var iHaveAnAccount: String {
         "iHaveAnAccount".localized
     }
+    
+    static var reset: String {
+        "reset".localized
+    }
+    
+    static var enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword: String {
+        "enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword".localized
+    }
+    
+    static var resetPassword: String {
+        "resetPassword".localized
+    }
+    
 }
