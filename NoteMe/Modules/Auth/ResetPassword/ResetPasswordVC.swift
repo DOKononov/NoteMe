@@ -15,7 +15,21 @@ final class ResetPasswordVC: UIViewController {
     private lazy var titleLabel: UILabel = .titleLabel(.LoginVC.resetPassword)
     private lazy var infoView: UIView = .infoView()
     
-    private lazy var emailTextView: LineTextField = .resetPasswordView()
+    private lazy var viewLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
+        label.font = .appFont.withSize(13)
+        label.textColor = .appText
+        label.textAlignment = .natural
+        label.text = .LoginVC.enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword
+        return label
+    }()
+    
+    private lazy var emailTextView: LineTextField = {
+        let view = LineTextField()
+        view.placeholder = .LoginVC.enterEmail
+        return view
+    }()
     
     private lazy var resetButton: UIButton = .yellowRoundedButton(.LoginVC.reset)
     private lazy var cancelButton: UIButton = .appCancelButton()
@@ -39,6 +53,7 @@ private extension ResetPasswordVC {
         contentView.addSubview(logoImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
+        infoView.addSubview(viewLabel)
         infoView.addSubview(emailTextView)
         view.addSubview(resetButton)
         view.addSubview(cancelButton)
@@ -67,8 +82,13 @@ private extension ResetPasswordVC {
             make.horizontalEdges.equalToSuperview().inset(16)
         }
         
+        viewLabel.snp.makeConstraints { make in
+            make.horizontalEdges.top.equalToSuperview().inset(16)
+        }
+        
         emailTextView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
+            make.top.equalTo(viewLabel.snp.bottom).inset(-8)
+            make.horizontalEdges.bottom.equalToSuperview().inset(16)
         }
         
         resetButton.snp.makeConstraints { make in

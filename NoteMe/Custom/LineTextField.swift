@@ -118,14 +118,6 @@ final class LineTextField: UIView {
 
 //MARK: -Styles
 extension LineTextField {
-    static func resetPasswordView() -> LineTextField {
-        let view = LineTextField()
-        view.titleLabel.font = .appFont.withSize(13)
-        view.titleLabel.numberOfLines = 2
-        view.title = .LoginVC.enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword
-        view.placeholder = .LoginVC.enterEmail
-        return view
-    }
     
     static func passwordView() -> LineTextField {
         let view = LineTextField()
