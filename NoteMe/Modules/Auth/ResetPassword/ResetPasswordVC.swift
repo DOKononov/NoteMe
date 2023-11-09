@@ -12,7 +12,7 @@ final class ResetPasswordVC: UIViewController {
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
-    private lazy var titleLabel: UILabel = .titleLabel(.LoginVC.resetPassword)
+    private lazy var titleLabel: UILabel = .titleLabel(.Auth.resetPassword)
     private lazy var infoView: UIView = .infoView()
     
     private lazy var viewLabel: UILabel = {
@@ -21,17 +21,17 @@ final class ResetPasswordVC: UIViewController {
         label.font = .appFont.withSize(13)
         label.textColor = .appText
         label.textAlignment = .natural
-        label.text = .LoginVC.enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword
+        label.text = .Auth.enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword
         return label
     }()
     
     private lazy var emailTextView: LineTextField = {
         let view = LineTextField()
-        view.placeholder = .LoginVC.enterEmail
+        view.placeholder = .Auth.enterEmail
         return view
     }()
     
-    private lazy var resetButton: UIButton = .yellowRoundedButton(.LoginVC.reset)
+    private lazy var resetButton: UIButton = .yellowRoundedButton(.Auth.reset)
     private lazy var cancelButton: UIButton = .appCancelButton()
     
     override func viewDidLoad() {

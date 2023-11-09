@@ -25,7 +25,7 @@ extension UIButton {
         let button = UIButton()
         button.backgroundColor = .clear
         button.cornerRadius = 5
-        button.setTitle(.LoginVC.cancel, for: .normal)
+        button.setTitle(.Auth.cancel, for: .normal)
         button.setTitleColor(.appYellow, for: .normal)
         button.setTitleColor(.appYellow.withAlphaComponent(0.75),
                              for: .highlighted)

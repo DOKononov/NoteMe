@@ -12,26 +12,26 @@ final class LoginVC: UIViewController {
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
-    private lazy var titleLabel: UILabel = .titleLabel(.LoginVC.welcomeBack)
+    private lazy var titleLabel: UILabel = .titleLabel(.Auth.welcomeBack)
     private lazy var infoView: UIView = .infoView()
     
     private lazy var emailTextView: LineTextField = {
         let view = LineTextField()
-        view.title = .LoginVC.email
-        view.placeholder = .LoginVC.enterEmail
+        view.title = .Auth.email
+        view.placeholder = .Auth.enterEmail
         return view
     }()
     
     private lazy var passwordTextView: LineTextField = {
         let view: LineTextField = .passwordView()
-        view.title = .LoginVC.password
-        view.placeholder = .LoginVC.enterPassword
+        view.title = .Auth.password
+        view.placeholder = .Auth.enterPassword
         return view
     }()
     
-    private lazy var forgotPasswordButton: UIButton = .underlineGrayButton(.LoginVC.forgotPassword)
-    private lazy var loginButton: UIButton = .yellowRoundedButton(.LoginVC.login)
-    private lazy var newAccountButton: UIButton = .underlineYellowButton(.LoginVC.newAccount)
+    private lazy var forgotPasswordButton: UIButton = .underlineGrayButton(.Auth.forgotPassword)
+    private lazy var loginButton: UIButton = .yellowRoundedButton(.Auth.login)
+    private lazy var newAccountButton: UIButton = .underlineYellowButton(.Auth.newAccount)
     
     override func viewDidLoad() {
         super.viewDidLoad()

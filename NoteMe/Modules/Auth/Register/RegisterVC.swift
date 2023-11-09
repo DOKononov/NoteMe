@@ -12,32 +12,32 @@ final class RegisterVC: UIViewController {
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
-    private lazy var titleLabel: UILabel = .titleLabel(.LoginVC.niceToMeetYou)
+    private lazy var titleLabel: UILabel = .titleLabel(.Auth.niceToMeetYou)
     private lazy var infoView: UIView = .infoView()
     
     private lazy var emailTextView: LineTextField = {
         let view = LineTextField()
-        view.title = .LoginVC.email
-        view.placeholder = .LoginVC.enterEmail
+        view.title = .Auth.email
+        view.placeholder = .Auth.enterEmail
         return view
     }()
     
     private lazy var passwordTextView: LineTextField = {
         let view: LineTextField = .passwordView()
-        view.title = .LoginVC.password
-        view.placeholder = .LoginVC.enterPassword
+        view.title = .Auth.password
+        view.placeholder = .Auth.enterPassword
         return view
     }()
     
     private lazy var repeatPasswordTextView: LineTextField = {
         let view: LineTextField = .passwordView()
-        view.title = .LoginVC.repeatPassword
-        view.placeholder = .LoginVC.enterPassword
+        view.title = .Auth.repeatPassword
+        view.placeholder = .Auth.enterPassword
         return view
     }()
     
-    private lazy var registerButton: UIButton = .yellowRoundedButton(.LoginVC.register)
-    private lazy var iHaveAnAccountButton: UIButton = .underlineYellowButton(.LoginVC.iHaveAnAccount)
+    private lazy var registerButton: UIButton = .yellowRoundedButton(.Auth.register)
+    private lazy var iHaveAnAccountButton: UIButton = .underlineYellowButton(.Auth.iHaveAnAccount)
     
     
     override func viewDidLoad() {
