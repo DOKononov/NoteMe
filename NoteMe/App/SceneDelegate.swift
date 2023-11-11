@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         else { return }
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = LoginVC()
+        window?.rootViewController = LoginAssembler.make()
         window?.overrideUserInterfaceStyle = .light
         window?.makeKeyAndVisible()
     }

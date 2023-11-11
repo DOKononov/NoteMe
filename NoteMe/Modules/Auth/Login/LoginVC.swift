@@ -8,7 +8,19 @@
 import UIKit
 import SnapKit
 
+protocol LoginViewModelProtocol {
+    
+    var catchEmailError: ((String?)-> Void)? { get set }
+    var catchPasswordError: ((String?)-> Void)? { get set }
+    
+    func loginDidTapped(email: String?, password: String?)
+    func newAccountDidTapped()
+    func forgotPasswordDidTapped(email: String?)
+}
+
 final class LoginVC: UIViewController {
+    
+    private var viewModel: LoginViewModelProtocol
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
@@ -29,9 +41,26 @@ final class LoginVC: UIViewController {
         return view
     }()
     
-    private lazy var forgotPasswordButton: UIButton = .underlineGrayButton(.Auth.forgotPassword)
-    private lazy var loginButton: UIButton = .yellowRoundedButton(.Auth.login)
-    private lazy var newAccountButton: UIButton = .underlineYellowButton(.Auth.newAccount)
+    private lazy var forgotPasswordButton: UIButton =
+        .underlineGrayButton(.Auth.forgotPassword)
+        .withAction(self, #selector(forgotPasswordDidTap))
+    
+    private lazy var loginButton: UIButton =
+        .yellowRoundedButton(.Auth.login)
+        .withAction(self, #selector(loginDidTap))
+    
+    private lazy var newAccountButton: UIButton =
+        .underlineYellowButton(.Auth.newAccount)
+        .withAction(self, #selector(newAccountDidTap))
+    
+    init(viewModel: LoginViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        
+        bind()
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,16 +77,28 @@ final class LoginVC: UIViewController {
 //MARK: -Private methods
 
 private extension LoginVC {
-    @objc func forgotButtonDidTapped() {
-        //TODO: setup logic
+    
+    @objc func loginDidTap() {
+        viewModel.loginDidTapped(email: emailTextView.text,
+                                 password: passwordTextView.text)
     }
     
-    @objc func loginButtonDidTapped() {
-        //TODO: setup logic
+    @objc func newAccountDidTap() {
+        viewModel.newAccountDidTapped()
     }
     
-    @objc func newAccountButtonDidTapped() {
-        //TODO: setup logic
+    @objc func forgotPasswordDidTap() {
+        viewModel.forgotPasswordDidTapped(email: emailTextView.text)
+    }
+    
+    private func bind() {
+        viewModel.catchEmailError = {  [weak self] errorText in
+            self?.emailTextView.errorText = errorText
+        }
+        
+        viewModel.catchPasswordError = { [weak self] in
+            self?.passwordTextView.errorText = $0
+        }
     }
 }
 
