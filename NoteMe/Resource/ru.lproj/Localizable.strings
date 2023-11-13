@@ -21,3 +21,5 @@
 "reset" = "Сбросить";
 "enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword" = "Введите адрес почты и мы пришлём вам ссылку для создания нового пароля.";
 "resetPassword" = "Сбросить Пароль";
+"nonValidPassword" = "Недействительный пароль";
+"wrongEmail" = "Адрес электронной почты некоректен";

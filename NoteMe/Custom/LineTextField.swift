@@ -50,7 +50,10 @@ final class LineTextField: UIView {
     
     var errorText: String? {
         get { errorLabel.text }
-        set { errorLabel.text = newValue }
+        set {
+            errorAnimation()
+            errorLabel.text = newValue
+        }
     }
     
     var placeholder: String? {
@@ -154,5 +157,16 @@ extension LineTextField {
         button.setImage(.init(systemName: "eye")?
             .withRenderingMode(.alwaysOriginal)
             .withTintColor(.appRed), for: .normal)
+    }
+    
+    private func errorAnimation() {
+        UIView.transition(with: errorLabel,
+                      duration: 0.25,
+                       options: .transitionCrossDissolve,
+                    animations: { [weak self] in
+            self?.errorLabel.textColor = .clear
+        }) { [weak self] _ in
+            self?.errorLabel.textColor = .appRed
+        }
     }
 }

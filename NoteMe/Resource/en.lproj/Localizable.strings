@@ -21,4 +21,5 @@
 "reset" = "Reset";
 "enterYourEmailAdressAndWeWillShareALinkToCreateANewPassword" = "Enter your email address and we will share a link to create a new password.";
 "resetPassword" = "Reset Password";
-
+"nonValidPassword" = "Non-valid password";
+"wrongEmail" = "Wrong email";

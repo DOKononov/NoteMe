@@ -72,4 +72,12 @@ extension String.Auth {
         "resetPassword".localized
     }
     
+    static var nonValidPassword: String {
+        "nonValidPassword".localized
+    }
+    
+    static var wrongEmail: String {
+        "wrongEmail".localized
+    }
+    
 }

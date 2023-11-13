@@ -34,14 +34,14 @@ final class LoginVM: LoginViewModelProtocol {
     
     func loginDidTapped(email: String?, password: String?) {
         guard inputValidator.validate(email: email) else {
-            catchEmailError?("Wrong email")
+            catchEmailError?(.Auth.wrongEmail)
             return
         }
         catchEmailError?(nil)
 
         
         guard inputValidator.validate(password: password) else {
-            catchPasswordError?("Non-valid password")
+            catchPasswordError?(.Auth.nonValidPassword)
             return
         }
         catchPasswordError?(nil)
