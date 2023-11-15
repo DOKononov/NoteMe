@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class InputValidator: NSObject {
+final class InputValidator {
     
     func validate(email: String?) -> Bool {
         return validate(string: email,

@@ -8,13 +8,12 @@
 import UIKit
 import SnapKit
 
-protocol LoginViewModelProtocol {
-    
+@objc protocol LoginViewModelProtocol: AnyObject {
     var catchEmailError: ((String?)-> Void)? { get set }
     var catchPasswordError: ((String?)-> Void)? { get set }
     
     func loginDidTapped(email: String?, password: String?)
-    func newAccountDidTapped()
+    @objc func newAccountDidTapped()
     func forgotPasswordDidTapped(email: String?)
 }
 
@@ -23,6 +22,7 @@ final class LoginVC: UIViewController {
     private var viewModel: LoginViewModelProtocol
     
     private lazy var contentView: UIView = .contentView()
+    private lazy var logoContainer: UIView = UIView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
     private lazy var titleLabel: UILabel = .titleLabel(.Auth.welcomeBack)
     private lazy var infoView: UIView = .infoView()
@@ -51,7 +51,8 @@ final class LoginVC: UIViewController {
     
     private lazy var newAccountButton: UIButton =
         .underlineYellowButton(.Auth.newAccount)
-        .withAction(self, #selector(newAccountDidTap))
+        .withAction(viewModel,
+                    #selector(LoginViewModelProtocol.newAccountDidTapped))
     
     init(viewModel: LoginViewModelProtocol) {
         self.viewModel = viewModel
@@ -83,10 +84,6 @@ private extension LoginVC {
                                  password: passwordTextView.text)
     }
     
-    @objc func newAccountDidTap() {
-        viewModel.newAccountDidTapped()
-    }
-    
     @objc func forgotPasswordDidTap() {
         viewModel.forgotPasswordDidTapped(email: emailTextView.text)
     }
@@ -107,7 +104,8 @@ private extension LoginVC {
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
-        contentView.addSubview(logoImageView)
+        contentView.addSubview(logoContainer)
+        logoContainer.addSubview(logoImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
         infoView.addSubview(emailTextView)
@@ -124,9 +122,13 @@ private extension LoginVC {
             make.bottom.equalTo(loginButton.snp.centerY)
         }
         
+        logoContainer.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(titleLabel.snp.top)
+        }
+        
         logoImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(72)
+            make.center.equalToSuperview()
             make.size.equalTo(96)
         }
         

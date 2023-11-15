@@ -33,29 +33,38 @@ final class LoginVM: LoginViewModelProtocol {
     }
     
     func loginDidTapped(email: String?, password: String?) {
-        guard inputValidator.validate(email: email) else {
-            catchEmailError?(.Auth.wrongEmail)
-            return
-        }
-        catchEmailError?(nil)
-
+    
+        guard
+            checkValidation(email: email, password: password),
+            let email, let password
+        else { return }
         
-        guard inputValidator.validate(password: password) else {
-            catchPasswordError?(.Auth.nonValidPassword)
-            return
-        }
-        catchPasswordError?(nil)
- 
-        guard let email, let password else { return }
         authService.login(email: email,
                           password: password) { isSuccess in
             print(isSuccess)
         }
     }
     
-    func newAccountDidTapped() { }
+    func newAccountDidTapped() {
+        print(#function)
+        
+    }
     
     func forgotPasswordDidTapped(email: String?) { }
     
     
+}
+
+//MARK: - private methods
+private extension LoginVM {
+    func checkValidation(email: String?, password: String?) -> Bool {
+        
+        let isEmailValid = inputValidator.validate(email: email)
+        let isPasswordValid = inputValidator.validate(password: password)
+        
+        catchEmailError?(isEmailValid ? nil : .Auth.wrongEmail)
+        catchPasswordError?(isPasswordValid ? nil : .Auth.enterPassword)
+    
+       return isEmailValid && isPasswordValid
+    }
 }
