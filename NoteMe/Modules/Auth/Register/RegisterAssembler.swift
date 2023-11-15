@@ -11,8 +11,12 @@ final class RegisterAssembler {
     private init() {}
     
     static func make() -> UIViewController {
-        let presenter = RegisterPresenter(keyboardHelper: KeyboardHelper())
-        let view = RegisterVC(presenter: presenter)
+        let keyboardHelper = KeyboardHelper()
+        let animatorService = AnimatorService()
+        
+        let presenter = RegisterPresenter(keyboardHelper: keyboardHelper)
+        let view = RegisterVC(presenter: presenter,
+                              animatorService: animatorService)
         presenter.delegate = view
         return view
     }

@@ -17,6 +17,7 @@ import SnapKit
 
 final class RegisterVC: UIViewController {
     
+    private let animatorService: AnimatorService
     private lazy var contentView: UIView = .contentView()
     private lazy var logoContainer: UIView = UIView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
@@ -55,8 +56,10 @@ final class RegisterVC: UIViewController {
     
     private var presenter: RegisterPresenterProtocol
     
-    init(presenter: RegisterPresenterProtocol) {
+    init(presenter: RegisterPresenterProtocol,
+         animatorService: AnimatorService) {
         self.presenter = presenter
+        self.animatorService = animatorService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -172,24 +175,10 @@ extension RegisterVC: RegisterPresenterDelegate {
     }
     
     func keyboardFrameChanged(_ frame: CGRect) {
-        let maxY = infoView.frame.maxY + 16
-        let keyboardY = frame.minY
-        let diff = maxY - keyboardY
-        
-        if diff > 0 {
-            moveInfoView(with: -diff)
-        } else if diff < 0 {
-            moveInfoView(with: .zero)
-        }
+        animatorService.moveWithAnimation(for: self,
+                                          view: infoView,
+                                          toSatisfyKeyboard: frame)
     }
-    
-    private func moveInfoView(with offset: CGFloat) {
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.infoView.snp.updateConstraints {
-                $0.centerY.equalToSuperview().offset(offset)
-            }
-            self?.view.layoutIfNeeded()
-        }
-    }
+
     
 }

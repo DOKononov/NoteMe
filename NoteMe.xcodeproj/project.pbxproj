@@ -10,6 +10,7 @@
 		560F244E2B03DB8700226BAD /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F244D2B03DB8700226BAD /* RegisterPresenter.swift */; };
 		560F24502B03E0B500226BAD /* RegisterAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F244F2B03E0B500226BAD /* RegisterAssembler.swift */; };
 		560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24522B03E52C00226BAD /* KeyboardHelper.swift */; };
+		560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24562B04B16B00226BAD /* AnimatorService.swift */; };
 		5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
@@ -42,6 +43,7 @@
 		560F244D2B03DB8700226BAD /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		560F244F2B03E0B500226BAD /* RegisterAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembler.swift; sourceTree = "<group>"; };
 		560F24522B03E52C00226BAD /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		560F24562B04B16B00226BAD /* AnimatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorService.swift; sourceTree = "<group>"; };
 		5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatePickerView.swift; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				560F24512B03E50C00226BAD /* KeyboardHelper */,
 				563BF7232AFEA16600150C98 /* InputValidator */,
+				560F24562B04B16B00226BAD /* AnimatorService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */,
 				563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
+				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */,
 				563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
