@@ -80,4 +80,8 @@ extension String.Auth {
         "wrongEmail".localized
     }
     
+    static var passwordDoesNotMatch: String {
+        "passwordDoesNotMatch".localized
+    }
+    
 }

@@ -23,3 +23,4 @@
 "resetPassword" = "Сбросить Пароль";
 "nonValidPassword" = "Недействительный пароль";
 "wrongEmail" = "Адрес электронной почты некоректен";
+"passwordDoesNotMatch" = "Пароль не совпадает";

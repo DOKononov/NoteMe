@@ -13,39 +13,82 @@ protocol RegisterPresenterDelegate: AnyObject {
     func setRepeatPasswordError(error: String?)
     
     func keyboardFrameChanged(_ frame: CGRect)
-    
+}
+
+protocol RegisterAuthServiceUseCase {
+    func register(email: String,
+               password: String,
+               completion: @escaping (Bool) -> Void)
+}
+
+protocol RegisterInputValidatorUseCases {
+    func validate(email: String?) -> Bool
+    func validate(password: String?) -> Bool
 }
 
 final class RegisterPresenter {
     
     weak var delegate: RegisterPresenterDelegate?
-    
     private let keyboardHelper: KeyboardHelper
+    private let inputValidator: RegisterInputValidatorUseCases
+    private let authService: RegisterAuthServiceUseCase
     
-    init(keyboardHelper: KeyboardHelper) {
+    init(keyboardHelper: KeyboardHelper,
+         inputValidator: RegisterInputValidatorUseCases,
+         authService: RegisterAuthServiceUseCase) {
         self.keyboardHelper = keyboardHelper
+        self.inputValidator = inputValidator
+        self.authService = authService
         bind()
     }
-    
-    private func bind() {
-        keyboardHelper
-            .onWillShow { [weak self] in self?.delegate?.keyboardFrameChanged($0)}
-            .onWillHide { [weak self] in self?.delegate?.keyboardFrameChanged($0)}
-    }
-    
+
 }
 
 //MARK: -RegisterPresenterProtocol
 extension RegisterPresenter: RegisterPresenterProtocol {
-    func registerDidTap(email: String?, password: String?, repeatPassword: String?) { }
+    func registerDidTap(email: String?, password: String?, repeatPassword: String?) {
+        guard
+            checkValidation(email: email,
+                            password: password,
+                            repeatPassword: repeatPassword),
+            let email, let password
+        else { return }
+        authService.register(email: email, password: password) { result in
+            print(result)
+        }
+    }
     
     func haveAccountDidTap() { }
     
 }
 
+//MARK: -private methods
+private extension RegisterPresenter {
+    func checkValidation(email: String?,
+                         password: String?,
+                         repeatPassword: String?) -> Bool {
+        let isValidEmail = inputValidator.validate(email: email)
+        let isValidPassword = inputValidator.validate(password: password)
+        let isPasswordMatches = (password == repeatPassword) && (password != "")
+        
+        
+        delegate?.setEmailError(error: isValidEmail ? nil : .Auth.wrongEmail)
+        delegate?.setPasswordError(error: isValidPassword ? nil : .Auth.nonValidPassword)
+        delegate?.setRepeatPasswordError(error: isPasswordMatches ? nil : .Auth.passwordDoesNotMatch)
+        
+        return isValidEmail && isValidPassword && isPasswordMatches
+    }
+    
+    func bind() {
+        keyboardHelper
+            .onWillShow { [weak self] in self?.delegate?.keyboardFrameChanged($0)}
+            .onWillHide { [weak self] in self?.delegate?.keyboardFrameChanged($0)}
+    }
+}
 
-///logo container
-///regisre UI
+
+///logo container  ++
+///regisre logic ++
 ///forgot password VC
 ///UseCase keyboard helper
 ///

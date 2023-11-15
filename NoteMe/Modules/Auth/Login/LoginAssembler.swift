@@ -18,7 +18,7 @@ final class LoginAssembler {
 }
 
 
-private class TESTAurhService: LoginAuthServiceUseCase {
+ class TESTAurhService: LoginAuthServiceUseCase {
     func login(email: String,
                password: String,
                completion: @escaping (Bool) -> Void) {

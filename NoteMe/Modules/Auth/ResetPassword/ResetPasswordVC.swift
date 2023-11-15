@@ -11,6 +11,7 @@ import SnapKit
 final class ResetPasswordVC: UIViewController {
     
     private lazy var contentView: UIView = .contentView()
+    private lazy var logoContainer: UIView = UIView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
     private lazy var titleLabel: UILabel = .titleLabel(.Auth.resetPassword)
     private lazy var infoView: UIView = .infoView()
@@ -50,7 +51,8 @@ private extension ResetPasswordVC {
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
-        contentView.addSubview(logoImageView)
+        contentView.addSubview(logoContainer)
+        logoContainer.addSubview(logoImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
         infoView.addSubview(viewLabel)
@@ -66,9 +68,13 @@ private extension ResetPasswordVC {
             make.bottom.equalTo(resetButton.snp.centerY)
         }
         
+        logoContainer.snp.makeConstraints { make in
+            make.horizontalEdges.top.equalToSuperview()
+            make.bottom.equalTo(titleLabel.snp.top)
+        }
+        
         logoImageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().inset(72)
+            make.center.equalToSuperview()
             make.size.equalTo(96)
         }
         
