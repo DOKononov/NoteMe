@@ -18,17 +18,29 @@ protocol LoginInputValidatorUseCase {
     func validate(password: String?) -> Bool
 }
 
+protocol LoginKeyboardHelperUseCase {
+    @discardableResult
+    func onWillShow(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+    @discardableResult
+    func onWillHide(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+}
+
 final class LoginVM {
     var catchEmailError: ((String?) -> Void)?
     var catchPasswordError: ((String?) -> Void)?
+    var keyboardFrameChanged: ((_ frame: CGRect) -> Void)?
     
     private let authService: LoginAuthServiceUseCase
     private let inputValidator: LoginInputValidatorUseCase
+    private let keyboardHelper: LoginKeyboardHelperUseCase
     
     init(authService: LoginAuthServiceUseCase,
-         inputValidator: LoginInputValidatorUseCase) {
+         inputValidator: LoginInputValidatorUseCase,
+         keyboardHelper: LoginKeyboardHelperUseCase) {
         self.authService = authService
         self.inputValidator = inputValidator
+        self.keyboardHelper = keyboardHelper
+        bind()
     }
     
 }
@@ -66,5 +78,10 @@ private extension LoginVM {
         catchPasswordError?(isPasswordValid ? nil : .Auth.enterPassword)
     
        return isEmailValid && isPasswordValid
+    }
+    
+    func bind() {
+        keyboardHelper.onWillHide { [weak self] in self?.keyboardFrameChanged?($0)}
+        keyboardHelper.onWillShow { [weak self] in self?.keyboardFrameChanged?($0)}
     }
 }

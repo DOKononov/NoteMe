@@ -12,13 +12,16 @@
 		560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24522B03E52C00226BAD /* KeyboardHelper.swift */; };
 		560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24562B04B16B00226BAD /* AnimatorService.swift */; };
 		560F245A2B04E44E00226BAD /* AurhService+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24592B04E44E00226BAD /* AurhService+Register.swift */; };
-		560F245C2B04F74200226BAD /* InputValidator+UseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F245B2B04F74200226BAD /* InputValidator+UseCases.swift */; };
+		560F245C2B04F74200226BAD /* InputValidator+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F245B2B04F74200226BAD /* InputValidator+Register.swift */; };
 		560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F245D2B052E6F00226BAD /* ResetPasswordVM.swift */; };
 		560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */; };
 		560F24632B05319200226BAD /* TESTAurhService+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24622B05319200226BAD /* TESTAurhService+ResetPassword.swift */; };
 		560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24642B05351600226BAD /* InputValidator+ResetPassword.swift */; };
 		560F24692B0539B400226BAD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24682B0539B400226BAD /* AuthService.swift */; };
-		560F246B2B0539FF00226BAD /* AuthService+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246A2B0539FF00226BAD /* AuthService+UseCase.swift */; };
+		560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246A2B0539FF00226BAD /* AuthService+Login.swift */; };
+		560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246C2B05ED0900226BAD /* KeyboardHelper+Register.swift */; };
+		560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */; };
+		560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */; };
 		5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
@@ -53,13 +56,16 @@
 		560F24522B03E52C00226BAD /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
 		560F24562B04B16B00226BAD /* AnimatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatorService.swift; sourceTree = "<group>"; };
 		560F24592B04E44E00226BAD /* AurhService+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AurhService+Register.swift"; sourceTree = "<group>"; };
-		560F245B2B04F74200226BAD /* InputValidator+UseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+UseCases.swift"; sourceTree = "<group>"; };
+		560F245B2B04F74200226BAD /* InputValidator+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+Register.swift"; sourceTree = "<group>"; };
 		560F245D2B052E6F00226BAD /* ResetPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVM.swift; sourceTree = "<group>"; };
 		560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordAssambler.swift; sourceTree = "<group>"; };
 		560F24622B05319200226BAD /* TESTAurhService+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TESTAurhService+ResetPassword.swift"; sourceTree = "<group>"; };
 		560F24642B05351600226BAD /* InputValidator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+ResetPassword.swift"; sourceTree = "<group>"; };
 		560F24682B0539B400226BAD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		560F246A2B0539FF00226BAD /* AuthService+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+UseCase.swift"; sourceTree = "<group>"; };
+		560F246A2B0539FF00226BAD /* AuthService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+Login.swift"; sourceTree = "<group>"; };
+		560F246C2B05ED0900226BAD /* KeyboardHelper+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+Register.swift"; sourceTree = "<group>"; };
+		560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+ResetPassword.swift"; sourceTree = "<group>"; };
+		560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+Login.swift"; sourceTree = "<group>"; };
 		5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatePickerView.swift; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -114,7 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				560F24592B04E44E00226BAD /* AurhService+Register.swift */,
-				560F245B2B04F74200226BAD /* InputValidator+UseCases.swift */,
+				560F245B2B04F74200226BAD /* InputValidator+Register.swift */,
+				560F246C2B05ED0900226BAD /* KeyboardHelper+Register.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 			children = (
 				560F24622B05319200226BAD /* TESTAurhService+ResetPassword.swift */,
 				560F24642B05351600226BAD /* InputValidator+ResetPassword.swift */,
+				560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -167,7 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				563BF7272AFEA81300150C98 /* InputValidator+Login.swift */,
-				560F246A2B0539FF00226BAD /* AuthService+UseCase.swift */,
+				560F246A2B0539FF00226BAD /* AuthService+Login.swift */,
+				560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -412,15 +421,18 @@
 				560F24632B05319200226BAD /* TESTAurhService+ResetPassword.swift in Sources */,
 				56414AEB2AF16EC200A79CDC /* LineTextField.swift in Sources */,
 				56E67DF12AE906F900248F85 /* String+localized.swift in Sources */,
+				560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */,
 				56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
+				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
+				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
 				565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */,
 				56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */,
 				56414AF82AF3A47700A79CDC /* RegisterVC.swift in Sources */,
 				5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
-				560F246B2B0539FF00226BAD /* AuthService+UseCase.swift in Sources */,
+				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */,
@@ -432,7 +444,7 @@
 				560F24692B0539B400226BAD /* AuthService.swift in Sources */,
 				563BF7282AFEA81300150C98 /* InputValidator+Login.swift in Sources */,
 				560F24502B03E0B500226BAD /* RegisterAssembler.swift in Sources */,
-				560F245C2B04F74200226BAD /* InputValidator+UseCases.swift in Sources */,
+				560F245C2B04F74200226BAD /* InputValidator+Register.swift in Sources */,
 				56414AF12AF29BAA00A79CDC /* UIView+Styles.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 			);

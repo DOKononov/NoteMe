@@ -15,11 +15,13 @@ import SnapKit
     func loginDidTapped(email: String?, password: String?)
     @objc func newAccountDidTapped()
     func forgotPasswordDidTapped(email: String?)
+    var keyboardFrameChanged: ((_ frame: CGRect) -> Void)? { get set }
 }
 
 final class LoginVC: UIViewController {
     
     private var viewModel: LoginViewModelProtocol
+    private let animatorService: AnimatorService
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoContainer: UIView = UIView()
@@ -54,8 +56,10 @@ final class LoginVC: UIViewController {
         .withAction(viewModel,
                     #selector(LoginViewModelProtocol.newAccountDidTapped))
     
-    init(viewModel: LoginViewModelProtocol) {
+    init(viewModel: LoginViewModelProtocol,
+         animatorService: AnimatorService) {
         self.viewModel = viewModel
+        self.animatorService = animatorService
         super.init(nibName: nil, bundle: nil)
         
         bind()
@@ -94,6 +98,13 @@ private extension LoginVC {
         
         viewModel.catchPasswordError = { [weak self] in
             self?.passwordTextView.errorText = $0
+        }
+        
+        viewModel.keyboardFrameChanged = { [weak self] frame in
+            guard let self else { return }
+            animatorService.moveWithAnimation(for: self,
+                                              infoView: infoView,
+                                              toSatisfyKeyboard: frame)
         }
     }
 }

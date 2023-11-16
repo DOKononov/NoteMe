@@ -21,20 +21,25 @@ protocol RegisterAuthServiceUseCase {
                completion: @escaping (Bool) -> Void)
 }
 
-protocol RegisterInputValidatorUseCases {
+protocol RegisterInputValidatorUseCase {
     func validate(email: String?) -> Bool
     func validate(password: String?) -> Bool
+}
+
+protocol RegisterKeyboardHelperUseCase {
+    func onWillShow(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+    func onWillHide(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
 }
 
 final class RegisterPresenter {
     
     weak var delegate: RegisterPresenterDelegate?
-    private let keyboardHelper: KeyboardHelper
-    private let inputValidator: RegisterInputValidatorUseCases
+    private let keyboardHelper: RegisterKeyboardHelperUseCase
+    private let inputValidator: RegisterInputValidatorUseCase
     private let authService: RegisterAuthServiceUseCase
     
-    init(keyboardHelper: KeyboardHelper,
-         inputValidator: RegisterInputValidatorUseCases,
+    init(keyboardHelper: RegisterKeyboardHelperUseCase,
+         inputValidator: RegisterInputValidatorUseCase,
          authService: RegisterAuthServiceUseCase) {
         self.keyboardHelper = keyboardHelper
         self.inputValidator = inputValidator

@@ -16,16 +16,23 @@ protocol ResetPasswordInputValidatorUseCase {
     func validate(email: String?) -> Bool
 }
 
+protocol ResetPasswordKeyboardHelperUseCase {
+    @discardableResult
+    func onWillShow(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+    @discardableResult
+    func onWillHide(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+}
+
 final class ResetPasswordVM {
     private let authService: ResetPasswordAuthUseCase
     private let inputValidator: ResetPasswordInputValidatorUseCase
-    private let keyboardHelper: KeyboardHelper
+    private let keyboardHelper: ResetPasswordKeyboardHelperUseCase
     var catchEmailError: ((String?) -> Void)?
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)?
     
     init(authService: ResetPasswordAuthUseCase,
          inputValidator: ResetPasswordInputValidatorUseCase,
-         keyboardHelper: KeyboardHelper) {
+         keyboardHelper: ResetPasswordKeyboardHelperUseCase) {
         self.authService = authService
         self.inputValidator = inputValidator
         self.keyboardHelper = keyboardHelper
