@@ -8,8 +8,17 @@
 import UIKit
 import SnapKit
 
+@objc protocol ResetPasswordViewModelProtocol {
+    var catchEmailError: ((String?)-> Void)? { get set }
+    func resetDidTap(email: String?)
+    @objc func cancelDidTap()
+    var keyboardFrameChanged: ((_ frame: CGRect) -> Void)? { get set }
+}
+
 final class ResetPasswordVC: UIViewController {
     
+    private var viewModel: ResetPasswordViewModelProtocol
+    private var animatorService: AnimatorService
     private lazy var contentView: UIView = .contentView()
     private lazy var logoContainer: UIView = UIView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
@@ -32,8 +41,24 @@ final class ResetPasswordVC: UIViewController {
         return view
     }()
     
-    private lazy var resetButton: UIButton = .yellowRoundedButton(.Auth.reset)
-    private lazy var cancelButton: UIButton = .appCancelButton()
+    private lazy var resetButton: UIButton =
+        .yellowRoundedButton(.Auth.reset)
+        .withAction(self, #selector(resetDidTap))
+    
+    private lazy var cancelButton: UIButton =
+        .appCancelButton()
+        .withAction(viewModel,
+                    #selector(ResetPasswordViewModelProtocol.cancelDidTap))
+    
+    init(viewModel: ResetPasswordViewModelProtocol,
+         animatorService: AnimatorService) {
+        self.viewModel = viewModel
+        self.animatorService = animatorService
+        super.init(nibName: nil, bundle: nil)
+        bind()
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +68,25 @@ final class ResetPasswordVC: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setupLayouts()
+    }
+}
+
+//MARK: -private methods
+private extension ResetPasswordVC {
+    @objc private func resetDidTap() {
+        viewModel.resetDidTap(email: emailTextView.text)
+    }
+    
+    private func bind() {
+        viewModel.catchEmailError = { [weak self] error in
+            self?.emailTextView.errorText = error
+        }
+        viewModel.keyboardFrameChanged = { [weak self] frame in
+            guard let self else { return }
+            animatorService.moveWithAnimation(for: self,
+                                              infoView: infoView,
+                                              toSatisfyKeyboard: frame)
+        }
     }
 }
 

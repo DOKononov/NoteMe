@@ -18,10 +18,3 @@ final class LoginAssembler {
 }
 
 
- class TESTAurhService: LoginAuthServiceUseCase {
-    func login(email: String,
-               password: String,
-               completion: @escaping (Bool) -> Void) {
-        completion(true)
-    }
-}

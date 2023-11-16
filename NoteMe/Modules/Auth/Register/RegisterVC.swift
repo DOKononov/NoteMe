@@ -176,7 +176,7 @@ extension RegisterVC: RegisterPresenterDelegate {
     
     func keyboardFrameChanged(_ frame: CGRect) {
         animatorService.moveWithAnimation(for: self,
-                                          view: infoView,
+                                          infoView: infoView,
                                           toSatisfyKeyboard: frame)
     }
 

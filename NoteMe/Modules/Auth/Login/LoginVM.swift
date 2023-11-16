@@ -18,10 +18,9 @@ protocol LoginInputValidatorUseCase {
     func validate(password: String?) -> Bool
 }
 
-final class LoginVM: LoginViewModelProtocol {
+final class LoginVM {
     var catchEmailError: ((String?) -> Void)?
     var catchPasswordError: ((String?) -> Void)?
-    
     
     private let authService: LoginAuthServiceUseCase
     private let inputValidator: LoginInputValidatorUseCase
@@ -31,6 +30,11 @@ final class LoginVM: LoginViewModelProtocol {
         self.authService = authService
         self.inputValidator = inputValidator
     }
+    
+}
+
+//MARK: -LoginViewModelProtocol
+extension LoginVM: LoginViewModelProtocol {
     
     func loginDidTapped(email: String?, password: String?) {
     
@@ -48,7 +52,6 @@ final class LoginVM: LoginViewModelProtocol {
     func newAccountDidTapped() { }
     
     func forgotPasswordDidTapped(email: String?) { }
-    
     
 }
 

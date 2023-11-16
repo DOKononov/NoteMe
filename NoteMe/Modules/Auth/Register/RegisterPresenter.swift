@@ -86,9 +86,3 @@ private extension RegisterPresenter {
     }
 }
 
-
-///logo container  ++
-///regisre logic ++
-///forgot password VC
-///UseCase keyboard helper
-///

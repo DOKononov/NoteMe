@@ -9,17 +9,17 @@ import UIKit
 
 final class AnimatorService {
     func moveWithAnimation(for viewController: UIViewController,
-              view: UIView,
+              infoView: UIView,
               toSatisfyKeyboard frame: CGRect,
               with padding: CGFloat = 16) {
-        let maxY = view.frame.maxY + padding
+        let maxY = infoView.frame.maxY + padding
         let keyboardY = frame.minY
         let diff = maxY - keyboardY
         
         if diff > 0 {
-            animate(for: viewController, tergetView: view, with: -diff)
+            animate(for: viewController, tergetView: infoView, with: -diff)
         } else if diff < 0 {
-            animate(for: viewController, tergetView: view, with: .zero)
+            animate(for: viewController, tergetView: infoView, with: .zero)
         }
     }
     

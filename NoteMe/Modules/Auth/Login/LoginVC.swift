@@ -76,7 +76,6 @@ final class LoginVC: UIViewController {
 }
 
 //MARK: -Private methods
-
 private extension LoginVC {
     
     @objc func loginDidTap() {
