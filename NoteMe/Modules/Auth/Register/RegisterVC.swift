@@ -175,7 +175,8 @@ extension RegisterVC: RegisterPresenterDelegate {
     }
     
     func keyboardFrameChanged(_ frame: CGRect) {
-        animatorService.moveWithAnimation(for: self,
+        let safeAreaMinY = view.safeAreaLayoutGuide.layoutFrame.minY
+        animatorService.moveWithAnimation(safeAreaMinY: safeAreaMinY,
                                           infoView: infoView,
                                           toSatisfyKeyboard: frame)
     }

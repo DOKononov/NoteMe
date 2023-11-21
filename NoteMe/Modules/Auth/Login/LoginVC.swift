@@ -102,7 +102,8 @@ private extension LoginVC {
         
         viewModel.keyboardFrameChanged = { [weak self] frame in
             guard let self else { return }
-            animatorService.moveWithAnimation(for: self,
+            let safeAreaMinY = view.safeAreaLayoutGuide.layoutFrame.minY
+            animatorService.moveWithAnimation(safeAreaMinY: safeAreaMinY,
                                               infoView: infoView,
                                               toSatisfyKeyboard: frame)
         }
