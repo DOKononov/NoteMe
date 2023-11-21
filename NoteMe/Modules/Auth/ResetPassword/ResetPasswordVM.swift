@@ -17,10 +17,12 @@ protocol ResetPasswordInputValidatorUseCase {
 }
 
 protocol ResetPasswordKeyboardHelperUseCase {
+    typealias KeyboardFrameHandler = (CGRect) -> Void
+    
     @discardableResult
-    func onWillShow(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+    func onWillShow(_ handler: @escaping KeyboardFrameHandler) -> Self
     @discardableResult
-    func onWillHide(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+    func onWillHide(_ handler: @escaping KeyboardFrameHandler) -> Self
 }
 
 final class ResetPasswordVM {

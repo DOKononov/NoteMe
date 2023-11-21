@@ -27,8 +27,12 @@ protocol RegisterInputValidatorUseCase {
 }
 
 protocol RegisterKeyboardHelperUseCase {
-    func onWillShow(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
-    func onWillHide(_ handler: @escaping KeyboardHelper.KeyboardFrameHandler) -> KeyboardHelper
+    typealias KeyboardFrameHandler = (CGRect) -> Void
+    
+    @discardableResult
+    func onWillShow(_ handler: @escaping KeyboardFrameHandler) -> Self
+    @discardableResult
+    func onWillHide(_ handler: @escaping KeyboardFrameHandler) -> Self
 }
 
 final class RegisterPresenter {
