@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol RegisterCoordinatorProtocol: AnyObject {
+    func finish()
+}
+
 protocol RegisterPresenterDelegate: AnyObject {
     func setEmailError(error: String?)
     func setPasswordError(error: String?)
@@ -38,16 +42,19 @@ protocol RegisterKeyboardHelperUseCase {
 final class RegisterPresenter {
     
     weak var delegate: RegisterPresenterDelegate?
+    private weak var coordinator: RegisterCoordinatorProtocol?
     private let keyboardHelper: RegisterKeyboardHelperUseCase
     private let inputValidator: RegisterInputValidatorUseCase
     private let authService: RegisterAuthServiceUseCase
     
     init(keyboardHelper: RegisterKeyboardHelperUseCase,
          inputValidator: RegisterInputValidatorUseCase,
-         authService: RegisterAuthServiceUseCase) {
+         authService: RegisterAuthServiceUseCase,
+         coordinator: RegisterCoordinatorProtocol) {
         self.keyboardHelper = keyboardHelper
         self.inputValidator = inputValidator
         self.authService = authService
+        self.coordinator = coordinator
         bind()
     }
 
@@ -62,12 +69,15 @@ extension RegisterPresenter: RegisterPresenterProtocol {
                             repeatPassword: repeatPassword),
             let email, let password
         else { return }
-        authService.register(email: email, password: password) { result in
+        authService.register(email: email, password: password) { [weak coordinator] result in
             print(result)
+            coordinator?.finish()
         }
     }
     
-    func haveAccountDidTap() { }
+    func haveAccountDidTap() {
+        coordinator?.finish()
+    }
     
 }
 

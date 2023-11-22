@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol LoginCoordinatorProtocol: AnyObject {
+    func finish()
+    func openRegisterModule()
+    func openResetPasswordModule()
+}
+
 protocol LoginAuthServiceUseCase {
     func login(email: String,
                password: String,
@@ -32,16 +38,20 @@ final class LoginVM {
     var catchPasswordError: ((String?) -> Void)?
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)?
     
+    private weak var coordinator: LoginCoordinatorProtocol?
+    
     private let authService: LoginAuthServiceUseCase
     private let inputValidator: LoginInputValidatorUseCase
     private let keyboardHelper: LoginKeyboardHelperUseCase
     
     init(authService: LoginAuthServiceUseCase,
          inputValidator: LoginInputValidatorUseCase,
-         keyboardHelper: LoginKeyboardHelperUseCase) {
+         keyboardHelper: LoginKeyboardHelperUseCase,
+         coordinator: LoginCoordinatorProtocol) {
         self.authService = authService
         self.inputValidator = inputValidator
         self.keyboardHelper = keyboardHelper
+        self.coordinator = coordinator
         bind()
     }
     
@@ -58,14 +68,19 @@ extension LoginVM: LoginViewModelProtocol {
         else { return }
         
         authService.login(email: email,
-                          password: password) { isSuccess in
+                          password: password) { [weak coordinator] isSuccess in
             print(isSuccess)
+            coordinator?.finish()
         }
     }
     
-    func newAccountDidTapped() { }
+    func newAccountDidTapped() {
+        coordinator?.openRegisterModule()
+    }
     
-    func forgotPasswordDidTapped(email: String?) { }
+    func forgotPasswordDidTapped(email: String?) {
+        coordinator?.openResetPasswordModule()
+    }
     
 }
 
