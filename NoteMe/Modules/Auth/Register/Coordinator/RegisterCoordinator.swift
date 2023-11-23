@@ -12,7 +12,6 @@ final class RegisterCoordinator: Coordinator {
     override func start() -> UIViewController {
         return RegisterAssembler.make(coordinator: self)
     }
-    
 }
 
 //MARK: -RegisterCoordinatorProtocol

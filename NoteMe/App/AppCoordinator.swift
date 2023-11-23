@@ -31,7 +31,6 @@ final class AppCoordinator: Coordinator {
         window.rootViewController = vc
         window.makeKeyAndVisible()
     }
-    
 }
 
 

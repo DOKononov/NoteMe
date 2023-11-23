@@ -16,5 +16,4 @@ extension UIButton {
         self.addTarget(target, action: selector, for: event)
         return self
     }
-    
 }

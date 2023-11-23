@@ -22,5 +22,4 @@ extension UIView {
         view.backgroundColor = .appGray
         return view
     }
-    
 }

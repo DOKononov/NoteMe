@@ -107,5 +107,4 @@ final class KeyboardHelper {
         didHide = handler
         return self
     }
-    
 }

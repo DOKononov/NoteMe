@@ -57,7 +57,6 @@ final class RegisterPresenter {
         self.coordinator = coordinator
         bind()
     }
-
 }
 
 //MARK: -RegisterPresenterProtocol
@@ -78,7 +77,6 @@ extension RegisterPresenter: RegisterPresenterProtocol {
     func haveAccountDidTap() {
         coordinator?.finish()
     }
-    
 }
 
 //MARK: -private methods

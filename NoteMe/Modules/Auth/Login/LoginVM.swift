@@ -54,7 +54,6 @@ final class LoginVM {
         self.coordinator = coordinator
         bind()
     }
-    
 }
 
 //MARK: -LoginViewModelProtocol
@@ -81,7 +80,6 @@ extension LoginVM: LoginViewModelProtocol {
     func forgotPasswordDidTapped(email: String?) {
         coordinator?.openResetPasswordModule()
     }
-    
 }
 
 //MARK: - private methods

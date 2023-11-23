@@ -16,7 +16,6 @@ final class LoginCoordinator: Coordinator {
         rootVC = vc
         return vc
     }
-    
 }
 
 //MARK: -LoginCoordinatorProtocol
@@ -36,6 +35,4 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
     }
     
     func openResetPasswordModule() { }
-    
-    
 }

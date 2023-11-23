@@ -56,7 +56,6 @@ extension ResetPasswordVM: ResetPasswordViewModelProtocol {
     }
     
     func cancelDidTap() {}
-    
 }
 
 //MARK: -private methods

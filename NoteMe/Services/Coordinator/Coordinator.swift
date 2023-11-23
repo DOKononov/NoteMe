@@ -20,7 +20,6 @@ class Coordinator {
     func finish() {
         onDidFinish?(self)
     }
-    
 }
 
 extension Coordinator: Equatable {

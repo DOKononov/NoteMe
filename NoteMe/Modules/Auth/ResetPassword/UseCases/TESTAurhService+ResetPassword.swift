@@ -11,6 +11,4 @@ extension TESTAurhService: ResetPasswordAuthUseCase {
     func resetPassword(for email: String, completion: @escaping ((Bool) -> Void)) {
         completion(true)
     }
-    
-    
 }

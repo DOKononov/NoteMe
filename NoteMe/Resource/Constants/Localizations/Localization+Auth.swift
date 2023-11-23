@@ -83,5 +83,4 @@ extension String.Auth {
     static var passwordDoesNotMatch: String {
         "passwordDoesNotMatch".localized
     }
-    
 }

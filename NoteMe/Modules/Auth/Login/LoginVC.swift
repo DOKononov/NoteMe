@@ -82,7 +82,6 @@ final class LoginVC: UIViewController {
         super.viewWillLayoutSubviews()
         setupConstraints()
     }
-    
 }
 
 //MARK: -Private methods
