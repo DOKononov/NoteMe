@@ -15,6 +15,12 @@ import SnapKit
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)? { get set }
 }
 
+protocol ResetPasswordAnimatorUseCase {
+    func moveWithAnimation(safeAreaMinY: CGFloat,
+                           infoView: UIView,
+                           toSatisfyKeyboard frame: CGRect)
+}
+
 final class ResetPasswordVC: UIViewController {
     
     private var viewModel: ResetPasswordViewModelProtocol

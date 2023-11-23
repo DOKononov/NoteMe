@@ -10,8 +10,8 @@ import UIKit
 final class AnimatorService {
     func moveWithAnimation(safeAreaMinY: CGFloat,
               infoView: UIView,
-              toSatisfyKeyboard frame: CGRect,
-              with padding: CGFloat = 16) {
+              toSatisfyKeyboard frame: CGRect) {
+        let padding: CGFloat = 16
         let maxY = infoView.frame.maxY + padding + safeAreaMinY
         let keyboardY = frame.minY
         let diff = maxY - keyboardY

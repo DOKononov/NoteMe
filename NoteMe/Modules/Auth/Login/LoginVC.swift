@@ -18,10 +18,16 @@ import SnapKit
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)? { get set }
 }
 
+protocol LoginAnimatorUseCase {
+    func moveWithAnimation(safeAreaMinY: CGFloat,
+                           infoView: UIView,
+                           toSatisfyKeyboard frame: CGRect)
+}
+
 final class LoginVC: UIViewController {
     
     private var viewModel: LoginViewModelProtocol
-    private let animatorService: AnimatorService
+    private let animatorService: LoginAnimatorUseCase
     
     private lazy var contentView: UIView = .contentView()
     private lazy var logoContainer: UIView = UIView()
@@ -57,7 +63,7 @@ final class LoginVC: UIViewController {
                     #selector(LoginViewModelProtocol.newAccountDidTapped))
     
     init(viewModel: LoginViewModelProtocol,
-         animatorService: AnimatorService) {
+         animatorService: LoginAnimatorUseCase) {
         self.viewModel = viewModel
         self.animatorService = animatorService
         super.init(nibName: nil, bundle: nil)

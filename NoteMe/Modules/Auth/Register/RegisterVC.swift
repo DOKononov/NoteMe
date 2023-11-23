@@ -15,9 +15,15 @@ import SnapKit
     @objc func haveAccountDidTap()
 }
 
+protocol RegisterAnimatorUseCase {
+    func moveWithAnimation(safeAreaMinY: CGFloat,
+                           infoView: UIView,
+                           toSatisfyKeyboard frame: CGRect)
+}
+
 final class RegisterVC: UIViewController {
     
-    private let animatorService: AnimatorService
+    private let animatorService: RegisterAnimatorUseCase
     private lazy var contentView: UIView = .contentView()
     private lazy var logoContainer: UIView = UIView()
     private lazy var logoImageView: UIImageView = .init(image: .General.logo)
@@ -57,7 +63,7 @@ final class RegisterVC: UIViewController {
     private var presenter: RegisterPresenterProtocol
     
     init(presenter: RegisterPresenterProtocol,
-         animatorService: AnimatorService) {
+         animatorService: RegisterAnimatorUseCase) {
         self.presenter = presenter
         self.animatorService = animatorService
         super.init(nibName: nil, bundle: nil)
