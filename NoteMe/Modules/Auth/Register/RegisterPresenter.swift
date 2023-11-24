@@ -98,8 +98,8 @@ private extension RegisterPresenter {
     
     func bind() {
         keyboardHelper
-            .onWillShow { [weak self] in self?.delegate?.keyboardFrameChanged($0)}
-            .onWillHide { [weak self] in self?.delegate?.keyboardFrameChanged($0)}
+            .onWillShow { [weak delegate] in delegate?.keyboardFrameChanged($0)}
+            .onWillHide { [weak delegate] in delegate?.keyboardFrameChanged($0)}
     }
 }
 

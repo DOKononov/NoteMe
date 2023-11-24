@@ -61,7 +61,8 @@ extension ResetPasswordVM: ResetPasswordViewModelProtocol {
 //MARK: -private methods
 private extension ResetPasswordVM {
     func bind() {
-        keyboardHelper.onWillShow { [weak self] in self?.keyboardFrameChanged?($0)}
-        keyboardHelper.onWillHide { [weak self] in self?.keyboardFrameChanged?($0)}
+        keyboardHelper
+            .onWillShow { [weak self] in self?.keyboardFrameChanged?($0)}
+            .onWillHide { [weak self] in self?.keyboardFrameChanged?($0)}
     }
 }

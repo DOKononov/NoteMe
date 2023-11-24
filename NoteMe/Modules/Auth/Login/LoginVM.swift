@@ -60,7 +60,7 @@ final class LoginVM {
 extension LoginVM: LoginViewModelProtocol {
     
     func loginDidTapped(email: String?, password: String?) {
-    
+        
         guard
             checkValidation(email: email, password: password),
             let email, let password
@@ -91,12 +91,13 @@ private extension LoginVM {
         
         catchEmailError?(isEmailValid ? nil : .Auth.wrongEmail)
         catchPasswordError?(isPasswordValid ? nil : .Auth.enterPassword)
-    
-       return isEmailValid && isPasswordValid
+        
+        return isEmailValid && isPasswordValid
     }
     
     func bind() {
-        keyboardHelper.onWillHide { [weak self] in self?.keyboardFrameChanged?($0)}
-        keyboardHelper.onWillShow { [weak self] in self?.keyboardFrameChanged?($0)}
+        keyboardHelper
+            .onWillHide { [weak self] in self?.keyboardFrameChanged?($0)}
+            .onWillShow { [weak self] in self?.keyboardFrameChanged?($0)}
     }
 }
