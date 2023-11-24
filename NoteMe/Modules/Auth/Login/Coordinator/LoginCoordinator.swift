@@ -34,5 +34,16 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
         rootVC?.present(vc, animated: true)
     }
     
-    func openResetPasswordModule() { }
+    func openResetPasswordModule() {
+        let coordinator = ResetPasswordCoordinator()
+        chidren.append(coordinator)
+        let vc = coordinator.start()
+
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll { $0 == coordinator }
+            vc.dismiss(animated: true)
+        }
+        vc.modalPresentationStyle = .fullScreen
+        rootVC?.present(vc, animated: true)
+    }
 }

@@ -44,6 +44,7 @@
 		565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E482B0F665F00590556 /* AnimatorService+Login.swift */; };
 		565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E4A2B0F69D100590556 /* Animator+Register.swift */; };
 		565E7E4D2B0F6A7B00590556 /* Animator+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */; };
+		568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */; };
 		56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBD2AE824E900248F85 /* AppDelegate.swift */; };
 		56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBF2AE824E900248F85 /* SceneDelegate.swift */; };
 		56E67DC72AE824EA00248F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DC62AE824EA00248F85 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		565E7E482B0F665F00590556 /* AnimatorService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimatorService+Login.swift"; sourceTree = "<group>"; };
 		565E7E4A2B0F69D100590556 /* Animator+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+Register.swift"; sourceTree = "<group>"; };
 		565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+ResetPassword.swift"; sourceTree = "<group>"; };
+		568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
 		56E67DBA2AE824E900248F85 /* NoteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E67DBD2AE824E900248F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56E67DBF2AE824E900248F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -243,10 +245,10 @@
 		56414AFB2AF3B04000A79CDC /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
+				568AE0B62B109361002C83E0 /* Coordinator */,
 				560F24612B05317400226BAD /* UseCases */,
 				56414AFC2AF3B05B00A79CDC /* ResetPasswordVC.swift */,
 				560F245D2B052E6F00226BAD /* ResetPasswordVM.swift */,
-				560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */,
 			);
 			path = ResetPassword;
 			sourceTree = "<group>";
@@ -281,6 +283,15 @@
 			children = (
 				565E7E462B0D24C000590556 /* RegisterCoordinator.swift */,
 				560F244F2B03E0B500226BAD /* RegisterAssembler.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		568AE0B62B109361002C83E0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */,
+				560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -481,6 +492,7 @@
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
+				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */,

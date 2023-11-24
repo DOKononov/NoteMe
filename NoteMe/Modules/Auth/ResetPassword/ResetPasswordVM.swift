@@ -7,6 +7,9 @@
 
 import Foundation
 
+protocol ResetPasswordCoordinatorProtocol: AnyObject {
+    func finish()
+}
 
 protocol ResetPasswordAuthUseCase {
     func resetPassword(for email: String, completion: @escaping ((Bool)-> Void))
@@ -29,15 +32,18 @@ final class ResetPasswordVM {
     private let authService: ResetPasswordAuthUseCase
     private let inputValidator: ResetPasswordInputValidatorUseCase
     private let keyboardHelper: ResetPasswordKeyboardHelperUseCase
+    private weak var coordinator: ResetPasswordCoordinatorProtocol?
     var catchEmailError: ((String?) -> Void)?
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)?
     
     init(authService: ResetPasswordAuthUseCase,
          inputValidator: ResetPasswordInputValidatorUseCase,
-         keyboardHelper: ResetPasswordKeyboardHelperUseCase) {
+         keyboardHelper: ResetPasswordKeyboardHelperUseCase,
+         coordinator: ResetPasswordCoordinatorProtocol) {
         self.authService = authService
         self.inputValidator = inputValidator
         self.keyboardHelper = keyboardHelper
+        self.coordinator = coordinator
         bind()
     }
 }
@@ -50,12 +56,15 @@ extension ResetPasswordVM: ResetPasswordViewModelProtocol {
         catchEmailError?(isValidEmail ? nil : .Auth.wrongEmail)
         
         guard let email, isValidEmail else { return }
-        authService.resetPassword(for: email) { result in
+        authService.resetPassword(for: email) { [weak coordinator] result in
             print(result)
+            coordinator?.finish()
         }
     }
     
-    func cancelDidTap() {}
+    func cancelDidTap() {
+        coordinator?.finish()
+    }
 }
 
 //MARK: -private methods
