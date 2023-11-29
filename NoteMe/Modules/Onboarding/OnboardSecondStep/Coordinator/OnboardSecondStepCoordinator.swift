@@ -25,6 +25,5 @@ extension OnboardSecondStepCoordinator: OnboardSecondStepCoordinatorProtocol {
 
 /*
 //TODO
- параметр хэлпер поставить флаг по кнопке дан 
 дон = открыть таббар с двумя экранами
   */

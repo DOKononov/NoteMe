@@ -30,6 +30,7 @@ final class OnboardSecondStepVM {
 //MARK: -OnboardSecondStepViewModelProtocol
 extension OnboardSecondStepVM: OnboardSecondStepViewModelProtocol {
     func doneDidTap() {
+        ParametersHelper.set(.unbordered, value: true)
         coordinator?.finish()
     }
     

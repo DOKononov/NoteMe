@@ -18,7 +18,11 @@ final class AppCoordinator: Coordinator {
 //         ParametersHelper.set(.authenticated, value: false)
          if ParametersHelper.get(.authenticated) {
              //open unboarding or mainApp
-             openOnboardingModule()
+             if ParametersHelper.get(.unbordered) {
+                 //open main
+             } else {
+                 openOnboardingModule()
+             }
          } else {
              openAuthModule()
          }
