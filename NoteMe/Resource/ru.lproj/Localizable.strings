@@ -26,3 +26,5 @@
 "passwordDoesNotMatch" = "Пароль не совпадает";
 "next" = "Дальше";
 "done" = "Готово";
+"welcome" = "добро пожаловать!";
+"noteme_is_an_application_which_notify_you_about_everything" = "NoteMe — приложение, которое уведомляет вас обо всем!";

@@ -26,4 +26,5 @@
 "passwordDoesNotMatch" = "Password does not match";
 "next" = "Next";
 "done" = "Done";
-
+"welcome" = "Welcome!";
+"noteme_is_an_application_which_notify_you_about_everything" = "NoteMe is an application, which notify you about everything!";
