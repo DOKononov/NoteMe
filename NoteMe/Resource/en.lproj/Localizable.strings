@@ -28,3 +28,8 @@
 "done" = "Done";
 "welcome" = "Welcome!";
 "noteme_is_an_application_which_notify_you_about_everything" = "NoteMe is an application, which notify you about everything!";
+"different_types" = "Different types!";
+"calendar" = "Calendar";
+"location" = "Location";
+"timer" = "Timer";
+"you_can_use_three_types_of_notifications" = "You can use 3 types of notifications\n**• Calendar** - choose the date, when you want to receive notification.\n**• Location** - choose the region and notification will come after you enter it.\n**• Timer** - set timer and after selected period you will receive the notification.";

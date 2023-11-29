@@ -16,4 +16,12 @@ extension UILabel {
         label.textColor = .appText
         return label
     }
+    
+    static func popupLabel(_ title: String?) -> UILabel {
+        let label = UILabel()
+        label.text = title
+        label.font = .appFont.withSize(16)
+        label.textColor = .appText
+        return label
+    }
 }

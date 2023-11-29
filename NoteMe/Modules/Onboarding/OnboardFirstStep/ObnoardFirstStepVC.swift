@@ -32,7 +32,8 @@ final class OnboardFirstStepVC: UIViewController {
     
     private lazy var nextButton: UIButton =
         .yellowRoundedButton(.Onboarding.next)
-        .withAction(viewModel, #selector(OnboardFirstStepViewModelProtocol.nextDidTap))
+        .withAction(viewModel,
+                    #selector(OnboardFirstStepViewModelProtocol.nextDidTap))
     
     
     init(viewModel: OnboardFirstStepViewModelProtocol) {

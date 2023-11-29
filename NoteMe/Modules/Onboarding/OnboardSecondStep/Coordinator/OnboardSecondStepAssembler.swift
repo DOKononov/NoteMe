@@ -11,7 +11,9 @@ final class OnboardSecondStepAssembler {
     private init () {}
     
     static func make(_ coordinator: OnboardSecondStepCoordinatorProtocol) -> UIViewController {
-        let vm = OnboardSecondStepVM(coordinator: coordinator)
+        let textFormatter = TextFormatter()
+        let vm = OnboardSecondStepVM(coordinator: coordinator,
+                                     textFormatter: textFormatter)
         let vc = OnboardSecondStepVC(viewModel: vm)
         return vc
     }

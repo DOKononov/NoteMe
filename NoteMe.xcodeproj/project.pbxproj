@@ -55,6 +55,8 @@
 		56D733F82B165D860025283C /* OnboardSecondStepAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */; };
 		56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */; };
 		56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */; };
+		56D733FE2B1773310025283C /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733FD2B1773310025283C /* TextFormatter.swift */; };
+		56D734012B1782030025283C /* TextFormater+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D734002B1782030025283C /* TextFormater+Onboarding.swift */; };
 		56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBD2AE824E900248F85 /* AppDelegate.swift */; };
 		56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBF2AE824E900248F85 /* SceneDelegate.swift */; };
 		56E67DC72AE824EA00248F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DC62AE824EA00248F85 /* Assets.xcassets */; };
@@ -117,6 +119,8 @@
 		56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepAssembler.swift; sourceTree = "<group>"; };
 		56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepCoordinator.swift; sourceTree = "<group>"; };
 		56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Onboarding.swift"; sourceTree = "<group>"; };
+		56D733FD2B1773310025283C /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
+		56D734002B1782030025283C /* TextFormater+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFormater+Onboarding.swift"; sourceTree = "<group>"; };
 		56E67DBA2AE824E900248F85 /* NoteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E67DBD2AE824E900248F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56E67DBF2AE824E900248F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				56D733FD2B1773310025283C /* TextFormatter.swift */,
 				56D733E32B164B450025283C /* ParametersHelper */,
 				565E7E3F2B0D129100590556 /* Coordinator */,
 				560F24672B0539A100226BAD /* AuthService */,
@@ -360,6 +365,7 @@
 				56D733F62B165D6E0025283C /* Coordinator */,
 				56D733F22B165AE30025283C /* OnboardSecondStepVC.swift */,
 				56D733F42B165C9E0025283C /* OnboardSecondStepVM.swift */,
+				56D733FF2B1781E60025283C /* UseCases */,
 			);
 			path = OnboardSecondStep;
 			sourceTree = "<group>";
@@ -367,10 +373,18 @@
 		56D733F62B165D6E0025283C /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */,
 				56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */,
+				56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		56D733FF2B1781E60025283C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				56D734002B1782030025283C /* TextFormater+Onboarding.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		56E67DB12AE824E900248F85 = {
@@ -548,6 +562,7 @@
 				563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */,
 				565E7E412B0D129C00590556 /* Coordinator.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
+				56D733FE2B1773310025283C /* TextFormatter.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
@@ -576,6 +591,7 @@
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
+				56D734012B1782030025283C /* TextFormater+Onboarding.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */,
