@@ -10,7 +10,6 @@ import UIKit
 class Coordinator {
     
     var onDidFinish: ((Coordinator) -> Void)?
-    
     var chidren: [Coordinator] = []
     
     func start() -> UIViewController {

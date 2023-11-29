@@ -24,3 +24,6 @@
 "nonValidPassword" = "Non-valid password";
 "wrongEmail" = "Wrong email";
 "passwordDoesNotMatch" = "Password does not match";
+"next" = "Next";
+"done" = "Done";
+

@@ -15,7 +15,13 @@ final class AppCoordinator: Coordinator {
     }
     
      func startApp() {
-        openAuthModule()
+//         ParametersHelper.set(.authenticated, value: false)
+         if ParametersHelper.get(.authenticated) {
+             //open unboarding or mainApp
+             openOnboardingModule()
+         } else {
+             openAuthModule()
+         }
     }
 
     private func openAuthModule() {
@@ -23,8 +29,20 @@ final class AppCoordinator: Coordinator {
         chidren.append(coordinator)
         coordinator.onDidFinish = { [weak self] coordinator in
             self?.chidren.removeAll { $0 == coordinator }
-            self?.window.rootViewController = nil
-            
+            self?.startApp()
+        }
+        let vc = coordinator.start()
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+    
+    private func openOnboardingModule() {
+       let coordinator = OnboardFirstStepCoordinator()
+        chidren.append(coordinator)
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll { coordinator == $0 }
+            self?.startApp()
         }
         let vc = coordinator.start()
         

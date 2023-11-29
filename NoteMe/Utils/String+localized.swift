@@ -12,5 +12,6 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     enum Auth {}
+    enum Onboarding {}
 }
 

@@ -68,8 +68,10 @@ extension LoginVM: LoginViewModelProtocol {
         
         authService.login(email: email,
                           password: password) { [weak coordinator] isSuccess in
-            print(isSuccess)
-            coordinator?.finish()
+            if isSuccess {
+                ParametersHelper.set(.authenticated, value: true)
+                coordinator?.finish()
+            }
         }
     }
     
