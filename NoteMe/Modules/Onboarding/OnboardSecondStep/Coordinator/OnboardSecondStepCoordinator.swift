@@ -22,8 +22,3 @@ extension OnboardSecondStepCoordinator: OnboardSecondStepCoordinatorProtocol {
         onDismissedByUser?(self)
     }
 }
-
-/*
-//TODO
-дон = открыть таббар с двумя экранами
-  */

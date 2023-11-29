@@ -20,6 +20,8 @@ final class AppCoordinator: Coordinator {
              //open unboarding or mainApp
              if ParametersHelper.get(.unbordered) {
                  //open main
+                 window.rootViewController = AppTabBar()
+                 window.makeKeyAndVisible()
              } else {
                  openOnboardingModule()
              }

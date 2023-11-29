@@ -57,6 +57,7 @@
 		56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */; };
 		56D733FE2B1773310025283C /* TextFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733FD2B1773310025283C /* TextFormatter.swift */; };
 		56D734012B1782030025283C /* TextFormater+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D734002B1782030025283C /* TextFormater+Onboarding.swift */; };
+		56D734042B1799300025283C /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D734032B1799300025283C /* AppTabBar.swift */; };
 		56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBD2AE824E900248F85 /* AppDelegate.swift */; };
 		56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBF2AE824E900248F85 /* SceneDelegate.swift */; };
 		56E67DC72AE824EA00248F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DC62AE824EA00248F85 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Onboarding.swift"; sourceTree = "<group>"; };
 		56D733FD2B1773310025283C /* TextFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormatter.swift; sourceTree = "<group>"; };
 		56D734002B1782030025283C /* TextFormater+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextFormater+Onboarding.swift"; sourceTree = "<group>"; };
+		56D734032B1799300025283C /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
 		56E67DBA2AE824E900248F85 /* NoteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E67DBD2AE824E900248F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56E67DBF2AE824E900248F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -387,6 +389,14 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		56D734022B1799140025283C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				56D734032B1799300025283C /* AppTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		56E67DB12AE824E900248F85 = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +465,7 @@
 			children = (
 				56D733E62B1654120025283C /* Onboarding */,
 				56E67DE12AE83D9B00248F85 /* Auth */,
+				56D734022B1799140025283C /* TabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -613,6 +624,7 @@
 				565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */,
 				56D733EE2B16572A0025283C /* OnboardFirstStepAssembler.swift in Sources */,
 				56414AF12AF29BAA00A79CDC /* UIView+Styles.swift in Sources */,
+				56D734042B1799300025283C /* AppTabBar.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 				56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */,
 			);
