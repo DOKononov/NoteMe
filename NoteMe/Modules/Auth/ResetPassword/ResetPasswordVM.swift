@@ -5,10 +5,11 @@
 //  Created by Dmitry Kononov on 15.11.23.
 //
 
-import Foundation
+import UIKit
 
 protocol ResetPasswordCoordinatorProtocol: AnyObject {
     func finish()
+    func showAlert(_ alert: UIAlertController)
 }
 
 protocol ResetPasswordAuthUseCase {
@@ -56,9 +57,22 @@ extension ResetPasswordVM: ResetPasswordViewModelProtocol {
         catchEmailError?(isValidEmail ? nil : .Auth.wrongEmail)
         
         guard let email, isValidEmail else { return }
-        authService.resetPassword(for: email) { [weak coordinator] result in
-            print(result)
-            coordinator?.finish()
+        authService.resetPassword(for: email) { [weak coordinator] isSuccess in
+            if isSuccess {
+                let alertVC = AlertBuilder.build(
+                    title: .AlertBuilder.success,
+                    message: .AlertBuilder.we_have_sent_a_link_to_reset_your_password_to + " \(email)",
+                    okTitile: .AlertBuilder.ok) { [weak coordinator] in
+                    coordinator?.finish()
+                }
+                coordinator?.showAlert(alertVC)
+            } else {
+                let alertVC = AlertBuilder.build(
+                    title: .AlertBuilder.error,
+                    message: .AlertBuilder.invalid_email_address + " \(email)",
+                    okTitile: .AlertBuilder.ok)
+                coordinator?.showAlert(alertVC)
+            }
         }
     }
     

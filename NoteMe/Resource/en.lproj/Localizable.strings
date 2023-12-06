@@ -33,3 +33,9 @@
 "location" = "Location";
 "timer" = "Timer";
 "you_can_use_three_types_of_notifications" = "You can use 3 types of notifications\n**• Calendar** - choose the date, when you want to receive notification.\n**• Location** - choose the region and notification will come after you enter it.\n**• Timer** - set timer and after selected period you will receive the notification.";
+"error" = "Error";
+"we_have_sent_a_link_to_reset_your_password_to" = "We have sent a link to reset your password to";
+"ok" = "Ok";
+"success" = "Success";
+"invalid_email_address" = "Invalid email address";
+"invalid_email_or_password" = "Invalide email or password";

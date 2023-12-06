@@ -10,7 +10,6 @@ import SnapKit
 
 @objc protocol LoginViewModelProtocol: AnyObject {
     var catchEmailError: ((String?)-> Void)? { get set }
-    var catchPasswordError: ((String?)-> Void)? { get set }
     
     func loginDidTapped(email: String?, password: String?)
     @objc func newAccountDidTapped()
@@ -99,10 +98,6 @@ private extension LoginVC {
     private func bind() {
         viewModel.catchEmailError = {  [weak self] errorText in
             self?.emailTextView.errorText = errorText
-        }
-        
-        viewModel.catchPasswordError = { [weak self] in
-            self?.passwordTextView.errorText = $0
         }
         
         viewModel.keyboardFrameChanged = { [weak self] frame in

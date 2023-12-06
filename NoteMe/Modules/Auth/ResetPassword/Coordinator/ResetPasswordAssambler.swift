@@ -11,7 +11,7 @@ final class ResetPasswordAssambler {
     private init(){}
     
     static func make(_ coordinator: ResetPasswordCoordinatorProtocol) -> UIViewController {
-        let auth = TESTAurhService()
+        let auth = AuthService()
         let inputValidator = InputValidator()
         let keyboardHelper = KeyboardHelper()
         let animatorService = AnimatorService()

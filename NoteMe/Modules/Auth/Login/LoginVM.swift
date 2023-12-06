@@ -23,7 +23,6 @@ protocol LoginAuthServiceUseCase {
 
 protocol LoginInputValidatorUseCase {
     func validate(email: String?) -> Bool
-    func validate(password: String?) -> Bool
 }
 
 protocol LoginKeyboardHelperUseCase {
@@ -37,7 +36,6 @@ protocol LoginKeyboardHelperUseCase {
 
 final class LoginVM {
     var catchEmailError: ((String?) -> Void)?
-    var catchPasswordError: ((String?) -> Void)?
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)?
     
     private weak var coordinator: LoginCoordinatorProtocol?
@@ -75,7 +73,9 @@ extension LoginVM: LoginViewModelProtocol {
 //                ParametersHelper.set(.authenticated, value: true)
 //                coordinator?.finish()
             } else {
-                let alertVC = AlertBuilder.build(title: "Error", message: "Invalide email or password", okTitile: "Ok")
+                let alertVC = AlertBuilder.build(title: .AlertBuilder.error,
+                                                 message: .AlertBuilder.invalid_email_or_password,
+                                                 okTitile: .AlertBuilder.ok)
                 coordinator?.showAlert(alertVC)
             }
         }
@@ -93,14 +93,10 @@ extension LoginVM: LoginViewModelProtocol {
 //MARK: - private methods
 private extension LoginVM {
     func checkValidation(email: String?, password: String?) -> Bool {
-        
         let isEmailValid = inputValidator.validate(email: email)
-        let isPasswordValid = inputValidator.validate(password: password)
-        
         catchEmailError?(isEmailValid ? nil : .Auth.wrongEmail)
-        catchPasswordError?(isPasswordValid ? nil : .Auth.nonValidPassword)
         
-        return isEmailValid && isPasswordValid
+        return isEmailValid
     }
     
     func bind() {

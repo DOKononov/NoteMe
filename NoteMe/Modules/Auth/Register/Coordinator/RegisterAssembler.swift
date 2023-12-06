@@ -14,7 +14,7 @@ final class RegisterAssembler {
         let keyboardHelper = KeyboardHelper()
         let animatorService = AnimatorService()
         let inputValidator = InputValidator()
-        let authService = TESTAurhService()
+        let authService = AuthService()
         
         let presenter = RegisterPresenter(keyboardHelper: keyboardHelper,
                                           inputValidator: inputValidator,

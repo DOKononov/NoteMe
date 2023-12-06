@@ -19,4 +19,16 @@ final class AuthService {
             completion(error == nil)
         }
     }
+    
+    func register(email: String,
+                  password: String,
+                  completion: @escaping (Bool)-> Void) {
+        firebase.createUser(withEmail: email, password: password) { result, error in
+            completion(error == nil)
+        }
+    }
+    
+    func resetPassword(for email: String, completion: @escaping ((Bool) -> Void)) {
+        firebase.sendPasswordReset(withEmail: email) { completion($0 == nil) }
+    }
 }
