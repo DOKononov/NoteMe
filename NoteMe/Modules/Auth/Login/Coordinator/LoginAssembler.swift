@@ -11,7 +11,7 @@ final class LoginAssembler {
     private init() {}
     
     static func make(coordinator: LoginCoordinatorProtocol) -> UIViewController {
-        let authService = TESTAurhService()
+        let authService = AuthService()
         let keybordHelper = KeyboardHelper()
         let inputValidator = InputValidator()
         let animatorService = AnimatorService()

@@ -7,10 +7,10 @@
 
 import Foundation
 
-extension TESTAurhService: LoginAuthServiceUseCase {
+extension AuthService: LoginAuthServiceUseCase {
    func login(email: String,
               password: String,
               completion: @escaping (Bool) -> Void) {
-       completion(true)
+       self.signIn(email: email, password: password, completion: completion)
    }
 }

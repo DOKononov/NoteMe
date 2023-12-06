@@ -12,3 +12,6 @@ extension TESTAurhService: ResetPasswordAuthUseCase {
         completion(true)
     }
 }
+
+
+final class TESTAurhService{}

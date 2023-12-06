@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol LoginCoordinatorProtocol: AnyObject {
     func finish()
     func openRegisterModule()
     func openResetPasswordModule()
+    func showAlert(_ alert: UIAlertController)
 }
 
 protocol LoginAuthServiceUseCase {
@@ -69,8 +71,12 @@ extension LoginVM: LoginViewModelProtocol {
         authService.login(email: email,
                           password: password) { [weak coordinator] isSuccess in
             if isSuccess {
-                ParametersHelper.set(.authenticated, value: true)
-                coordinator?.finish()
+                //TODO: FIXME: unkoment
+//                ParametersHelper.set(.authenticated, value: true)
+//                coordinator?.finish()
+            } else {
+                let alertVC = AlertBuilder.build(title: "Error", message: "Invalide email or password", okTitile: "Ok")
+                coordinator?.showAlert(alertVC)
             }
         }
     }
@@ -92,7 +98,7 @@ private extension LoginVM {
         let isPasswordValid = inputValidator.validate(password: password)
         
         catchEmailError?(isEmailValid ? nil : .Auth.wrongEmail)
-        catchPasswordError?(isPasswordValid ? nil : .Auth.enterPassword)
+        catchPasswordError?(isPasswordValid ? nil : .Auth.nonValidPassword)
         
         return isEmailValid && isPasswordValid
     }
