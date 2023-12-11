@@ -32,7 +32,7 @@
 "calendar" = "Calendar";
 "location" = "Location";
 "timer" = "Timer";
-"you_can_use_three_types_of_notifications" = "You can use 3 types of notifications\n**• Calendar** - choose the date, when you want to receive notification.\n**• Location** - choose the region and notification will come after you enter it.\n**• Timer** - set timer and after selected period you will receive the notification.";
+"you_can_use_three_types_of_notifications" = "You can use 3 types of notifications<br> <b>&#x2022 Calendar</b> - choose the date, when you want to receive notification.<br> <b>&#x2022 Location</b> - choose the region and notification will come after you enter it.<br> <b>&#x2022 Timer</b> - set timer and after selected period you will receive the notification.";
 "error" = "Error";
 "we_have_sent_a_link_to_reset_your_password_to" = "We have sent a link to reset your password to";
 "ok" = "Ok";

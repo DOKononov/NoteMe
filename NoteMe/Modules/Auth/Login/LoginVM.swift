@@ -69,9 +69,8 @@ extension LoginVM: LoginViewModelProtocol {
         authService.login(email: email,
                           password: password) { [weak coordinator] isSuccess in
             if isSuccess {
-                //TODO: FIXME: unkoment
-//                ParametersHelper.set(.authenticated, value: true)
-//                coordinator?.finish()
+                ParametersHelper.set(.authenticated, value: true)
+                coordinator?.finish()
             } else {
                 let alertVC = AlertBuilder.build(title: .AlertBuilder.error,
                                                  message: .AlertBuilder.invalid_email_or_password,

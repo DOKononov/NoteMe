@@ -11,7 +11,6 @@ import SnapKit
 @objc protocol OnboardSecondStepViewModelProtocol {
     @objc func doneDidTap()
     func dismissedByUser()
-    func setAttributes(to string: String) -> NSAttributedString
 }
 
 final class OnboardSecondStepVC: UIViewController {
@@ -27,9 +26,8 @@ final class OnboardSecondStepVC: UIViewController {
     
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
-        let atrString = viewModel.setAttributes(to:
-                .Onboarding.you_can_use_three_types_of_notifications)
-        label.attributedText = atrString
+        let text: String = .Onboarding.you_can_use_three_types_of_notifications
+        label.attributedText = .parse(html: text, font: .appFont.withSize(13))
         label.numberOfLines = 0
         return label
     }()

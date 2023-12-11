@@ -11,11 +11,14 @@ final class AppCoordinator: Coordinator {
     private var window: UIWindow
     
     init(scene: UIWindowScene) {
+        //TODO: FIXME
+        ParametersHelper.set(.authenticated, value: false)
+        ParametersHelper.set(.unbordered, value: false)
+        //TODO: FIXME
         self.window = UIWindow(windowScene: scene)
     }
     
      func startApp() {
-//         ParametersHelper.set(.authenticated, value: false)
          if ParametersHelper.get(.authenticated) {
              //open unboarding or mainApp
              if ParametersHelper.get(.unbordered) {
