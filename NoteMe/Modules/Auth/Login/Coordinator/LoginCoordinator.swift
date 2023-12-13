@@ -20,9 +20,6 @@ final class LoginCoordinator: Coordinator {
 
 //MARK: -LoginCoordinatorProtocol
 extension LoginCoordinator: LoginCoordinatorProtocol {
-    func showAlert(_ alert: UIAlertController) {
-        rootVC?.present(alert, animated: true)
-    }
     
     func openRegisterModule() {
         let coodinator = RegisterCoordinator()

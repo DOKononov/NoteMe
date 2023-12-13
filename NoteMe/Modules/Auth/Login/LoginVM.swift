@@ -12,13 +12,16 @@ protocol LoginCoordinatorProtocol: AnyObject {
     func finish()
     func openRegisterModule()
     func openResetPasswordModule()
-    func showAlert(_ alert: UIAlertController)
 }
 
 protocol LoginAuthServiceUseCase {
     func login(email: String,
                password: String,
                completion: @escaping (Bool) -> Void)
+}
+
+protocol LoginAlertServiceUseCase {
+    func showAlert(title: String, message: String, okTitile: String)
 }
 
 protocol LoginInputValidatorUseCase {
@@ -43,15 +46,18 @@ final class LoginVM {
     private let authService: LoginAuthServiceUseCase
     private let inputValidator: LoginInputValidatorUseCase
     private let keyboardHelper: LoginKeyboardHelperUseCase
+    private let alertService: LoginAlertServiceUseCase
     
     init(authService: LoginAuthServiceUseCase,
          inputValidator: LoginInputValidatorUseCase,
          keyboardHelper: LoginKeyboardHelperUseCase,
-         coordinator: LoginCoordinatorProtocol) {
+         coordinator: LoginCoordinatorProtocol,
+         alertService: LoginAlertServiceUseCase) {
         self.authService = authService
         self.inputValidator = inputValidator
         self.keyboardHelper = keyboardHelper
         self.coordinator = coordinator
+        self.alertService = alertService
         bind()
     }
 }
@@ -67,15 +73,14 @@ extension LoginVM: LoginViewModelProtocol {
         else { return }
         
         authService.login(email: email,
-                          password: password) { [weak coordinator] isSuccess in
+                          password: password) { [weak self] isSuccess in
             if isSuccess {
                 ParametersHelper.set(.authenticated, value: true)
-                coordinator?.finish()
+                self?.coordinator?.finish()
             } else {
-                let alertVC = AlertBuilder.build(title: .AlertBuilder.error,
-                                                 message: .AlertBuilder.invalid_email_or_password,
-                                                 okTitile: .AlertBuilder.ok)
-                coordinator?.showAlert(alertVC)
+                self?.alertService.showAlert(title: .AlertBuilder.error,
+                                       message: .AlertBuilder.invalid_email_or_password,
+                                       okTitile: .AlertBuilder.ok)
             }
         }
     }

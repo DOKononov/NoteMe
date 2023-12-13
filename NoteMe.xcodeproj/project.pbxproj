@@ -50,7 +50,6 @@
 		566730DF2B1F87F80085D83F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 566730DE2B1F87F80085D83F /* FirebaseAuth */; };
 		566730E12B1F87F80085D83F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 566730E02B1F87F80085D83F /* FirebaseCrashlytics */; };
 		566730E42B1F95DD0085D83F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566730E32B1F95DD0085D83F /* AuthService.swift */; };
-		566730E72B1F98E30085D83F /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566730E62B1F98E30085D83F /* AlertBuilder.swift */; };
 		568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */; };
 		56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */; };
 		56D733E52B164B620025283C /* ParametersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733E42B164B620025283C /* ParametersHelper.swift */; };
@@ -63,7 +62,14 @@
 		56D733F82B165D860025283C /* OnboardSecondStepAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */; };
 		56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */; };
 		56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */; };
-		56D734042B1799300025283C /* AppTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D734032B1799300025283C /* AppTabBar.swift */; };
+		56D734042B1799300025283C /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D734032B1799300025283C /* MainTabBarVC.swift */; };
+		56D7EAE52B28C1DB00F72D2D /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAE42B28C1DB00F72D2D /* AlertService.swift */; };
+		56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAE62B28C95200F72D2D /* AlertService+Login.swift */; };
+		56D7EAEA2B28D10600F72D2D /* MainTabBarAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAE92B28D10600F72D2D /* MainTabBarAssembler.swift */; };
+		56D7EAEC2B28D1A600F72D2D /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAEB2B28D1A600F72D2D /* MainTabBarCoordinator.swift */; };
+		56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */; };
+		56D7EAF22B28D30200F72D2D /* HomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAF12B28D30200F72D2D /* HomeAssembler.swift */; };
+		56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAF32B28D34200F72D2D /* HomeCoordinator.swift */; };
 		56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBD2AE824E900248F85 /* AppDelegate.swift */; };
 		56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBF2AE824E900248F85 /* SceneDelegate.swift */; };
 		56E67DC72AE824EA00248F85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DC62AE824EA00248F85 /* Assets.xcassets */; };
@@ -118,7 +124,6 @@
 		565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+ResetPassword.swift"; sourceTree = "<group>"; };
 		566730D92B1F846A0085D83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		566730E32B1F95DD0085D83F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		566730E62B1F98E30085D83F /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
 		56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+parse.swift"; sourceTree = "<group>"; };
 		56D733E42B164B620025283C /* ParametersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersHelper.swift; sourceTree = "<group>"; };
@@ -131,7 +136,14 @@
 		56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepAssembler.swift; sourceTree = "<group>"; };
 		56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepCoordinator.swift; sourceTree = "<group>"; };
 		56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Onboarding.swift"; sourceTree = "<group>"; };
-		56D734032B1799300025283C /* AppTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabBar.swift; sourceTree = "<group>"; };
+		56D734032B1799300025283C /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		56D7EAE42B28C1DB00F72D2D /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		56D7EAE62B28C95200F72D2D /* AlertService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Login.swift"; sourceTree = "<group>"; };
+		56D7EAE92B28D10600F72D2D /* MainTabBarAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarAssembler.swift; sourceTree = "<group>"; };
+		56D7EAEB2B28D1A600F72D2D /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		56D7EAF12B28D30200F72D2D /* HomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembler.swift; sourceTree = "<group>"; };
+		56D7EAF32B28D34200F72D2D /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		56E67DBA2AE824E900248F85 /* NoteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E67DBD2AE824E900248F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56E67DBF2AE824E900248F85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,7 +223,7 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				566730E52B1F98D00085D83F /* AlertBuilder */,
+				566730E52B1F98D00085D83F /* AlertService */,
 				566730E22B1F95B50085D83F /* AuthService */,
 				56D733E32B164B450025283C /* ParametersHelper */,
 				565E7E3F2B0D129100590556 /* Coordinator */,
@@ -238,6 +250,7 @@
 				560F246A2B0539FF00226BAD /* AuthService+Login.swift */,
 				565E7E482B0F665F00590556 /* AnimatorService+Login.swift */,
 				560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */,
+				56D7EAE62B28C95200F72D2D /* AlertService+Login.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -339,12 +352,12 @@
 			path = AuthService;
 			sourceTree = "<group>";
 		};
-		566730E52B1F98D00085D83F /* AlertBuilder */ = {
+		566730E52B1F98D00085D83F /* AlertService */ = {
 			isa = PBXGroup;
 			children = (
-				566730E62B1F98E30085D83F /* AlertBuilder.swift */,
+				56D7EAE42B28C1DB00F72D2D /* AlertService.swift */,
 			);
-			path = AlertBuilder;
+			path = AlertService;
 			sourceTree = "<group>";
 		};
 		568AE0B62B109361002C83E0 /* Coordinator */ = {
@@ -405,8 +418,8 @@
 		56D733F62B165D6E0025283C /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */,
 				56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */,
+				56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -414,9 +427,37 @@
 		56D734022B1799140025283C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				56D734032B1799300025283C /* AppTabBar.swift */,
+				56D7EAE82B28D0A200F72D2D /* Coordinator */,
+				56D734032B1799300025283C /* MainTabBarVC.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		56D7EAE82B28D0A200F72D2D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				56D7EAE92B28D10600F72D2D /* MainTabBarAssembler.swift */,
+				56D7EAEB2B28D1A600F72D2D /* MainTabBarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		56D7EAED2B28D2BD00F72D2D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				56D7EAEE2B28D2C800F72D2D /* Coordinator */,
+				56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		56D7EAEE2B28D2C800F72D2D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				56D7EAF12B28D30200F72D2D /* HomeAssembler.swift */,
+				56D7EAF32B28D34200F72D2D /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		56E67DB12AE824E900248F85 = {
@@ -486,6 +527,7 @@
 		56E67DE02AE83D7800248F85 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				56D7EAED2B28D2BD00F72D2D /* Home */,
 				56D733E62B1654120025283C /* Onboarding */,
 				56E67DE12AE83D9B00248F85 /* Auth */,
 				56D734022B1799140025283C /* TabBar */,
@@ -606,7 +648,9 @@
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
 				563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */,
+				56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */,
 				563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */,
+				56D7EAE52B28C1DB00F72D2D /* AlertService.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
 				56D733F82B165D860025283C /* OnboardSecondStepAssembler.swift in Sources */,
 				560F24632B05319200226BAD /* AuthService+ResetPassword.swift in Sources */,
@@ -621,24 +665,26 @@
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
-				566730E72B1F98E30085D83F /* AlertBuilder.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
 				565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */,
 				56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */,
 				565E7E472B0D24C000590556 /* RegisterCoordinator.swift in Sources */,
 				56414AF82AF3A47700A79CDC /* RegisterVC.swift in Sources */,
+				56D7EAEC2B28D1A600F72D2D /* MainTabBarCoordinator.swift in Sources */,
 				5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
+				56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */,
 				565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */,
 				560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */,
 				560F244E2B03DB8700226BAD /* RegisterPresenter.swift in Sources */,
 				565E7E4D2B0F6A7B00590556 /* Animator+ResetPassword.swift in Sources */,
+				56D7EAEA2B28D10600F72D2D /* MainTabBarAssembler.swift in Sources */,
 				563A582C2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift in Sources */,
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
@@ -654,9 +700,11 @@
 				565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */,
 				56D733EE2B16572A0025283C /* OnboardFirstStepAssembler.swift in Sources */,
 				56414AF12AF29BAA00A79CDC /* UIView+Styles.swift in Sources */,
-				56D734042B1799300025283C /* AppTabBar.swift in Sources */,
+				56D7EAF22B28D30200F72D2D /* HomeAssembler.swift in Sources */,
+				56D734042B1799300025283C /* MainTabBarVC.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 				56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */,
+				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

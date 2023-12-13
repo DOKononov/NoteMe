@@ -59,19 +59,20 @@ extension ResetPasswordVM: ResetPasswordViewModelProtocol {
         guard let email, isValidEmail else { return }
         authService.resetPassword(for: email) { [weak coordinator] isSuccess in
             if isSuccess {
-                let alertVC = AlertBuilder.build(
-                    title: .AlertBuilder.success,
-                    message: .AlertBuilder.we_have_sent_a_link_to_reset_your_password_to + " \(email)",
-                    okTitile: .AlertBuilder.ok) { [weak coordinator] in
-                    coordinator?.finish()
-                }
-                coordinator?.showAlert(alertVC)
+                //TODO: 
+//                let alertVC = AlertBuilder.build(
+//                    title: .AlertBuilder.success,
+//                    message: .AlertBuilder.we_have_sent_a_link_to_reset_your_password_to + " \(email)",
+//                    okTitile: .AlertBuilder.ok) { [weak coordinator] in
+//                    coordinator?.finish()
+//                }
+//                coordinator?.showAlert(alertVC)
             } else {
-                let alertVC = AlertBuilder.build(
-                    title: .AlertBuilder.error,
-                    message: .AlertBuilder.invalid_email_address + " \(email)",
-                    okTitile: .AlertBuilder.ok)
-                coordinator?.showAlert(alertVC)
+//                let alertVC = AlertBuilder.build(
+//                    title: .AlertBuilder.error,
+//                    message: .AlertBuilder.invalid_email_address + " \(email)",
+//                    okTitile: .AlertBuilder.ok)
+//                coordinator?.showAlert(alertVC)
             }
         }
     }

@@ -9,13 +9,15 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
     private var window: UIWindow
+    static var windowScene: UIWindowScene?
     
     init(scene: UIWindowScene) {
-        //TODO: FIXME
-        ParametersHelper.set(.authenticated, value: false)
-        ParametersHelper.set(.unbordered, value: false)
-        //TODO: FIXME
+//        //TODO: FIXME
+//        ParametersHelper.set(.authenticated, value: false)
+//        ParametersHelper.set(.unbordered, value: false)
+//        //TODO: FIXME
         self.window = UIWindow(windowScene: scene)
+        Self.windowScene = scene
     }
     
      func startApp() {
@@ -23,8 +25,7 @@ final class AppCoordinator: Coordinator {
              //open unboarding or mainApp
              if ParametersHelper.get(.unbordered) {
                  //open main
-                 window.rootViewController = AppTabBar()
-                 window.makeKeyAndVisible()
+                 openMainApp()
              } else {
                  openOnboardingModule()
              }
@@ -48,6 +49,19 @@ final class AppCoordinator: Coordinator {
     
     private func openOnboardingModule() {
        let coordinator = OnboardFirstStepCoordinator()
+        chidren.append(coordinator)
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll { coordinator == $0 }
+            self?.startApp()
+        }
+        let vc = coordinator.start()
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+    
+    private func openMainApp() {
+        let coordinator = MainTabBarCoordinator()
         chidren.append(coordinator)
         coordinator.onDidFinish = { [weak self] coordinator in
             self?.chidren.removeAll { coordinator == $0 }

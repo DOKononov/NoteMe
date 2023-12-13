@@ -15,11 +15,13 @@ final class LoginAssembler {
         let keybordHelper = KeyboardHelper()
         let inputValidator = InputValidator()
         let animatorService = AnimatorService()
+        let alertService = AlertService.current
         
         let viewModel = LoginVM(authService: authService,
                                 inputValidator: inputValidator,
                                 keyboardHelper: keybordHelper,
-                                coordinator: coordinator)
+                                coordinator: coordinator,
+                                alertService: alertService)
         let view =  LoginVC(viewModel: viewModel,
                             animatorService: animatorService)
         
