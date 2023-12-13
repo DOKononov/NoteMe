@@ -161,9 +161,9 @@ extension LineTextField {
     
     private func errorAnimation() {
         UIView.transition(with: errorLabel,
-                      duration: 0.25,
-                       options: .transitionCrossDissolve,
-                    animations: { [weak self] in
+                          duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
             self?.errorLabel.textColor = .clear
         }) { [weak self] _ in
             self?.errorLabel.textColor = .appRed

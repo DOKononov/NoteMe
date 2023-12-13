@@ -39,6 +39,7 @@ protocol LoginKeyboardHelperUseCase {
 
 final class LoginVM {
     var catchEmailError: ((String?) -> Void)?
+    var catchPasswordError: ((String?) -> Void)?
     var keyboardFrameChanged: ((_ frame: CGRect) -> Void)?
     
     private weak var coordinator: LoginCoordinatorProtocol?
@@ -98,9 +99,16 @@ extension LoginVM: LoginViewModelProtocol {
 private extension LoginVM {
     func checkValidation(email: String?, password: String?) -> Bool {
         let isEmailValid = inputValidator.validate(email: email)
+        let isPasswordValid = passwordValidation(password: password)
         catchEmailError?(isEmailValid ? nil : .Auth.wrongEmail)
+        catchPasswordError?(isPasswordValid ? nil : .Auth.nonValidPassword)
         
-        return isEmailValid
+        return isEmailValid && isPasswordValid
+    }
+    
+    func passwordValidation(password: String?) -> Bool {
+        guard let password else { return false }
+        return password.isEmpty ? false : true
     }
     
     func bind() {

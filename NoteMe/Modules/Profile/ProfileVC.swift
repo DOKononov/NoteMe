@@ -1,24 +1,23 @@
 //
-//  HomeVC.swift
+//  ProfileVC.swift
 //  NoteMe
 //
-//  Created by Dmitry Kononov on 12.12.23.
+//  Created by Dmitry Kononov on 13.12.23.
 //
 
 import UIKit
 import SnapKit
 
-protocol HomeViewModelProtocol: AnyObject {}
+protocol ProfileViewModelProtocol {}
 
-final class HomeVC: UIViewController {
-    private var viewModel: HomeViewModelProtocol
+final class ProfileVC: UIViewController {
+    private var viewModel: ProfileViewModelProtocol
     
     private lazy var contentView: UIView = .contentView()
         
-    init(viewModel: HomeViewModelProtocol) {
+    init(viewModel: ProfileViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
         setupTabBarItem()
     }
     
@@ -31,9 +30,9 @@ final class HomeVC: UIViewController {
     }
 }
 
+
 //MARK: -UI
-private extension HomeVC {
-        
+private extension ProfileVC {
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
@@ -44,10 +43,9 @@ private extension HomeVC {
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
         }
     }
-    
     func setupTabBarItem() {
-        self.tabBarItem = UITabBarItem(title: .Home.home,
-                                       image: .Home.home,
+        self.tabBarItem = UITabBarItem(title: .Profile.profile,
+                                       image: .Profile.profile,
                                        tag: .zero)
     }
 }

@@ -15,11 +15,13 @@ final class ResetPasswordAssambler {
         let inputValidator = InputValidator()
         let keyboardHelper = KeyboardHelper()
         let animatorService = AnimatorService()
+        let alertService = AlertService()
         
         let viewModel = ResetPasswordVM(authService: auth,
                                         inputValidator: inputValidator,
                                         keyboardHelper: keyboardHelper,
-                                        coordinator: coordinator)
+                                        coordinator: coordinator,
+                                        alertService: alertService)
         let view = ResetPasswordVC(viewModel: viewModel,
                                    animatorService: animatorService)
         return view

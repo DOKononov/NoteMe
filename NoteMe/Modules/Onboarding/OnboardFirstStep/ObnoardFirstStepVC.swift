@@ -25,6 +25,7 @@ final class OnboardFirstStepVC: UIViewController {
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.font = .appFont.withSize(13)
+        label.textColor = .appText
         label.text = .Onboarding.noteme_is_an_application_which_notify_you_about_everything
         label.numberOfLines = 2
         return label

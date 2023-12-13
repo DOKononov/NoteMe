@@ -9,9 +9,11 @@ import UIKit
 
 final class HomeAssembler {
     private init() {}
-    
+        
     static func make() -> UIViewController {
-        return HomeVC()
+        let viewModel = HomeVM()
+
+        let vc = HomeVC(viewModel: viewModel)
+        return vc
     }
-    
 }

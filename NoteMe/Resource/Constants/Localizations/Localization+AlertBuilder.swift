@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 extension String.AlertBuilder {
     static var error: String {
         "error".localized

@@ -14,5 +14,7 @@ extension String {
     enum Auth {}
     enum Onboarding {}
     enum AlertBuilder {}
+    enum Home {}
+    enum Profile {}
 }
 

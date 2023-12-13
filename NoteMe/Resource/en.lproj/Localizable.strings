@@ -39,3 +39,6 @@
 "success" = "Success";
 "invalid_email_address" = "Invalid email address";
 "invalid_email_or_password" = "Invalide email or password";
+"home" = "Home";
+"profile" = "Profile";
+

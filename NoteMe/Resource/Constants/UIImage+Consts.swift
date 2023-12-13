@@ -16,4 +16,12 @@ extension UIImage {
     enum Onboarding {
         static let popup: UIImage = .init(named: "popup")!
     }
+    
+    enum Home {
+        static let home: UIImage = .init(named: "home")!
+    }
+    
+    enum Profile {
+        static let profile: UIImage = .init(named: "profile")!
+    }
 }

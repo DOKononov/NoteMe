@@ -69,10 +69,6 @@ final class ResetPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
         setupLayouts()
     }
 }
