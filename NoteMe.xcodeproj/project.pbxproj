@@ -23,12 +23,15 @@
 		560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */; };
 		560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */; };
 		5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */; };
+		56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56302FCE2B36BCF60051E331 /* AlertService+Profile.swift */; };
 		563A582C2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A582B2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
 		563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7242AFEA1B600150C98 /* InputValidator.swift */; };
 		563BF7282AFEA81300150C98 /* InputValidator+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7272AFEA81300150C98 /* InputValidator+Login.swift */; };
+		5640A3472B35C1940052E7D0 /* ProfileCellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640A3462B35C1940052E7D0 /* ProfileCellEntity.swift */; };
+		5640A34A2B35C9D00052E7D0 /* AuthService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */; };
 		56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE42AF15EE400A79CDC /* View+Layer.swift */; };
 		56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */; };
 		56414AEB2AF16EC200A79CDC /* LineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AEA2AF16EC200A79CDC /* LineTextField.swift */; };
@@ -50,6 +53,9 @@
 		566730DF2B1F87F80085D83F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 566730DE2B1F87F80085D83F /* FirebaseAuth */; };
 		566730E12B1F87F80085D83F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 566730E02B1F87F80085D83F /* FirebaseCrashlytics */; };
 		566730E42B1F95DD0085D83F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566730E32B1F95DD0085D83F /* AuthService.swift */; };
+		56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */; };
+		56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D562B342878005C43A8 /* ProfileAccountCell.swift */; };
+		56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */; };
 		568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */; };
 		56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */; };
 		56D733E52B164B620025283C /* ParametersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733E42B164B620025283C /* ParametersHelper.swift */; };
@@ -108,12 +114,15 @@
 		560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+ResetPassword.swift"; sourceTree = "<group>"; };
 		560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+Login.swift"; sourceTree = "<group>"; };
 		5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatePickerView.swift; sourceTree = "<group>"; };
+		56302FCE2B36BCF60051E331 /* AlertService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Profile.swift"; sourceTree = "<group>"; };
 		563A582B2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+AlertBuilder.swift"; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
 		563BF7242AFEA1B600150C98 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		563BF7272AFEA81300150C98 /* InputValidator+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+Login.swift"; sourceTree = "<group>"; };
+		5640A3462B35C1940052E7D0 /* ProfileCellEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellEntity.swift; sourceTree = "<group>"; };
+		5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+Profile.swift"; sourceTree = "<group>"; };
 		56414AE42AF15EE400A79CDC /* View+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Layer.swift"; sourceTree = "<group>"; };
 		56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Styles.swift"; sourceTree = "<group>"; };
 		56414AEA2AF16EC200A79CDC /* LineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTextField.swift; sourceTree = "<group>"; };
@@ -132,6 +141,9 @@
 		565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+ResetPassword.swift"; sourceTree = "<group>"; };
 		566730D92B1F846A0085D83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		566730E32B1F95DD0085D83F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
+		56741D562B342878005C43A8 /* ProfileAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountCell.swift; sourceTree = "<group>"; };
+		56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
 		568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
 		56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+parse.swift"; sourceTree = "<group>"; };
 		56D733E42B164B620025283C /* ParametersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersHelper.swift; sourceTree = "<group>"; };
@@ -272,6 +284,15 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		5640A3482B35C9BA0052E7D0 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */,
+				56302FCE2B36BCF60051E331 /* AlertService+Profile.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		56414AE32AF15EC800A79CDC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +400,16 @@
 			path = AlertService;
 			sourceTree = "<group>";
 		};
+		56741D582B342BE4005C43A8 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */,
+				56741D562B342878005C43A8 /* ProfileAccountCell.swift */,
+				56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		568AE0B62B109361002C83E0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,9 +514,12 @@
 		56D7EAF92B29866600F72D2D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5640A3482B35C9BA0052E7D0 /* UseCases */,
 				56D7EAFC2B29873300F72D2D /* Coordinator */,
+				56741D582B342BE4005C43A8 /* SubViews */,
 				56D7EAFA2B29867300F72D2D /* ProfileVC.swift */,
 				56D7EB052B2A09F100F72D2D /* ProfileVM.swift */,
+				5640A3462B35C1940052E7D0 /* ProfileCellEntity.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -681,10 +715,12 @@
 			files = (
 				56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */,
 				563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */,
+				5640A34A2B35C9D00052E7D0 /* AuthService+Profile.swift in Sources */,
 				565E7E412B0D129C00590556 /* Coordinator.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
 				56D7EAFE2B29874700F72D2D /* ProfileAssembler.swift in Sources */,
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
+				5640A3472B35C1940052E7D0 /* ProfileCellEntity.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
@@ -702,6 +738,8 @@
 				560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */,
 				56D733F02B1657D60025283C /* OnboardFirstStepCoordinator.swift in Sources */,
 				56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */,
+				56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */,
+				56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
@@ -716,6 +754,7 @@
 				56D7EAEC2B28D1A600F72D2D /* MainTabBarCoordinator.swift in Sources */,
 				5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */,
 				56D7EB042B2A090000F72D2D /* HomeVM.swift in Sources */,
+				56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
@@ -734,6 +773,7 @@
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
 				56D7EAF82B29817200F72D2D /* Localization+Profile.swift in Sources */,
+				56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */,
 				56D733E52B164B620025283C /* ParametersHelper.swift in Sources */,
 				56414AFA2AF3AB3100A79CDC /* UIViewController+EndEditing.swift in Sources */,
 				560F245A2B04E44E00226BAD /* AuthService+Register.swift in Sources */,

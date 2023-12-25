@@ -12,10 +12,9 @@ final class AppCoordinator: Coordinator {
     static var windowScene: UIWindowScene?
     
     init(scene: UIWindowScene) {
-        //TODO: FIXME
-        ParametersHelper.set(.authenticated, value: false)
-        ParametersHelper.set(.unbordered, value: false)
-
+//        //TODO: FIXME
+//        ParametersHelper.set(.authenticated, value: false)
+//        ParametersHelper.set(.unbordered, value: false)
         self.window = UIWindow(windowScene: scene)
         Self.windowScene = scene
     }

@@ -41,4 +41,11 @@
 "invalid_email_or_password" = "Invalide email or password";
 "home" = "Home";
 "profile" = "Profile";
+"account" = "Account";
+"settings" = "Settings";
+"your_email" = "Your e-mail:";
+"notificactions" = "Notificactions";
+"export" = "Export";
+"logout" = "Logout";
+"unregistered_user" = "unregistered user";
 

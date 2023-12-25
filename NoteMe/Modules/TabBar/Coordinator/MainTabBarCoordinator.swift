@@ -9,9 +9,12 @@ import UIKit
 
 final class MainTabBarCoordinator: Coordinator {
     
+    private var rootVC: UIViewController?
+    
     override func start() -> UIViewController {
         let tabbar =  MainTabBarAssembler.make()
         tabbar.viewControllers = [makeHomeModule(), makeProfileModule()]
+        rootVC = tabbar
         return tabbar
     }
     
@@ -24,6 +27,12 @@ final class MainTabBarCoordinator: Coordinator {
     private func makeProfileModule() -> UIViewController {
         let coordinator = ProfileCoordinator()
         chidren.append(coordinator)
-        return coordinator.start()
+        let vc = coordinator.start()
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll()
+            self?.rootVC?.dismiss(animated: true)
+            self?.finish()
+        }
+        return vc
     }
 }

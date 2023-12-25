@@ -31,4 +31,17 @@ final class AuthService {
     func resetPassword(for email: String, completion: @escaping ((Bool) -> Void)) {
         firebase.sendPasswordReset(withEmail: email) { completion($0 == nil) }
     }
+    
+    func getCurrentUserEmail() -> String? {
+        firebase.currentUser?.email
+    }
+    
+    func logout(completion: @escaping  ((Result<Void, Error>) -> Void)) {
+        do {
+            try firebase.signOut()
+            completion(.success(()))
+        } catch {
+            completion(.failure(error))
+        }
+    }
 }

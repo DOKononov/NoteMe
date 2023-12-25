@@ -9,7 +9,14 @@ import UIKit
 
 final class ProfileCoordinator: Coordinator {
     
+    private var rootVC: UIViewController?
+
     override func start() -> UIViewController {
-        return ProfileAssembler.make()
+        let vc = ProfileAssembler.make(self)
+        rootVC = vc
+        return vc
     }
 }
+
+//MARK: -ProfileCoordinatorProtocol
+extension ProfileCoordinator: ProfileCoordinatorProtocol {}
