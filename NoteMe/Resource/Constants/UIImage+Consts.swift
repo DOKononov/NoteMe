@@ -11,6 +11,7 @@ extension UIImage {
     
     enum General {
         static let logo: UIImage = .init(named: "logo")!
+        static let tabBarAddButton: UIImage = .init(named: "tabBarAddButton")!
     }
     
     enum Onboarding {
