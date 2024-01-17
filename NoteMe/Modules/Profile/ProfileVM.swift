@@ -13,6 +13,14 @@ protocol ProfileCoordinatorProtocol: AnyObject {
 
 protocol ProfileAlertServiceUseCase {
     func showAlert(title: String, message: String, okTitile: String)
+    func showAlert(title: String?,
+                   message: String?,
+                   cancelTitile: String?,
+                   cancelHandler: (()-> Void)?,
+                   cancelStyle: UIAlertAction.Style?,
+                   okTitile: String?,
+                   okHandler: (()-> Void)?,
+                   okStyle: UIAlertAction.Style?)
 }
 
 protocol ProfileAuthServiceUseCase {
@@ -26,6 +34,7 @@ final class ProfileVM: ProfileViewModelProtocol {
     let authService: ProfileAuthServiceUseCase
     private weak var coordinator: ProfileCoordinatorProtocol?
     private let alertService: ProfileAlertServiceUseCase
+    private var username: String = .Profile.unregistered_user
     
     init(authService: ProfileAuthServiceUseCase,
          coordinator: ProfileCoordinatorProtocol,
@@ -63,10 +72,23 @@ final class ProfileVM: ProfileViewModelProtocol {
 private extension ProfileVM {
     
     private func setUserName() -> String {
-        let username = authService.getCurrentUserEmail()
-        return username ?? .Profile.unregistered_user
+        username = authService.getCurrentUserEmail() ?? .Profile.unregistered_user
+        return username
     }
     func logout() {
+        alertService.showAlert(title: .AlertBuilder.logout,
+                               message: .AlertBuilder.are_you_want_to_logout + "\n\(username)",
+                               cancelTitile: .AlertBuilder.cancel,
+                               cancelHandler: nil,
+                               cancelStyle: .default,
+                               okTitile: .AlertBuilder.logout,
+                               okHandler: { [weak self] in
+            self?.didSelectLogout()
+        }, okStyle: .destructive)
+
+    }
+    
+    private func didSelectLogout() {
         authService.logout { [weak self] result in
             switch result {
             case .success(_):
@@ -94,7 +116,7 @@ private extension ProfileVM {
             .init(title: .Profile.logout,
                               image: .Profile.logout,
                               status: nil,
-                              action: { [weak self] in self?.logout() })
+                  action: { [weak self] in self?.logout() })
         ]
     }
 }

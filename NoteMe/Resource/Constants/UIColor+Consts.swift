@@ -26,4 +26,5 @@ extension UIColor {
     static var appCellSeparator: UIColor = .init(151, 151, 151, 1)
     static var appText: UIColor = .init(0, 0, 0, 1)
     static var appShadow: UIColor = .init(0, 0, 0, 0.05)
+    static var appAlertMessage: UIColor = .init(0, 0, 0, 0.5)
 }

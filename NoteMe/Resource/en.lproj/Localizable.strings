@@ -48,4 +48,5 @@
 "export" = "Export";
 "logout" = "Logout";
 "unregistered_user" = "unregistered user";
+"are_you_want_to_logout" = "Are you want to logout?";
 

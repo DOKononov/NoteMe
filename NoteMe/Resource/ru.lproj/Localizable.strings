@@ -48,3 +48,4 @@
 "export" = "Экспорт";
 "logout" = "Выйти";
 "unregistered_user" = "незарегистрированный пользователь";
+"are_you_want_to_logout" = "Клеим расход?";

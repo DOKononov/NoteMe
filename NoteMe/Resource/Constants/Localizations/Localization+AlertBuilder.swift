@@ -27,4 +27,16 @@ extension String.AlertBuilder {
     static var invalid_email_or_password: String {
         "invalid_email_or_password".localized
     }
+    
+    static var logout: String {
+        "logout".localized
+    }
+    
+    static var are_you_want_to_logout: String {
+        "are_you_want_to_logout".localized
+    }
+    
+    static var cancel: String {
+        "cancel".localized
+    }
 }
