@@ -37,13 +37,20 @@ final class ProfileVM: ProfileViewModelProtocol {
         setButtons()
     }
     
-    func configCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func configCell(_ tableView: UITableView, 
+                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ProfileAccountCell.self)", for: indexPath) as? ProfileAccountCell
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "\(ProfileAccountCell.self)",
+                for: indexPath) as? ProfileAccountCell
+            
             cell?.email = setUserName()
             return cell ?? UITableViewCell()
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(ProfileSettingsCell.self)", for: indexPath) as? ProfileSettingsCell
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "\(ProfileSettingsCell.self)",
+                for: indexPath) as? ProfileSettingsCell
+            
             cell?.configCell(for: buttons[indexPath.row],
                              for: indexPath,
                              in: tableView)
@@ -79,12 +86,12 @@ private extension ProfileVM {
                               image: .Profile.notificactions,
                               status: nil, action: { print("notificactions") }),
             
-                .init(title: .Profile.export,
+            .init(title: .Profile.export,
                               image: .Profile.export,
                               status: "Last export: 20 Sep 2023",
                               action: { print("export") }),
             
-                .init(title: .Profile.logout,
+            .init(title: .Profile.logout,
                               image: .Profile.logout,
                               status: nil,
                               action: { [weak self] in self?.logout() })

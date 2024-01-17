@@ -53,6 +53,9 @@
 		566730DF2B1F87F80085D83F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 566730DE2B1F87F80085D83F /* FirebaseAuth */; };
 		566730E12B1F87F80085D83F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 566730E02B1F87F80085D83F /* FirebaseCrashlytics */; };
 		566730E42B1F95DD0085D83F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566730E32B1F95DD0085D83F /* AuthService.swift */; };
+		5673B3B12B56E0CA004ABFDA /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B3B02B56E0CA004ABFDA /* Container.swift */; };
+		5673B3B32B56E544004ABFDA /* ContainerRegistrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B3B22B56E544004ABFDA /* ContainerRegistrator.swift */; };
+		5673B3B62B56EFF8004ABFDA /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5673B3B52B56EFF8004ABFDA /* WindowManager.swift */; };
 		56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */; };
 		56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D562B342878005C43A8 /* ProfileAccountCell.swift */; };
 		56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */; };
@@ -141,6 +144,9 @@
 		565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+ResetPassword.swift"; sourceTree = "<group>"; };
 		566730D92B1F846A0085D83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		566730E32B1F95DD0085D83F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		5673B3B02B56E0CA004ABFDA /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		5673B3B22B56E544004ABFDA /* ContainerRegistrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerRegistrator.swift; sourceTree = "<group>"; };
+		5673B3B52B56EFF8004ABFDA /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
 		56741D562B342878005C43A8 /* ProfileAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountCell.swift; sourceTree = "<group>"; };
 		56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
@@ -252,6 +258,8 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5673B3B42B56EFE5004ABFDA /* WindowManager */,
+				5673B3AF2B56E0BB004ABFDA /* Container */,
 				566730E52B1F98D00085D83F /* AlertService */,
 				566730E22B1F95B50085D83F /* AuthService */,
 				56D733E32B164B450025283C /* ParametersHelper */,
@@ -398,6 +406,23 @@
 				56D7EAE42B28C1DB00F72D2D /* AlertService.swift */,
 			);
 			path = AlertService;
+			sourceTree = "<group>";
+		};
+		5673B3AF2B56E0BB004ABFDA /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				5673B3B02B56E0CA004ABFDA /* Container.swift */,
+				5673B3B22B56E544004ABFDA /* ContainerRegistrator.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		5673B3B42B56EFE5004ABFDA /* WindowManager */ = {
+			isa = PBXGroup;
+			children = (
+				5673B3B52B56EFF8004ABFDA /* WindowManager.swift */,
+			);
+			path = WindowManager;
 			sourceTree = "<group>";
 		};
 		56741D582B342BE4005C43A8 /* SubViews */ = {
@@ -719,6 +744,7 @@
 				565E7E412B0D129C00590556 /* Coordinator.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
 				56D7EAFE2B29874700F72D2D /* ProfileAssembler.swift in Sources */,
+				5673B3B62B56EFF8004ABFDA /* WindowManager.swift in Sources */,
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
 				5640A3472B35C1940052E7D0 /* ProfileCellEntity.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
@@ -773,6 +799,7 @@
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
 				56D7EAF82B29817200F72D2D /* Localization+Profile.swift in Sources */,
+				5673B3B32B56E544004ABFDA /* ContainerRegistrator.swift in Sources */,
 				56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */,
 				56D733E52B164B620025283C /* ParametersHelper.swift in Sources */,
 				56414AFA2AF3AB3100A79CDC /* UIViewController+EndEditing.swift in Sources */,
@@ -783,6 +810,7 @@
 				563BF7282AFEA81300150C98 /* InputValidator+Login.swift in Sources */,
 				560F24502B03E0B500226BAD /* RegisterAssembler.swift in Sources */,
 				565E7E3E2B0D124600590556 /* AppCoordinator.swift in Sources */,
+				5673B3B12B56E0CA004ABFDA /* Container.swift in Sources */,
 				560F245C2B04F74200226BAD /* InputValidator+Register.swift in Sources */,
 				565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */,
 				56D733EE2B16572A0025283C /* OnboardFirstStepAssembler.swift in Sources */,

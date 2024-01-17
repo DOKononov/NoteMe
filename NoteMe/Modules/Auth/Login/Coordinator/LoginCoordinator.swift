@@ -10,9 +10,15 @@ import UIKit
 final class LoginCoordinator: Coordinator {
     
     private var rootVC: UIViewController?
+    
+    private let container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
 
     override func start() -> UIViewController {
-        let vc  = LoginAssembler.make(coordinator: self)
+        let vc  = LoginAssembler.make(container: container, coordinator: self)
         rootVC = vc
         return vc
     }
@@ -22,7 +28,7 @@ final class LoginCoordinator: Coordinator {
 extension LoginCoordinator: LoginCoordinatorProtocol {
     
     func openRegisterModule() {
-        let coodinator = RegisterCoordinator()
+        let coodinator = RegisterCoordinator(contianer: container)
         chidren.append(coodinator)
         let vc = coodinator.start()
         
@@ -36,7 +42,7 @@ extension LoginCoordinator: LoginCoordinatorProtocol {
     }
     
     func openResetPasswordModule() {
-        let coordinator = ResetPasswordCoordinator()
+        let coordinator = ResetPasswordCoordinator(container: container)
         chidren.append(coordinator)
         let vc = coordinator.start()
 

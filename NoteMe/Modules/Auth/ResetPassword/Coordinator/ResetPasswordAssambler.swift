@@ -10,14 +10,16 @@ import UIKit
 final class ResetPasswordAssambler {
     private init(){}
     
-    static func make(_ coordinator: ResetPasswordCoordinatorProtocol) -> UIViewController {
-        let auth = AuthService()
-        let inputValidator = InputValidator()
-        let keyboardHelper = KeyboardHelper()
-        let animatorService = AnimatorService()
-        let alertService = AlertService()
+    static func make(_ coordinator: ResetPasswordCoordinatorProtocol,
+                     container: Container) -> UIViewController {
         
-        let viewModel = ResetPasswordVM(authService: auth,
+        let authService: AuthService = container.resolve()
+        let inputValidator: InputValidator = container.resolve()
+        let keyboardHelper: KeyboardHelper = container.resolve()
+        let animatorService: AnimatorService = container.resolve()
+        let alertService: AlertService = container.resolve()
+        
+        let viewModel = ResetPasswordVM(authService: authService,
                                         inputValidator: inputValidator,
                                         keyboardHelper: keyboardHelper,
                                         coordinator: coordinator,

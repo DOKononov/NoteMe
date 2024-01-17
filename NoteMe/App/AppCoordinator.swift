@@ -8,15 +8,13 @@
 import UIKit
 
 final class AppCoordinator: Coordinator {
-    private var window: UIWindow
-    static var windowScene: UIWindowScene?
+
+    private let container: Container
+    private let windowManager: WindowManager
     
-    init(scene: UIWindowScene) {
-//        //TODO: FIXME
-//        ParametersHelper.set(.authenticated, value: false)
-//        ParametersHelper.set(.unbordered, value: false)
-        self.window = UIWindow(windowScene: scene)
-        Self.windowScene = scene
+    init(container: Container) {
+        self.container = container
+        self.windowManager = container.resolve()
     }
     
      func startApp() {
@@ -34,7 +32,7 @@ final class AppCoordinator: Coordinator {
     }
 
     private func openAuthModule() {
-        let coordinator = LoginCoordinator()
+        let coordinator = LoginCoordinator(container: container)
         chidren.append(coordinator)
         coordinator.onDidFinish = { [weak self] coordinator in
             self?.chidren.removeAll { $0 == coordinator }
@@ -42,8 +40,9 @@ final class AppCoordinator: Coordinator {
         }
         let vc = coordinator.start()
         
+        let window = windowManager.get(type: .main)
         window.rootViewController = vc
-        window.makeKeyAndVisible()
+        windowManager.show(type: .main)
     }
     
     private func openOnboardingModule() {
@@ -55,12 +54,13 @@ final class AppCoordinator: Coordinator {
         }
         let vc = coordinator.start()
         
+        let window = windowManager.get(type: .main)
         window.rootViewController = vc
-        window.makeKeyAndVisible()
+        windowManager.show(type: .main)
     }
     
     private func openMainApp() {
-        let coordinator = MainTabBarCoordinator()
+        let coordinator = MainTabBarCoordinator(container: container)
         chidren.append(coordinator)
         coordinator.onDidFinish = { [weak self] coordinator in
             self?.chidren.removeAll { coordinator == $0 }
@@ -68,8 +68,9 @@ final class AppCoordinator: Coordinator {
         }
         let vc = coordinator.start()
         
+        let window = windowManager.get(type: .main)
         window.rootViewController = vc
-        window.makeKeyAndVisible()
+        windowManager.show(type: .main)
     }
 }
 

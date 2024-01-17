@@ -10,6 +10,11 @@ import UIKit
 final class MainTabBarCoordinator: Coordinator {
     
     private var rootVC: UIViewController?
+    private let container: Container
+    
+    init(container: Container) {
+        self.container = container
+    }
     
     override func start() -> UIViewController {
         let tabbar =  MainTabBarAssembler.make()
@@ -25,7 +30,7 @@ final class MainTabBarCoordinator: Coordinator {
     }
     
     private func makeProfileModule() -> UIViewController {
-        let coordinator = ProfileCoordinator()
+        let coordinator = ProfileCoordinator(container: container)
         chidren.append(coordinator)
         let vc = coordinator.start()
         coordinator.onDidFinish = { [weak self] coordinator in

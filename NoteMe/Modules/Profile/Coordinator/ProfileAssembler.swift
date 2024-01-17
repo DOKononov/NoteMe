@@ -10,9 +10,10 @@ import UIKit
 final class ProfileAssembler {
     private init() {}
     
-    static func make(_ coordinator: ProfileCoordinatorProtocol) -> UIViewController {
-        let authService = AuthService()
-        let alertService = AlertService()
+    static func make(_ coordinator: ProfileCoordinatorProtocol,
+                     container: Container) -> UIViewController {
+        let authService: AuthService = container.resolve()
+        let alertService: AlertService = container.resolve()
         let viewModel = ProfileVM(authService: authService,
                                   coordinator: coordinator,
                                   alertService: alertService)

@@ -9,8 +9,14 @@ import UIKit
 
 final class RegisterCoordinator: Coordinator {
     
+    private let contianer: Container
+    
+    init(contianer: Container) {
+        self.contianer = contianer
+    }
+    
     override func start() -> UIViewController {
-        return RegisterAssembler.make(coordinator: self)
+        return RegisterAssembler.make(coordinator: self, container: contianer)
     }
 }
 
