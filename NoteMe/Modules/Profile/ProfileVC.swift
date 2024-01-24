@@ -47,7 +47,8 @@ private extension ProfileVC {
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
         }
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
+            make.verticalEdges.equalToSuperview().inset(16)
+            make.horizontalEdges.equalToSuperview()
         }
     }
     func setupTabBarItem() {
