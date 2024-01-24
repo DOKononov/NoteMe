@@ -17,7 +17,6 @@
 		560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */; };
 		560F24632B05319200226BAD /* AuthService+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24622B05319200226BAD /* AuthService+ResetPassword.swift */; };
 		560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24642B05351600226BAD /* InputValidator+ResetPassword.swift */; };
-		560F24692B0539B400226BAD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24682B0539B400226BAD /* AuthService.swift */; };
 		560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246A2B0539FF00226BAD /* AuthService+Login.swift */; };
 		560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246C2B05ED0900226BAD /* KeyboardHelper+Register.swift */; };
 		560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */; };
@@ -30,7 +29,6 @@
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
 		563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7242AFEA1B600150C98 /* InputValidator.swift */; };
 		563BF7282AFEA81300150C98 /* InputValidator+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7272AFEA81300150C98 /* InputValidator+Login.swift */; };
-		5640A3472B35C1940052E7D0 /* ProfileCellEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640A3462B35C1940052E7D0 /* ProfileCellEntity.swift */; };
 		5640A34A2B35C9D00052E7D0 /* AuthService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */; };
 		56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE42AF15EE400A79CDC /* View+Layer.swift */; };
 		56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */; };
@@ -61,6 +59,8 @@
 		56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */; };
 		568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */; };
 		56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */; };
+		56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D11F382B601CDC0013FE32 /* ProfileSections.swift */; };
+		56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D11F3C2B602CD30013FE32 /* ProfileAdapter.swift */; };
 		56D733E52B164B620025283C /* ParametersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733E42B164B620025283C /* ParametersHelper.swift */; };
 		56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733E92B16547B0025283C /* ObnoardFirstStepVC.swift */; };
 		56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733EB2B1656760025283C /* OnboardFirstStepVM.swift */; };
@@ -124,7 +124,6 @@
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
 		563BF7242AFEA1B600150C98 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		563BF7272AFEA81300150C98 /* InputValidator+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+Login.swift"; sourceTree = "<group>"; };
-		5640A3462B35C1940052E7D0 /* ProfileCellEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellEntity.swift; sourceTree = "<group>"; };
 		5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+Profile.swift"; sourceTree = "<group>"; };
 		56414AE42AF15EE400A79CDC /* View+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Layer.swift"; sourceTree = "<group>"; };
 		56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Styles.swift"; sourceTree = "<group>"; };
@@ -152,6 +151,8 @@
 		56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
 		568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
 		56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+parse.swift"; sourceTree = "<group>"; };
+		56D11F382B601CDC0013FE32 /* ProfileSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSections.swift; sourceTree = "<group>"; };
+		56D11F3C2B602CD30013FE32 /* ProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdapter.swift; sourceTree = "<group>"; };
 		56D733E42B164B620025283C /* ParametersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersHelper.swift; sourceTree = "<group>"; };
 		56D733E92B16547B0025283C /* ObnoardFirstStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObnoardFirstStepVC.swift; sourceTree = "<group>"; };
 		56D733EB2B1656760025283C /* OnboardFirstStepVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFirstStepVM.swift; sourceTree = "<group>"; };
@@ -425,16 +426,6 @@
 			path = WindowManager;
 			sourceTree = "<group>";
 		};
-		56741D582B342BE4005C43A8 /* SubViews */ = {
-			isa = PBXGroup;
-			children = (
-				56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */,
-				56741D562B342878005C43A8 /* ProfileAccountCell.swift */,
-				56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */,
-			);
-			path = SubViews;
-			sourceTree = "<group>";
-		};
 		568AE0B62B109361002C83E0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +433,42 @@
 				560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		56D11F362B601CA90013FE32 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				56D11F3B2B602BDC0013FE32 /* Headers */,
+				56D11F3A2B602BC60013FE32 /* Cells */,
+				56D11F372B601CC00013FE32 /* Sections */,
+				56D11F3C2B602CD30013FE32 /* ProfileAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		56D11F372B601CC00013FE32 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				56D11F382B601CDC0013FE32 /* ProfileSections.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		56D11F3A2B602BC60013FE32 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				56741D562B342878005C43A8 /* ProfileAccountCell.swift */,
+				56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		56D11F3B2B602BDC0013FE32 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		56D733E32B164B450025283C /* ParametersHelper */ = {
@@ -539,12 +566,11 @@
 		56D7EAF92B29866600F72D2D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				56D11F362B601CA90013FE32 /* Adapter */,
 				5640A3482B35C9BA0052E7D0 /* UseCases */,
 				56D7EAFC2B29873300F72D2D /* Coordinator */,
-				56741D582B342BE4005C43A8 /* SubViews */,
 				56D7EAFA2B29867300F72D2D /* ProfileVC.swift */,
 				56D7EB052B2A09F100F72D2D /* ProfileVM.swift */,
-				5640A3462B35C1940052E7D0 /* ProfileCellEntity.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -746,7 +772,6 @@
 				56D7EAFE2B29874700F72D2D /* ProfileAssembler.swift in Sources */,
 				5673B3B62B56EFF8004ABFDA /* WindowManager.swift in Sources */,
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
-				5640A3472B35C1940052E7D0 /* ProfileCellEntity.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
@@ -783,8 +808,10 @@
 				56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
+				56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
+				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
 				56D7EAF62B29814000F72D2D /* Localization+Home.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */,
@@ -806,7 +833,6 @@
 				560F245A2B04E44E00226BAD /* AuthService+Register.swift in Sources */,
 				56D7EB062B2A09F100F72D2D /* ProfileVM.swift in Sources */,
 				56D733F32B165AE30025283C /* OnboardSecondStepVC.swift in Sources */,
-				560F24692B0539B400226BAD /* AuthService.swift in Sources */,
 				563BF7282AFEA81300150C98 /* InputValidator+Login.swift in Sources */,
 				560F24502B03E0B500226BAD /* RegisterAssembler.swift in Sources */,
 				565E7E3E2B0D124600590556 /* AppCoordinator.swift in Sources */,

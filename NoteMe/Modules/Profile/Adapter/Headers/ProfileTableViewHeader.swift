@@ -34,7 +34,7 @@ final class ProfileTableViewHeader: UIView {
     private func setupUI() {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
+            make.horizontalEdges.top.equalToSuperview()
             make.bottom.equalToSuperview().inset(16)
         }
     }

@@ -23,11 +23,6 @@ final class ProfileAccountCell: UITableViewCell {
         return label
     }()
     
-    var email: String? {
-        get { emailLabel.text }
-        set { emailLabel.text = newValue }
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -35,23 +30,22 @@ final class ProfileAccountCell: UITableViewCell {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
+    func setup(email: String) {
+        emailLabel.text = email
+    }
+    
     private func setupUI() {
         addSubview(titleLabel)
         addSubview(emailLabel)
         
-        layer.cornerRadius = 5
-        self.clipsToBounds = true
-        
         titleLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.equalTo(17)
             make.top.equalToSuperview().inset(16)
         }
         
         emailLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(16)
-            make.height.equalTo(20)
             make.top.equalTo(titleLabel.snp.bottom).inset(-4)
         }
     }

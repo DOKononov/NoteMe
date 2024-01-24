@@ -11,12 +11,17 @@ protocol ProfileCoordinatorProtocol: AnyObject {
     func finish()
 }
 
+protocol ProfileAdapterProtocol {
+    var didSelectRow: ((ProfileSttingsRows) -> Void)? { get set }
+    func reloadData(with sections: [ProfileSections])
+    func makeTableView() -> UITableView
+}
+
 protocol ProfileAlertServiceUseCase {
     func showAlert(title: String, message: String, okTitile: String)
     func showAlert(title: String?,
                    message: String?,
                    cancelTitile: String?,
-                   cancelHandler: (()-> Void)?,
                    cancelStyle: UIAlertAction.Style?,
                    okTitile: String?,
                    okHandler: (()-> Void)?,
@@ -29,63 +34,64 @@ protocol ProfileAuthServiceUseCase {
 }
 
 final class ProfileVM: ProfileViewModelProtocol {
-    var buttons: [ProfileCellEntity] = []
-    
-    let authService: ProfileAuthServiceUseCase
     private weak var coordinator: ProfileCoordinatorProtocol?
+    private let authService: ProfileAuthServiceUseCase
     private let alertService: ProfileAlertServiceUseCase
+    private var adapter: ProfileAdapterProtocol
+    
     private var username: String = .Profile.unregistered_user
+    
+    private var sections: [ProfileSections] {
+        [ .account(username),
+          .settings(ProfileSttingsRows.allCases)]
+    }
+    
+    func makeTableView() -> UITableView {
+        adapter.makeTableView()
+    }
     
     init(authService: ProfileAuthServiceUseCase,
          coordinator: ProfileCoordinatorProtocol,
-         alertService: ProfileAlertServiceUseCase
-    ) {
+         alertService: ProfileAlertServiceUseCase,
+         adapter: ProfileAdapterProtocol) {
         self.authService = authService
         self.coordinator = coordinator
         self.alertService = alertService
-        setButtons()
-    }
-    
-    func configCell(_ tableView: UITableView, 
-                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: "\(ProfileAccountCell.self)",
-                for: indexPath) as? ProfileAccountCell
-            
-            cell?.email = setUserName()
-            return cell ?? UITableViewCell()
-        } else {
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: "\(ProfileSettingsCell.self)",
-                for: indexPath) as? ProfileSettingsCell
-            
-            cell?.configCell(for: buttons[indexPath.row],
-                             for: indexPath,
-                             in: tableView)
-            return cell ?? UITableViewCell()
-        }
+        self.adapter = adapter
+        commonInit()
+        bind()
     }
 }
 
 //MARK: -private methods
 private extension ProfileVM {
+    private func commonInit() {
+        setUserName()
+        adapter.reloadData(with: sections)
+    }
     
-    private func setUserName() -> String {
+    private func bind() {
+        adapter.didSelectRow = { [weak self] row in
+            switch row {
+            case .notifications: print("Notifications did tapped")
+            case .export: print("Export did tapped")
+            case .logout: self?.logout()
+            }
+        }
+    }
+    
+    private func setUserName() {
         username = authService.getCurrentUserEmail() ?? .Profile.unregistered_user
-        return username
     }
     func logout() {
         alertService.showAlert(title: .AlertBuilder.logout,
                                message: .AlertBuilder.are_you_want_to_logout + "\n\(username)",
                                cancelTitile: .AlertBuilder.cancel,
-                               cancelHandler: nil,
                                cancelStyle: .default,
                                okTitile: .AlertBuilder.logout,
                                okHandler: { [weak self] in
             self?.didSelectLogout()
         }, okStyle: .destructive)
-
     }
     
     private func didSelectLogout() {
@@ -96,27 +102,9 @@ private extension ProfileVM {
                 self?.coordinator?.finish()
             case .failure(let error):
                 self?.alertService.showAlert(title: .AlertBuilder.error,
-                                       message: error.localizedDescription,
-                                       okTitile: .AlertBuilder.ok)
+                                             message: error.localizedDescription,
+                                             okTitile: .AlertBuilder.ok)
             }
         }
-    }
-    
-    func setButtons() {
-        buttons = [
-            .init(title: .Profile.notificactions,
-                              image: .Profile.notificactions,
-                              status: nil, action: { print("notificactions") }),
-            
-            .init(title: .Profile.export,
-                              image: .Profile.export,
-                              status: "Last export: 20 Sep 2023",
-                              action: { print("export") }),
-            
-            .init(title: .Profile.logout,
-                              image: .Profile.logout,
-                              status: nil,
-                  action: { [weak self] in self?.logout() })
-        ]
     }
 }
