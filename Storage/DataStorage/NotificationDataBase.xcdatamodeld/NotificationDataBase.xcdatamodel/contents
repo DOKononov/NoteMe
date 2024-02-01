@@ -10,4 +10,12 @@
     <entity name="DateNotificationMO" representedClassName="DateNotificationMO" parentEntity="BaseNotificationMO" syncable="YES">
         <attribute name="targetDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="LocationNotificationMO" representedClassName="LocationNotificationMO" parentEntity="BaseNotificationMO" syncable="YES">
+        <attribute name="imagePathStr" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="TimerNotificationMO" representedClassName="TimerNotificationMO" parentEntity="BaseNotificationMO" syncable="YES">
+        <attribute name="targetDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
 </model>

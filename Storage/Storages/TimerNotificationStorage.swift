@@ -1,29 +1,29 @@
 //
-//  DateNotificationStorage.swift
+//  TimerNotificationStorage.swift
 //  Storage
 //
-//  Created by Dmitry Kononov on 30.01.24.
+//  Created by Dmitry Kononov on 1.02.24.
 //
 
 import CoreData
 
-public final class DateNotificationStorage {
+public final class TimerNotificationStorage {
     public typealias CompletionHandler = (Bool) -> Void
     public init() {}
     
     //MARK: -fetch
     public func fetch(
         predicate: NSPredicate? = nil,
-        sortDescriptors: [NSSortDescriptor] = [] ) -> [DateNotificationDTO] {
+        sortDescriptors: [NSSortDescriptor] = [] ) -> [TimerNotificationDTO] {
             return fetchMO(predicate: predicate,
                            sortDescriptors: sortDescriptors)
-            .compactMap {DateNotificationDTO(mo: $0) }
+            .compactMap {TimerNotificationDTO(mo: $0) }
         }
     
     private func fetchMO(
         predicate: NSPredicate? = nil,
-        sortDescriptors: [NSSortDescriptor] = [] ) -> [DateNotificationMO] {
-            let request: NSFetchRequest<DateNotificationMO> = DateNotificationMO.fetchRequest()
+        sortDescriptors: [NSSortDescriptor] = [] ) -> [TimerNotificationMO] {
+            let request: NSFetchRequest<TimerNotificationMO> = TimerNotificationMO.fetchRequest()
             let context = CoreDataService.shared.context
             
             let results = try? context.fetch(request)
@@ -32,19 +32,19 @@ public final class DateNotificationStorage {
     
     //MARK: -create
     public func create(
-        dto: DateNotificationDTO,
+        dto: TimerNotificationDTO,
         completion: CompletionHandler? = nil) {
             let context = CoreDataService.shared.context
             context.perform {
-                let mo = DateNotificationMO(context: context)
+                let mo = TimerNotificationMO(context: context)
                 mo.apply(dto: dto)
                 CoreDataService.shared.saveContext(completion: completion)
             }
         }
     
     //MARK: -update
-    public func update(   dto: DateNotificationDTO,
-                          completion: CompletionHandler? = nil) {
+    public func update(dto: TimerNotificationDTO,
+                       completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.context
         context.perform { [weak self] in
             guard let mo = self?.fetchMO(
@@ -55,7 +55,7 @@ public final class DateNotificationStorage {
         }
     }
     
-    func updateOrCreate(dto: DateNotificationDTO,
+    func updateOrCreate(dto: TimerNotificationDTO,
                         completion: CompletionHandler? = nil) {
         if fetchMO(predicate: .Notification.notification(by: dto.id)).isEmpty {
             create(dto: dto, completion: completion)
