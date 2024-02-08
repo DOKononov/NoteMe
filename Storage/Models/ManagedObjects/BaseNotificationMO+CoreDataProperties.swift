@@ -17,13 +17,10 @@ extension BaseNotificationMO {
     }
 
     @NSManaged public var date: Date?
-    @NSManaged public var identifire: String?
+    @NSManaged public var identifier: String?
     @NSManaged public var title: String?
     @NSManaged public var subtitle: String?
     @NSManaged public var completedDate: Date?
-
 }
 
-extension BaseNotificationMO : Identifiable {
-
-}
+extension BaseNotificationMO : Identifiable {}

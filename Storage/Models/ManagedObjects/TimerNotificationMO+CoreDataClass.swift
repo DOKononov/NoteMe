@@ -10,14 +10,20 @@ import Foundation
 import CoreData
 
 @objc(TimerNotificationMO)
- class TimerNotificationMO: BaseNotificationMO {
+public class TimerNotificationMO: BaseNotificationMO {
 
      func apply(dto: TimerNotificationDTO) {
-         self.identifire = dto.id
+         self.identifier = dto.id
          self.date = dto.date
          self.title = dto.title
          self.subtitle = dto.subtitle
          self.completedDate = dto.completedDate
          self.targetDate = dto.targetDate
      }
+}
+
+extension TimerNotificationMO: MOdescription {
+    public func apply(_ dto: any DTODescription) {
+        apply(dto: dto as! TimerNotificationDTO)
+    }
 }

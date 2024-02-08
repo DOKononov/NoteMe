@@ -7,7 +7,10 @@
 
 import Foundation
 
-public struct LocationNotificationDTO {
+public struct LocationNotificationDTO: DTODescription {
+    public typealias DTO = Self
+    public typealias MO = LocationNotificationMO
+    
     public var date: Date
     public var id: String
     public var title: String
@@ -35,15 +38,15 @@ public struct LocationNotificationDTO {
         self.imagePathStr = imagePathStr
     }
     
-    init?(mo: LocationNotificationMO) {
+    public init?(mo: LocationNotificationMO) {
         guard
             let date = mo.date,
-            let identifire = mo.identifire,
+            let identifier = mo.identifier,
             let title = mo.title,
             let imagePathStr = mo.imagePathStr
         else { return nil }
         self.date = date
-        self.id = identifire
+        self.id = identifier
         self.title = title
         self.subtitle = mo.subtitle
         self.completedDate = mo.completedDate

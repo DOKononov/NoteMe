@@ -17,5 +17,4 @@ extension TimerNotificationMO {
     }
 
     @NSManaged public var targetDate: Date?
-
 }

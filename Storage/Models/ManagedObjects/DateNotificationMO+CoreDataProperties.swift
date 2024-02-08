@@ -17,5 +17,4 @@ extension DateNotificationMO {
     }
 
     @NSManaged public var targetDate: Date?
-
 }

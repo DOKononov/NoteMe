@@ -11,7 +11,7 @@ extension NSPredicate {
     
     enum Notification {
         static func notification(by id: String) -> NSPredicate {
-            let idKeypath = #keyPath(BaseNotificationMO.identifire)
+            let idKeypath = #keyPath(BaseNotificationMO.identifier)
             return .init(format: "\(idKeypath) CONTAINS[cd] %@", id)
         }
     }

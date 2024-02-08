@@ -10,6 +10,4 @@ import Foundation
 import CoreData
 
 @objc(BaseNotificationMO)
-class BaseNotificationMO: NSManagedObject {
-    
-}
+public class BaseNotificationMO: NSManagedObject {}
