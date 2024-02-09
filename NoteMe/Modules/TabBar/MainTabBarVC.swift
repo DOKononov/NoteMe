@@ -7,7 +7,11 @@
 
 import UIKit
 
-protocol MainTabBarViewModelProtocol {}
+protocol MainTabBarViewModelProtocol {
+    func makeDateNotification()
+    func makeLocationNotification()
+    func makeTimerNotification()
+}
 final class MainTabBarVC: UITabBarController {
     private var viewModel: MainTabBarViewModelProtocol
     
@@ -35,11 +39,18 @@ private extension MainTabBarVC {
     @objc func addButtonDidPressed() {}
     func setupMenu() {
         let calendar = UIAction(title: .MainTabBar.calendar,
-                                image: UIImage.MainTabBar.calendar) { print($0)}
+                                image: UIImage.MainTabBar.calendar) { [weak self] _ in
+            self?.viewModel.makeDateNotification()
+        }
         let location = UIAction(title: .MainTabBar.location,
-                                image: UIImage.MainTabBar.location) { print($0)}
+                                image: UIImage.MainTabBar.location) { [weak self] _ in
+            self?.viewModel.makeLocationNotification()
+        }
         let timer = UIAction(title: .MainTabBar.timer,
-                                image: UIImage.MainTabBar.timer) { print($0)}
+                             image: UIImage.MainTabBar.timer) { [weak self] _ in
+            self?.viewModel.makeTimerNotification()
+        }
+        
         let menu = UIMenu(children: [timer, location, calendar])
         addButton.menu = menu
         addButton.showsMenuAsPrimaryAction = true

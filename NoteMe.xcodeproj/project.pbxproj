@@ -51,6 +51,18 @@
 		56414AF82AF3A47700A79CDC /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AF72AF3A47700A79CDC /* RegisterVC.swift */; };
 		56414AFA2AF3AB3100A79CDC /* UIViewController+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AF92AF3AB3100A79CDC /* UIViewController+EndEditing.swift */; };
 		56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AFC2AF3B05B00A79CDC /* ResetPasswordVC.swift */; };
+		564BBF5D2B762F0500B53A66 /* DateNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF5C2B762F0500B53A66 /* DateNotificationVC.swift */; };
+		564BBF5F2B762F1300B53A66 /* DateNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF5E2B762F1300B53A66 /* DateNotificationVM.swift */; };
+		564BBF622B76304600B53A66 /* DateNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */; };
+		564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */; };
+		564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */; };
+		564BBF682B76338A00B53A66 /* LocationNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */; };
+		564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */; };
+		564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */; };
+		564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */; };
+		564BBF712B76378000B53A66 /* TimerNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF702B76378000B53A66 /* TimerNotificationVM.swift */; };
+		564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */; };
+		564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */; };
 		565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */; };
 		565E7E3E2B0D124600590556 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E3D2B0D124600590556 /* AppCoordinator.swift */; };
 		565E7E412B0D129C00590556 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E402B0D129C00590556 /* Coordinator.swift */; };
@@ -196,6 +208,18 @@
 		56414AF72AF3A47700A79CDC /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		56414AF92AF3AB3100A79CDC /* UIViewController+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EndEditing.swift"; sourceTree = "<group>"; };
 		56414AFC2AF3B05B00A79CDC /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		564BBF5C2B762F0500B53A66 /* DateNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationVC.swift; sourceTree = "<group>"; };
+		564BBF5E2B762F1300B53A66 /* DateNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationVM.swift; sourceTree = "<group>"; };
+		564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationCoordinator.swift; sourceTree = "<group>"; };
+		564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationAssembler.swift; sourceTree = "<group>"; };
+		564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationVC.swift; sourceTree = "<group>"; };
+		564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationVM.swift; sourceTree = "<group>"; };
+		564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationAssembler.swift; sourceTree = "<group>"; };
+		564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationCoordinator.swift; sourceTree = "<group>"; };
+		564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationVC.swift; sourceTree = "<group>"; };
+		564BBF702B76378000B53A66 /* TimerNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationVM.swift; sourceTree = "<group>"; };
+		564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationCoordinator.swift; sourceTree = "<group>"; };
+		564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationAssembler.swift; sourceTree = "<group>"; };
 		565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Auth.swift"; sourceTree = "<group>"; };
 		565E7E3D2B0D124600590556 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		565E7E402B0D129C00590556 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -453,6 +477,63 @@
 				560F245D2B052E6F00226BAD /* ResetPasswordVM.swift */,
 			);
 			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		564BBF592B762E4B00B53A66 /* CreateDateNotification */ = {
+			isa = PBXGroup;
+			children = (
+				564BBF602B76302B00B53A66 /* Coordinator */,
+				564BBF5C2B762F0500B53A66 /* DateNotificationVC.swift */,
+				564BBF5E2B762F1300B53A66 /* DateNotificationVM.swift */,
+			);
+			path = CreateDateNotification;
+			sourceTree = "<group>";
+		};
+		564BBF5A2B762E7B00B53A66 /* CreateTimerNotification */ = {
+			isa = PBXGroup;
+			children = (
+				564BBF722B76384400B53A66 /* Coordinator */,
+				564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */,
+				564BBF702B76378000B53A66 /* TimerNotificationVM.swift */,
+			);
+			path = CreateTimerNotification;
+			sourceTree = "<group>";
+		};
+		564BBF5B2B762E8C00B53A66 /* CreateLocationNotification */ = {
+			isa = PBXGroup;
+			children = (
+				564BBF692B76339000B53A66 /* Coordinator */,
+				564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */,
+				564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */,
+			);
+			path = CreateLocationNotification;
+			sourceTree = "<group>";
+		};
+		564BBF602B76302B00B53A66 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */,
+				564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		564BBF692B76339000B53A66 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */,
+				564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		564BBF722B76384400B53A66 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */,
+				564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		565DB0D52AFCC69A00625F7C /* Localizations */ = {
@@ -839,11 +920,14 @@
 		56E67DE02AE83D7800248F85 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				56D733E62B1654120025283C /* Onboarding */,
 				56E67DE12AE83D9B00248F85 /* Auth */,
+				56D733E62B1654120025283C /* Onboarding */,
 				56D734022B1799140025283C /* TabBar */,
 				56D7EAED2B28D2BD00F72D2D /* Home */,
 				56D7EAF92B29866600F72D2D /* Profile */,
+				564BBF592B762E4B00B53A66 /* CreateDateNotification */,
+				564BBF5B2B762E8C00B53A66 /* CreateLocationNotification */,
+				564BBF5A2B762E7B00B53A66 /* CreateTimerNotification */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1034,10 +1118,12 @@
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
+				564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
 				563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */,
 				56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */,
 				563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */,
+				564BBF622B76304600B53A66 /* DateNotificationCoordinator.swift in Sources */,
 				56D7EAE52B28C1DB00F72D2D /* AlertService.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
 				56D733F82B165D860025283C /* OnboardSecondStepAssembler.swift in Sources */,
@@ -1046,14 +1132,17 @@
 				566730E42B1F95DD0085D83F /* AuthService.swift in Sources */,
 				56414AEB2AF16EC200A79CDC /* LineTextField.swift in Sources */,
 				56E67DF12AE906F900248F85 /* String+localized.swift in Sources */,
+				564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */,
 				560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */,
 				56D733F02B1657D60025283C /* OnboardFirstStepCoordinator.swift in Sources */,
 				56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */,
 				56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */,
 				56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
+				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
+				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,
 				56D7EAFB2B29867300F72D2D /* ProfileVC.swift in Sources */,
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
@@ -1065,15 +1154,19 @@
 				56D7EAEC2B28D1A600F72D2D /* MainTabBarCoordinator.swift in Sources */,
 				5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */,
 				56D7EB042B2A090000F72D2D /* HomeVM.swift in Sources */,
+				564BBF5F2B762F1300B53A66 /* DateNotificationVM.swift in Sources */,
 				56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
 				562A72372B750E2F00755314 /* Localozation+MainTabBar.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
+				564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */,
+				564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */,
 				56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
 				56D7EAF62B29814000F72D2D /* Localization+Home.swift in Sources */,
+				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
@@ -1100,6 +1193,7 @@
 				5673B3B12B56E0CA004ABFDA /* Container.swift in Sources */,
 				560F245C2B04F74200226BAD /* InputValidator+Register.swift in Sources */,
 				565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */,
+				564BBF682B76338A00B53A66 /* LocationNotificationVM.swift in Sources */,
 				56D733EE2B16572A0025283C /* OnboardFirstStepAssembler.swift in Sources */,
 				56414AF12AF29BAA00A79CDC /* UIView+Styles.swift in Sources */,
 				56D7EB022B298DC600F72D2D /* AlertService+ResetPassword.swift in Sources */,
@@ -1107,7 +1201,9 @@
 				56D734042B1799300025283C /* MainTabBarVC.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 				56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */,
+				564BBF5D2B762F0500B53A66 /* DateNotificationVC.swift in Sources */,
 				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,
+				564BBF712B76378000B53A66 /* TimerNotificationVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

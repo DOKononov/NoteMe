@@ -10,8 +10,8 @@ import UIKit
 final class MainTabBarAssembler {
     private init() {}
     
-    static func make() -> UITabBarController {
-        let viewModel = MainTabBarVM()
+    static func make(coordinator: MainTabBarCoordinatorProtocol?) -> UITabBarController {
+        let viewModel = MainTabBarVM(coordinator: coordinator)
         let tabBar = MainTabBarVC(viewModel: viewModel)
         return tabBar
     }
