@@ -7,9 +7,15 @@
 
 import Foundation
 
-protocol TimerNotificationCoordinatorProtocol: AnyObject {}
+protocol TimerNotificationCoordinatorProtocol: AnyObject {
+    func finish()
+}
 
 final class TimerNotificationVM: TimerNotificationViewModelProtocol {
+    func dismissDidTapped() {
+        coordinator?.finish()
+    }
+    
     
     private weak var coordinator: TimerNotificationCoordinatorProtocol?
     

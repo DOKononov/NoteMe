@@ -24,4 +24,12 @@ extension UILabel {
         label.textColor = .appText
         return label
     }
+    
+    static func notificationTitleLabel(_ title: String?) -> UILabel {
+        let label = UILabel()
+        label.text = title
+        label.font = .appBoldFont.withSize(17)
+        label.textColor = .appText
+        return label
+    }
 }

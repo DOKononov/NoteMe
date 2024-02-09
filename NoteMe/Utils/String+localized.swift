@@ -17,5 +17,8 @@ extension String {
     enum Home {}
     enum Profile {}
     enum MainTabBar {}
+    enum DateNotification {}
+    enum TimerNotification {}
+    enum LocationNotification {}
 }
 

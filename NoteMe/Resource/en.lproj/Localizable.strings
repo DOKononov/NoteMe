@@ -51,4 +51,10 @@
 "are_you_want_to_logout" = "Are you want to logout?";
 "edit" = "Edit";
 "delete" = "Delete";
+"create" = "Create";
+"create_date_notification" = "Create Date Notification";
+"create_timer_notification" = "Create Timer Notification";
+"create_location_notification" = "Create Location Notification";
+
+
 

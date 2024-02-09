@@ -51,3 +51,7 @@
 "are_you_want_to_logout" = "Клеим расход?";
 "edit" = "Редактировать";
 "delete" = "Удалить";
+"create" = "Cоздать";
+"create_date_notification" = "Создать Напоминание по Дате";
+"create_timer_notification" = "Создать Напоминание по Таймеру";
+"create_location_notification" = "Создать Напоминание по Геопозиции";

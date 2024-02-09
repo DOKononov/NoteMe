@@ -8,10 +8,14 @@
 import Foundation
 
 protocol DateNotificationCoordinatorProtocol: AnyObject {
-    
+    func finish()
 }
 
 final class DateNotificationVM: DateNotificationViewModelProtocol {
+    func dismissDidTapped() {
+        coordinator?.finish()
+    }
+    
     private weak var coordinator: DateNotificationCoordinatorProtocol?
     
     init(coordinator: DateNotificationCoordinatorProtocol) {

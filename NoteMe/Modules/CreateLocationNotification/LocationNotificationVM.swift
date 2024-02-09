@@ -7,9 +7,15 @@
 
 import Foundation
 
-protocol LocationNotificatioCoordinatorProtocol: AnyObject {}
+protocol LocationNotificatioCoordinatorProtocol: AnyObject {
+    func finish()
+}
 
 final class LocationNotificationVM: LocationNotificationViewModelProtocol {
+    func dismissDidTapped() {
+        coordinator?.finish()
+    }
+    
     
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
 
