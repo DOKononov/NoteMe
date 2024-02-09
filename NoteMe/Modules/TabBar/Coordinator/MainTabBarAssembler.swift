@@ -11,7 +11,8 @@ final class MainTabBarAssembler {
     private init() {}
     
     static func make() -> UITabBarController {
-        let tabBar = MainTabBarVC()
+        let viewModel = MainTabBarVM()
+        let tabBar = MainTabBarVC(viewModel: viewModel)
         return tabBar
     }
 }

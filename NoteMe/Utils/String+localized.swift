@@ -16,5 +16,6 @@ extension String {
     enum AlertBuilder {}
     enum Home {}
     enum Profile {}
+    enum MainTabBar {}
 }
 

@@ -25,6 +25,8 @@
 		56197ECB2B73E35000414DD4 /* DTODescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56197ECA2B73E35000414DD4 /* DTODescription.swift */; };
 		56197ECD2B73E41200414DD4 /* NotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56197ECC2B73E41200414DD4 /* NotificationStorage.swift */; };
 		56197ED02B73F5FA00414DD4 /* FRCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56197ECF2B73F5FA00414DD4 /* FRCService.swift */; };
+		562A72352B75091000755314 /* MainTabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A72342B75091000755314 /* MainTabBarVM.swift */; };
+		562A72372B750E2F00755314 /* Localozation+MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */; };
 		562E67002B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E66FC2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift */; };
 		562E67012B6BD34100F90EC0 /* TimerNotificationMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E66FD2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataProperties.swift */; };
 		562E67022B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E66FE2B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift */; };
@@ -168,6 +170,8 @@
 		56197ECA2B73E35000414DD4 /* DTODescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTODescription.swift; sourceTree = "<group>"; };
 		56197ECC2B73E41200414DD4 /* NotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationStorage.swift; sourceTree = "<group>"; };
 		56197ECF2B73F5FA00414DD4 /* FRCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRCService.swift; sourceTree = "<group>"; };
+		562A72342B75091000755314 /* MainTabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVM.swift; sourceTree = "<group>"; };
+		562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localozation+MainTabBar.swift"; sourceTree = "<group>"; };
 		562E66FC2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotificationMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		562E66FD2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotificationMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		562E66FE2B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationNotificationMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -459,6 +463,7 @@
 				56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */,
 				56D7EAF52B29814000F72D2D /* Localization+Home.swift */,
 				56D7EAF72B29817200F72D2D /* Localization+Profile.swift */,
+				562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */,
 			);
 			path = Localizations;
 			sourceTree = "<group>";
@@ -711,6 +716,7 @@
 			children = (
 				56D7EAE82B28D0A200F72D2D /* Coordinator */,
 				56D734032B1799300025283C /* MainTabBarVC.swift */,
+				562A72342B75091000755314 /* MainTabBarVM.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -1021,6 +1027,7 @@
 				5640A34A2B35C9D00052E7D0 /* AuthService+Profile.swift in Sources */,
 				565E7E412B0D129C00590556 /* Coordinator.swift in Sources */,
 				56BFC9782B69563E00B47FE2 /* Collection+Register.swift in Sources */,
+				562A72352B75091000755314 /* MainTabBarVM.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
 				56D7EAFE2B29874700F72D2D /* ProfileAssembler.swift in Sources */,
 				5673B3B62B56EFF8004ABFDA /* WindowManager.swift in Sources */,
@@ -1060,6 +1067,7 @@
 				56D7EB042B2A090000F72D2D /* HomeVM.swift in Sources */,
 				56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
+				562A72372B750E2F00755314 /* Localozation+MainTabBar.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,

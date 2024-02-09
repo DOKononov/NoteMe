@@ -28,4 +28,12 @@ extension UIImage {
         static let logout: UIImage = .init(named: "logout")!
         static let notificactions: UIImage = .init(named: "notificactions")!
     }
+    
+    enum MainTabBar {
+        static let calendar: UIImage = .init(named: "calendar")!
+        static let delete: UIImage = .init(named: "delete")!
+        static let edit: UIImage = .init(named: "edit")!
+        static let location: UIImage = .init(named: "location")!
+        static let timer: UIImage = .init(named: "timer")!
+    }
 }
