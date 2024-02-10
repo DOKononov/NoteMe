@@ -55,6 +55,13 @@
 "create_date_notification" = "Create Date Notification";
 "create_timer_notification" = "Create Timer Notification";
 "create_location_notification" = "Create Location Notification";
+"title" = "Title";
+"enterTitle" = "Enter Title";
+"date" = "Date";
+"enterDate" = "Enter Date";
+"comment" = "Comment";
+"enterComment" = "Enter Comment";
+
 
 
 

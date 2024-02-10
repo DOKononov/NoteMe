@@ -22,6 +22,27 @@ final class DateNotificationVC: UIViewController {
     
     private lazy var infoView: UIView = .infoView()
     
+    private lazy var titleView: LineTextField = {
+       let titleView = LineTextField()
+        titleView.title = .DateNotification.title
+        titleView.placeholder = .DateNotification.enterTitle
+        return titleView
+    }()
+    
+    private lazy var dateView: LineTextField = {
+       let titleView = LineTextField()
+        titleView.title = .DateNotification.date
+        titleView.placeholder = .DateNotification.enterDate
+        return titleView
+    }()
+    
+    private lazy var commentView: CommentTextView = {
+       let titleView = CommentTextView()
+        titleView.title = .DateNotification.comment
+        titleView.placeholder = .DateNotification.enterComment
+        return titleView
+    }()
+    
     private lazy var createButton: UIButton =
         .yellowRoundedButton(.DateNotification.create)
     
@@ -43,13 +64,15 @@ final class DateNotificationVC: UIViewController {
     }
 }
 
-
 private extension DateNotificationVC {
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
+        infoView.addSubview(titleView)
+        infoView.addSubview(dateView)
+        infoView.addSubview(commentView)
         view.addSubview(createButton)
         view.addSubview(cancelButton)
         setupConstraints()
@@ -67,17 +90,27 @@ private extension DateNotificationVC {
             make.top.equalToSuperview().inset(20)
             make.bottom.equalTo(infoView.snp.top).inset(-10)
         }
-   
+        
         infoView.snp.makeConstraints { make in
-            make.height.equalTo(150) //TODO: delete
             make.horizontalEdges.equalToSuperview().inset(16)
         }
+        
+        titleView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.top.equalToSuperview().inset(16)
+        }
+        
+        dateView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.top.equalTo(titleView.snp.bottom).inset(-16)
+        }
+        
+        commentView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.top.equalTo(dateView.snp.bottom).inset(-16)
+            make.bottom.equalToSuperview().inset(16)
+        }
 
-
-        
-        
-        
-        
         createButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(45)

@@ -55,3 +55,9 @@
 "create_date_notification" = "Создать Напоминание по Дате";
 "create_timer_notification" = "Создать Напоминание по Таймеру";
 "create_location_notification" = "Создать Напоминание по Геопозиции";
+"title" = "Название";
+"enterTitle" = "Введите Название";
+"date" = "Дата";
+"enterDate" = "Укажите Дату";
+"comment" = "Описание";
+"enterComment" = "Добавьте Описание";
