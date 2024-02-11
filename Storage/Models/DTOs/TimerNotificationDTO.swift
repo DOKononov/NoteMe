@@ -23,7 +23,7 @@ public struct TimerNotificationDTO: DTODescription {
     }
     
     public init(date: Date, 
-                id: String,
+                id: String = UUID().uuidString,
                 title: String,
                 subtitle: String? = nil,
                 completedDate: Date? = nil,

@@ -9,7 +9,12 @@ import UIKit
 import SnapKit
 
 @objc protocol DateNotificationViewModelProtocol: AnyObject {
+    var catchTitleError: ((String?) -> Void)? { get set }
+    var catchDateError: ((String?) -> Void)? { get set }
+    
     func dismissDidTapped()
+    func createDidTapped(title: String?, date: Date?, comment: String?)
+    
 }
 
 final class DateNotificationVC: UIViewController {
@@ -30,10 +35,11 @@ final class DateNotificationVC: UIViewController {
     }()
     
     private lazy var dateView: LineTextField = {
-       let titleView = LineTextField()
-        titleView.title = .DateNotification.date
-        titleView.placeholder = .DateNotification.enterDate
-        return titleView
+       let dateView = LineTextField()
+        dateView.title = .DateNotification.date
+        
+        dateView.placeholder = .DateNotification.enterDate
+        return dateView
     }()
     
     private lazy var commentView: CommentTextView = {
@@ -45,6 +51,7 @@ final class DateNotificationVC: UIViewController {
     
     private lazy var createButton: UIButton =
         .yellowRoundedButton(.DateNotification.create)
+        .withAction(self, #selector(createDidTapped))
     
     private lazy var cancelButton: UIButton =
         .appCancelButton()
@@ -61,9 +68,27 @@ final class DateNotificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bind()
+    }
+    
+    private func bind() {
+        viewModel.catchDateError = { [weak self] error in
+            self?.dateView.errorText = error
+        }
+        
+        viewModel.catchTitleError = { [weak self] error in
+            self?.titleView.errorText = error
+        }
+    }
+    
+    @objc private func createDidTapped() {
+        viewModel.createDidTapped(title: titleView.text,
+                                  date: nil, //TODO
+                                  comment: commentView.text)
     }
 }
 
+//MARK: -setupUI
 private extension DateNotificationVC {
     func setupUI() {
         view.backgroundColor = .appBlack

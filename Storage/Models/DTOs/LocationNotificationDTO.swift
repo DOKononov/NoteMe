@@ -21,7 +21,7 @@ public struct LocationNotificationDTO: DTODescription {
     public var imagePathStr: String
     
     public init(date: Date,
-                id: String,
+                id: String = UUID().uuidString,
                 title: String,
                 subtitle: String? = nil,
                 completedDate: Date? = nil,

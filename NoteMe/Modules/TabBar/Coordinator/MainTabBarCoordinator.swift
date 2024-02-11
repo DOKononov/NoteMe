@@ -45,7 +45,7 @@ final class MainTabBarCoordinator: Coordinator {
 
 extension MainTabBarCoordinator: MainTabBarCoordinatorProtocol {
     func openNewDateNotification() {
-            let coodinator = DateNotificationCoordinator()
+            let coodinator = DateNotificationCoordinator(container: container)
             chidren.append(coodinator)
             let vc = coodinator.start()
             

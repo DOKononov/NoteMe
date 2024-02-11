@@ -11,7 +11,7 @@ import SnapKit
 final class AppDatePickerView: UIView {
     
     private lazy var cancelButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Cancel", for: .normal)
         button.setTitleColor(.appYellow, for: .normal)
         button.setTitleColor(.appYellow.withAlphaComponent(0.7), for: .highlighted)
@@ -21,7 +21,7 @@ final class AppDatePickerView: UIView {
     }()
     
     private lazy var selectButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.setTitle("Select", for: .normal)
         button.setTitleColor(.appYellow, for: .normal)
         button.setTitleColor(.appYellow.withAlphaComponent(0.7), for: .highlighted)
@@ -33,11 +33,7 @@ final class AppDatePickerView: UIView {
     private lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
-        if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = .wheels
-        } else {
-            // Fallback on earlier versions
-        }
+        datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = .white
         datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         return datePicker

@@ -41,11 +41,6 @@ final class CommentTextView: UIView {
         set { textView.text = newValue }
     }
     
-    var delegate: UITextViewDelegate? {
-        get { textView.delegate }
-        set { textView.delegate = newValue }
-    }
-    
     init() {
         super.init(frame: .zero)
         commonInit()
