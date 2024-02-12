@@ -10,22 +10,18 @@ import Foundation
 import CoreData
 
 @objc(LocationNotificationMO)
- public class LocationNotificationMO: BaseNotificationMO {
-
-     func apply(dto: LocationNotificationDTO) {
-         self.identifier = dto.id
-         self.date = dto.date
-         self.title = dto.title
-         self.subtitle = dto.subtitle
-         self.completedDate = dto.completedDate
-         self.latitude = dto.latitude
-         self.longitude = dto.longitude
-         self.imagePathStr = dto.imagePathStr
-     }
-}
-
-extension LocationNotificationMO: MOdescription {
-    public func apply(_ dto: any DTODescription) {
-        apply(dto: dto as! LocationNotificationDTO)
+public class LocationNotificationMO: BaseNotificationMO, MOdescription {
+    public typealias DTO = LocationNotificationDTO
+    
+    public func apply(dto: DTO) {
+        self.identifier = dto.id
+        self.date = dto.date
+        self.title = dto.title
+        self.subtitle = dto.subtitle
+        self.completedDate = dto.completedDate
+        self.latitude = dto.latitude
+        self.longitude = dto.longitude
+        self.imagePathStr = dto.imagePathStr
     }
 }
+

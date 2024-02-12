@@ -33,32 +33,32 @@ public class NotificationStorage<DTO: DTODescription> {
     
     //MARK: -create
     public func create(
-        dto: DTO,
+        dto: DTO.MO.DTO,
         completion: CompletionHandler? = nil) {
             let context = CoreDataService.shared.backgroundContext
             context.perform {
                 let mo = DTO.MO(context: context)
-                mo.apply(dto)
+                mo.apply(dto: dto)
                 CoreDataService.shared.saveContext(context: context,
                                                    completion: completion)
             }
         }
     
     //MARK: -update
-    public func update(dto: DTO,
+    public func update(dto: DTO.MO.DTO,
                        completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.backgroundContext
         context.perform { [weak self] in
             guard let mo = self?.fetchMO(
                 predicate: .Notification.notification(by: dto.id)).first
             else { return }
-            mo.apply(dto)
+            mo.apply(dto: dto)
             CoreDataService.shared.saveContext(context: context,
                                                completion: completion)
         }
     }
     
-    func updateOrCreate(dto: DTO,
+    func updateOrCreate(dto: DTO.MO.DTO,
                         completion: CompletionHandler? = nil) {
         if fetchMO(predicate: .Notification.notification(by: dto.id)).isEmpty {
             create(dto: dto, completion: completion)

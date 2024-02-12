@@ -17,5 +17,7 @@ public protocol DTODescription {
 }
 
 public protocol MOdescription: NSManagedObject, NSFetchRequestResult {
-    func apply(_ dto: any DTODescription)
+    associatedtype DTO: DTODescription
+    
+    func apply(dto: DTO)
 }
