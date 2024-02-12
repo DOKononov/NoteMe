@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560E12172B79390D00FE0C75 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E12162B79390D00FE0C75 /* PopoverVC.swift */; };
+		560E12192B79397600FE0C75 /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E12182B79397600FE0C75 /* PopoverCell.swift */; };
+		560E121B2B7942EA00FE0C75 /* PopoverRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E121A2B7942EA00FE0C75 /* PopoverRow.swift */; };
 		560F244E2B03DB8700226BAD /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F244D2B03DB8700226BAD /* RegisterPresenter.swift */; };
 		560F24502B03E0B500226BAD /* RegisterAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F244F2B03E0B500226BAD /* RegisterAssembler.swift */; };
 		560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24522B03E52C00226BAD /* KeyboardHelper.swift */; };
@@ -167,6 +170,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		560E12162B79390D00FE0C75 /* PopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
+		560E12182B79397600FE0C75 /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
+		560E121A2B7942EA00FE0C75 /* PopoverRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverRow.swift; sourceTree = "<group>"; };
 		560F244D2B03DB8700226BAD /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		560F244F2B03E0B500226BAD /* RegisterAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembler.swift; sourceTree = "<group>"; };
 		560F24522B03E52C00226BAD /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
@@ -324,6 +330,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		560E12152B7938F000FE0C75 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				560E12162B79390D00FE0C75 /* PopoverVC.swift */,
+				560E121A2B7942EA00FE0C75 /* PopoverRow.swift */,
+				560E12182B79397600FE0C75 /* PopoverCell.swift */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
 		560F24512B03E50C00226BAD /* KeyboardHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -932,6 +948,7 @@
 		56E67DE02AE83D7800248F85 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				560E12152B7938F000FE0C75 /* Popover */,
 				56E67DE12AE83D9B00248F85 /* Auth */,
 				56D733E62B1654120025283C /* Onboarding */,
 				56D734022B1799140025283C /* TabBar */,
@@ -1132,6 +1149,7 @@
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
+				560E12172B79390D00FE0C75 /* PopoverVC.swift in Sources */,
 				563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */,
 				56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */,
 				563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */,
@@ -1159,6 +1177,7 @@
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,
 				56D7EAFB2B29867300F72D2D /* ProfileVC.swift in Sources */,
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
+				560E121B2B7942EA00FE0C75 /* PopoverRow.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
 				565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */,
@@ -1180,6 +1199,7 @@
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
 				56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */,
+				560E12192B79397600FE0C75 /* PopoverCell.swift in Sources */,
 				56D7EAF62B29814000F72D2D /* Localization+Home.swift in Sources */,
 				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,

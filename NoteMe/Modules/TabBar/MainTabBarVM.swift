@@ -21,15 +21,21 @@ final class MainTabBarVM: MainTabBarViewModelProtocol {
         self.coordinator = coordinator
     }
     
-    func makeDateNotification() {
+}
+
+extension MainTabBarVM: PopoverVCDelegate {
+    func didSelectCalendar() {
         coordinator?.openNewDateNotification()
     }
-    
-    func makeLocationNotification() {
+    func didSelectLocation() {
         coordinator?.openNewLocationNotification()
     }
     
-    func makeTimerNotification() {
+    func didSelectTimer() {
         coordinator?.openNewTimerNotification()
     }
+    
+    func didSelectDelete() {}
+    
+    func didSelectEdit() {}
 }

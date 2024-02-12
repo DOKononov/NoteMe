@@ -7,17 +7,14 @@
 
 import UIKit
 
-protocol MainTabBarViewModelProtocol {
-    func makeDateNotification()
-    func makeLocationNotification()
-    func makeTimerNotification()
-}
+protocol MainTabBarViewModelProtocol: PopoverVCDelegate { }
 final class MainTabBarVC: UITabBarController {
     private var viewModel: MainTabBarViewModelProtocol
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setImage(.General.tabBarAddButton, for: .normal)
+        button.addTarget(self, action: #selector(addButtonDidPressed), for: .touchUpInside)
         return button
     }()
     
@@ -36,24 +33,10 @@ final class MainTabBarVC: UITabBarController {
 
 //MARK: -private methods
 private extension MainTabBarVC {
-    @objc func addButtonDidPressed() {}
-    func setupMenu() {
-        let calendar = UIAction(title: .MainTabBar.calendar,
-                                image: UIImage.MainTabBar.calendar) { [weak self] _ in
-            self?.viewModel.makeDateNotification()
-        }
-        let location = UIAction(title: .MainTabBar.location,
-                                image: UIImage.MainTabBar.location) { [weak self] _ in
-            self?.viewModel.makeLocationNotification()
-        }
-        let timer = UIAction(title: .MainTabBar.timer,
-                             image: UIImage.MainTabBar.timer) { [weak self] _ in
-            self?.viewModel.makeTimerNotification()
-        }
-        
-        let menu = UIMenu(children: [timer, location, calendar])
-        addButton.menu = menu
-        addButton.showsMenuAsPrimaryAction = true
+    @objc func addButtonDidPressed() {
+        let vc = PopoverVC.make(type: .create, for: addButton)
+        vc.delegate = viewModel
+        present(vc, animated: true)
     }
 }
 
@@ -66,8 +49,6 @@ private extension MainTabBarVC {
         tabBar.backgroundColor = .appBlack
         tabBar.unselectedItemTintColor = .appGray
         
-        setupMenu()
-
         addButton.snp.makeConstraints { make in
             make.size.equalTo(50)
             make.centerX.equalToSuperview()
