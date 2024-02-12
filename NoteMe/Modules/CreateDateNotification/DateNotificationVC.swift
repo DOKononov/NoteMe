@@ -12,8 +12,13 @@ import SnapKit
     var catchTitleError: ((String?) -> Void)? { get set }
     var catchDateError: ((String?) -> Void)? { get set }
     
+    var title: String? { get set }
+    var date: Date? { get set }
+    var comment: String? { get set }
+    func string(from date: Date?) -> String?
+    
     func dismissDidTapped()
-    func createDidTapped(title: String?, date: Date?, comment: String?)
+    func createDidTapped()
     
 }
 
@@ -28,25 +33,26 @@ final class DateNotificationVC: UIViewController {
     private lazy var infoView: UIView = .infoView()
     
     private lazy var titleView: LineTextField = {
-       let titleView = LineTextField()
+        let titleView = LineTextField()
         titleView.title = .DateNotification.title
+        titleView.delegate = self
         titleView.placeholder = .DateNotification.enterTitle
         return titleView
     }()
     
     private lazy var dateView: LineTextField = {
-       let dateView = LineTextField()
+        let dateView = LineTextField()
         dateView.title = .DateNotification.date
-        
         dateView.placeholder = .DateNotification.enterDate
         return dateView
     }()
     
     private lazy var commentView: CommentTextView = {
-       let titleView = CommentTextView()
-        titleView.title = .DateNotification.comment
-        titleView.placeholder = .DateNotification.enterComment
-        return titleView
+        let commentView = CommentTextView()
+        commentView.title = .DateNotification.comment
+        commentView.placeholder = .DateNotification.enterComment
+        commentView.delegate = self
+        return commentView
     }()
     
     private lazy var createButton: UIButton =
@@ -61,14 +67,22 @@ final class DateNotificationVC: UIViewController {
     init(viewModel: DateNotificationViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        
     }
-
+    
+    private func setupDatePickerInputView() {
+        let datePicker = AppDatePickerView(.date)
+        datePicker.delegate = self
+        dateView.inputView = datePicker
+    }
+    
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         bind()
+        setupDatePickerInputView()
     }
     
     private func bind() {
@@ -82,9 +96,7 @@ final class DateNotificationVC: UIViewController {
     }
     
     @objc private func createDidTapped() {
-        viewModel.createDidTapped(title: titleView.text,
-                                  date: nil, //TODO
-                                  comment: commentView.text)
+        viewModel.createDidTapped()
     }
 }
 
@@ -109,7 +121,7 @@ private extension DateNotificationVC {
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.bottom.equalTo(createButton.snp.centerY)
         }
-
+        
         titleLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalToSuperview().inset(20)
@@ -135,18 +147,50 @@ private extension DateNotificationVC {
             make.top.equalTo(dateView.snp.bottom).inset(-16)
             make.bottom.equalToSuperview().inset(16)
         }
-
+        
         createButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(45)
             make.bottom.equalTo(cancelButton.snp.top).inset(-8)
         }
- 
+        
         cancelButton.snp.makeConstraints { make in
             make.horizontalEdges.greaterThanOrEqualToSuperview().inset(20)
             make.centerX.equalToSuperview()
             make.height.equalTo(45)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+}
+
+//MARK: -LineTextFieldDelegate
+extension DateNotificationVC: LineTextFieldDelegate {
+    func lineTextFieldDidChangeSelection(_ lineTextField: LineTextField) {
+        if lineTextField == titleView {
+            viewModel.title = lineTextField.text
+        }
+    }
+}
+
+//MARK: -CommentTextViewDelegate
+extension DateNotificationVC: CommentTextViewDelegate {
+    func commentTextViewDidChangeSelection(_ commentTextView: CommentTextView) {
+        viewModel.comment = commentTextView.text
+    }
+}
+
+//MARK: -AppDatePickerViewDelegate
+extension DateNotificationVC: AppDatePickerViewDelegate {
+    func datePickerValueChanged(date: Date?) {
+        viewModel.date = date
+        dateView.text = viewModel.string(from: date)
+    }
+    
+    func cancelDidTapped() {
+        view.endEditing(true)
+    }
+    
+    func selectDidTapped() {
+        view.endEditing(true)
     }
 }

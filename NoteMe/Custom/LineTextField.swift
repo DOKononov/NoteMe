@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol LineTextFieldDelegate: AnyObject {
+    func lineTextFieldDidChangeSelection(_ lineTextField: LineTextField)
+}
+
 final class LineTextField: UIView {
     
     private lazy var titleLabel: UILabel = {
@@ -26,6 +30,7 @@ final class LineTextField: UIView {
         textfield.font = .appFont.withSize(15)
         textfield.textColor = .appText
         textfield.textAlignment = .left
+        textfield.delegate = self
         return textfield
     }()
     
@@ -66,10 +71,7 @@ final class LineTextField: UIView {
         set { textField.text = newValue }
     }
     
-    var delegate: UITextFieldDelegate? {
-        get { textField.delegate }
-        set { textField.delegate = newValue }
-    }
+    weak var delegate: LineTextFieldDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -79,6 +81,11 @@ final class LineTextField: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
+    }
+    
+    override var inputView: UIView? {
+        get { textField.inputView }
+        set { textField.inputView = newValue }
     }
     
     private func commonInit() {
@@ -168,5 +175,12 @@ extension LineTextField {
         }) { [weak self] _ in
             self?.errorLabel.textColor = .appRed
         }
+    }
+}
+
+//MARK: -UITextFieldDelegate
+extension LineTextField: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        delegate?.lineTextFieldDidChangeSelection(self)
     }
 }

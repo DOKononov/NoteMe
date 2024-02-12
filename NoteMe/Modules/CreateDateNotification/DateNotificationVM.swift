@@ -14,11 +14,15 @@ protocol DateNotificationCoordinatorProtocol: AnyObject {
 
 final class DateNotificationVM: DateNotificationViewModelProtocol {
     private weak var coordinator: DateNotificationCoordinatorProtocol?
+    private let storage: DateNotificationStorage
+    
+    var title: String? { didSet {checkValidation()} }
+    var date: Date? { didSet {checkValidation()} }
+    var comment: String?
 
     var catchTitleError: ((String?) -> Void)?
     var catchDateError: ((String?) -> Void)?
     
-    private let storage: DateNotificationStorage
     
     init(coordinator: DateNotificationCoordinatorProtocol,
          storage: DateNotificationStorage
@@ -27,8 +31,8 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
         self.storage = storage
     }
     
-    func createDidTapped(title: String?, date: Date?, comment: String?) {
-        guard checkValidation(title: title, date: date) else { return }
+    func createDidTapped() {
+        guard checkValidation() else { return }
         guard let title, let date  else { return }
          let dto = DateNotificationDTO(date: Date(),
                                        title: title,
@@ -38,6 +42,13 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
         coordinator?.finish()
     }
     
+    func string(from date: Date?) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        guard let date else { return nil}
+        return dateFormatter.string(from: date)
+    }
+    
     func dismissDidTapped() {
         coordinator?.finish()
     }
@@ -45,15 +56,16 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
 
 //MARK: -private methods
 private extension DateNotificationVM {
-    func checkValidation(title: String?, date: Date?) -> Bool {
-        catchTitleError?(isValid(title) ? nil : "ERROR")
-        catchDateError?(isValid(date) ? nil: "ERROR")
+    @discardableResult
+    func checkValidation() -> Bool {
+        catchTitleError?(isValid(title) ? nil : .DateNotification.enterTitle)
+        catchDateError?(isValid(date) ? nil: .DateNotification.enterDate)
         return isValid(title) && isValid(date)
     }
     
     func isValid(_ title: String?) -> Bool {
         if let title {
-            return !title.isEmpty
+            return (!title.isEmpty) && (title != "")
         } else {
             return false
         }

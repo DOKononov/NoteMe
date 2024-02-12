@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol CommentTextViewDelegate: AnyObject {
+    func commentTextViewDidChangeSelection(_ commentTextView: CommentTextView)
+}
+
 final class CommentTextView: UIView {
     
     private lazy var titleLabel: UILabel = {
@@ -40,6 +44,8 @@ final class CommentTextView: UIView {
         get { textView.text }
         set { textView.text = newValue }
     }
+    
+    weak var delegate: CommentTextViewDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -81,6 +87,10 @@ extension CommentTextView: UITextViewDelegate {
         if textView.text == placeholder {
             removePlaceholder()
         }
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        delegate?.commentTextViewDidChangeSelection(self)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

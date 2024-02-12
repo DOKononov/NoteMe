@@ -8,6 +8,12 @@
 import UIKit
 import SnapKit
 
+protocol AppDatePickerViewDelegate: AnyObject {
+    func datePickerValueChanged(date: Date?)
+    func cancelDidTapped()
+    func selectDidTapped()
+}
+
 final class AppDatePickerView: UIView {
     
     private lazy var cancelButton: UIButton = {
@@ -32,15 +38,17 @@ final class AppDatePickerView: UIView {
     
     private lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = .white
         datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         return datePicker
     }()
     
-    init() {
+    weak var delegate: AppDatePickerViewDelegate?
+    
+    init(_ datePickerMode: UIDatePicker.Mode) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 280))
+        datePicker.datePickerMode = datePickerMode
         setupUI()
         setupLayouts()
     }
@@ -52,18 +60,15 @@ final class AppDatePickerView: UIView {
 //MARK: -private methods
 extension AppDatePickerView {
     @objc private func cancelButtonDidPressed() {
-        print(#function)
+        delegate?.cancelDidTapped()
     }
     
     @objc private func selectButtonDidPressed() {
-        print(#function)
+        delegate?.selectDidTapped()
     }
     
     @objc private func datePickerValueChanged(sender: UIDatePicker) {
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "dd.MM.yyyy"
-        let date = dateFormater.string(from: sender.date)
-        print(date)
+        delegate?.datePickerValueChanged(date: sender.date)
     }
 }
 
