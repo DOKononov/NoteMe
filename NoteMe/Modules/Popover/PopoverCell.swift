@@ -46,7 +46,6 @@ final class PopoverCell: UITableViewCell {
         }
         
         cellImageView.snp.makeConstraints { make in
-            make.size.equalTo(24)
             make.leading.equalTo(cellTitleLable.snp.trailing).inset(8)
             make.verticalEdges.equalToSuperview().inset(8)
             make.trailing.equalToSuperview().inset(16)

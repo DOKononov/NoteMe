@@ -58,8 +58,8 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
 private extension DateNotificationVM {
     @discardableResult
     func checkValidation() -> Bool {
-        catchTitleError?(isValid(title) ? nil : .DateNotification.enterTitle)
-        catchDateError?(isValid(date) ? nil: .DateNotification.enterDate)
+        catchTitleError?(isValid(title) ? nil : .Notification.enter_title)
+        catchDateError?(isValid(date) ? nil: .Notification.enter_date)
         return isValid(title) && isValid(date)
     }
     

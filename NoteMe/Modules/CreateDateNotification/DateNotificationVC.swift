@@ -28,35 +28,35 @@ final class DateNotificationVC: UIViewController {
     private lazy var contentView: UIView = .contentView()
     private lazy var titleLabel: UILabel =
         .notificationTitleLabel(
-            .DateNotification.create_date_notification)
+            .Notification.create_date_notification)
     
     private lazy var infoView: UIView = .infoView()
     
     private lazy var titleView: LineTextField = {
         let titleView = LineTextField()
-        titleView.title = .DateNotification.title
+        titleView.title = .Notification.title
         titleView.delegate = self
-        titleView.placeholder = .DateNotification.enterTitle
+        titleView.placeholder = .Notification.enter_title
         return titleView
     }()
     
     private lazy var dateView: LineTextField = {
         let dateView = LineTextField()
-        dateView.title = .DateNotification.date
-        dateView.placeholder = .DateNotification.enterDate
+        dateView.title = .Notification.date
+        dateView.placeholder = .Notification.enter_date
         return dateView
     }()
     
     private lazy var commentView: CommentTextView = {
         let commentView = CommentTextView()
-        commentView.title = .DateNotification.comment
-        commentView.placeholder = .DateNotification.enterComment
+        commentView.title = .Notification.comment
+        commentView.placeholder = .Notification.enter_comment
         commentView.delegate = self
         return commentView
     }()
     
     private lazy var createButton: UIButton =
-        .yellowRoundedButton(.DateNotification.create)
+        .yellowRoundedButton(.Notification.create)
         .withAction(self, #selector(createDidTapped))
     
     private lazy var cancelButton: UIButton =

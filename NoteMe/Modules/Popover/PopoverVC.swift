@@ -28,6 +28,7 @@ final class PopoverVC: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
+        tableView.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorStyle = .singleLine
         return tableView
     }()

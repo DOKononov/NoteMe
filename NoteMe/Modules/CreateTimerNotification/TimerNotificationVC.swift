@@ -7,8 +7,12 @@
 
 import UIKit
 
-@objc protocol TimerNotificationViewModelProtocol: AnyObject {
+protocol TimerNotificationViewModelProtocol: AnyObject {
+    var title: String? { get set }
+    var comment: String? { get set }
+    var timeinterval: Double? { get set }
     func dismissDidTapped()
+    func createDidTapped()
 }
 
 final class TimerNotificationVC: UIViewController {
@@ -17,16 +21,39 @@ final class TimerNotificationVC: UIViewController {
     private lazy var contentView: UIView = .contentView()
     private lazy var titleLabel: UILabel = 
         .notificationTitleLabel(
-        .TimerNotification.create_timer_notification)
+        .Notification.create_timer_notification)
     private lazy var infoView: UIView = .infoView()
     
+    private lazy var titleView: LineTextField = {
+       let titleView = LineTextField()
+        titleView.title = .Notification.title
+        titleView.placeholder = .Notification.enter_title
+        titleView.delegate = self
+        return titleView
+    }()
+    
+    private lazy var timerView: LineTextField = {
+        let timerView = LineTextField()
+        timerView.title = .Notification.timer
+        timerView.placeholder = .Notification.enter_timer
+        return timerView
+    }()
+    
+    private lazy var commentView: CommentTextView = {
+       let commentView = CommentTextView()
+        commentView.delegate = self
+        commentView.title = .Notification.comment
+        commentView.placeholder = .Notification.enter_comment
+        return commentView
+    }()
+    
     private lazy var createButton: UIButton =
-        .yellowRoundedButton(.TimerNotification.create)
+        .yellowRoundedButton(.Notification.create)
+        .withAction(self, #selector(createDidTapped))
     
     private lazy var cancelButton: UIButton =
         .appCancelButton()
-        .withAction(viewModel,
-                    #selector(TimerNotificationViewModelProtocol.dismissDidTapped))
+        .withAction(self, #selector(dismissDidTapped))
     
     
     init(viewModel: TimerNotificationViewModelProtocol) {
@@ -40,6 +67,14 @@ final class TimerNotificationVC: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    @objc private func dismissDidTapped() {
+        viewModel.dismissDidTapped()
+    }
+    
+    @objc private func createDidTapped() {
+        viewModel.createDidTapped()
+    }
 }
 
 
@@ -49,6 +84,9 @@ private extension TimerNotificationVC {
         view.addSubview(contentView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
+        infoView.addSubview(titleView)
+        infoView.addSubview(timerView)
+        infoView.addSubview(commentView)
         view.addSubview(createButton)
         view.addSubview(cancelButton)
         setupConstraints()
@@ -68,14 +106,22 @@ private extension TimerNotificationVC {
         }
    
         infoView.snp.makeConstraints { make in
-            make.height.equalTo(150) //TODO: delete
             make.horizontalEdges.equalToSuperview().inset(16)
         }
 
-
+        titleView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalToSuperview().inset(16)
+        }
         
+        timerView.snp.makeConstraints { make in
+            make.top.equalTo(titleView.snp.bottom).inset(-16)
+            make.horizontalEdges.equalToSuperview().inset(16)
+        }
         
-        
+        commentView.snp.makeConstraints { make in
+            make.top.equalTo(timerView.snp.bottom).inset(-16)
+            make.horizontalEdges.bottom.equalToSuperview().inset(16)
+        }
         
         createButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
@@ -90,4 +136,22 @@ private extension TimerNotificationVC {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
+}
+
+
+extension TimerNotificationVC: LineTextFieldDelegate {
+    func lineTextFieldDidChangeSelection(_ lineTextField: LineTextField) {
+        
+    }
+    
+    
+}
+
+
+extension TimerNotificationVC: CommentTextViewDelegate {
+    func commentTextViewDidChangeSelection(_ commentTextView: CommentTextView) {
+         
+    }
+    
+    
 }

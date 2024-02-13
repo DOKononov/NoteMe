@@ -56,12 +56,12 @@
 "create_timer_notification" = "Create Timer Notification";
 "create_location_notification" = "Create Location Notification";
 "title" = "Title";
-"enterTitle" = "Enter Title";
+"enter_title" = "Enter Title";
 "date" = "Date";
-"enterDate" = "Enter Date";
+"enter_date" = "Enter Date";
 "comment" = "Comment";
-"enterComment" = "Enter Comment";
-
+"enter_comment" = "Enter Comment";
+"enter_timer" = "Enter Timer";
 
 
 

@@ -67,8 +67,6 @@
 		564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */; };
 		564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */; };
 		564BBF782B765CC700B53A66 /* Localozation+DateNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF772B765CC700B53A66 /* Localozation+DateNotification.swift */; };
-		564BBF7A2B765D1C00B53A66 /* Localozation+TimerNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF792B765D1C00B53A66 /* Localozation+TimerNotification.swift */; };
-		564BBF7C2B765D5C00B53A66 /* Localozation+LocationNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF7B2B765D5C00B53A66 /* Localozation+LocationNotification.swift */; };
 		565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */; };
 		565E7E3E2B0D124600590556 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E3D2B0D124600590556 /* AppCoordinator.swift */; };
 		565E7E412B0D129C00590556 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E402B0D129C00590556 /* Coordinator.swift */; };
@@ -231,8 +229,6 @@
 		564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationAssembler.swift; sourceTree = "<group>"; };
 		564BBF772B765CC700B53A66 /* Localozation+DateNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localozation+DateNotification.swift"; sourceTree = "<group>"; };
-		564BBF792B765D1C00B53A66 /* Localozation+TimerNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localozation+TimerNotification.swift"; sourceTree = "<group>"; };
-		564BBF7B2B765D5C00B53A66 /* Localozation+LocationNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localozation+LocationNotification.swift"; sourceTree = "<group>"; };
 		565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Auth.swift"; sourceTree = "<group>"; };
 		565E7E3D2B0D124600590556 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		565E7E402B0D129C00590556 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -571,8 +567,6 @@
 				56D7EAF72B29817200F72D2D /* Localization+Profile.swift */,
 				562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */,
 				564BBF772B765CC700B53A66 /* Localozation+DateNotification.swift */,
-				564BBF792B765D1C00B53A66 /* Localozation+TimerNotification.swift */,
-				564BBF7B2B765D5C00B53A66 /* Localozation+LocationNotification.swift */,
 			);
 			path = Localizations;
 			sourceTree = "<group>";
@@ -1165,13 +1159,11 @@
 				564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */,
 				560F246F2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift in Sources */,
 				56D733F02B1657D60025283C /* OnboardFirstStepCoordinator.swift in Sources */,
-				564BBF7A2B765D1C00B53A66 /* Localozation+TimerNotification.swift in Sources */,
 				56E67DE42AE83DE000248F85 /* LoginVC.swift in Sources */,
 				56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */,
 				56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
-				564BBF7C2B765D5C00B53A66 /* Localozation+LocationNotification.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,

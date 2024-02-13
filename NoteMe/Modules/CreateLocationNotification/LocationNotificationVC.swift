@@ -15,11 +15,11 @@ final class LocationNotificationVC: UIViewController {
     private var viewModel: LocationNotificationViewModelProtocol
     private lazy var contentView: UIView = .contentView()
     private lazy var titleLabel: UILabel = 
-        .notificationTitleLabel(.LocationNotification.create_location_notification)
+        .notificationTitleLabel(.Notification.create_location_notification)
     private lazy var infoView: UIView = .infoView()
     
     private lazy var createButton: UIButton =
-        .yellowRoundedButton(.LocationNotification.create)
+        .yellowRoundedButton(.Notification.create)
     
     private lazy var cancelButton: UIButton =
         .appCancelButton()
