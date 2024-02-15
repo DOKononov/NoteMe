@@ -10,8 +10,12 @@ import UIKit
 final class HomeAssembler {
     private init() {}
         
-    static func make() -> UIViewController {
-        let viewModel = HomeVM()
+    static func make(coordinator: HomeCoordinatorProtocol,
+                     container: Container
+    ) -> UIViewController {
+        let adapter = HomeAdapter()
+        
+        let viewModel = HomeVM(adapter: adapter)
 
         let vc = HomeVC(viewModel: viewModel)
         return vc

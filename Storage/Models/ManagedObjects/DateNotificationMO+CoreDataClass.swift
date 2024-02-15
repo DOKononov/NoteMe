@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 @objc(DateNotificationMO)
-public class DateNotificationMO: BaseNotificationMO, MOdescription {
+public class DateNotificationMO: BaseNotificationMO, MODescription {
     public typealias DTO = DateNotificationDTO
     
     public func apply(dto: DTO) {

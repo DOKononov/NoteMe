@@ -17,23 +17,25 @@ public final class FRCService<DTO: DTODescription>: NSObject, NSFetchedResultsCo
     }()
     
     private lazy var frc: NSFetchedResultsController<DTO.MO> = {
-       let frc = NSFetchedResultsController(fetchRequest: request,
-                                            managedObjectContext: CoreDataService.shared.mainContext,
-                                            sectionNameKeyPath: nil,
-                                            cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: request,
+                                             managedObjectContext: CoreDataService.shared.mainContext,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
         frc.delegate = self
         try? frc.performFetch()
         return frc
     }()
     
-    init(predicate: NSPredicate? = nil, sortDescriptors: [NSSortDescriptor]) {
+    public init(predicate: NSPredicate? = nil, 
+         sortDescriptors: [NSSortDescriptor]
+    ) {
         self.request.predicate = predicate
         self.request.sortDescriptors = sortDescriptors
     }
     
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         try? controller.performFetch()
-       let dtos =  frc.fetchedObjects?.compactMap { DTO(mo: $0) }
+        let dtos =  frc.fetchedObjects?.compactMap { DTO(mo: $0) }
         didChangeContent?(dtos ?? [] )
     }
 }

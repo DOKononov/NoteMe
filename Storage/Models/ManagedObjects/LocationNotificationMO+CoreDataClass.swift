@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 @objc(LocationNotificationMO)
-public class LocationNotificationMO: BaseNotificationMO, MOdescription {
+public class LocationNotificationMO: BaseNotificationMO, MODescription {
     public typealias DTO = LocationNotificationDTO
     
     public func apply(dto: DTO) {

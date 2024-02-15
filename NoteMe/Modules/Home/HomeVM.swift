@@ -6,8 +6,27 @@
 //
 
 import Foundation
+import Storage
 
-final class HomeVM: HomeViewModelProtocol {}
+protocol HomeAdapterProtocol: AnyObject {
+    func relodeData(_ dtoList: [any DTODescription])
+}
 
-//MARK: -private methods
-private extension HomeVM {}
+protocol HomeCoordinatorProtocol {}
+
+final class HomeVM: HomeViewModelProtocol {
+    
+    private let frcService = FRCService<DateNotificationDTO>(sortDescriptors: [])
+    private let adapter: HomeAdapterProtocol
+    
+    init(adapter: HomeAdapterProtocol
+    ) {
+        self.adapter = adapter
+        bind()
+    }
+    
+    private func bind() {
+        frcService.didChangeContent = { [weak adapter] in adapter?.relodeData($0) }
+    }
+    
+}

@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 @objc(TimerNotificationMO)
-public class TimerNotificationMO: BaseNotificationMO, MOdescription {
+public class TimerNotificationMO: BaseNotificationMO, MODescription {
     public typealias DTO = TimerNotificationDTO
     
     public func apply(dto: DTO) {

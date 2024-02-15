@@ -24,7 +24,7 @@ final class MainTabBarCoordinator: Coordinator {
     }
     
     private func makeHomeModule() -> UIViewController {
-        let coordinator = HomeCoordinator()
+        let coordinator = HomeCoordinator(container: container)
         chidren.append(coordinator)
         return coordinator.start()
     }

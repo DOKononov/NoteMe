@@ -12,9 +12,13 @@ protocol DateNotificationCoordinatorProtocol: AnyObject {
     func finish()
 }
 
+protocol DateNotificationStorageUseCase {
+    func create(_ dto: DateNotificationDTO, completion: ((Bool) -> Void)?)
+}
+
 final class DateNotificationVM: DateNotificationViewModelProtocol {
     private weak var coordinator: DateNotificationCoordinatorProtocol?
-    private let storage: DateNotificationStorage
+    private let storage: DateNotificationStorage //UseCase
     
     var title: String? { didSet {checkValidation()} }
     var date: Date? { didSet {checkValidation()} }
@@ -25,7 +29,7 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
     
     
     init(coordinator: DateNotificationCoordinatorProtocol,
-         storage: DateNotificationStorage
+         storage: DateNotificationStorage //UseCase
     ) {
         self.coordinator = coordinator
         self.storage = storage
