@@ -46,8 +46,11 @@ private extension MainTabBarVC {
         view.addSubview(addButton)
         
         tabBar.tintColor = .appYellow
-        tabBar.backgroundColor = .appBlack
         tabBar.unselectedItemTintColor = .appGray
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .appBlack
+        tabBar.standardAppearance = appearance
         
         addButton.snp.makeConstraints { make in
             make.size.equalTo(50)

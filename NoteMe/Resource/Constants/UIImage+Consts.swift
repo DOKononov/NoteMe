@@ -35,5 +35,6 @@ extension UIImage {
         static let edit: UIImage = .init(named: "edit")!
         static let location: UIImage = .init(named: "location")!
         static let timer: UIImage = .init(named: "timer")!
+        static let settings: UIImage = .init(named: "settings")!
     }
 }

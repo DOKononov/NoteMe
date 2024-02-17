@@ -8,17 +8,19 @@
 import UIKit
 import SnapKit
 
-protocol HomeViewModelProtocol: AnyObject {}
+protocol HomeViewModelProtocol: AnyObject {
+    func makeCollectionView() -> UICollectionView
+}
 
 final class HomeVC: UIViewController {
     private var viewModel: HomeViewModelProtocol
     
     private lazy var contentView: UIView = .contentView()
+    private lazy var collectionView = viewModel.makeCollectionView()
         
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
         setupTabBarItem()
     }
     
@@ -33,15 +35,21 @@ final class HomeVC: UIViewController {
 
 //MARK: -UI
 private extension HomeVC {
-        
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
+        contentView.addSubview(collectionView)
     }
     
     func setupLayouts() {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(20)
+            make.top.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
     

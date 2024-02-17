@@ -69,7 +69,6 @@ extension RegisterPresenter: RegisterPresenterProtocol {
             let email, let password
         else { return }
         authService.register(email: email, password: password) { [weak coordinator] result in
-            print(result)
             coordinator?.finish()
         }
     }

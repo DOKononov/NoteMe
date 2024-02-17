@@ -27,4 +27,5 @@ extension UIColor {
     static var appText: UIColor = .init(0, 0, 0, 1)
     static var appShadow: UIColor = .init(0, 0, 0, 0.05)
     static var appAlertMessage: UIColor = .init(0, 0, 0, 0.5)
+    static var appCellBackground: UIColor = .init(255, 255, 255, 1)
 }
