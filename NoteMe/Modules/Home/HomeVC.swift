@@ -8,12 +8,15 @@
 import UIKit
 import SnapKit
 
-protocol HomeViewModelProtocol: AnyObject {}
+protocol HomeViewModelProtocol: AnyObject {
+    func makeTableView() -> UITableView
+}
 
 final class HomeVC: UIViewController {
     private var viewModel: HomeViewModelProtocol
     
     private lazy var contentView: UIView = .contentView()
+    private lazy var tableView: UITableView = viewModel.makeTableView()
         
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
@@ -37,11 +40,18 @@ private extension HomeVC {
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
+        contentView.addSubview(tableView)
     }
     
     func setupLayouts() {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(4)
+            make.top.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
     

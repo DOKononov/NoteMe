@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Storage
 
 final class HomeAssembler {
     private init() {}
@@ -14,8 +15,9 @@ final class HomeAssembler {
                      container: Container
     ) -> UIViewController {
         let adapter = HomeAdapter()
+        let storage = DateNotificationStorage()
         
-        let viewModel = HomeVM(adapter: adapter)
+        let viewModel = HomeVM(adapter: adapter, storage: storage)
 
         let vc = HomeVC(viewModel: viewModel)
         return vc

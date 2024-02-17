@@ -21,16 +21,15 @@ public final class FRCService<DTO: DTODescription>: NSObject, NSFetchedResultsCo
                                              managedObjectContext: CoreDataService.shared.mainContext,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
-        frc.delegate = self
-        try? frc.performFetch()
         return frc
     }()
     
-    public init(predicate: NSPredicate? = nil, 
-         sortDescriptors: [NSSortDescriptor]
-    ) {
-        self.request.predicate = predicate
-        self.request.sortDescriptors = sortDescriptors
+    public func config(predicate: NSPredicate? = nil,
+                       sortDescriptors: [NSSortDescriptor]) {
+        request.predicate = predicate
+        request.sortDescriptors = sortDescriptors
+        frc.delegate = self
+        try? frc.performFetch()
     }
     
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56006B402B7E5CF700336104 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56006B3F2B7E5CF700336104 /* DateCell.swift */; };
 		560E12172B79390D00FE0C75 /* PopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E12162B79390D00FE0C75 /* PopoverVC.swift */; };
 		560E12192B79397600FE0C75 /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E12182B79397600FE0C75 /* PopoverCell.swift */; };
 		560E121B2B7942EA00FE0C75 /* PopoverRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E121A2B7942EA00FE0C75 /* PopoverRow.swift */; };
@@ -170,6 +171,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		56006B3F2B7E5CF700336104 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		560E12162B79390D00FE0C75 /* PopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverVC.swift; sourceTree = "<group>"; };
 		560E12182B79397600FE0C75 /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
 		560E121A2B7942EA00FE0C75 /* PopoverRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverRow.swift; sourceTree = "<group>"; };
@@ -330,6 +332,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56006B3E2B7E5CDC00336104 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				56C3CAEF2B7D46D1003841AE /* HomeAdapter.swift */,
+				56006B3F2B7E5CF700336104 /* DateCell.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
 		560E12152B7938F000FE0C75 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -841,10 +852,10 @@
 		56D7EAED2B28D2BD00F72D2D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				56006B3E2B7E5CDC00336104 /* Adapter */,
 				56D7EAEE2B28D2C800F72D2D /* Coordinator */,
 				56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */,
 				56D7EB032B2A090000F72D2D /* HomeVM.swift */,
-				56C3CAEF2B7D46D1003841AE /* HomeAdapter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1178,6 +1189,7 @@
 				56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
+				56006B402B7E5CF700336104 /* DateCell.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,

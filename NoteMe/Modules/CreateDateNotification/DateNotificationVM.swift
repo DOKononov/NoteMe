@@ -18,7 +18,7 @@ protocol DateNotificationStorageUseCase {
 
 final class DateNotificationVM: DateNotificationViewModelProtocol {
     private weak var coordinator: DateNotificationCoordinatorProtocol?
-    private let storage: DateNotificationStorage //UseCase
+    private let storage: DateNotificationStorage //TODO: UseCase
     
     var title: String? { didSet {checkValidation()} }
     var date: Date? { didSet {checkValidation()} }
@@ -29,7 +29,7 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
     
     
     init(coordinator: DateNotificationCoordinatorProtocol,
-         storage: DateNotificationStorage //UseCase
+         storage: DateNotificationStorage //TODO: UseCase
     ) {
         self.coordinator = coordinator
         self.storage = storage

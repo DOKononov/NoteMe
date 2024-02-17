@@ -14,7 +14,6 @@ final class ProfileTableViewHeader: UIView {
         let label = UILabel()
         label.textColor = .black
         label.font = .appBoldFont.withSize(14)
-        label.text = "Test" 
         return label
     }()
     

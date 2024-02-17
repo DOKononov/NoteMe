@@ -19,6 +19,7 @@ extension UIView {
     
     static func contentView() -> UIView {
         let view = UIView()
+        view.clipsToBounds = true
         view.backgroundColor = .appGray
         return view
     }
