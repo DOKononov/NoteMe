@@ -10,7 +10,7 @@ import Storage
 
 
 final class HomeAdapter: NSObject, HomeAdapterProtocol {
-    var tapButtonOnDTO: ((any DTODescription) -> Void)?
+    var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)?
     
     private var dtoList: [any DTODescription] = [] { didSet {collectionView.reloadData()} }
     
@@ -56,8 +56,8 @@ extension HomeAdapter: UICollectionViewDataSource {
         switch dto {
         case is DateNotificationDTO:
             let cell: DateCell = collectionView.dequeue(at: indexPath)
-            cell.buttonDidTapped = { [weak self] in
-                self?.tapButtonOnDTO?(dto)
+            cell.buttonDidTapped = { [weak self] sender in
+                self?.tapButtonOnDTO?(sender, dto)
             }
             cell.config(for: dto as! DateNotificationDTO)
             return cell

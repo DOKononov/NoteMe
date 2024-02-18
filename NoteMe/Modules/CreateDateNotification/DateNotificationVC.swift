@@ -67,7 +67,6 @@ final class DateNotificationVC: UIViewController {
     init(viewModel: DateNotificationViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
     }
     
     private func setupDatePickerInputView() {

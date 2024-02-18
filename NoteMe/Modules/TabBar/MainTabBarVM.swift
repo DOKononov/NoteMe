@@ -34,8 +34,5 @@ extension MainTabBarVM: PopoverVCDelegate {
     func didSelectTimer() {
         coordinator?.openNewTimerNotification()
     }
-    
-    func didSelectDelete() {}
-    
-    func didSelectEdit() {}
+
 }

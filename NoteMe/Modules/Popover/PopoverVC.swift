@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol PopoverVCDelegate: AnyObject {
-    func didSelectCalendar()
-    func didSelectDelete()
-    func didSelectEdit()
-    func didSelectLocation()
-    func didSelectTimer()
+@objc protocol PopoverVCDelegate: AnyObject {
+    @objc optional func didSelectCalendar()
+    @objc optional func didSelectDelete()
+    @objc optional func didSelectEdit()
+    @objc optional func didSelectLocation()
+    @objc optional func didSelectTimer()
 }
 
 final class PopoverVC: UIViewController {
@@ -56,7 +56,6 @@ final class PopoverVC: UIViewController {
         modalPresentationStyle = .popover
         popoverPresentationController?.sourceView = sourceView
         popoverPresentationController?.delegate = self
-        popoverPresentationController?.permittedArrowDirections = .down
         popoverPresentationController?.sourceRect = CGRect(x: sourceView.bounds.midX,
                                                            y: sourceView.bounds.midY,
                                                            width: .zero, height: .zero)
@@ -64,10 +63,10 @@ final class PopoverVC: UIViewController {
     
     private func setupUI() {
         view.addSubview(tableView)
+        
         preferredContentSize = CGSize(width: 180, height: rows.count * 40)
-        tableView.snp.makeConstraints {$0.edges.equalToSuperview()}
+        tableView.snp.makeConstraints {$0.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)}
     }
-    
 }
 
 //MARK: -UIPopoverPresentationControllerDelegate
@@ -88,8 +87,6 @@ extension PopoverVC: UITableViewDataSource {
         cell.configCell(for: rows[indexPath.row])
         return cell
     }
-    
-    
 }
 
 //MARK: -UITableViewDelegate
@@ -98,11 +95,11 @@ extension PopoverVC : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         dismiss(animated: true)
         switch rows[indexPath.row] {
-        case .calendar: delegate?.didSelectCalendar()
-        case .delete: delegate?.didSelectDelete()
-        case .edit: delegate?.didSelectEdit()
-        case .location: delegate?.didSelectLocation()
-        case .timer: delegate?.didSelectTimer()
+        case .calendar: delegate?.didSelectCalendar?()
+        case .delete: delegate?.didSelectDelete?()
+        case .edit: delegate?.didSelectEdit?()
+        case .location: delegate?.didSelectLocation?()
+        case .timer: delegate?.didSelectTimer?()
         }
     }
 }
@@ -113,8 +110,12 @@ extension PopoverVC {
     static func make(type: MenuType, for sorceView: UIView) -> PopoverVC {
         let vc = PopoverVC(sourceView: sorceView)
         switch type {
-        case .create: vc.rows = [.calendar, .location, .timer]
-        case .edit: vc.rows = [.edit, .delete]
+        case .create: 
+            vc.rows = [.calendar, .location, .timer]
+            vc.popoverPresentationController?.permittedArrowDirections = .down
+        case .edit:
+            vc.rows = [.edit, .delete]
+            vc.popoverPresentationController?.permittedArrowDirections = .up
         }
         return vc
     }

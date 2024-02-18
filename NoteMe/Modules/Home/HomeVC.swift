@@ -8,8 +8,9 @@
 import UIKit
 import SnapKit
 
-protocol HomeViewModelProtocol: AnyObject {
+protocol HomeViewModelProtocol: AnyObject, PopoverVCDelegate {
     func makeCollectionView() -> UICollectionView
+    var showPopup: ((_ sender: UIButton) -> Void)? { get set }
 }
 
 final class HomeVC: UIViewController {
@@ -30,6 +31,15 @@ final class HomeVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupLayouts()
+        bind()
+    }
+    
+    private func bind() {
+        viewModel.showPopup = { [weak self] button in
+            let vc = PopoverVC.make(type: .edit, for: button)
+            vc.delegate = self?.viewModel
+            self?.present(vc, animated: true)
+        }
     }
 }
 

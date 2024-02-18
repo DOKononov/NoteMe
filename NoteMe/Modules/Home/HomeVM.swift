@@ -12,7 +12,7 @@ import UIKit
 protocol HomeAdapterProtocol: AnyObject {
     func relodeData(_ dtoList: [any DTODescription])
     func makeCollectionView() -> UICollectionView
-    var tapButtonOnDTO: ((any DTODescription) -> Void)? { get set }
+    var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)? { get set }
 }
 
 protocol HomeCoordinatorProtocol {}
@@ -22,6 +22,8 @@ final class HomeVM: HomeViewModelProtocol {
     private let frcService = FRCService<DateNotificationDTO>()
     private let storage: DateNotificationStorage
     private let adapter: HomeAdapterProtocol
+    var showPopup: ((_ sender: UIButton) -> Void)?
+    private var selectedDTO: (any DTODescription)?
     
     init(adapter: HomeAdapterProtocol,
          storage: DateNotificationStorage
@@ -51,12 +53,9 @@ final class HomeVM: HomeViewModelProtocol {
             adapter?.relodeData($0)
         }
         
-        adapter.tapButtonOnDTO = {  dto in
-            self.storage.delete(dto: dto as! DateNotificationMO.DTO)
-            //TODO:
-            // let vc = PopoverVC.make(type: .edit, for: addButton)
-            // vc.delegate = self
-            // present(vc, animated: true)
+        adapter.tapButtonOnDTO = { [weak self] sender, dto in
+            self?.selectedDTO = dto
+            self?.showPopup?(sender)
         }
     }
     
@@ -66,3 +65,11 @@ final class HomeVM: HomeViewModelProtocol {
 }
 
 
+extension HomeVM: PopoverVCDelegate {
+    func didSelectDelete() {
+        guard let selectedDTO else { return }
+        storage.delete(dto: selectedDTO as! DateNotificationMO.DTO)
+    }
+    
+    func didSelectEdit() {}
+}

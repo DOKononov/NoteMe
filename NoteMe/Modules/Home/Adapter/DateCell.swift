@@ -11,7 +11,7 @@ import SnapKit
 
 final class DateCell: UICollectionViewCell {
     
-    var buttonDidTapped: (() -> Void)?
+    var buttonDidTapped: ((_ sender: UIButton) -> Void)?
     
     private lazy var iconView: UIView = {
         let view = UIView()
@@ -24,6 +24,7 @@ final class DateCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .appBoldFont.withSize(25)
         label.text = "24"
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = .appYellow
         return label
@@ -85,8 +86,8 @@ final class DateCell: UICollectionViewCell {
         monthLabel.text = formatter.string(from: date)
     }
     
-    @objc private func settingsDidTapped() {
-        buttonDidTapped?()
+    @objc private func settingsDidTapped(sender: UIButton) {
+        buttonDidTapped?(sender)
     }
     
     
@@ -103,7 +104,6 @@ final class DateCell: UICollectionViewCell {
         
         
         iconView.snp.makeConstraints { make in
-//            make.width.equalTo(iconView.snp.height)
             make.size.equalTo(50)
             make.leading.verticalEdges.equalToSuperview().inset(16)
         }
