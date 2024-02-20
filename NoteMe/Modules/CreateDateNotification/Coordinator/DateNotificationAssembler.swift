@@ -12,9 +12,12 @@ final class DateNotificationAssembler {
     private init() {}
     
     static func make(_ coordinator: DateNotificationCoordinatorProtocol,
-                     container: Container) -> UIViewController {
+                     container: Container,
+                     dto: DateNotificationDTO?) -> UIViewController {
         let storage: DateNotificationStorage = container.resolve()
-        let viewModel = DateNotificationVM(coordinator: coordinator, storage: storage)
+        let viewModel = DateNotificationVM(coordinator: coordinator, 
+                                           storage: storage,
+                                           dto: dto)
         let vc = DateNotificationVC(viewModel: viewModel)
         return vc
     }

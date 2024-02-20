@@ -61,7 +61,7 @@ public class NotificationStorage<DTO: DTODescription> {
         }
     }
     
-    func updateOrCreate(dto: DTO.MO.DTO,
+    public func updateOrCreate(dto: DTO.MO.DTO,
                         completion: CompletionHandler? = nil) {
         if fetchMO(predicate: .Notification.notification(by: dto.id)).isEmpty {
             create(dto: dto, completion: completion)

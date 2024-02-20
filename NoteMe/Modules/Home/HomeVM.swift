@@ -15,36 +15,32 @@ protocol HomeAdapterProtocol: AnyObject {
     var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)? { get set }
 }
 
-protocol HomeCoordinatorProtocol {}
+protocol HomeCoordinatorProtocol {
+    func startEdite(date dto: DateNotificationDTO)
+}
 
 final class HomeVM: HomeViewModelProtocol {
     
     private let frcService = FRCService<DateNotificationDTO>()
     private let storage: DateNotificationStorage
     private let adapter: HomeAdapterProtocol
+    private let coordinator: HomeCoordinatorProtocol
     var showPopup: ((_ sender: UIButton) -> Void)?
     private var selectedDTO: (any DTODescription)?
+    private let sortDescriptor = NSSortDescriptor(key: "targetDate",
+                                                  ascending: true)
+
     
     init(adapter: HomeAdapterProtocol,
-         storage: DateNotificationStorage
+         storage: DateNotificationStorage,
+         coordinator: HomeCoordinatorProtocol
     ) {
         self.adapter = adapter
         self.storage = storage
-        frcService.config(
-            predicate: nil,
-            sortDescriptors:
-                [NSSortDescriptor(key: "targetDate",
-                                  ascending: true)])
+        self.coordinator = coordinator
+        configFRC()
         loadFromStorage()
         bind()
-    }
-    
-    private func loadFromStorage() {
-        let dtos =  storage.fetch(
-            predicate: nil,
-            sortDescriptors: [NSSortDescriptor(key: "targetDate",
-                                               ascending: true)])
-        adapter.relodeData(dtos)
     }
     
     private func bind() {
@@ -62,6 +58,16 @@ final class HomeVM: HomeViewModelProtocol {
     func makeCollectionView() -> UICollectionView {
         adapter.makeCollectionView()
     }
+    
+    private func configFRC() {
+        frcService.config(predicate: nil,sortDescriptors:[sortDescriptor])
+    }
+    
+    private func loadFromStorage() {
+        let dtos =  storage.fetch(predicate: nil,
+                                  sortDescriptors: [sortDescriptor])
+        adapter.relodeData(dtos)
+    }
 }
 
 
@@ -71,5 +77,15 @@ extension HomeVM: PopoverVCDelegate {
         storage.delete(dto: selectedDTO as! DateNotificationMO.DTO)
     }
     
-    func didSelectEdit() {}
+    func didSelectEdit() {
+        guard let selectedDTO else { return }
+        
+        switch selectedDTO {
+        case is DateNotificationDTO:
+            coordinator.startEdite(date: selectedDTO as! DateNotificationDTO)
+        default:
+            break
+
+        }
+    }
 }

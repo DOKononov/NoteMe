@@ -16,7 +16,9 @@ final class HomeAssembler {
     ) -> UIViewController {
         let adapter = HomeAdapter()
         let storage = DateNotificationStorage() //TODO: !
-        let viewModel = HomeVM(adapter: adapter,storage: storage)
+        let viewModel = HomeVM(adapter: adapter,
+                               storage: storage,
+                               coordinator: coordinator)
 
         let vc = HomeVC(viewModel: viewModel)
         return vc

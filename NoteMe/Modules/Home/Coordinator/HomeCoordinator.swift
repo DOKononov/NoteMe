@@ -6,14 +6,36 @@
 //
 
 import UIKit
-
+import Storage
 
 final class HomeCoordinator: Coordinator, HomeCoordinatorProtocol {
+    
+    private var rootVC: UIViewController?
+    
     private let container: Container
     init(container: Container) {
         self.container = container
     }
+    
     override func start() -> UIViewController {
-        return HomeAssembler.make(coordinator: self, container: container)
+        let vc = HomeAssembler.make(coordinator: self, container: container)
+        rootVC = vc
+        return vc
     }
+    
+    func startEdite(date dto: DateNotificationDTO) {
+        let coordinator = DateNotificationCoordinator(
+            container: container,
+            dto: dto)
+        chidren.append(coordinator)
+        let vc = coordinator.start()
+        
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll { coordinator == $0 }
+            vc.dismiss(animated: true)
+        }
+        vc.modalPresentationStyle = .fullScreen
+        rootVC?.present(vc, animated: true)
+    }
+    
 }

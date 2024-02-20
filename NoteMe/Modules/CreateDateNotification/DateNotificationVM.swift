@@ -17,32 +17,39 @@ protocol DateNotificationStorageUseCase {
 }
 
 final class DateNotificationVM: DateNotificationViewModelProtocol {
+    
     private weak var coordinator: DateNotificationCoordinatorProtocol?
     private let storage: DateNotificationStorage //UseCase
+    var dto: DateNotificationDTO?
+    var shouldEditeDTO: ((DateNotificationDTO) -> Void)?
     
-    var title: String? { didSet {checkValidation()} }
-    var date: Date? { didSet {checkValidation()} }
+    var title: String? { didSet {isValidTitle()} }
+    var date: Date? { didSet {isValidDate()} }
     var comment: String?
-
+    
     var catchTitleError: ((String?) -> Void)?
     var catchDateError: ((String?) -> Void)?
     
-    
     init(coordinator: DateNotificationCoordinatorProtocol,
-         storage: DateNotificationStorage //UseCase
+         storage: DateNotificationStorage, //UseCase
+         dto: DateNotificationDTO?
     ) {
         self.coordinator = coordinator
         self.storage = storage
+        self.dto = dto
     }
     
     func createDidTapped() {
         guard checkValidation() else { return }
         guard let title, let date  else { return }
-         let dto = DateNotificationDTO(date: Date(),
-                                       title: title,
-                                       subtitle: comment,
-                                       targetDate: date)
-        storage.create(dto: dto)
+        let newDTO = DateNotificationDTO(date: Date(),
+                                      title: title,
+                                      subtitle: comment,
+                                      targetDate: date)
+        dto?.title = title
+        dto?.targetDate = date
+        dto?.subtitle = comment
+        storage.updateOrCreate(dto: dto ?? newDTO)
         coordinator?.finish()
     }
     
@@ -51,6 +58,11 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         guard let date else { return nil}
         return dateFormatter.string(from: date)
+    }
+    
+    func viewDidLoad() {
+        guard let dto else { return }
+        shouldEditeDTO?(dto)
     }
     
     func dismissDidTapped() {
@@ -62,25 +74,31 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
 private extension DateNotificationVM {
     @discardableResult
     func checkValidation() -> Bool {
-        catchTitleError?(isValid(title) ? nil : .Notification.enter_title)
-        catchDateError?(isValid(date) ? nil: .Notification.enter_date)
-        return isValid(title) && isValid(date)
+        return isValidTitle() && isValidDate()
     }
     
-    func isValid(_ title: String?) -> Bool {
-        if let title {
-            return (!title.isEmpty) && (title != "")
-        } else {
+    @discardableResult
+    func isValidTitle() -> Bool {
+        guard
+            let title,
+            !title.isEmpty,
+            title != ""
+        else {
+            catchTitleError?(.Notification.enter_title)
             return false
         }
+        catchTitleError?(nil)
+        return true
     }
     
-    func isValid(_ date: Date?) -> Bool {
-         date != nil
-    }
-    
-    func passwordValidation(password: String?) -> Bool {
-        guard let password else { return false }
-        return password.isEmpty ? false : true
+    @discardableResult
+    func isValidDate() -> Bool {
+        guard
+            let date
+        else {
+            catchDateError?(.Notification.enter_date)
+            return false
+        }
+        return true
     }
 }

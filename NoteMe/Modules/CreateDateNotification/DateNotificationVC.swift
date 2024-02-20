@@ -7,11 +7,12 @@
 
 import UIKit
 import SnapKit
+import Storage
 
-@objc protocol DateNotificationViewModelProtocol: AnyObject {
+protocol DateNotificationViewModelProtocol: AnyObject {
     var catchTitleError: ((String?) -> Void)? { get set }
     var catchDateError: ((String?) -> Void)? { get set }
-    
+    var shouldEditeDTO: ((DateNotificationDTO) -> Void)? { get set }
     var title: String? { get set }
     var date: Date? { get set }
     var comment: String? { get set }
@@ -19,12 +20,11 @@ import SnapKit
     
     func dismissDidTapped()
     func createDidTapped()
-    
+    func viewDidLoad()
 }
 
 final class DateNotificationVC: UIViewController {
     private var viewModel: DateNotificationViewModelProtocol
-    
     private lazy var contentView: UIView = .contentView()
     private lazy var titleLabel: UILabel =
         .notificationTitleLabel(
@@ -61,12 +61,15 @@ final class DateNotificationVC: UIViewController {
     
     private lazy var cancelButton: UIButton =
         .appCancelButton()
-        .withAction(viewModel,
-                    #selector(DateNotificationViewModelProtocol.dismissDidTapped))
+        .withAction(self, #selector(dismissDidTapped))
     
     init(viewModel: DateNotificationViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    @objc private func dismissDidTapped() {
+        viewModel.dismissDidTapped()
     }
     
     private func setupDatePickerInputView() {
@@ -82,6 +85,7 @@ final class DateNotificationVC: UIViewController {
         setupUI()
         bind()
         setupDatePickerInputView()
+        viewModel.viewDidLoad()
     }
     
     private func bind() {
@@ -91,6 +95,16 @@ final class DateNotificationVC: UIViewController {
         
         viewModel.catchTitleError = { [weak self] error in
             self?.titleView.errorText = error
+        }
+        
+        viewModel.shouldEditeDTO = { [weak self] dto in
+            self?.titleView.text = dto.title
+            self?.viewModel.title = dto.title
+            self?.dateView.text = self?.viewModel.string(from: dto.targetDate)
+            self?.viewModel.date = dto.targetDate
+            self?.commentView.text = dto.subtitle
+            self?.viewModel.comment = dto.subtitle
+            self?.createButton.setTitle(.MainTabBar.edit, for: .normal)
         }
     }
     
