@@ -115,7 +115,7 @@ final class DateCell: UICollectionViewCell {
         
         monthLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).inset(5)
-            make.horizontalEdges.equalToSuperview().inset(11)
+            make.horizontalEdges.equalToSuperview().inset(8)
             make.bottom.equalToSuperview().inset(4)
         }
         
