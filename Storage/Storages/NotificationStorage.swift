@@ -72,7 +72,7 @@ public class NotificationStorage<DTO: DTODescription> {
     }
     
     //MARK: -delete
-    public func delete(dto: DTO,
+    public func delete(dto: any DTODescription,
                        completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.mainContext
         context.perform { [weak self] in

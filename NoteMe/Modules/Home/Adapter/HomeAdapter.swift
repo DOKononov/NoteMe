@@ -66,7 +66,6 @@ extension HomeAdapter: UICollectionViewDataSource {
         }
     }
     
-    
 }
 
 extension HomeAdapter: UICollectionViewDelegateFlowLayout {

@@ -27,14 +27,14 @@ final class HomeVM: HomeViewModelProtocol {
     }
     
     private let frcService: FRCService<DateNotificationDTO> //FRCService<BaseNotificationDTO>
-    private let storage: DateNotificationStorage
+    private let storage: AllNotificationStorage
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
     var showPopup: ((_ sender: UIButton) -> Void)?
     private var selectedDTO: (any DTODescription)?
 
     init(adapter: HomeAdapterProtocol,
-         storage: DateNotificationStorage,
+         storage: AllNotificationStorage,
          coordinator: HomeCoordinatorProtocol,
          frcService: FRCService<DateNotificationDTO>
     ) {
