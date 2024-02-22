@@ -87,6 +87,9 @@
 		56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D562B342878005C43A8 /* ProfileAccountCell.swift */; };
 		56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */; };
 		568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */; };
+		568F97232B850AD900E1DEEA /* BaseNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */; };
+		568F97252B8514CB00E1DEEA /* AllNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */; };
+		568F97272B851DC000E1DEEA /* NSSortDescriptor+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */; };
 		56BFC9782B69563E00B47FE2 /* Collection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC9772B69563E00B47FE2 /* Collection+Register.swift */; };
 		56BFC9812B695AC400B47FE2 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 56BFC9802B695AC400B47FE2 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56BFC9842B695AC400B47FE2 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BFC97E2B695AC400B47FE2 /* Storage.framework */; };
@@ -249,6 +252,9 @@
 		56741D562B342878005C43A8 /* ProfileAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountCell.swift; sourceTree = "<group>"; };
 		56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
 		568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
+		568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNotificationDTO.swift; sourceTree = "<group>"; };
+		568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotificationStorage.swift; sourceTree = "<group>"; };
+		568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Const.swift"; sourceTree = "<group>"; };
 		56BFC9772B69563E00B47FE2 /* Collection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Register.swift"; sourceTree = "<group>"; };
 		56BFC97E2B695AC400B47FE2 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BFC9802B695AC400B47FE2 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
@@ -696,6 +702,7 @@
 		56BFC99A2B69642B00B47FE2 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */,
 				56BFC99B2B69645100B47FE2 /* DateNotificationDTO.swift */,
 				562E67062B6BD40800F90EC0 /* LocationNotificationDTO.swift */,
 				562E67042B6BD3FD00F90EC0 /* TimerNotificationDTO.swift */,
@@ -714,10 +721,11 @@
 		56BFC9A02B69688D00B47FE2 /* Storages */ = {
 			isa = PBXGroup;
 			children = (
+				568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */,
 				56BFC9A12B6968B100B47FE2 /* DateNotificationStorage.swift */,
 				562E670A2B6BE18900F90EC0 /* LocationNotificationStorage.swift */,
-				562E670C2B6BE19200F90EC0 /* TimerNotificationStorage.swift */,
 				56197ECC2B73E41200414DD4 /* NotificationStorage.swift */,
+				562E670C2B6BE19200F90EC0 /* TimerNotificationStorage.swift */,
 			);
 			path = Storages;
 			sourceTree = "<group>";
@@ -726,6 +734,7 @@
 			isa = PBXGroup;
 			children = (
 				56BFC9A42B696E0A00B47FE2 /* NSPredicate+Const.swift */,
+				568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */,
 			);
 			path = Consts;
 			sourceTree = "<group>";
@@ -1132,6 +1141,7 @@
 				562E67052B6BD3FD00F90EC0 /* TimerNotificationDTO.swift in Sources */,
 				562E670B2B6BE18900F90EC0 /* LocationNotificationStorage.swift in Sources */,
 				56197ECD2B73E41200414DD4 /* NotificationStorage.swift in Sources */,
+				568F97232B850AD900E1DEEA /* BaseNotificationDTO.swift in Sources */,
 				562E67002B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift in Sources */,
 				562E67072B6BD40800F90EC0 /* LocationNotificationDTO.swift in Sources */,
 				56197ECB2B73E35000414DD4 /* DTODescription.swift in Sources */,
@@ -1146,7 +1156,9 @@
 				562E67022B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift in Sources */,
 				56BFC98F2B695C7F00B47FE2 /* NotificationDataBase.xcdatamodeld in Sources */,
 				56BFC9982B695F0200B47FE2 /* BaseNotificationMO+CoreDataClass.swift in Sources */,
+				568F97252B8514CB00E1DEEA /* AllNotificationStorage.swift in Sources */,
 				56197ED02B73F5FA00414DD4 /* FRCService.swift in Sources */,
+				568F97272B851DC000E1DEEA /* NSSortDescriptor+Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

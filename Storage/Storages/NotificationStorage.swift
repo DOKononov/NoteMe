@@ -16,10 +16,10 @@ public class NotificationStorage<DTO: DTODescription> {
     //MARK: -fetch
     public func fetch(
         predicate: NSPredicate? = nil,
-        sortDescriptors: [NSSortDescriptor] = [] ) -> [DTO] {
+        sortDescriptors: [NSSortDescriptor] = [] ) -> [any DTODescription] {
             return fetchMO(predicate: predicate,
                            sortDescriptors: sortDescriptors)
-            .compactMap {DTO(mo: $0) }
+            .compactMap { $0.toDTO() }
         }
     
     private func fetchMO(
@@ -35,11 +35,12 @@ public class NotificationStorage<DTO: DTODescription> {
     
     //MARK: -create
     public func create(
-        dto: DTO.MO.DTO,
+        dto: DTO,
         completion: CompletionHandler? = nil) {
             let context = CoreDataService.shared.backgroundContext
             context.perform {
                 let mo = DTO.MO(context: context)
+                
                 mo.apply(dto: dto)
                 CoreDataService.shared.saveContext(context: context,
                                                    completion: completion)
@@ -47,7 +48,7 @@ public class NotificationStorage<DTO: DTODescription> {
         }
     
     //MARK: -update
-    public func update(dto: DTO.MO.DTO,
+    public func update(dto: DTO,
                        completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.backgroundContext
         context.perform { [weak self] in
@@ -55,14 +56,14 @@ public class NotificationStorage<DTO: DTODescription> {
                 predicate: .Notification.notification(by: dto.id)).first
             else { return }
             mo.apply(dto: dto)
-
+            
             CoreDataService.shared.saveContext(context: context,
                                                completion: completion)
         }
     }
     
-    public func updateOrCreate(dto: DTO.MO.DTO,
-                        completion: CompletionHandler? = nil) {
+    public func updateOrCreate(dto: DTO,
+                               completion: CompletionHandler? = nil) {
         if fetchMO(predicate: .Notification.notification(by: dto.id)).isEmpty {
             create(dto: dto, completion: completion)
         } else {
@@ -71,7 +72,7 @@ public class NotificationStorage<DTO: DTODescription> {
     }
     
     //MARK: -delete
-    public func delete(dto: DTO.MO.DTO,
+    public func delete(dto: DTO,
                        completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.mainContext
         context.perform { [weak self] in

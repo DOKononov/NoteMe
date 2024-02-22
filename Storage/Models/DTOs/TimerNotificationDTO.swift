@@ -8,7 +8,6 @@
 import Foundation
 
 public struct TimerNotificationDTO: DTODescription {
-    public typealias DTO = TimerNotificationDTO
     public typealias MO = TimerNotificationMO
     
     public var date: Date
@@ -37,18 +36,19 @@ public struct TimerNotificationDTO: DTODescription {
         self.targetDate = targetDate
     }
     
-    public init?(mo: TimerNotificationMO) {
+    public static func fromMO(_ mo: TimerNotificationMO) -> TimerNotificationDTO? {
         guard
             let id = mo.identifier,
             let title = mo.title,
             let date = mo.date,
             let targetDate = mo.targetDate
         else { return nil }
-        self.date = date
-        self.id = id
-        self.title = title
-        self.subtitle = mo.subtitle
-        self.completedDate = mo.completedDate
-        self.targetDate = targetDate
+        
+        return TimerNotificationDTO(date: date,
+                                    id: id,
+                                    title: title,
+                                    subtitle: mo.subtitle,
+                                    completedDate: mo.completedDate,
+                                    targetDate: targetDate)
     }
 }

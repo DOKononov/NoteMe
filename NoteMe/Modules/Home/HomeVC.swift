@@ -11,6 +11,7 @@ import SnapKit
 protocol HomeViewModelProtocol: AnyObject, PopoverVCDelegate {
     func makeCollectionView() -> UICollectionView
     var showPopup: ((_ sender: UIButton) -> Void)? { get set }
+    func viewDidLoad()
 }
 
 final class HomeVC: UIViewController {
@@ -18,7 +19,7 @@ final class HomeVC: UIViewController {
     
     private lazy var contentView: UIView = .contentView()
     private lazy var collectionView = viewModel.makeCollectionView()
-        
+    
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -29,6 +30,7 @@ final class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.viewDidLoad()
         setupUI()
         setupLayouts()
         bind()

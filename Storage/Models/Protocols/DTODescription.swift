@@ -9,8 +9,7 @@ import Foundation
 import CoreData
 
 public protocol DTODescription {
-//    associatedtype DTO //?
-    associatedtype MO: MODescription //?
+    associatedtype MO: MODescription 
     
     var id: String { get set }
     var date: Date  { get set }
@@ -18,14 +17,10 @@ public protocol DTODescription {
     var subtitle: String?  { get set }
     var completedDate: Date?  { get set }
     
-    init?(mo: MO) //?
-
+    static func fromMO(_ mo: MO) -> Self?
 }
 
-
-
 public protocol MODescription: NSManagedObject, NSFetchRequestResult {
-    associatedtype DTO: DTODescription
-    
-    func apply(dto: DTO)
+    func toDTO() -> (any DTODescription)?
+    func apply(dto: any DTODescription)
 }

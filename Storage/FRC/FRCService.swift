@@ -10,32 +10,37 @@ import CoreData
 
 public final class FRCService<DTO: DTODescription>: NSObject, NSFetchedResultsControllerDelegate {
     
-    public var didChangeContent: (([DTO]) -> Void)?
+    public var didChangeContent: (([any DTODescription]) -> Void)?
     
     private let request: NSFetchRequest<DTO.MO> = {
         return NSFetchRequest<DTO.MO>(entityName: "\(DTO.MO.self)")
     }()
     
     private lazy var frc: NSFetchedResultsController<DTO.MO> = {
-        return NSFetchedResultsController(
+        let frc = NSFetchedResultsController(
             fetchRequest: request,
             managedObjectContext: CoreDataService.shared.mainContext,
             sectionNameKeyPath: nil,
             cacheName: nil)
+        frc.delegate = self
+        return frc
     }()
     
-    public func config(
-        predicate: NSPredicate? = nil,
-        sortDescriptors: [NSSortDescriptor]) {
-            request.predicate = predicate
-            request.sortDescriptors = sortDescriptors
-            frc.delegate = self
-            try? frc.performFetch()
-        }
+    public var fetchedDTOs: [any DTODescription] {
+        let dtos = frc.fetchedObjects?.compactMap { $0.toDTO() }
+        return dtos ?? []
+    }
+    
+    public init(_ requestBuilder: (NSFetchRequest<DTO.MO>) -> Void ) {
+        requestBuilder(self.request)
+    }
+    
+    public func startHandle() {
+        try? frc.performFetch()
+    }
     
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         try? controller.performFetch()
-        let dtos =  frc.fetchedObjects?.compactMap { DTO(mo: $0) }
-        didChangeContent?(dtos ?? [] )
+        didChangeContent?(fetchedDTOs)
     }
 }

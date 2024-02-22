@@ -20,26 +20,28 @@ protocol HomeCoordinatorProtocol {
 }
 
 final class HomeVM: HomeViewModelProtocol {
+    func viewDidLoad() {
+        frcService.startHandle()
+        let dtos = frcService.fetchedDTOs
+        adapter.relodeData(dtos)
+    }
     
-    private let frcService = FRCService<DateNotificationDTO>()
+    private let frcService: FRCService<DateNotificationDTO> //FRCService<BaseNotificationDTO>
     private let storage: DateNotificationStorage
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
     var showPopup: ((_ sender: UIButton) -> Void)?
     private var selectedDTO: (any DTODescription)?
-    private let sortDescriptor = NSSortDescriptor(key: "targetDate",
-                                                  ascending: true)
 
-    
     init(adapter: HomeAdapterProtocol,
          storage: DateNotificationStorage,
-         coordinator: HomeCoordinatorProtocol
+         coordinator: HomeCoordinatorProtocol,
+         frcService: FRCService<DateNotificationDTO>
     ) {
         self.adapter = adapter
         self.storage = storage
         self.coordinator = coordinator
-        configFRC()
-        loadFromStorage()
+        self.frcService = frcService
         bind()
     }
     
@@ -58,23 +60,13 @@ final class HomeVM: HomeViewModelProtocol {
     func makeCollectionView() -> UICollectionView {
         adapter.makeCollectionView()
     }
-    
-    private func configFRC() {
-        frcService.config(predicate: nil,sortDescriptors:[sortDescriptor])
-    }
-    
-    private func loadFromStorage() {
-        let dtos =  storage.fetch(predicate: nil,
-                                  sortDescriptors: [sortDescriptor])
-        adapter.relodeData(dtos)
-    }
 }
 
 
 extension HomeVM: PopoverVCDelegate {
     func didSelectDelete() {
         guard let selectedDTO else { return }
-        storage.delete(dto: selectedDTO as! DateNotificationMO.DTO)
+        storage.delete(dto: selectedDTO as! DateNotificationDTO )
     }
     
     func didSelectEdit() {
@@ -83,9 +75,7 @@ extension HomeVM: PopoverVCDelegate {
         switch selectedDTO {
         case is DateNotificationDTO:
             coordinator.startEdite(date: selectedDTO as! DateNotificationDTO)
-        default:
-            break
-
+        default: break
         }
     }
 }

@@ -1,51 +1,46 @@
 //
-//  DateNotificationDTO.swift
+//  BaseNotificationDTO.swift
 //  Storage
 //
-//  Created by Dmitry Kononov on 30.01.24.
+//  Created by Dmitry Kononov on 20.02.24.
 //
 
 import Foundation
 
-public struct DateNotificationDTO: DTODescription {
-    public typealias MO = DateNotificationMO
+public struct BaseNotificationDTO: DTODescription {
+    public typealias MO = BaseNotificationMO
     
-    public var date: Date
     public var id: String
+    public var date: Date
     public var title: String
     public var subtitle: String?
     public var completedDate: Date?
-    public var targetDate: Date
     
     public init(date: Date,
                 id: String = UUID().uuidString,
                 title: String,
                 subtitle: String? = nil,
-                completedDate: Date? = nil,
-                targetDate: Date) {
+                completedDate: Date? = nil) {
         self.date = date
         self.id = id
         self.title = title
         self.subtitle = subtitle
         self.completedDate = completedDate
-        self.targetDate = targetDate
     }
-
-    public static func fromMO(_ mo: DateNotificationMO) -> DateNotificationDTO? {
+    
+    public static func fromMO(_ mo: MO) -> BaseNotificationDTO? {
         guard
             let id = mo.identifier,
             let title = mo.title,
-            let date = mo.date,
-            let targetDate = mo.targetDate
+            let date = mo.date
         else { return nil }
-        return DateNotificationDTO(
+        
+        return BaseNotificationDTO(
             date: date,
             id: id,
             title: title,
             subtitle: mo.subtitle,
-            completedDate: mo.completedDate,
-            targetDate: targetDate
+            completedDate: mo.completedDate
         )
-        
     }
 }
