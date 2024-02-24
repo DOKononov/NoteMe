@@ -15,7 +15,7 @@ final class HomeAssembler {
                      container: Container
     ) -> UIViewController {
         let adapter = HomeAdapter()
-        let storage = AllNotificationStorage() //TODO: !
+        let storage: AllNotificationStorage = container.resolve()
         
         let viewModel = HomeVM(adapter: adapter,
                                storage: storage,
@@ -26,7 +26,7 @@ final class HomeAssembler {
         return vc
     }
     
-    private static func makeFRC() -> FRCService<DateNotificationDTO> {
+    private static func makeFRC() -> FRCService<BaseNotificationDTO> {
         .init { request in
             request.predicate = .Notification.allNotComplited
             request.sortDescriptors = [.Notification.byDate]

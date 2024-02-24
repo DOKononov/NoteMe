@@ -9,7 +9,7 @@ import UIKit
 import Storage
 import SnapKit
 
-final class DateCell: UICollectionViewCell {
+final class DateCell: UITableViewCell {
     
     var buttonDidTapped: ((_ sender: UIButton) -> Void)?
     
@@ -23,7 +23,6 @@ final class DateCell: UICollectionViewCell {
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.font = .appBoldFont.withSize(25)
-        label.text = "24"
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = .appYellow
@@ -33,7 +32,6 @@ final class DateCell: UICollectionViewCell {
     private lazy var monthLabel: UILabel = {
         let label = UILabel()
         label.font = .appFont.withSize(15)
-        label.text = "Oct"
         label.textAlignment = .center
         label.textColor = .white
         return label
@@ -64,10 +62,9 @@ final class DateCell: UICollectionViewCell {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
-        
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -90,7 +87,6 @@ final class DateCell: UICollectionViewCell {
         buttonDidTapped?(sender)
     }
     
-    
     private func setupUI() {
         addSubview(iconView)
         iconView.addSubview(dateLabel)
@@ -98,9 +94,9 @@ final class DateCell: UICollectionViewCell {
         addSubview(title)
         addSubview(subTitle)
         addSubview(settingsButton)
-        backgroundColor = .appCellBackground
+        accessoryView = settingsButton
         cornerRadius = 5
-        addShadow()
+        clipsToBounds = true
         
         
         iconView.snp.makeConstraints { make in

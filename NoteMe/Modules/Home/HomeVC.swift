@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol HomeViewModelProtocol: AnyObject, PopoverVCDelegate {
-    func makeCollectionView() -> UICollectionView
+    func makeTableView() -> UITableView
     var showPopup: ((_ sender: UIButton) -> Void)? { get set }
     func viewDidLoad()
 }
@@ -18,7 +18,7 @@ final class HomeVC: UIViewController {
     private var viewModel: HomeViewModelProtocol
     
     private lazy var contentView: UIView = .contentView()
-    private lazy var collectionView = viewModel.makeCollectionView()
+    private lazy var tableView = viewModel.makeTableView()
     
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
@@ -50,7 +50,7 @@ private extension HomeVC {
     func setupUI() {
         view.backgroundColor = .appBlack
         view.addSubview(contentView)
-        contentView.addSubview(collectionView)
+        contentView.addSubview(tableView)
     }
     
     func setupLayouts() {
@@ -58,7 +58,7 @@ private extension HomeVC {
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
         }
         
-        collectionView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(20)

@@ -11,7 +11,7 @@ import UIKit
 
 protocol HomeAdapterProtocol: AnyObject {
     func relodeData(_ dtoList: [any DTODescription])
-    func makeCollectionView() -> UICollectionView
+    func makeTableView() -> UITableView
     var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)? { get set }
 }
 
@@ -26,7 +26,7 @@ final class HomeVM: HomeViewModelProtocol {
         adapter.relodeData(dtos)
     }
     
-    private let frcService: FRCService<DateNotificationDTO> //FRCService<BaseNotificationDTO>
+    private let frcService: FRCService<BaseNotificationDTO>
     private let storage: AllNotificationStorage
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
@@ -36,7 +36,7 @@ final class HomeVM: HomeViewModelProtocol {
     init(adapter: HomeAdapterProtocol,
          storage: AllNotificationStorage,
          coordinator: HomeCoordinatorProtocol,
-         frcService: FRCService<DateNotificationDTO>
+         frcService: FRCService<BaseNotificationDTO>
     ) {
         self.adapter = adapter
         self.storage = storage
@@ -47,7 +47,6 @@ final class HomeVM: HomeViewModelProtocol {
     
     private func bind() {
         frcService.didChangeContent = { [weak adapter] in
-            print("frc result cont: ", $0.count)
             adapter?.relodeData($0)
         }
         
@@ -57,8 +56,8 @@ final class HomeVM: HomeViewModelProtocol {
         }
     }
     
-    func makeCollectionView() -> UICollectionView {
-        adapter.makeCollectionView()
+    func makeTableView() -> UITableView {
+        adapter.makeTableView()
     }
 }
 

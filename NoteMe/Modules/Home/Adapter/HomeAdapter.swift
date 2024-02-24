@@ -12,74 +12,64 @@ import Storage
 final class HomeAdapter: NSObject, HomeAdapterProtocol {
     var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)?
     
-    private var dtoList: [any DTODescription] = [] { didSet {collectionView.reloadData()} }
+    private var dtoList: [any DTODescription] = [] { didSet {tableView.reloadData()} }
     
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        
-        let collectionView = UICollectionView(
-            frame: .zero,
-            collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        return collectionView
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.allowsSelection = false
+        tableView.backgroundColor = .clear
+        tableView.addShadow()
+        tableView.sectionFooterHeight = 10
+        tableView.separatorStyle = .none
+        return tableView
     }()
     
     override init() {
         super.init()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(DateCell.self)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(DateCell.self)
     }
     
     func relodeData(_ dtoList: [any DTODescription]) {
         self.dtoList = dtoList
     }
     
-    func makeCollectionView() -> UICollectionView {
-        collectionView
+    func makeTableView() -> UITableView {
+        tableView
     }
 }
 
-extension HomeAdapter: UICollectionViewDelegate {
+extension HomeAdapter: UITableViewDelegate {
     
 }
 
-extension HomeAdapter: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        dtoList.count
+extension HomeAdapter: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let dto = dtoList[indexPath.row]
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return dtoList.count
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dto = dtoList[indexPath.section]
         switch dto {
         case is DateNotificationDTO:
-            let cell: DateCell = collectionView.dequeue(at: indexPath)
+            let cell: DateCell =  tableView.dequeue(at: indexPath)
+            cell.config(for: dto as! DateNotificationDTO)
             cell.buttonDidTapped = { [weak self] sender in
                 self?.tapButtonOnDTO?(sender, dto)
             }
-            cell.config(for: dto as! DateNotificationDTO)
             return cell
         default:
-            return UICollectionViewCell()
+            return UITableViewCell()
         }
     }
     
-}
-
-extension HomeAdapter: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let dto = dtoList[indexPath.row]
-        switch dto {
-        case is DateNotificationDTO:
-            return CGSize(width: collectionView.frame.width, height: 82)
-        case is LocationNotificationDTO:
-            return CGSize(width: collectionView.frame.width, height: 237)
-        case is TimerNotificationDTO:
-            return CGSize(width: collectionView.frame.width, height: 120)
-        default:
-            return .zero
-        }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        nil
     }
 }

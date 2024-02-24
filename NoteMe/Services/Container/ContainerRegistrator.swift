@@ -21,6 +21,7 @@ final class ContainerRegistrator {
         container.register { DateNotificationStorage() }
         container.register { LocationNotificationStorage() }
         container.register { TimerNotificationStorage() }
+        container.register { AllNotificationStorage() }
         
         return container
     }
