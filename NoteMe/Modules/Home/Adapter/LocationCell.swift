@@ -1,16 +1,18 @@
 //
-//  DateCell.swift
+//  LocationCell.swift
 //  NoteMe
 //
-//  Created by Dmitry Kononov on 17.02.24.
+//  Created by Dmitry Kononov on 25.02.24.
 //
 
 import UIKit
 import Storage
 
-final class DateCell: UITableViewCell {
+final class LocationCell: UITableViewCell {
     
     var buttonDidTapped: ((_ sender: UIButton) -> Void)?
+    
+    private var countdownDuration: Double = 0
     
     private lazy var iconView: UIView = {
         let view = UIView()
@@ -19,21 +21,10 @@ final class DateCell: UITableViewCell {
         return view
     }()
     
-    private lazy var dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = .appBoldFont.withSize(25)
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .center
-        label.textColor = .appYellow
-        return label
-    }()
-    
-    private lazy var monthLabel: UILabel = {
-        let label = UILabel()
-        label.font = .appFont.withSize(15)
-        label.textAlignment = .center
-        label.textColor = .white
-        return label
+    private lazy var iconImageView: UIView = {
+        let imageView = UIImageView(image: .MainTabBar.location)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     private lazy var title: UILabel = {
@@ -52,6 +43,7 @@ final class DateCell: UITableViewCell {
         return label
     }()
     
+    
     private lazy var settingsButton: UIButton = {
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 18, height: 3)
@@ -68,19 +60,11 @@ final class DateCell: UITableViewCell {
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
-    func config(for dto: DateNotificationDTO) {
-        title.text = dto.title
-        subTitle.text = dto.subtitle
-        set(date: dto.targetDate)
+    func config(for dto: LocationNotificationDTO) {
+        title.text = "Location Cell prototipe"
+        subTitle.text = "Subtitle placeholder"
     }
     
-    private func set(date: Date) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd"
-        dateLabel.text = formatter.string(from: date)
-        formatter.dateFormat = "MMM"
-        monthLabel.text = formatter.string(from: date)
-    }
     
     @objc private func settingsDidTapped(sender: UIButton) {
         buttonDidTapped?(sender)
@@ -88,8 +72,7 @@ final class DateCell: UITableViewCell {
     
     private func setupUI() {
         addSubview(iconView)
-        iconView.addSubview(dateLabel)
-        iconView.addSubview(monthLabel)
+        iconView.addSubview(iconImageView)
         addSubview(title)
         addSubview(subTitle)
         addSubview(settingsButton)
@@ -103,15 +86,9 @@ final class DateCell: UITableViewCell {
             make.leading.verticalEdges.equalToSuperview().inset(16)
         }
         
-        dateLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview().inset(11)
-            make.top.equalToSuperview().inset(4)
-        }
-        
-        monthLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).inset(5)
-            make.horizontalEdges.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().inset(4)
+        iconImageView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(13)
+            make.verticalEdges.equalToSuperview().inset(8)
         }
         
         title.snp.makeConstraints { make in
@@ -125,7 +102,6 @@ final class DateCell: UITableViewCell {
             make.top.equalTo(title.snp.bottom).inset(-4)
             make.trailing.equalTo(settingsButton.snp.leading).inset(-8)
         }
-        
         
         settingsButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(16)

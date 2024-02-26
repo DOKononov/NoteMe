@@ -18,7 +18,7 @@ public struct TimerNotificationDTO: DTODescription {
     public var targetDate: Date
     
     public var timeLeft: TimeInterval {
-        get {targetDate.timeIntervalSince(date)}
+        get {targetDate.timeIntervalSince(Date())}
         set {targetDate = date.addingTimeInterval(newValue)}
     }
     

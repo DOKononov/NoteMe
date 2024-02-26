@@ -65,7 +65,7 @@ final class HomeVM: HomeViewModelProtocol {
 extension HomeVM: PopoverVCDelegate {
     func didSelectDelete() {
         guard let selectedDTO else { return }
-        storage.delete(dto: selectedDTO as! DateNotificationDTO )
+        storage.delete(dto: selectedDTO)
     }
     
     func didSelectEdit() {

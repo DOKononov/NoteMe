@@ -73,7 +73,7 @@ final class DateNotificationVC: UIViewController {
     }
     
     private func setupDatePickerInputView() {
-        let datePicker = AppDatePickerView(.date)
+        let datePicker = AppDatePickerView()
         datePicker.delegate = self
         dateView.inputView = datePicker
     }

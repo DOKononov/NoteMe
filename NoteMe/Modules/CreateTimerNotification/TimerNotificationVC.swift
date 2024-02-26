@@ -13,6 +13,7 @@ protocol TimerNotificationViewModelProtocol: AnyObject {
     var timeinterval: Double? { get set }
     func dismissDidTapped()
     func createDidTapped()
+    var timeIntervalDidSet: ((String) -> Void)? { get set }
 }
 
 final class TimerNotificationVC: UIViewController {
@@ -55,6 +56,12 @@ final class TimerNotificationVC: UIViewController {
         .appCancelButton()
         .withAction(self, #selector(dismissDidTapped))
     
+    private func setupTimerPickerInputView() {
+        let timerPicker = AppTimerPickerView()
+        timerPicker.delegate = self
+        timerView.inputView = timerPicker
+    }
+    
     
     init(viewModel: TimerNotificationViewModelProtocol) {
         self.viewModel = viewModel
@@ -66,6 +73,14 @@ final class TimerNotificationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupTimerPickerInputView()
+        bind()
+    }
+    
+    private func bind() {
+        viewModel.timeIntervalDidSet = { [weak self] timeIntervalStr in
+            self?.timerView.text = timeIntervalStr
+        }
     }
     
     @objc private func dismissDidTapped() {
@@ -141,16 +156,32 @@ private extension TimerNotificationVC {
 
 extension TimerNotificationVC: LineTextFieldDelegate {
     func lineTextFieldDidChangeSelection(_ lineTextField: LineTextField) {
-        
+        if lineTextField == titleView {
+            viewModel.title = lineTextField.text
+        }
     }
-    
-    
 }
 
 
 extension TimerNotificationVC: CommentTextViewDelegate {
     func commentTextViewDidChangeSelection(_ commentTextView: CommentTextView) {
-         
+        viewModel.comment = commentTextView.text
+    }
+    
+    
+}
+
+extension TimerNotificationVC: AppTimerPickerViewDelegate {
+    func pickerValueChanged(timeInterval: TimeInterval) {
+        viewModel.timeinterval = timeInterval
+    }
+    
+    func cancelDidTapped() {
+        view.endEditing(true)
+    }
+    
+    func selectDidTapped() {
+        view.endEditing(true)
     }
     
     

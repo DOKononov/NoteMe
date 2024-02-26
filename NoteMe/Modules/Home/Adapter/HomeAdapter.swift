@@ -21,6 +21,9 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
         tableView.addShadow()
         tableView.sectionFooterHeight = 10
         tableView.separatorStyle = .none
+        tableView.cornerRadius = 5
+        tableView.clipsToBounds = true
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
@@ -29,6 +32,8 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(DateCell.self)
+        tableView.register(TimerCell.self)
+        tableView.register(LocationCell.self)
     }
     
     func relodeData(_ dtoList: [any DTODescription]) {
@@ -64,12 +69,30 @@ extension HomeAdapter: UITableViewDataSource {
                 self?.tapButtonOnDTO?(sender, dto)
             }
             return cell
+            
+        case is TimerNotificationDTO:
+            let cell: TimerCell = tableView.dequeue(at: indexPath)
+            cell.config(for: dto as! TimerNotificationDTO)
+            cell.buttonDidTapped = { [weak self] sender in
+                self?.tapButtonOnDTO?(sender, dto)
+            }
+            return cell
+            
+        case is LocationNotificationDTO:
+            let cell: LocationCell = tableView.dequeue(at: indexPath)
+            cell.config(for: dto as! LocationNotificationDTO)
+            cell.buttonDidTapped = { [weak self] sender in
+                self?.tapButtonOnDTO?(sender, dto)
+            }
+            return cell
         default:
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        nil
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
 }

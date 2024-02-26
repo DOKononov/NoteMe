@@ -1,20 +1,20 @@
 //
-//  AppDatePickerView.swift
+//  AppTimerPickerView.swift
 //  NoteMe
 //
-//  Created by Dmitry Kononov on 30.10.23.
+//  Created by Dmitry Kononov on 25.02.24.
 //
 
 import UIKit
 import SnapKit
 
-protocol AppDatePickerViewDelegate: AnyObject {
-    func datePickerValueChanged(date: Date?)
+protocol AppTimerPickerViewDelegate: AnyObject {
+    func pickerValueChanged(timeInterval: TimeInterval)
     func cancelDidTapped()
     func selectDidTapped()
 }
 
-final class AppDatePickerView: UIView {
+final class AppTimerPickerView: UIView {
     
     private lazy var cancelButton: UIButton = {
         let button = UIButton()
@@ -38,14 +38,14 @@ final class AppDatePickerView: UIView {
     
     private lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .countDownTimer
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.backgroundColor = .white
-        datePicker.datePickerMode = .date
-        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(pickerValueChanged), for: .valueChanged)
         return datePicker
     }()
     
-    weak var delegate: AppDatePickerViewDelegate?
+    weak var delegate: AppTimerPickerViewDelegate?
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 280))
@@ -58,7 +58,7 @@ final class AppDatePickerView: UIView {
 }
 
 //MARK: -private methods
-extension AppDatePickerView {
+extension AppTimerPickerView {
     @objc private func cancelButtonDidPressed() {
         delegate?.cancelDidTapped()
     }
@@ -67,15 +67,15 @@ extension AppDatePickerView {
         delegate?.selectDidTapped()
     }
     
-    @objc private func datePickerValueChanged(sender: UIDatePicker) {
-        delegate?.datePickerValueChanged(date: sender.date)
+    @objc private func pickerValueChanged(sender: UIDatePicker) {
+        delegate?.pickerValueChanged(timeInterval: sender.countDownDuration)
     }
 }
 
 
 //MARK: -setupUI
 
-extension AppDatePickerView {
+extension AppTimerPickerView {
     private func setupUI() {
         backgroundColor = .appBlack
         addSubview(datePicker)
@@ -103,3 +103,4 @@ extension AppDatePickerView {
         }
     }
 }
+
