@@ -19,6 +19,14 @@ final class TimerCell: UITableViewCell {
         }
     }
     
+    private lazy var cellContentView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .appCellBackground
+        view.cornerRadius = 5
+        view.clipsToBounds = true
+        return view
+    }()
+    
     private lazy var iconView: UIView = {
         let view = UIView()
         view.backgroundColor = .appBlack
@@ -115,16 +123,20 @@ final class TimerCell: UITableViewCell {
     }
     
     private func setupUI() {
-        addSubview(iconView)
+        addSubview(cellContentView)
+        cellContentView.addSubview(iconView)
         iconView.addSubview(iconImageView)
-        addSubview(title)
-        addSubview(subTitle)
-        addSubview(timerLabel)
-        addSubview(settingsButton)
-        accessoryView = settingsButton
-        cornerRadius = 5
-        clipsToBounds = true
+        cellContentView.addSubview(title)
+        cellContentView.addSubview(subTitle)
+        cellContentView.addSubview(timerLabel)
+        cellContentView.addSubview(settingsButton)
+        contentView.isUserInteractionEnabled = false
+        backgroundColor = .clear
         
+        cellContentView.snp.makeConstraints { make in
+            make.verticalEdges.equalToSuperview().inset(5)
+            make.horizontalEdges.equalToSuperview()
+        }
         
         iconView.snp.makeConstraints { make in
             make.size.equalTo(50)

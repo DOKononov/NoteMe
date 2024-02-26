@@ -19,7 +19,6 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
         tableView.allowsSelection = false
         tableView.backgroundColor = .clear
         tableView.addShadow()
-        tableView.sectionFooterHeight = 10
         tableView.separatorStyle = .none
         tableView.cornerRadius = 5
         tableView.clipsToBounds = true
@@ -88,11 +87,5 @@ extension HomeAdapter: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
     }
 }
