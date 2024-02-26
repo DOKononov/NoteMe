@@ -11,13 +11,7 @@ import Storage
 final class TimerCell: UITableViewCell {
     
     var buttonDidTapped: ((_ sender: UIButton) -> Void)?
-    private var dto: TimerNotificationDTO?
-    
-    private var countdownDuration: Double = 0 {
-        didSet {
-            strFromTimeinterval()
-        }
-    }
+    private var dto: TimerNotificationDTO? 
     
     private lazy var cellContentView: UIView = {
        let view = UIView()
@@ -73,13 +67,7 @@ final class TimerCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        runTimer()
         setupUI()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        runTimer()
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
@@ -88,14 +76,15 @@ final class TimerCell: UITableViewCell {
         title.text = dto.title
         subTitle.text = dto.subtitle
         self.dto = dto
-        self.countdownDuration = dto.timeLeft
+        runTimer()
+        setTimerLable()
     }
     
-
-    
-    private func strFromTimeinterval() {
-        if countdownDuration >= 0 {
-            let time = NSInteger(countdownDuration)
+    private func setTimerLable() {
+        guard let timeLeft = dto?.timeLeft else { return }
+        
+        if timeLeft >= 0 {
+            let time = NSInteger(timeLeft)
             let seconds = time % 60
             let minutes = (time / 60) % 60
             let hours = (time / 3600)
@@ -104,16 +93,18 @@ final class TimerCell: UITableViewCell {
             timerLabel.text = "00:00:00"
         }
     }
+
     
     private func runTimer() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-            guard
-                let timeLeft = self?.dto?.timeLeft,
-                timeLeft >= 0 else {
+        guard let timeLeft = dto?.timeLeft else { return }
+
+        Timer.scheduledTimer(withTimeInterval: 1, 
+                             repeats: true) { [weak self] timer in
+            self?.setTimerLable()
+            guard timeLeft >= 0 else {
                 timer.invalidate()
                 return
             }
-            self?.countdownDuration = timeLeft
         }
     }
     

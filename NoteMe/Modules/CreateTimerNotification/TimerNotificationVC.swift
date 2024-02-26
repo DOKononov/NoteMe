@@ -42,9 +42,9 @@ final class TimerNotificationVC: UIViewController {
     
     private lazy var commentView: CommentTextView = {
        let commentView = CommentTextView()
-        commentView.delegate = self
         commentView.title = .Notification.comment
         commentView.placeholder = .Notification.enter_comment
+        commentView.delegate = self
         return commentView
     }()
     

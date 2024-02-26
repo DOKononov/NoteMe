@@ -21,7 +21,6 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
         tableView.addShadow()
         tableView.separatorStyle = .none
         tableView.cornerRadius = 5
-        tableView.clipsToBounds = true
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
