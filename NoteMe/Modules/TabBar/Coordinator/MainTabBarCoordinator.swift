@@ -44,6 +44,13 @@ final class MainTabBarCoordinator: Coordinator {
 
 
 extension MainTabBarCoordinator: MainTabBarCoordinatorProtocol {
+    func showMenu(sender: UIView, delegate: MenuPopoverDelegate) {
+        let menu = MenuPopoverBuilder.buildAddMenu(delegate: delegate,
+                                                   sourceView: sender)
+        rootVC?.present(menu, animated: true)
+    }
+
+    
     func openNewDateNotification() {
             let coodinator = DateNotificationCoordinator(container: container)
             chidren.append(coodinator)

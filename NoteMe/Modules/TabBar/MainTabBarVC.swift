@@ -7,14 +7,19 @@
 
 import UIKit
 
-protocol MainTabBarViewModelProtocol: PopoverVCDelegate { }
+@objc protocol MainTabBarViewModelProtocol {
+    @objc func addButtonDidTap(sender: UIView)
+}
+
 final class MainTabBarVC: UITabBarController {
     private var viewModel: MainTabBarViewModelProtocol
     
     private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setImage(.General.tabBarAddButton, for: .normal)
-        button.addTarget(self, action: #selector(addButtonDidPressed), for: .touchUpInside)
+        button.addTarget(viewModel,
+                         action: #selector(MainTabBarViewModelProtocol.addButtonDidTap),
+                         for: .touchUpInside)
         return button
     }()
     
@@ -28,15 +33,6 @@ final class MainTabBarVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-    }
-}
-
-//MARK: -private methods
-private extension MainTabBarVC {
-    @objc func addButtonDidPressed() {
-        let vc = PopoverVC.make(type: .create, for: addButton)
-        vc.delegate = viewModel
-        present(vc, animated: true)
     }
 }
 

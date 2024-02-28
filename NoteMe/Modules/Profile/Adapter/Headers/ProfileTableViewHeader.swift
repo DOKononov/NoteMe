@@ -12,7 +12,7 @@ final class ProfileTableViewHeader: UIView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .label
         label.font = .appBoldFont.withSize(14)
         label.text = "Test" 
         return label

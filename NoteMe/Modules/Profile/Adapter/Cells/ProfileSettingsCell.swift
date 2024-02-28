@@ -19,14 +19,14 @@ final class ProfileSettingsCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .appFont.withSize(14)
-        label.textColor = .appText
+        label.textColor = .label
         return label
     }()
     
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.font = .appFont.withSize(12)
-        label.textColor = .appCellStatusText
+        label.textColor = .secondaryLabel
         return label
     }()
     
@@ -38,7 +38,7 @@ final class ProfileSettingsCell: UITableViewCell {
     func setup(_ type: ProfileSttingsRows) {
         titleLabel.text = type.title
         iconImageView.image = type.icon
-        titleLabel.textColor = type == .logout ? .appRed : .appText
+        titleLabel.textColor = type == .logout ? .appRed : .label
         statusLabel.text = type.subTitle
     }
     
@@ -52,6 +52,7 @@ private extension ProfileSettingsCell {
         addSubview(iconImageView)
         addSubview(titleLabel)
         addSubview(statusLabel)
+        backgroundColor = .itemBackground
         
         iconImageView.snp.makeConstraints { make in
             make.size.equalTo(16)

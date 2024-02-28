@@ -17,6 +17,7 @@ protocol HomeAdapterProtocol: AnyObject {
 
 protocol HomeCoordinatorProtocol {
     func startEdite(date dto: DateNotificationDTO)
+    func showMenu(_ sender: UIView, delegate: MenuPopoverDelegate)
 }
 
 final class HomeVM: HomeViewModelProtocol {
@@ -30,7 +31,6 @@ final class HomeVM: HomeViewModelProtocol {
     private let storage: AllNotificationStorage
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
-    var showPopup: ((_ sender: UIButton) -> Void)?
     private var selectedDTO: (any DTODescription)?
 
     init(adapter: HomeAdapterProtocol,
@@ -51,8 +51,9 @@ final class HomeVM: HomeViewModelProtocol {
         }
         
         adapter.tapButtonOnDTO = { [weak self] sender, dto in
-            self?.selectedDTO = dto
-            self?.showPopup?(sender)
+            guard let self else { return }
+            self.selectedDTO = dto
+            self.coordinator.showMenu(sender, delegate: self)
         }
     }
     
@@ -61,19 +62,24 @@ final class HomeVM: HomeViewModelProtocol {
     }
 }
 
-
-extension HomeVM: PopoverVCDelegate {
-    func didSelectDelete() {
-        guard let selectedDTO else { return }
-        storage.delete(dto: selectedDTO)
-    }
-    
-    func didSelectEdit() {
+extension HomeVM: MenuPopoverDelegate {
+    func didSelect(action: MenuPopoverVC.Action) {
         guard let selectedDTO else { return }
         
-        switch selectedDTO {
-        case is DateNotificationDTO:
-            coordinator.startEdite(date: selectedDTO as! DateNotificationDTO)
+        switch action {
+        case .edite:
+            switch selectedDTO {
+            case is DateNotificationDTO:
+                coordinator.startEdite(date: selectedDTO as! DateNotificationDTO)
+            case is LocationNotificationDTO:
+                //TODO: add case
+                break
+            case is TimerNotificationDTO:
+                //TODO: add case
+                break
+            default: break
+            }
+        case .delete: storage.delete(dto: selectedDTO)
         default: break
         }
     }

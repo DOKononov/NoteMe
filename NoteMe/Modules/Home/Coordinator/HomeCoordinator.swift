@@ -9,7 +9,7 @@ import UIKit
 import Storage
 
 final class HomeCoordinator: Coordinator, HomeCoordinatorProtocol {
-    
+
     private var rootVC: UIViewController?
     
     private let container: Container
@@ -36,6 +36,12 @@ final class HomeCoordinator: Coordinator, HomeCoordinatorProtocol {
         }
         vc.modalPresentationStyle = .fullScreen
         rootVC?.present(vc, animated: true)
+    }
+    
+    func showMenu(_ sender: UIView, delegate: MenuPopoverDelegate) {
+        let menu = MenuPopoverBuilder.buildEditeenu(delegate: delegate,
+                                                    sourceView: sender)
+        rootVC?.present(menu, animated: true)
     }
     
 }

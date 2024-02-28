@@ -5,12 +5,13 @@
 //  Created by Dmitry Kononov on 8.02.24.
 //
 
-import Foundation
+import UIKit
 
 protocol MainTabBarCoordinatorProtocol: AnyObject {
     func openNewDateNotification()
     func openNewTimerNotification()
     func openNewLocationNotification()
+    func showMenu(sender: UIView, delegate: MenuPopoverDelegate)
 }
 
 final class MainTabBarVM: MainTabBarViewModelProtocol {
@@ -21,18 +22,21 @@ final class MainTabBarVM: MainTabBarViewModelProtocol {
         self.coordinator = coordinator
     }
     
+    func addButtonDidTap(sender: UIView) {
+        coordinator?.showMenu(sender: sender, delegate: self)
+    }
 }
 
-extension MainTabBarVM: PopoverVCDelegate {
-    func didSelectCalendar() {
-        coordinator?.openNewDateNotification()
+extension MainTabBarVM: MenuPopoverDelegate {
+    func didSelect(action: MenuPopoverVC.Action) {
+        switch action {
+        case .calendar: 
+            coordinator?.openNewDateNotification()
+        case .timer: 
+            coordinator?.openNewTimerNotification()
+        case .location: 
+            coordinator?.openNewLocationNotification()
+        default: break
+        }
     }
-    func didSelectLocation() {
-        coordinator?.openNewLocationNotification()
-    }
-    
-    func didSelectTimer() {
-        coordinator?.openNewTimerNotification()
-    }
-
 }

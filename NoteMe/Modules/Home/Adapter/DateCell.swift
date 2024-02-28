@@ -14,7 +14,7 @@ final class DateCell: UITableViewCell {
     
     private lazy var cellContentView: UIView = {
        let view = UIView()
-        view.backgroundColor = .appCellBackground
+        view.backgroundColor = .itemBackground
         view.cornerRadius = 5
         view.clipsToBounds = true
         return view

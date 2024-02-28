@@ -15,7 +15,7 @@ final class TimerCell: UITableViewCell {
     
     private lazy var cellContentView: UIView = {
        let view = UIView()
-        view.backgroundColor = .appCellBackground
+        view.backgroundColor = .itemBackground
         view.cornerRadius = 5
         view.clipsToBounds = true
         return view
@@ -77,10 +77,10 @@ final class TimerCell: UITableViewCell {
         subTitle.text = dto.subtitle
         self.dto = dto
         runTimer()
-        setTimerLable()
+        setTimerLabel()
     }
     
-    private func setTimerLable() {
+    private func setTimerLabel() {
         guard let timeLeft = dto?.timeLeft else { return }
         
         if timeLeft >= 0 {
@@ -100,7 +100,7 @@ final class TimerCell: UITableViewCell {
 
         Timer.scheduledTimer(withTimeInterval: 1, 
                              repeats: true) { [weak self] timer in
-            self?.setTimerLable()
+            self?.setTimerLabel()
             guard timeLeft >= 0 else {
                 timer.invalidate()
                 return

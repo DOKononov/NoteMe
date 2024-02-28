@@ -10,7 +10,7 @@ import UIKit
 final class ProfileAccountCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
        let label = UILabel()
-        label.textColor = .appCellTitleText
+        label.textColor = .secondaryLabel
         label.font = .appFont.withSize(15)
         label.text = .Profile.your_email
         return label
@@ -19,7 +19,7 @@ final class ProfileAccountCell: UITableViewCell {
     private lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.font = .appFont.withSize(17)
-        label.textColor = .appText
+        label.textColor = .label
         return label
     }()
     
@@ -37,6 +37,7 @@ final class ProfileAccountCell: UITableViewCell {
     private func setupUI() {
         addSubview(titleLabel)
         addSubview(emailLabel)
+        backgroundColor = .itemBackground
         
         titleLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
