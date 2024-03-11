@@ -37,4 +37,8 @@ extension UIImage {
         static let timer: UIImage = .init(named: "timer")!
         static let settings: UIImage = .init(named: "settings")!
     }
+    
+    enum Map {
+        static let capture: UIImage = .init(named: "capture")!
+    }
 }

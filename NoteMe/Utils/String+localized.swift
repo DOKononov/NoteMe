@@ -18,5 +18,11 @@ extension String {
     enum Profile {}
     enum MainTabBar {}
     enum Notification {}
+    
+    enum Map {
+        static var search: String { "search".localized }
+        static var select: String { "select".localized }
+        static var confirm: String { "confirm".localized }
+    }
 }
 

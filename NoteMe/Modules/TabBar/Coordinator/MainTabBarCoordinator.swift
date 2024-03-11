@@ -78,7 +78,8 @@ extension MainTabBarCoordinator: MainTabBarCoordinatorProtocol {
     }
     
     func openNewLocationNotification() {
-        let coodinator = LocationNotificationCoordinator()
+        let coodinator = LocationNotificationCoordinator(container: container,
+                                                         dto: nil)
         chidren.append(coodinator)
         let vc = coodinator.start()
         

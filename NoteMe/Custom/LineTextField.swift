@@ -17,7 +17,7 @@ final class LineTextField: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .appBoldFont.withSize(13)
-        label.textColor = .appText
+        label.textColor = .label
         label.textAlignment = .left
         return label
     }()
@@ -28,7 +28,7 @@ final class LineTextField: UIView {
         textfield.autocorrectionType = .no
         textfield.autocapitalizationType = .none
         textfield.font = .appFont.withSize(15)
-        textfield.textColor = .appText
+        textfield.textColor = .label
         textfield.textAlignment = .left
         textfield.delegate = self
         return textfield
@@ -36,7 +36,7 @@ final class LineTextField: UIView {
     
     private lazy var separator: UIView = {
         let view = UIView()
-        view.backgroundColor = .appText
+        view.backgroundColor = .label
         return view
     }()
     

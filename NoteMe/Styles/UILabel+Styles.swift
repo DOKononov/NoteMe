@@ -13,7 +13,7 @@ extension UILabel {
         let label = UILabel()
         label.text = title
         label.font = .appBoldFont.withSize(25)
-        label.textColor = .appText
+        label.textColor = .label
         return label
     }
     
@@ -21,7 +21,7 @@ extension UILabel {
         let label = UILabel()
         label.text = title
         label.font = .appFont.withSize(16)
-        label.textColor = .appText
+        label.textColor = .label
         return label
     }
     
@@ -29,7 +29,7 @@ extension UILabel {
         let label = UILabel()
         label.text = title
         label.font = .appBoldFont.withSize(17)
-        label.textColor = .appText
+        label.textColor = .label
         return label
     }
 }

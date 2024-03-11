@@ -62,6 +62,7 @@
 "comment" = "Comment";
 "enter_comment" = "Enter Comment";
 "enter_timer" = "Enter Timer";
-
-
+"search" = "Search";
+"select" = "Select";
+"confirm" = "Confirm";
 
