@@ -25,6 +25,7 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
     var imageDidSet: ((UIImage?) -> Void)?
     var catchTitleError: ((String?) -> Void)?
     var locationDidSet: ((LocationData) -> Void)?
+    var shouldEditeDTO: ((LocationNotificationDTO) -> Void)?
     
     private var image: UIImage? { didSet{ imageDidSet?(image) } }
     private var region: MKCoordinateRegion?
@@ -38,17 +39,29 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
         self.coordinator = coordinator
         self.dto = dto
         bind()
-        
     }
+    
+    func viewDidLoad() {
+        guard let dto else { return }
+        shouldEditeDTO?(dto)
+        self.image = imageStorage.loadImage(id: dto.id)
+        setRegion(for: dto)
+    }
+    
+    private func setRegion(for dto: LocationNotificationDTO) {
+        self.region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: dto.mapCenterLatitude,
+                                           longitude: dto.mapCenterLongitude),
+            span: MKCoordinateSpan(latitudeDelta: dto.mapSpanLatitude,
+                                   longitudeDelta: dto.mapSpanLongitude))
+    }
+    
     func createDidTap() {
         saveDTO()
     }
     
     func mapDidTap() {
-        if let region {
-            coordinator?.openMapModule(delegate: self, region: region)
-        }
-        coordinator?.openMapModule(delegate: self, region: nil)
+        coordinator?.openMapModule(delegate: self, region: region)
     }
     
     func dismissDidTap() {
@@ -79,7 +92,7 @@ extension LocationNotificationVM {
             let image,
             let region
         else { return }
-
+        
         if dto != nil {
             dto?.mapCenterLatitude = region.center.latitude
             dto?.mapCenterLongitude = region.center.longitude

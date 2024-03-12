@@ -7,16 +7,20 @@
 
 import UIKit
 import SnapKit
+import Storage
 
-@objc protocol LocationNotificationViewModelProtocol: AnyObject {
+ protocol LocationNotificationViewModelProtocol: AnyObject {
     var title: String? {get set}
     var comment: String? {get set}
     var imageDidSet: ((UIImage?)-> Void)? {get set}
     var catchTitleError: ((String?) -> Void)? {get set}
+    var shouldEditeDTO: ((LocationNotificationDTO) -> Void)? {get set}
 
     func dismissDidTap()
     func mapDidTap()
     func createDidTap()
+    func viewDidLoad()
+    
 }
 
 final class LocationNotificationVC: UIViewController {
@@ -56,21 +60,18 @@ final class LocationNotificationVC: UIViewController {
         imageView.backgroundColor = .secondarySystemBackground
         imageView.contentMode = .scaleAspectFit
         imageView.addGestureRecognizer(UITapGestureRecognizer(
-            target: viewModel,
-            action: #selector(LocationNotificationViewModelProtocol.mapDidTap)))
+            target: self, action: #selector(mapDidTap)))
         imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
     private lazy var createButton: UIButton =
         .yellowRoundedButton(.Notification.create)
-        .withAction(viewModel, 
-                    #selector(LocationNotificationViewModelProtocol.createDidTap))
+        .withAction(self, #selector(createDidTap))
     
     private lazy var cancelButton: UIButton =
         .appCancelButton()
-        .withAction(viewModel,
-                    #selector(LocationNotificationViewModelProtocol.dismissDidTap))
+        .withAction(self, #selector(dismissDidTap))
     
     
     init(viewModel: LocationNotificationViewModelProtocol) {
@@ -84,7 +85,7 @@ final class LocationNotificationVC: UIViewController {
         super.viewDidLoad()
         setupUI()
         bind()
-        
+        viewModel.viewDidLoad()
     }
     
     private func bind() {
@@ -94,6 +95,14 @@ final class LocationNotificationVC: UIViewController {
         
         viewModel.catchTitleError = { [weak titleView] error in
             titleView?.errorText = error
+        }
+        
+        viewModel.shouldEditeDTO = { [weak self] dto in
+            self?.titleView.text = dto.title
+            self?.viewModel.title = dto.title
+            self?.commentView.text = dto.subtitle
+            self?.viewModel.comment = dto.subtitle
+            self?.createButton.setTitle(.MainTabBar.edit, for: .normal)
         }
     }
 }
@@ -165,6 +174,18 @@ private extension LocationNotificationVC {
             make.height.equalTo(45)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+    }
+    
+    @objc private func mapDidTap() {
+        viewModel.mapDidTap()
+    }
+    
+    @objc private func createDidTap() {
+        viewModel.createDidTap()
+    }
+    
+    @objc private func dismissDidTap() {
+        viewModel.dismissDidTap()
     }
     
 }
