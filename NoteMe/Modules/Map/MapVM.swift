@@ -84,9 +84,9 @@ final class MapVM: MapViewModelProtocol {
         let region = mapView.region
         
         let locationData = LocationData(image: snapshot,
-                                        center: center,
-                                        radius: radius,
-                                        region: region)
+                                        captureCenter: center,
+                                        captureRadius: radius,
+                                        mapRegion: region)
         delegate?.locationDidSet?(locationData)
         
         coordinator.finish()

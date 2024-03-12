@@ -15,34 +15,38 @@ public struct LocationNotificationDTO: DTODescription {
     public var title: String
     public var subtitle: String?
     public var completedDate: Date?
-    public var latitude: Double
-    public var longitude: Double
-    public var imagePathStr: String
+    
+    public var mapCenterLatitude: Double
+    public var mapCenterLongitude: Double
+    public var mapSpanLatitude: Double
+    public var mapSpanLongitude: Double
     
     public init(date: Date,
                 id: String = UUID().uuidString,
                 title: String,
                 subtitle: String? = nil,
                 completedDate: Date? = nil,
-                latitude: Double,
-                longitude: Double,
-                imagePathStr: String) {
+                mapCenterLatitude: Double,
+                mapCenterLongitude: Double,
+                mapSpanLatitude: Double,
+                mapSpanLongitude: Double
+    ) {
         self.date = date
         self.id = id
         self.title = title
         self.subtitle = subtitle
         self.completedDate = completedDate
-        self.latitude = latitude
-        self.longitude = longitude
-        self.imagePathStr = imagePathStr
+        self.mapCenterLatitude = mapCenterLatitude
+        self.mapCenterLongitude = mapCenterLongitude
+        self.mapSpanLatitude = mapSpanLatitude
+        self.mapSpanLongitude = mapSpanLongitude
     }
     
     public static func fromMO(_ mo: LocationNotificationMO) -> LocationNotificationDTO? {
         guard
             let date = mo.date,
             let identifier = mo.identifier,
-            let title = mo.title,
-            let imagePathStr = mo.imagePathStr
+            let title = mo.title
         else { return nil }
         return LocationNotificationDTO(
             date: date,
@@ -50,9 +54,10 @@ public struct LocationNotificationDTO: DTODescription {
             title: title,
             subtitle: mo.subtitle,
             completedDate: mo.completedDate,
-            latitude: mo.latitude,
-            longitude: mo.longitude,
-            imagePathStr: imagePathStr
+            mapCenterLatitude: mo.mapCenterLatitude,
+            mapCenterLongitude: mo.mapCenterLongitude,
+            mapSpanLatitude: mo.mapSpanLatitude,
+            mapSpanLongitude: mo.mapSpanLongitude
         )
     }
 }

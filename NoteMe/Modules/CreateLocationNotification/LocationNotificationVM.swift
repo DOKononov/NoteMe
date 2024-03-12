@@ -30,6 +30,7 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
     private var region: MKCoordinateRegion?
     private var dto: LocationNotificationDTO?
     private let storage =  LocationNotificationStorage() //TODO: fix
+    private let imageStorage = ImageStorage() //TODO: fix
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
     
     init(coordinator: LocationNotificatioCoordinatorProtocol,
@@ -78,18 +79,26 @@ extension LocationNotificationVM {
             let image,
             let region
         else { return }
-        
+
         if dto != nil {
-            dto?.latitude = region.center.latitude
-            dto?.longitude = region.center.longitude
+            dto?.mapCenterLatitude = region.center.latitude
+            dto?.mapCenterLongitude = region.center.longitude
+            dto?.mapSpanLatitude = region.span.latitudeDelta
+            dto?.mapSpanLongitude = region.span.longitudeDelta
+            imageStorage.saveImage(id: dto!.id, image: image)
+            storage.updateOrCreate(dto: dto!)
         } else {
             let dto = LocationNotificationDTO(
                 date: Date(),
                 title: title,
                 subtitle: comment,
-                latitude: region.center.latitude,
-                longitude: region.center.longitude,
-                imagePathStr: "")
+                completedDate: nil,
+                mapCenterLatitude: region.center.latitude,
+                mapCenterLongitude: region.center.longitude,
+                mapSpanLatitude: region.span.latitudeDelta,
+                mapSpanLongitude: region.span.longitudeDelta)
+            imageStorage.saveImage(id: dto.id, image: image)
+            storage.updateOrCreate(dto: dto)
         }
         
         coordinator?.finish()
@@ -98,7 +107,7 @@ extension LocationNotificationVM {
     private func bind() {
         locationDidSet = { [weak self] data in
             self?.image = data.image
-            self?.region = data.region
+            self?.region = data.mapRegion
         }
     }
 }

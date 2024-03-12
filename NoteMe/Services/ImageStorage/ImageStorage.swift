@@ -13,47 +13,34 @@ final class ImageStorage {
         FileManager.default
     }
     
-     func saveImage(id: String, image: UIImage?) -> String? {
-        guard
-            let directory = manager.urls(for: .documentDirectory,
-                                         in: .userDomainMask).first
-        else { return  nil }
+    func saveImage(id: String, image: UIImage?) {
+        let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first
         
-        let fileURL = directory.appendingPathComponent(id)
-        guard 
-            let image, 
-            let data = image.jpegData(compressionQuality: 1)
-         else { return nil }
-        
-        if manager.fileExists(atPath: fileURL.path) {
+        if
+            let fileURL = directory?.appendingPathComponent(id),
+            let image,
+            let imageData = image.pngData() {
             do {
-                try manager.removeItem(atPath: fileURL.path)
+                try imageData.write(to: fileURL)
             } catch {
-                print("couldn't remove file at path", error)
+                print("[IS]", "\(Self.self) failed to save image \(error)")
             }
         }
-        
-        do {
-            try data.write(to: fileURL)
-            return fileURL.absoluteString
-        } catch {
-            print("error saving file with error", error)
-        }
-        return nil
     }
     
-     func loadImage(urlString: String) -> UIImage? {
-        guard
-            let url = URL(string: urlString)
-        else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let image = UIImage(data: data)
-            return image
-        } catch {
-            print("failed to load image",error)
-            return nil
+    func loadImage(id: String) -> UIImage? {
+
+        if
+            let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first,
+            let imageData = try? Data(contentsOf: directory.appendingPathComponent(id)){
+            if let loadedImage = UIImage(data: imageData) {
+                return loadedImage
+            } else {
+                print("[IS]", "\(Self.self) failed to convert data to image")
+            }
+        } else {
+            print("[IS]", "\(Self.self) failed to load data")
         }
+        return nil
     }
 }

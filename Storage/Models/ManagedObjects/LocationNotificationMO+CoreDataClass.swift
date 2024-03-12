@@ -23,9 +23,10 @@ public class LocationNotificationMO: BaseNotificationMO {
             return
         }
         super.apply(dto: dto)
-        self.latitude = dto.latitude
-        self.longitude = dto.longitude
-        self.imagePathStr = dto.imagePathStr
+        self.mapCenterLatitude = dto.mapCenterLatitude
+        self.mapCenterLongitude = dto.mapCenterLongitude
+        self.mapSpanLatitude = dto.mapSpanLatitude
+        self.mapSpanLongitude = dto.mapSpanLongitude
     }
 }
 

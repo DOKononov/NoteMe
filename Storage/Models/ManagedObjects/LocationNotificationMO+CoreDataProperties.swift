@@ -11,12 +11,13 @@ import CoreData
 
 
 extension LocationNotificationMO {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<LocationNotificationMO> {
         return NSFetchRequest<LocationNotificationMO>(entityName: "LocationNotificationMO")
     }
-
-    @NSManaged public var latitude: Double
-    @NSManaged public var longitude: Double
-    @NSManaged public var imagePathStr: String?
+    
+    @NSManaged public var mapCenterLatitude: Double
+    @NSManaged public var mapCenterLongitude: Double
+    @NSManaged public var mapSpanLatitude: Double
+    @NSManaged public var mapSpanLongitude: Double
 }

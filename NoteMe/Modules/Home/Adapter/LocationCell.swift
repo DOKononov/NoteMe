@@ -11,11 +11,10 @@ import Storage
 final class LocationCell: UITableViewCell {
     
     var buttonDidTapped: ((_ sender: UIButton) -> Void)?
-    
-    private var countdownDuration: Double = 0
-    
+    private let imageStorage = ImageStorage() //TODO: fix
+        
     private lazy var cellContentView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .itemBackground
         view.cornerRadius = 5
         view.clipsToBounds = true
@@ -51,7 +50,6 @@ final class LocationCell: UITableViewCell {
         return label
     }()
     
-    
     private lazy var settingsButton: UIButton = {
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 18, height: 3)
@@ -59,6 +57,14 @@ final class LocationCell: UITableViewCell {
         button.tintColor = .label
         button.addTarget(self, action: #selector(settingsDidTapped), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var locationImageView: UIImageView = {
+        let imageView = UIImageView(image: .init(systemName: "photo"))
+        imageView.tintColor = .label
+        imageView.backgroundColor = .secondarySystemBackground
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -69,8 +75,10 @@ final class LocationCell: UITableViewCell {
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
     
     func config(for dto: LocationNotificationDTO) {
-        title.text = "Location Cell prototipe"
-        subTitle.text = "Subtitle placeholder"
+        title.text = dto.title
+        subTitle.text = dto.subtitle
+        let image = imageStorage.loadImage(id: dto.id)
+        locationImageView.image = image
     }
     
     
@@ -85,6 +93,7 @@ final class LocationCell: UITableViewCell {
         cellContentView.addSubview(title)
         cellContentView.addSubview(subTitle)
         cellContentView.addSubview(settingsButton)
+        cellContentView.addSubview(locationImageView)
         contentView.isUserInteractionEnabled = false
         backgroundColor = .clear
         
@@ -95,7 +104,7 @@ final class LocationCell: UITableViewCell {
         
         iconView.snp.makeConstraints { make in
             make.size.equalTo(50)
-            make.leading.verticalEdges.equalToSuperview().inset(16)
+            make.leading.top.equalToSuperview().inset(16)
         }
         
         iconImageView.snp.makeConstraints { make in
@@ -113,6 +122,13 @@ final class LocationCell: UITableViewCell {
             make.leading.equalTo(iconView.snp.trailing).inset(-8)
             make.top.equalTo(title.snp.bottom).inset(-4)
             make.trailing.equalTo(settingsButton.snp.leading).inset(-8)
+        }
+        
+        locationImageView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(147)
+            make.top.equalTo(iconView.snp.bottom).inset(-8)
+            make.bottom.equalToSuperview().inset(16)
         }
         
         settingsButton.snp.makeConstraints { make in
