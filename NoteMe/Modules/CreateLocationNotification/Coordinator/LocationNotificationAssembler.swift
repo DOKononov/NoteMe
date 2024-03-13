@@ -12,9 +12,19 @@ import Storage
 final class LocationNotificationAssembler {
     private init() {}
     
-    static func make(_ coordinator: LocationNotificatioCoordinatorProtocol, 
+    static func make(_ coordinator: LocationNotificatioCoordinatorProtocol,
+                     container: Container,
                      dto: LocationNotificationDTO?) -> UIViewController {
-        let vm = LocationNotificationVM(coordinator: coordinator, dto: dto)
+        
+        let storage: LocationNotificationStorage = container.resolve()
+        let imageStorage: ImageStorage = container.resolve()
+        
+        let vm = LocationNotificationVM(
+            coordinator: coordinator,
+            dto: dto,
+            storage: storage,
+            imageStorage: imageStorage)
+        
         let vc = LocationNotificationVC(viewModel: vm)
         return vc
     }

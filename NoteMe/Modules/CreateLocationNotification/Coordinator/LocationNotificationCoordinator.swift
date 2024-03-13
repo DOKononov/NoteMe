@@ -22,7 +22,9 @@ final class LocationNotificationCoordinator: Coordinator {
     }
     
     override func start() -> UIViewController {
-        let vc = LocationNotificationAssembler.make(self, dto: dto)
+        let vc = LocationNotificationAssembler.make(self,
+                                                    container: container,
+                                                    dto: dto)
         rootVC = vc
         return vc
     }

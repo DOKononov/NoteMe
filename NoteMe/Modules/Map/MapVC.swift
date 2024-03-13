@@ -159,7 +159,7 @@ final class MapVC: UIViewController {
     private func bind() {
         viewmodel.snapshotDidChanged = { [weak self] image in
             self?.snapshotView.image = image
-            self?.selectButton.setTitle(image == nil ? "Select": "Confirm", for: .normal) //TODO: -locolise
+            self?.selectButton.setTitle(image == nil ? .Map.select : .Map.confirm, for: .normal)
         }
     }
 }

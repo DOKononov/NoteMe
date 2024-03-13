@@ -30,7 +30,6 @@
 		5627C14F2B8E44F20078CBF9 /* MenuPopoverAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C14E2B8E44F20078CBF9 /* MenuPopoverAdapter.swift */; };
 		5627C1522B8E46560078CBF9 /* MenuActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627C1512B8E46560078CBF9 /* MenuActionCell.swift */; };
 		562A72352B75091000755314 /* MainTabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A72342B75091000755314 /* MainTabBarVM.swift */; };
-		562A72372B750E2F00755314 /* Localozation+MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */; };
 		562E67002B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E66FC2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift */; };
 		562E67012B6BD34100F90EC0 /* TimerNotificationMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E66FD2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataProperties.swift */; };
 		562E67022B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E66FE2B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift */; };
@@ -40,12 +39,13 @@
 		562E670B2B6BE18900F90EC0 /* LocationNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E670A2B6BE18900F90EC0 /* LocationNotificationStorage.swift */; };
 		562E670D2B6BE19200F90EC0 /* TimerNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E670C2B6BE19200F90EC0 /* TimerNotificationStorage.swift */; };
 		56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56302FCE2B36BCF60051E331 /* AlertService+Profile.swift */; };
-		563A582C2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A582B2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
 		563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7242AFEA1B600150C98 /* InputValidator.swift */; };
 		563BF7282AFEA81300150C98 /* InputValidator+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7272AFEA81300150C98 /* InputValidator+Login.swift */; };
+		563C32342BA1786E00FCD351 /* LocationNotificationVM+LocationNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563C32332BA1786E00FCD351 /* LocationNotificationVM+LocationNotificationStorage.swift */; };
+		563C32362BA17A1E00FCD351 /* Location+ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563C32352BA17A1E00FCD351 /* Location+ImageStorage.swift */; };
 		5640A34A2B35C9D00052E7D0 /* AuthService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */; };
 		56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE42AF15EE400A79CDC /* View+Layer.swift */; };
 		56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */; };
@@ -71,8 +71,6 @@
 		564BBF712B76378000B53A66 /* TimerNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF702B76378000B53A66 /* TimerNotificationVM.swift */; };
 		564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */; };
 		564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */; };
-		564BBF782B765CC700B53A66 /* Localozation+DateNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF772B765CC700B53A66 /* Localozation+DateNotification.swift */; };
-		565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */; };
 		565E7E3E2B0D124600590556 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E3D2B0D124600590556 /* AppCoordinator.swift */; };
 		565E7E412B0D129C00590556 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E402B0D129C00590556 /* Coordinator.swift */; };
 		565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E432B0D1B6E00590556 /* LoginCoordinator.swift */; };
@@ -127,7 +125,6 @@
 		56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F42B165C9E0025283C /* OnboardSecondStepVM.swift */; };
 		56D733F82B165D860025283C /* OnboardSecondStepAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */; };
 		56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */; };
-		56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */; };
 		56D734042B1799300025283C /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D734032B1799300025283C /* MainTabBarVC.swift */; };
 		56D7EAE52B28C1DB00F72D2D /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAE42B28C1DB00F72D2D /* AlertService.swift */; };
 		56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAE62B28C95200F72D2D /* AlertService+Login.swift */; };
@@ -136,8 +133,6 @@
 		56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */; };
 		56D7EAF22B28D30200F72D2D /* HomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAF12B28D30200F72D2D /* HomeAssembler.swift */; };
 		56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAF32B28D34200F72D2D /* HomeCoordinator.swift */; };
-		56D7EAF62B29814000F72D2D /* Localization+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAF52B29814000F72D2D /* Localization+Home.swift */; };
-		56D7EAF82B29817200F72D2D /* Localization+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAF72B29817200F72D2D /* Localization+Profile.swift */; };
 		56D7EAFB2B29867300F72D2D /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAFA2B29867300F72D2D /* ProfileVC.swift */; };
 		56D7EAFE2B29874700F72D2D /* ProfileAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAFD2B29874700F72D2D /* ProfileAssembler.swift */; };
 		56D7EB002B2987A700F72D2D /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EAFF2B2987A700F72D2D /* ProfileCoordinator.swift */; };
@@ -209,7 +204,6 @@
 		5627C14E2B8E44F20078CBF9 /* MenuPopoverAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPopoverAdapter.swift; sourceTree = "<group>"; };
 		5627C1512B8E46560078CBF9 /* MenuActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuActionCell.swift; sourceTree = "<group>"; };
 		562A72342B75091000755314 /* MainTabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVM.swift; sourceTree = "<group>"; };
-		562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localozation+MainTabBar.swift"; sourceTree = "<group>"; };
 		562E66FC2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotificationMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		562E66FD2B6BD34100F90EC0 /* TimerNotificationMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotificationMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		562E66FE2B6BD34100F90EC0 /* LocationNotificationMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationNotificationMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -219,12 +213,13 @@
 		562E670A2B6BE18900F90EC0 /* LocationNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationStorage.swift; sourceTree = "<group>"; };
 		562E670C2B6BE19200F90EC0 /* TimerNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationStorage.swift; sourceTree = "<group>"; };
 		56302FCE2B36BCF60051E331 /* AlertService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Profile.swift"; sourceTree = "<group>"; };
-		563A582B2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+AlertBuilder.swift"; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
 		563BF7242AFEA1B600150C98 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		563BF7272AFEA81300150C98 /* InputValidator+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+Login.swift"; sourceTree = "<group>"; };
+		563C32332BA1786E00FCD351 /* LocationNotificationVM+LocationNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationNotificationVM+LocationNotificationStorage.swift"; sourceTree = "<group>"; };
+		563C32352BA17A1E00FCD351 /* Location+ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+ImageStorage.swift"; sourceTree = "<group>"; };
 		5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+Profile.swift"; sourceTree = "<group>"; };
 		56414AE42AF15EE400A79CDC /* View+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Layer.swift"; sourceTree = "<group>"; };
 		56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Styles.swift"; sourceTree = "<group>"; };
@@ -250,8 +245,6 @@
 		564BBF702B76378000B53A66 /* TimerNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationVM.swift; sourceTree = "<group>"; };
 		564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationAssembler.swift; sourceTree = "<group>"; };
-		564BBF772B765CC700B53A66 /* Localozation+DateNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localozation+DateNotification.swift"; sourceTree = "<group>"; };
-		565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Auth.swift"; sourceTree = "<group>"; };
 		565E7E3D2B0D124600590556 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		565E7E402B0D129C00590556 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		565E7E432B0D1B6E00590556 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
@@ -302,7 +295,6 @@
 		56D733F42B165C9E0025283C /* OnboardSecondStepVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepVM.swift; sourceTree = "<group>"; };
 		56D733F72B165D860025283C /* OnboardSecondStepAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepAssembler.swift; sourceTree = "<group>"; };
 		56D733F92B165E440025283C /* OnboardSecondStepCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSecondStepCoordinator.swift; sourceTree = "<group>"; };
-		56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Onboarding.swift"; sourceTree = "<group>"; };
 		56D734032B1799300025283C /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		56D7EAE42B28C1DB00F72D2D /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		56D7EAE62B28C95200F72D2D /* AlertService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertService+Login.swift"; sourceTree = "<group>"; };
@@ -311,8 +303,6 @@
 		56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		56D7EAF12B28D30200F72D2D /* HomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembler.swift; sourceTree = "<group>"; };
 		56D7EAF32B28D34200F72D2D /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		56D7EAF52B29814000F72D2D /* Localization+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Home.swift"; sourceTree = "<group>"; };
-		56D7EAF72B29817200F72D2D /* Localization+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Profile.swift"; sourceTree = "<group>"; };
 		56D7EAFA2B29867300F72D2D /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		56D7EAFD2B29874700F72D2D /* ProfileAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAssembler.swift; sourceTree = "<group>"; };
 		56D7EAFF2B2987A700F72D2D /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
@@ -481,6 +471,15 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		563C32322BA1784200FCD351 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				563C32332BA1786E00FCD351 /* LocationNotificationVM+LocationNotificationStorage.swift */,
+				563C32352BA17A1E00FCD351 /* Location+ImageStorage.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		5640A3482B35C9BA0052E7D0 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,7 +496,6 @@
 				56BFC9772B69563E00B47FE2 /* Collection+Register.swift */,
 				56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */,
 				563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */,
-				56E67DF02AE906F900248F85 /* String+localized.swift */,
 				56414AF92AF3AB3100A79CDC /* UIViewController+EndEditing.swift */,
 			);
 			path = Utils;
@@ -578,6 +576,7 @@
 		564BBF5B2B762E8C00B53A66 /* CreateLocationNotification */ = {
 			isa = PBXGroup;
 			children = (
+				563C32322BA1784200FCD351 /* UseCases */,
 				564BBF692B76339000B53A66 /* Coordinator */,
 				564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */,
 				564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */,
@@ -615,13 +614,7 @@
 		565DB0D52AFCC69A00625F7C /* Localizations */ = {
 			isa = PBXGroup;
 			children = (
-				565DB0D62AFCC6C300625F7C /* Localization+Auth.swift */,
-				563A582B2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift */,
-				56D733FB2B1712DF0025283C /* Localization+Onboarding.swift */,
-				56D7EAF52B29814000F72D2D /* Localization+Home.swift */,
-				56D7EAF72B29817200F72D2D /* Localization+Profile.swift */,
-				562A72362B750E2F00755314 /* Localozation+MainTabBar.swift */,
-				564BBF772B765CC700B53A66 /* Localozation+DateNotification.swift */,
+				56E67DF02AE906F900248F85 /* String+localized.swift */,
 			);
 			path = Localizations;
 			sourceTree = "<group>";
@@ -1292,7 +1285,6 @@
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
-				565DB0D72AFCC6C300625F7C /* Localization+Auth.swift in Sources */,
 				56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */,
 				565E7E472B0D24C000590556 /* RegisterCoordinator.swift in Sources */,
 				56414AF82AF3A47700A79CDC /* RegisterVC.swift in Sources */,
@@ -1301,9 +1293,9 @@
 				5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */,
 				56D7EB042B2A090000F72D2D /* HomeVM.swift in Sources */,
 				564BBF5F2B762F1300B53A66 /* DateNotificationVM.swift in Sources */,
+				563C32342BA1786E00FCD351 /* LocationNotificationVM+LocationNotificationStorage.swift in Sources */,
 				56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
-				562A72372B750E2F00755314 /* Localozation+MainTabBar.swift in Sources */,
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */,
 				564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */,
@@ -1313,14 +1305,13 @@
 				5627C14B2B8E405E0078CBF9 /* MenuPopoverVC.swift in Sources */,
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
 				56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */,
-				56D7EAF62B29814000F72D2D /* Localization+Home.swift in Sources */,
 				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
 				5645759E2B8B9B2900B4891E /* AppTimerPickerView.swift in Sources */,
 				56CA73382B98A7EE00ADC325 /* MapCoordinator.swift in Sources */,
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */,
+				563C32362BA17A1E00FCD351 /* Location+ImageStorage.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
-				564BBF782B765CC700B53A66 /* Localozation+DateNotification.swift in Sources */,
 				56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */,
 				56C3CAF02B7D46D1003841AE /* HomeAdapter.swift in Sources */,
 				565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */,
@@ -1329,10 +1320,8 @@
 				565E7E4D2B0F6A7B00590556 /* Animator+ResetPassword.swift in Sources */,
 				56D7EAEA2B28D10600F72D2D /* MainTabBarAssembler.swift in Sources */,
 				5645759C2B8B40A900B4891E /* LocationCell.swift in Sources */,
-				563A582C2B20AB6C00B8AFAF /* Localization+AlertBuilder.swift in Sources */,
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
-				56D7EAF82B29817200F72D2D /* Localization+Profile.swift in Sources */,
 				5673B3B32B56E544004ABFDA /* ContainerRegistrator.swift in Sources */,
 				56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */,
 				56D733E52B164B620025283C /* ParametersHelper.swift in Sources */,
@@ -1358,7 +1347,6 @@
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 				56CA73332B98A75B00ADC325 /* MapVM.swift in Sources */,
 				56DDA7F42B987DB400CA94F7 /* NotificationService.swift in Sources */,
-				56D733FC2B1712DF0025283C /* Localization+Onboarding.swift in Sources */,
 				564BBF5D2B762F0500B53A66 /* DateNotificationVC.swift in Sources */,
 				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,
 				568DDFD42B9CA9A3004F488B /* ImageStorage.swift in Sources */,
