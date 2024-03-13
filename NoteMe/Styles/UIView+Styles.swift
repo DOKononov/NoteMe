@@ -13,7 +13,7 @@ extension UIView {
         let view = UIView()
         view.layer.cornerRadius = 5
         view.addShadow()
-        view.backgroundColor = .white
+        view.backgroundColor = .itemBackground
         return view
     }
     

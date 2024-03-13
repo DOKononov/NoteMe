@@ -17,7 +17,7 @@ final class CommentTextView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .appBoldFont.withSize(13)
-        label.textColor = .appText
+        label.textColor = .label
         label.textAlignment = .left
         return label
     }()
@@ -25,13 +25,13 @@ final class CommentTextView: UIView {
     private lazy var textView: UITextView = {
         let textView = UITextView()
         textView.font = .appFont.withSize(15)
-        textView.textColor = .appText
-        textView.layer.borderColor = UIColor.appText.cgColor
-        textView.layer.borderWidth = 1
+        textView.textColor = .label
+        textView.backgroundColor = .textViewBackground
         textView.delegate = self
         textView.textAlignment = .left
         return textView
     }()
+    
     
     var title: String? {
         get { titleLabel.text }

@@ -56,8 +56,8 @@ final class LocationNotificationVC: UIViewController {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: .init(systemName: "photo"))
-        imageView.tintColor = .label
-        imageView.backgroundColor = .secondarySystemBackground
+        imageView.tintColor = .secondaryLabel
+        imageView.backgroundColor = .secondaryItemBackground
         imageView.contentMode = .scaleAspectFit
         imageView.addGestureRecognizer(UITapGestureRecognizer(
             target: self, action: #selector(mapDidTap)))

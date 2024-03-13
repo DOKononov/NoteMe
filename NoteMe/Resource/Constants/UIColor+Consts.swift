@@ -28,4 +28,7 @@ extension UIColor {
     static var appShadow: UIColor = .init(0, 0, 0, 0.05)
     static var appAlertMessage: UIColor = .init(0, 0, 0, 0.5)
     static var itemBackground = UIColor(named: "itemBackground")!
+    static var secondaryItemBackground = UIColor(named: "secondaryItemBackground")!
+    static var textViewBackground = UIColor(named: "textViewBackground")!
+    
 }

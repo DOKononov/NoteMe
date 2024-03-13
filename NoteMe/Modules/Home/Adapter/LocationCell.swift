@@ -62,8 +62,7 @@ final class LocationCell: UITableViewCell {
     private lazy var locationImageView: UIImageView = {
         let imageView = UIImageView(image: .init(systemName: "photo"))
         imageView.tintColor = .label
-        imageView.backgroundColor = .secondarySystemBackground
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
