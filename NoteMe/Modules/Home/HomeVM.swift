@@ -12,7 +12,9 @@ import UIKit
 protocol HomeAdapterProtocol: AnyObject {
     func relodeData(_ dtoList: [any DTODescription])
     func makeTableView() -> UITableView
+    
     var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)? { get set }
+    var filterDidSelect: ((NotificationFilterType) -> Void)? { get set }
 }
 
 protocol HomeCoordinatorProtocol {
@@ -33,6 +35,11 @@ final class HomeVM: HomeViewModelProtocol {
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
     private var selectedDTO: (any DTODescription)?
+    private var selectedFilter: NotificationFilterType = .all {
+        didSet {
+            adapter.relodeData(filterResults())
+        }
+    }
 
     init(adapter: HomeAdapterProtocol,
          storage: AllNotificationStorage,
@@ -47,8 +54,8 @@ final class HomeVM: HomeViewModelProtocol {
     }
     
     private func bind() {
-        frcService.didChangeContent = { [weak adapter] in
-            adapter?.relodeData($0)
+        frcService.didChangeContent = { [weak self] _ in
+            self?.adapter.relodeData(self?.filterResults() ?? [])
         }
         
         adapter.tapButtonOnDTO = { [weak self] sender, dto in
@@ -56,10 +63,30 @@ final class HomeVM: HomeViewModelProtocol {
             self.selectedDTO = dto
             self.coordinator.showMenu(sender, delegate: self)
         }
+        
+        adapter.filterDidSelect = { [weak self] type in
+            self?.selectedFilter = type
+        }
+        
     }
     
     func makeTableView() -> UITableView {
         adapter.makeTableView()
+    }
+    
+    private func filterResults() -> [any DTODescription] {
+        frcService.fetchedDTOs.filter { dto in
+           switch selectedFilter {
+           case .date:
+               return dto is DateNotificationDTO
+           case .timer:
+               return dto is TimerNotificationDTO
+           case .location:
+               return dto is LocationNotificationDTO
+           default:
+               return true
+           }
+       }
     }
 }
 

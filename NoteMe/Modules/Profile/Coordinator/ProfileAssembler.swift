@@ -14,7 +14,7 @@ final class ProfileAssembler {
                      container: Container) -> UIViewController {
         let authService: AuthService = container.resolve()
         let alertService: AlertService = container.resolve()
-        let adapter = ProfileAdapter()
+        let adapter = ProfileAdapter() //TODO: fix
         let viewModel = ProfileVM(authService: authService,
                                   coordinator: coordinator,
                                   alertService: alertService,

@@ -39,6 +39,7 @@ final class DateCell: UITableViewCell {
     private lazy var monthLabel: UILabel = {
         let label = UILabel()
         label.font = .appFont.withSize(15)
+        label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.textColor = .white
         return label

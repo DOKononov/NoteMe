@@ -24,6 +24,7 @@ final class NotificationService {
          
          if let subtitle = dto.subtitle {
              content.body = subtitle
+
          }
         
          let request = UNNotificationRequest(identifier: dto.id,
@@ -38,3 +39,8 @@ final class NotificationService {
 //        UNCalendarNotificationTrigger(dateMatching: <#T##DateComponents#>, repeats: <#T##Bool#>)
 //        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: <#T##[String]#>)
 //        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: <#T##[String]#>)
+
+
+//UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
+//    notifications.first?.date
+//}

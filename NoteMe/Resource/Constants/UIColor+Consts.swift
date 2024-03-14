@@ -19,6 +19,7 @@ extension UIColor {
     static var appYellow: UIColor = .init(255, 232, 26, 1)
     static var appBlack: UIColor = .init(40, 40, 40, 1)
     static var appGray = UIColor(named: "appGray")!
+    static var appDarkGray: UIColor = .init(named: "appDarkGray")!
     static var appRed: UIColor = .init(241, 63, 63, 1)
     static var appGrayText: UIColor = .init(170, 170, 170, 1)
     static var appCellTitleText: UIColor = .init(137, 138, 141, 1)
