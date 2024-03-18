@@ -10,7 +10,7 @@ import UIKit
 final class ProfileAdapter: NSObject {
     
     var sections: [ProfileSections] = [] {  didSet { tableView.reloadData() } }
-    var didSelectRow: ((ProfileSttingsRows) -> Void)?
+    var didSelectRow: ((ProfileSettingsRows) -> Void)?
     
     private var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -57,6 +57,11 @@ extension ProfileAdapter: UITableViewDataSource {
             cell.setup(email: email)
             return cell
             
+        case .notifications(let item):
+            let cell: ProfileSettingsCell = tableView.dequeue(at: indexPath)
+            cell.setup(item)
+            return cell
+            
         case .settings(let rows):
             let cell: ProfileSettingsCell = tableView.dequeue(at: indexPath)
             cell.setup(rows[indexPath.row])
@@ -80,6 +85,8 @@ extension ProfileAdapter: UITableViewDelegate {
         switch section {
         case .settings(let rows):
             didSelectRow?(rows[indexPath.row])
+        case .notifications(let item):
+            didSelectRow?(item)
         default: break
         }
         tableView.deselectRow(at: indexPath, animated: true)

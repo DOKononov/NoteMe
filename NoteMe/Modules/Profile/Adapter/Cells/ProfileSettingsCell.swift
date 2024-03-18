@@ -35,7 +35,7 @@ final class ProfileSettingsCell: UITableViewCell {
         setupUI()
     }
     
-    func setup(_ type: ProfileSttingsRows) {
+    func setup(_ type: ProfileSettingsRows) {
         titleLabel.text = type.title
         iconImageView.image = type.icon
         titleLabel.textColor = type == .logout ? .appRed : .label

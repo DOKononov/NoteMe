@@ -12,7 +12,7 @@ protocol ProfileCoordinatorProtocol: AnyObject {
 }
 
 protocol ProfileAdapterProtocol {
-    var didSelectRow: ((ProfileSttingsRows) -> Void)? { get set }
+    var didSelectRow: ((ProfileSettingsRows) -> Void)? { get set }
     func reloadData(with sections: [ProfileSections])
     func makeTableView() -> UITableView
 }
@@ -43,7 +43,8 @@ final class ProfileVM: ProfileViewModelProtocol {
     
     private var sections: [ProfileSections] {
         [ .account(username),
-          .settings(ProfileSttingsRows.allCases)]
+          .notifications(.map),
+          .settings([.notifications, .export, .logout])]
     }
     
     func makeTableView() -> UITableView {
@@ -76,6 +77,7 @@ private extension ProfileVM {
             case .notifications: print("Notifications did tapped")
             case .export: print("Export did tapped")
             case .logout: self?.logout()
+            case .map: print("map did tap")
             }
         }
     }

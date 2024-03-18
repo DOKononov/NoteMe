@@ -12,7 +12,7 @@ import Storage
 final class HomeAdapter: NSObject, HomeAdapterProtocol {
     
     private enum Const {
-        static let headerHeight: CGFloat = 32
+        static let headerHeight: CGFloat = 32+16
     }
     var filterDidSelect: ((NotificationFilterType) -> Void)?
     

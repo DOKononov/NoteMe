@@ -50,7 +50,7 @@ private extension HomeVC {
         
         tableView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
-            make.top.equalToSuperview().inset(16)
+            make.top.equalToSuperview().inset(5)
             make.bottom.equalToSuperview().inset(20)
         }
     }

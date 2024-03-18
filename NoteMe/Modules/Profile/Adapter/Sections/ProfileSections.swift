@@ -9,7 +9,8 @@ import UIKit
 
 enum ProfileSections: Equatable {
     case account(String)
-    case settings([ProfileSttingsRows])
+    case notifications(ProfileSettingsRows)
+    case settings([ProfileSettingsRows])
     
     var numberOfRows: Int {
         switch self {
@@ -21,21 +22,25 @@ enum ProfileSections: Equatable {
     var headerText: String {
         switch self {
         case .account: .Profile.account
+        case .notifications: .Profile.notificactions
         case .settings: .Profile.settings
         }
     }
 }
 
-enum ProfileSttingsRows: CaseIterable {
+enum ProfileSettingsRows: CaseIterable {
     case notifications
     case export
     case logout
+    case map
     
     var icon: UIImage {
         switch self {
         case .notifications: .Profile.notificactions
         case .export: .Profile.export
         case .logout: .Profile.logout
+        case .map: .MainTabBar.location
+
         }
     }
     
@@ -44,6 +49,8 @@ enum ProfileSttingsRows: CaseIterable {
         case .notifications: .Profile.notificactions
         case .export: .Profile.export
         case .logout: .Profile.logout
+        case .map: .Profile.map
+
         }
     }
     

@@ -83,6 +83,7 @@ extension String {
         static var export: String { "export".localized }
         static var logout: String { "logout".localized }
         static var unregistered_user: String { "unregistered_user".localized }
+        static var map: String { "map".localized }
     }
     
     //MARK: -MainTabBar
