@@ -43,6 +43,7 @@
 		5630BC9A2BA84C54006EE839 /* NotificationsMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */; };
 		5630BC9D2BA84CA3006EE839 /* NotificationsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */; };
 		5630BC9F2BA84CBF006EE839 /* NotificationsMapAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */; };
+		5630BCA12BA87008006EE839 /* LocationNotificationVM+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA02BA87008006EE839 /* LocationNotificationVM+NotificationService.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
@@ -224,6 +225,7 @@
 		5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapVM.swift; sourceTree = "<group>"; };
 		5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapCoordinator.swift; sourceTree = "<group>"; };
 		5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapAssembler.swift; sourceTree = "<group>"; };
+		5630BCA02BA87008006EE839 /* LocationNotificationVM+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationNotificationVM+NotificationService.swift"; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				563C32332BA1786E00FCD351 /* LocationNotificationVM+LocationNotificationStorage.swift */,
+				5630BCA02BA87008006EE839 /* LocationNotificationVM+NotificationService.swift */,
 				563C32352BA17A1E00FCD351 /* Location+ImageStorage.swift */,
 			);
 			path = UseCases;
@@ -1302,6 +1305,7 @@
 				563C32382BA20C6F00FCD351 /* NotificationFilterView.swift in Sources */,
 				564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
+				5630BCA12BA87008006EE839 /* LocationNotificationVM+NotificationService.swift in Sources */,
 				563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */,
 				56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */,
 				563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */,

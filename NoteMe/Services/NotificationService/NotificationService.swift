@@ -24,7 +24,6 @@ final class NotificationService {
          
          if let subtitle = dto.subtitle {
              content.body = subtitle
-
          }
         
          let request = UNNotificationRequest(identifier: dto.id,

@@ -23,6 +23,7 @@ final class ContainerRegistrator {
         container.register { TimerNotificationStorage() }
         container.register { AllNotificationStorage() }
         container.register { ImageStorage() }
+        container.register { NotificationService() }
         
         return container
     }

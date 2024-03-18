@@ -18,12 +18,14 @@ final class LocationNotificationAssembler {
         
         let storage: LocationNotificationStorage = container.resolve()
         let imageStorage: ImageStorage = container.resolve()
+        let notificationService: NotificationService = container.resolve()
         
         let vm = LocationNotificationVM(
             coordinator: coordinator,
             dto: dto,
             storage: storage,
-            imageStorage: imageStorage)
+            imageStorage: imageStorage, 
+            notificationService: notificationService)
         
         let vc = LocationNotificationVC(viewModel: vm)
         return vc

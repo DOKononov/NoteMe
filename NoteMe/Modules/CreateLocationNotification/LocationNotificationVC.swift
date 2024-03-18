@@ -91,6 +91,7 @@ final class LocationNotificationVC: UIViewController {
     private func bind() {
         viewModel.imageDidSet = { [weak imageView] image in
             imageView?.image = image
+            imageView?.backgroundColor = (image != nil) ? .clear : .secondaryItemBackground
         }
         
         viewModel.catchTitleError = { [weak titleView] error in
