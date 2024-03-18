@@ -24,4 +24,17 @@ final class ProfileCoordinator: Coordinator {
 }
 
 //MARK: -ProfileCoordinatorProtocol
-extension ProfileCoordinator: ProfileCoordinatorProtocol {}
+extension ProfileCoordinator: ProfileCoordinatorProtocol {
+    func openNotificationsMap() {
+        let coordinator = NotificationsMapCoordinator(container: container)
+        chidren.append(coordinator)
+        let vc = coordinator.start()
+        
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll { coordinator == $0 }
+            vc.dismiss(animated: true)
+        }
+        vc.modalPresentationStyle = .fullScreen
+        rootVC?.present(vc, animated: true)
+    }
+}

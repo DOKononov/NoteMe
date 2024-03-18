@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProfileCoordinatorProtocol: AnyObject {
     func finish()
+    func openNotificationsMap()
 }
 
 protocol ProfileAdapterProtocol {
@@ -77,7 +78,7 @@ private extension ProfileVM {
             case .notifications: print("Notifications did tapped")
             case .export: print("Export did tapped")
             case .logout: self?.logout()
-            case .map: print("map did tap")
+            case .map: self?.coordinator?.openNotificationsMap()
             }
         }
     }
