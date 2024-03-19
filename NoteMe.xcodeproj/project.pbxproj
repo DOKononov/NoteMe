@@ -44,6 +44,9 @@
 		5630BC9D2BA84CA3006EE839 /* NotificationsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */; };
 		5630BC9F2BA84CBF006EE839 /* NotificationsMapAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */; };
 		5630BCA12BA87008006EE839 /* LocationNotificationVM+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA02BA87008006EE839 /* LocationNotificationVM+NotificationService.swift */; };
+		5630BCA32BA8A769006EE839 /* DateNotification+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA22BA8A769006EE839 /* DateNotification+NotificationService.swift */; };
+		5630BCA62BA8A8C3006EE839 /* TimerNotification+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */; };
+		5630BCA82BA8A980006EE839 /* TimerNotification+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
@@ -226,6 +229,9 @@
 		5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapCoordinator.swift; sourceTree = "<group>"; };
 		5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapAssembler.swift; sourceTree = "<group>"; };
 		5630BCA02BA87008006EE839 /* LocationNotificationVM+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationNotificationVM+NotificationService.swift"; sourceTree = "<group>"; };
+		5630BCA22BA8A769006EE839 /* DateNotification+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateNotification+NotificationService.swift"; sourceTree = "<group>"; };
+		5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotification+Storage.swift"; sourceTree = "<group>"; };
+		5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotification+NotificationService.swift"; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
@@ -467,6 +473,15 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		5630BCA42BA8A8A7006EE839 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */,
+				5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +628,7 @@
 		564BBF5A2B762E7B00B53A66 /* CreateTimerNotification */ = {
 			isa = PBXGroup;
 			children = (
+				5630BCA42BA8A8A7006EE839 /* UseCases */,
 				564BBF722B76384400B53A66 /* Coordinator */,
 				564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */,
 				564BBF702B76378000B53A66 /* TimerNotificationVM.swift */,
@@ -1128,6 +1144,7 @@
 			isa = PBXGroup;
 			children = (
 				56F80B9B2B7DFFB40061B328 /* DateNotification+Storage.swift */,
+				5630BCA22BA8A769006EE839 /* DateNotification+NotificationService.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1352,11 +1369,13 @@
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */,
 				564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */,
+				5630BCA62BA8A8C3006EE839 /* TimerNotification+Storage.swift in Sources */,
 				56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
 				5627C14B2B8E405E0078CBF9 /* MenuPopoverVC.swift in Sources */,
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
+				5630BCA82BA8A980006EE839 /* TimerNotification+NotificationService.swift in Sources */,
 				56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */,
 				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
 				5645759E2B8B9B2900B4891E /* AppTimerPickerView.swift in Sources */,
@@ -1368,6 +1387,7 @@
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */,
 				56C3CAF02B7D46D1003841AE /* HomeAdapter.swift in Sources */,
+				5630BCA32BA8A769006EE839 /* DateNotification+NotificationService.swift in Sources */,
 				565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */,
 				563C323D2BA2173B00FCD351 /* String+Size.swift in Sources */,
 				560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */,

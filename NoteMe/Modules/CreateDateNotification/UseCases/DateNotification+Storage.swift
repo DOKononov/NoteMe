@@ -8,8 +8,4 @@
 import Foundation
 import Storage
 
-//extension NotificationStorage: DateNotificationStorageUseCase {
-//    func create(_ dto: DateNotificationDTO, completion: ((Bool) -> Void)?) {
-//        create(dto: dto, completion: completion)
-//    }
-//}
+extension DateNotificationStorage: DateNotificationStorageUseCase {}

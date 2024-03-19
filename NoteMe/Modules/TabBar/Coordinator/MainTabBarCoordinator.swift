@@ -65,7 +65,8 @@ extension MainTabBarCoordinator: MainTabBarCoordinatorProtocol {
     }
     
     func openNewTimerNotification() {
-        let coordinator = TimerNotificationCoordinator(container: container)
+        let coordinator = TimerNotificationCoordinator(container: container, 
+                                                       dto: nil)
         chidren.append(coordinator)
         let vc = coordinator.start()
         

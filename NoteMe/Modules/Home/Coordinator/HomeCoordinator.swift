@@ -38,7 +38,7 @@ final class HomeCoordinator: Coordinator, HomeCoordinatorProtocol {
         rootVC?.present(vc, animated: true)
     }
     
-    func startEdite(location dto: Storage.LocationNotificationDTO) {
+    func startEdite(location dto: LocationNotificationDTO) {
         let coordinator = LocationNotificationCoordinator(
             container: container,
             dto: dto)
@@ -52,6 +52,22 @@ final class HomeCoordinator: Coordinator, HomeCoordinatorProtocol {
         vc.modalPresentationStyle = .fullScreen
         rootVC?.present(vc, animated: true)
     }
+    
+    func startEdite(timer dto: TimerNotificationDTO) {
+        let coordinator = TimerNotificationCoordinator(
+            container: container,
+            dto: dto)
+        chidren.append(coordinator)
+        let vc = coordinator.start()
+        
+        coordinator.onDidFinish = { [weak self] coordinator in
+            self?.chidren.removeAll { coordinator == $0 }
+            vc.dismiss(animated: true)
+        }
+        vc.modalPresentationStyle = .fullScreen
+        rootVC?.present(vc, animated: true)
+    }
+    
     
     func showMenu(_ sender: UIView, delegate: MenuPopoverDelegate) {
         let menu = MenuPopoverBuilder.buildEditeenu(delegate: delegate,

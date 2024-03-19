@@ -20,6 +20,7 @@ protocol HomeAdapterProtocol: AnyObject {
 protocol HomeCoordinatorProtocol {
     func startEdite(date dto: DateNotificationDTO)
     func startEdite(location dto: LocationNotificationDTO)
+    func startEdite(timer dto: TimerNotificationDTO)
     func showMenu(_ sender: UIView, delegate: MenuPopoverDelegate)
 }
 
@@ -103,7 +104,7 @@ extension HomeVM: MenuPopoverDelegate {
                 coordinator.startEdite(location: selectedDTO as! LocationNotificationDTO)
                 break
             case is TimerNotificationDTO:
-                //TODO: add case
+                coordinator.startEdite(timer: selectedDTO as! TimerNotificationDTO)
                 break
             default: break
             }

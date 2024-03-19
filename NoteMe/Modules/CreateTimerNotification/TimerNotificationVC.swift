@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Storage
 
 protocol TimerNotificationViewModelProtocol: AnyObject {
     var title: String? { get set }
@@ -14,6 +15,8 @@ protocol TimerNotificationViewModelProtocol: AnyObject {
     func dismissDidTapped()
     func createDidTapped()
     var timeIntervalDidSet: ((String) -> Void)? { get set }
+    func viewDidLoad()
+    var shouldEditeDTO: ((TimerNotificationDTO) -> Void)? { get set }
 }
 
 final class TimerNotificationVC: UIViewController {
@@ -75,11 +78,19 @@ final class TimerNotificationVC: UIViewController {
         setupUI()
         setupTimerPickerInputView()
         bind()
+        viewModel.viewDidLoad()
     }
     
     private func bind() {
-        viewModel.timeIntervalDidSet = { [weak self] timeIntervalStr in
-            self?.timerView.text = timeIntervalStr
+        viewModel.timeIntervalDidSet = { [weak timerView] timeIntervalStr in
+            timerView?.text = timeIntervalStr
+        }
+        
+        viewModel.shouldEditeDTO = { [weak self] dto in
+            self?.titleView.text = dto.title
+            self?.viewModel.title = dto.title
+            self?.viewModel.timeinterval = dto.timeLeft
+            self?.commentView.text = dto.subtitle
         }
     }
     

@@ -15,9 +15,12 @@ final class DateNotificationAssembler {
                      container: Container,
                      dto: DateNotificationDTO?) -> UIViewController {
         let storage: DateNotificationStorage = container.resolve()
-        let viewModel = DateNotificationVM(coordinator: coordinator, 
-                                           storage: storage,
-                                           dto: dto)
+        let notificationService: NotificationService = container.resolve()
+        let viewModel = DateNotificationVM(
+            coordinator: coordinator,
+            storage: storage,
+            dto: dto,
+            notificationService: notificationService)
         let vc = DateNotificationVC(viewModel: viewModel)
         return vc
     }

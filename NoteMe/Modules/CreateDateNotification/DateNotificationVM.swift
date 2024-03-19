@@ -13,13 +13,18 @@ protocol DateNotificationCoordinatorProtocol: AnyObject {
 }
 
 protocol DateNotificationStorageUseCase {
-    func create(_ dto: DateNotificationDTO, completion: ((Bool) -> Void)?)
+    func updateOrCreate(dto: DateNotificationDTO, completion: ((Bool) -> Void)?)
+}
+
+protocol DateNotificationServiceUseCase {
+    func makeDateNotification(dto: DateNotificationDTO)
 }
 
 final class DateNotificationVM: DateNotificationViewModelProtocol {
     
     private weak var coordinator: DateNotificationCoordinatorProtocol?
-    private let storage: DateNotificationStorage //UseCase
+    private let storage: DateNotificationStorageUseCase
+    private let notificationService: DateNotificationServiceUseCase
     var dto: DateNotificationDTO?
     var shouldEditeDTO: ((DateNotificationDTO) -> Void)?
     
@@ -31,12 +36,14 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
     var catchDateError: ((String?) -> Void)?
     
     init(coordinator: DateNotificationCoordinatorProtocol,
-         storage: DateNotificationStorage, //UseCase
-         dto: DateNotificationDTO?
+         storage: DateNotificationStorageUseCase,
+         dto: DateNotificationDTO?,
+         notificationService: DateNotificationServiceUseCase
     ) {
         self.coordinator = coordinator
         self.storage = storage
         self.dto = dto
+        self.notificationService = notificationService
     }
     
     func createDidTapped() {
@@ -49,7 +56,8 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
         dto?.title = title
         dto?.targetDate = date
         dto?.subtitle = comment
-        storage.updateOrCreate(dto: dto ?? newDTO)
+        storage.updateOrCreate(dto: dto ?? newDTO, completion: nil)
+        notificationService.makeDateNotification(dto: dto ?? newDTO)
         coordinator?.finish()
     }
     

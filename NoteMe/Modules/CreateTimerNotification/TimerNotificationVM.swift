@@ -12,9 +12,20 @@ protocol TimerNotificationCoordinatorProtocol: AnyObject {
     func finish()
 }
 
+protocol TimerNotificationStorageUseCase {
+    func updateOrCreate(dto: TimerNotificationDTO, completion: ((Bool) -> Void)?)
+}
+
+protocol TimerNotificationServiceUseCase {
+    func makeTimerNotification(dto: TimerNotificationDTO)
+}
+
 final class TimerNotificationVM: TimerNotificationViewModelProtocol {
     private weak var coordinator: TimerNotificationCoordinatorProtocol?
-    private let storage: TimerNotificationStorage
+    private let storage: TimerNotificationStorageUseCase
+    private let notificationService: TimerNotificationServiceUseCase
+    var dto: TimerNotificationDTO?
+    var shouldEditeDTO: ((TimerNotificationDTO) -> Void)?
     
     var title: String?
     var timeinterval: Double? {  didSet { updateLabel() } }
@@ -27,21 +38,35 @@ final class TimerNotificationVM: TimerNotificationViewModelProtocol {
         coordinator?.finish()
     }
     
+    func viewDidLoad() {
+        guard let dto else { return }
+        shouldEditeDTO?(dto)
+    }
+    
     func createDidTapped() {
-        
         guard let title, let timeinterval else { return }
         let newDTO = TimerNotificationDTO(date: Date(),
                                           title: title,
                                           subtitle: comment,
                                           targetDate: Date().addingTimeInterval(timeinterval))
-        storage.updateOrCreate(dto: newDTO)
+        dto?.title = title
+        dto?.subtitle = comment
+        dto?.timeLeft = timeinterval
+        
+        storage.updateOrCreate(dto: dto ?? newDTO, completion: nil)
+        notificationService.makeTimerNotification(dto: dto ?? newDTO)
         coordinator?.finish()
     }
     
     init(coordinator: TimerNotificationCoordinatorProtocol,
-         storage: TimerNotificationStorage) {
+         storage: TimerNotificationStorageUseCase,
+         notificationService: TimerNotificationServiceUseCase,
+         dto: TimerNotificationDTO?
+    ) {
         self.coordinator = coordinator
         self.storage = storage
+        self.notificationService = notificationService
+        self.dto = dto
     }
     
     private func updateLabel() {

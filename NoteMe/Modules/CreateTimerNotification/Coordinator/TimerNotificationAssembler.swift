@@ -12,9 +12,14 @@ final class TimerNotificationAssembler {
     private init() {}
     
     static func make(_ coordinator: TimerNotificationCoordinatorProtocol,
-                     container: Container) -> UIViewController {
+                     container: Container,
+                     dto: TimerNotificationDTO?) -> UIViewController {
         let storage: TimerNotificationStorage = container.resolve()
-        let vm = TimerNotificationVM(coordinator: coordinator, storage: storage)
+        let notificationService: NotificationService = container.resolve()
+        let vm = TimerNotificationVM(
+            coordinator: coordinator,
+            storage: storage,
+            notificationService: notificationService, dto: dto)
         let vc = TimerNotificationVC(viewModel: vm)
         return vc
     }
