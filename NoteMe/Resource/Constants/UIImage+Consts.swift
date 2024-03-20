@@ -29,6 +29,10 @@ extension UIImage {
         static let notificactions: UIImage = .init(named: "notificactions")!
     }
     
+    enum Location {
+        static let locationPlaceholder: UIImage = .init(systemName: "photo")!
+    }
+    
     enum MainTabBar {
         static let calendar: UIImage = .init(named: "calendar")!
         static let delete: UIImage = .init(named: "delete")!

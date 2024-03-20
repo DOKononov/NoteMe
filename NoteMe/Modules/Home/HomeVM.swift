@@ -8,6 +8,7 @@
 import Foundation
 import Storage
 import UIKit
+import CoreLocation
 
 protocol HomeAdapterProtocol: AnyObject {
     func relodeData(_ dtoList: [any DTODescription])
@@ -41,7 +42,7 @@ final class HomeVM: HomeViewModelProtocol {
             adapter.relodeData(filterResults())
         }
     }
-
+    
     init(adapter: HomeAdapterProtocol,
          storage: AllNotificationStorage,
          coordinator: HomeCoordinatorProtocol,
@@ -77,17 +78,17 @@ final class HomeVM: HomeViewModelProtocol {
     
     private func filterResults() -> [any DTODescription] {
         frcService.fetchedDTOs.filter { dto in
-           switch selectedFilter {
-           case .date:
-               return dto is DateNotificationDTO
-           case .timer:
-               return dto is TimerNotificationDTO
-           case .location:
-               return dto is LocationNotificationDTO
-           default:
-               return true
-           }
-       }
+            switch selectedFilter {
+            case .date:
+                return dto is DateNotificationDTO
+            case .timer:
+                return dto is TimerNotificationDTO
+            case .location:
+                return dto is LocationNotificationDTO
+            default:
+                return true
+            }
+        }
     }
 }
 

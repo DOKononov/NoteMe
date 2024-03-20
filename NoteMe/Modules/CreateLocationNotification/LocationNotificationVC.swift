@@ -48,14 +48,14 @@ final class LocationNotificationVC: UIViewController {
     
     private lazy var locationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Location" //TODO: -!
+        label.text = .MainTabBar.location
         label.font = .appBoldFont.withSize(13)
         label.textColor = .label
         return label
     }()
     
     private lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: .init(systemName: "photo"))
+        let imageView = UIImageView(image: .Location.locationPlaceholder)
         imageView.tintColor = .secondaryLabel
         imageView.backgroundColor = .secondaryItemBackground
         imageView.contentMode = .scaleAspectFit
