@@ -1,32 +1,16 @@
 //
-//  NearByRequest.swift
+//  SearchPlacesRequest.swift
 //  NoteMe
 //
-//  Created by Dmitry Kononov on 19.03.24.
+//  Created by Dmitry Kononov on 24.03.24.
 //
 
 import Foundation
 import CoreLocation
 
-/*
- 
- {
-     "results": [{
-         "distance": 22,
-             "geocodes": {
-                 "main": {
-                     "latitude": 53.926066,
-                     "longitude": 27.592507
-                 }
-             },
-         "name": "Молодёжный центр \"Айсберг\""
-     }, ....
-    ]
- }
- */
-
-struct NearByResponseModel: Decodable {
+struct SearchPlacesResponseModel: Decodable {
     struct Result: Decodable {
+        
         struct Geocodes: Decodable {
             struct Main: Decodable {
                 let latitude: Double
@@ -34,34 +18,43 @@ struct NearByResponseModel: Decodable {
             }
             let main: Main
         }
+        
+        struct Location: Decodable {
+            let address: String
+            
+            enum CodingKeys: String, CodingKey {
+                case address = "formatted_address"
+            }
+        }
+        
         let distance: Int
         let geocodes: Geocodes
+        let location: Location
         let name: String
     }
     let results: [Result]
 }
 
-struct NearByRequestModel {
+struct SearchPlacesRequestModel {
     let coordinates: CLLocationCoordinate2D
-    let radius: Int32 = 500
+//    let radius: Int32
+    let query: String
 }
 
-struct NearByRequest: NetworkRequest {
-    typealias ResponseModel = NearByResponseModel
+struct SearchPlacesRequest: NetworkRequest {
+    typealias ResponseModel = SearchPlacesResponseModel
     
     var url: URL {
-        let baseUrl = ApiPaths.placesNearBy
+        let baseUrl = ApiPaths.searchPlaces
         let ll = "\(model.coordinates.latitude),\(model.coordinates.longitude)"
-        let radius = "\(model.radius)"
-        let parameters = "ll=\(ll)&radius=\(radius)"
+//        let radius = "\(model.radius)"
+        let parameters = "ll=\(ll)&query=\(model.query)"
         return URL(string: baseUrl+"?"+parameters)!
     }
     var method: NetworkHTTPMethod { .get }
     var headers: [String : String] {
         ["Authorization": ApiToken.foursquareToken]
     }
-    let model: NearByRequestModel
-    
+    let model: SearchPlacesRequestModel
     var body: Data? { nil }
-    
 }

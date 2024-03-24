@@ -9,8 +9,8 @@ import UIKit
 import MapKit
 import SnapKit
 
-@objc protocol MapViewModelProtocol {
-    @objc func dismissDidTap()
+protocol MapViewModelProtocol {
+    func dismissDidTap()
     func setDefaultMapPosition(for mapView: MKMapView)
     func makeSnapshot(_ view: UIView,
                       mapView: MKMapView,
@@ -18,6 +18,11 @@ import SnapKit
     var snapshotDidChanged: ((UIImage?) -> Void)? { get set }
     var isSelected: Bool { get }
     func confirmDidTap(mapView: MKMapView, captureView: UIView)
+    func viewDidLoad()
+    func makeTableView() -> UITableView
+    
+    func searchPlaces(for query: String)
+    var locationDidSelect: ((CLLocationCoordinate2D) -> Void)? { get set }
 }
 
 final class MapVC: UIViewController {
@@ -27,6 +32,7 @@ final class MapVC: UIViewController {
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = .Map.search
+        searchBar.delegate = self
         searchBar.showsCancelButton = true
         return searchBar
     }()
@@ -37,6 +43,8 @@ final class MapVC: UIViewController {
         mapView.showsUserLocation = true
         return mapView
     }()
+    
+    private lazy var tableView: UITableView = viewmodel.makeTableView()
     
     private lazy var captureImageView: UIImageView = {
         let imageView = UIImageView(image: .Map.capture)
@@ -69,6 +77,7 @@ final class MapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        viewmodel.viewDidLoad()
         viewmodel.setDefaultMapPosition(for: mapView)
     }
     
@@ -87,8 +96,10 @@ final class MapVC: UIViewController {
         view.addSubview(captureImageView)
         view.addSubview(snapshotView)
         view.addSubview(flashView)
+        view.addSubview(tableView)
         view.addSubview(selectButton)
         view.addSubview(cancelButton)
+
         
         searchBar.snp.makeConstraints { make in
             make.height.equalTo(56)
@@ -97,6 +108,12 @@ final class MapVC: UIViewController {
         }
         
         mapView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(selectButton.snp.centerY)
+        }
+        
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom)
             make.horizontalEdges.equalToSuperview()
             make.bottom.equalTo(selectButton.snp.centerY)
@@ -161,5 +178,37 @@ final class MapVC: UIViewController {
             self?.snapshotView.image = image
             self?.selectButton.setTitle(image == nil ? .Map.select : .Map.confirm, for: .normal)
         }
+        
+        viewmodel.locationDidSelect = { [weak self] location in
+            self?.mapView.setRegion(
+                MKCoordinateRegion(center: location,
+                                   latitudinalMeters: 250,
+                                   longitudinalMeters: 250),
+                animated: true)
+            self?.searchBar.text = nil
+            self?.searchBar.resignFirstResponder()
+            self?.tableView.isHidden = true
+        }
     }
 }
+
+
+extension MapVC: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableView.isHidden = true
+        
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        tableView.isHidden = false
+        viewmodel.searchPlaces(for: searchText)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        tableView.isHidden = false
+    }
+}
+
+

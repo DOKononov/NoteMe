@@ -16,9 +16,13 @@ final class MapAssembler {
                      delegate: MapModuleDelegate?,
                      region: MKCoordinateRegion?
     ) -> UIViewController {
-        let vm = MapVM(coordinator: coordinator, 
+        let locationNetworkService: LocationNetworkService = container.resolve()
+        let adapter = MapAdapter()
+        let vm = MapVM(coordinator: coordinator,
                        delegate: delegate,
-                       region: region)
+                       region: region,
+                       locationNetworkService: locationNetworkService,
+                       adapter: adapter)
         let vc = MapVC(viewmodel: vm)
         return vc
     }

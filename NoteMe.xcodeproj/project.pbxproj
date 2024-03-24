@@ -52,6 +52,10 @@
 		5630BCB02BA9F5AD006EE839 /* NetworkSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCAF2BA9F5AD006EE839 /* NetworkSessionProvider.swift */; };
 		5630BCB22BA9F8CD006EE839 /* NearByRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCB12BA9F8CD006EE839 /* NearByRequest.swift */; };
 		5630BCB52BAA08E3006EE839 /* LocationNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCB42BAA08E3006EE839 /* LocationNetworkService.swift */; };
+		5630BCB82BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCB72BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift */; };
+		5630BCBB2BAEBA16006EE839 /* MapPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCBA2BAEBA16006EE839 /* MapPlaceCell.swift */; };
+		5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCBD2BAEEA92006EE839 /* MapAdapter.swift */; };
+		5630BCC32BAF07AF006EE839 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCC22BAF07AF006EE839 /* Place.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
@@ -110,6 +114,7 @@
 		568F97232B850AD900E1DEEA /* BaseNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */; };
 		568F97252B8514CB00E1DEEA /* AllNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */; };
 		568F97272B851DC000E1DEEA /* NSSortDescriptor+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */; };
+		56A0B4872BB00DDA005ED1C5 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */; };
 		56BFC9782B69563E00B47FE2 /* Collection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC9772B69563E00B47FE2 /* Collection+Register.swift */; };
 		56BFC9812B695AC400B47FE2 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 56BFC9802B695AC400B47FE2 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56BFC9842B695AC400B47FE2 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BFC97E2B695AC400B47FE2 /* Storage.framework */; };
@@ -242,6 +247,10 @@
 		5630BCAF2BA9F5AD006EE839 /* NetworkSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProvider.swift; sourceTree = "<group>"; };
 		5630BCB12BA9F8CD006EE839 /* NearByRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByRequest.swift; sourceTree = "<group>"; };
 		5630BCB42BAA08E3006EE839 /* LocationNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNetworkService.swift; sourceTree = "<group>"; };
+		5630BCB72BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapVM+LocationNetworkService.swift"; sourceTree = "<group>"; };
+		5630BCBA2BAEBA16006EE839 /* MapPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlaceCell.swift; sourceTree = "<group>"; };
+		5630BCBD2BAEEA92006EE839 /* MapAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapter.swift; sourceTree = "<group>"; };
+		5630BCC22BAF07AF006EE839 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
@@ -297,6 +306,7 @@
 		568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNotificationDTO.swift; sourceTree = "<group>"; };
 		568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotificationStorage.swift; sourceTree = "<group>"; };
 		568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Const.swift"; sourceTree = "<group>"; };
+		56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
 		56BFC9772B69563E00B47FE2 /* Collection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Register.swift"; sourceTree = "<group>"; };
 		56BFC97E2B695AC400B47FE2 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BFC9802B695AC400B47FE2 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
@@ -508,6 +518,7 @@
 			children = (
 				5630BCAD2BA9F4D2006EE839 /* NetworkRequest.swift */,
 				5630BCB12BA9F8CD006EE839 /* NearByRequest.swift */,
+				56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -518,6 +529,31 @@
 				5630BCB42BAA08E3006EE839 /* LocationNetworkService.swift */,
 			);
 			path = NerworkServices;
+			sourceTree = "<group>";
+		};
+		5630BCB62BAE0A05006EE839 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				5630BCB72BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		5630BCB92BAEB9F6006EE839 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5630BCBA2BAEBA16006EE839 /* MapPlaceCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5630BCBC2BAED0BA006EE839 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				5630BCB92BAEB9F6006EE839 /* Cells */,
+				5630BCBD2BAEEA92006EE839 /* MapAdapter.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 		563BF7222AFEA14700150C98 /* Services */ = {
@@ -649,6 +685,7 @@
 			isa = PBXGroup;
 			children = (
 				564906EC2B9EDF0300C26922 /* LocationData.swift */,
+				5630BCC22BAF07AF006EE839 /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -898,6 +935,8 @@
 		56CA732F2B98A03F00ADC325 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				5630BCBC2BAED0BA006EE839 /* Adapter */,
+				5630BCB62BAE0A05006EE839 /* UseCases */,
 				56CA73342B98A77800ADC325 /* Coordinator */,
 				56CA73302B98A66500ADC325 /* MapVC.swift */,
 				56CA73322B98A75B00ADC325 /* MapVM.swift */,
@@ -1357,6 +1396,7 @@
 				564906ED2B9EDF0300C26922 /* LocationData.swift in Sources */,
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
+				5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				563C32382BA20C6F00FCD351 /* NotificationFilterView.swift in Sources */,
 				564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */,
@@ -1372,6 +1412,7 @@
 				560F24632B05319200226BAD /* AuthService+ResetPassword.swift in Sources */,
 				56D7EB002B2987A700F72D2D /* ProfileCoordinator.swift in Sources */,
 				566730E42B1F95DD0085D83F /* AuthService.swift in Sources */,
+				56A0B4872BB00DDA005ED1C5 /* SearchPlacesRequest.swift in Sources */,
 				56414AEB2AF16EC200A79CDC /* LineTextField.swift in Sources */,
 				56E67DF12AE906F900248F85 /* String+localized.swift in Sources */,
 				564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */,
@@ -1386,6 +1427,7 @@
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
 				5627C14F2B8E44F20078CBF9 /* MenuPopoverAdapter.swift in Sources */,
 				56C07DB92B80AD2100340152 /* DateCell.swift in Sources */,
+				5630BCB82BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,
@@ -1417,6 +1459,7 @@
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
 				5630BCA82BA8A980006EE839 /* TimerNotification+NotificationService.swift in Sources */,
 				56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */,
+				5630BCC32BAF07AF006EE839 /* Place.swift in Sources */,
 				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
 				5645759E2B8B9B2900B4891E /* AppTimerPickerView.swift in Sources */,
 				56CA73382B98A7EE00ADC325 /* MapCoordinator.swift in Sources */,
@@ -1465,6 +1508,7 @@
 				56D734042B1799300025283C /* MainTabBarVC.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 				56CA73332B98A75B00ADC325 /* MapVM.swift in Sources */,
+				5630BCBB2BAEBA16006EE839 /* MapPlaceCell.swift in Sources */,
 				56DDA7F42B987DB400CA94F7 /* NotificationService.swift in Sources */,
 				564BBF5D2B762F0500B53A66 /* DateNotificationVC.swift in Sources */,
 				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,

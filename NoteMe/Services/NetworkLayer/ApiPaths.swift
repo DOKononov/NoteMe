@@ -9,6 +9,7 @@ import Foundation
 
 enum ApiPaths {
     static let placesNearBy: String = "https://api.foursquare.com/v3/places/nearby"
+    static let searchPlaces: String = "https://api.foursquare.com/v3/places/search"
 }
 
 enum ApiToken {

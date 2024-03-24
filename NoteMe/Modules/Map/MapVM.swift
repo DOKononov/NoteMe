@@ -16,25 +16,57 @@ protocol MapCoordinatorProtocol {
     func finish()
 }
 
+protocol MapLocationNetworkServiceUseCase {
+    func getNearBy(
+        coordinates: CLLocationCoordinate2D,
+        completion: @escaping ([NearByResponseModel.Result]) -> Void
+    )
+    
+    func searchPlaces(
+        for query: String,
+        with coordinates: CLLocationCoordinate2D,
+        completion: @escaping (([SearchPlacesResponseModel.Result]) -> Void)
+    )
+}
+
+protocol MapAdapterProtocol {
+    var didSelectRow: ((Place) -> Void)? { get set }
+    func reloadData(with rows: [Place])
+    func makeTableView() -> UITableView
+}
+
 final class MapVM: MapViewModelProtocol {
     var snapshotDidChanged: ((UIImage?) -> Void)?
     
     private let coordinator: MapCoordinatorProtocol
     private lazy var locationManager: CLLocationManager = .init()
+    private var locationNetworkService: MapLocationNetworkServiceUseCase
     weak var delegate: MapModuleDelegate?
+    var locationDidSelect: ((CLLocationCoordinate2D) -> Void)?
     var isSelected: Bool { (snapshot != nil) }
     private var snapshot: UIImage? { didSet { snapshotDidChanged?(snapshot) } }
     private let region: MKCoordinateRegion?
+    private var adapter: MapAdapterProtocol
+    private var nearByPlaces: [Place] = []
     
     
     init(coordinator: MapCoordinatorProtocol,
          delegate: MapModuleDelegate?,
-         region: MKCoordinateRegion?
+         region: MKCoordinateRegion?,
+         locationNetworkService: MapLocationNetworkServiceUseCase,
+         adapter: MapAdapterProtocol
     ) {
         self.coordinator = coordinator
         self.delegate = delegate
         self.region = region
+        self.adapter = adapter
+        self.locationNetworkService = locationNetworkService
         locationManager.requestWhenInUseAuthorization()
+        bind()
+    }
+    
+    func makeTableView() -> UITableView {
+        adapter.makeTableView()
     }
     
     func setDefaultMapPosition(for mapView: MKMapView) {
@@ -90,6 +122,40 @@ final class MapVM: MapViewModelProtocol {
         delegate?.locationDidSet?(locationData)
         
         coordinator.finish()
+    }
+    
+    func viewDidLoad() {
+        getNearBy()
+    }
+    
+    
+    private func getNearBy() {
+        guard let userLocation = locationManager.location?.coordinate else { return }
+        locationNetworkService.getNearBy(coordinates: userLocation) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.nearByPlaces =  result.compactMap { Place(result: $0) }
+                self?.adapter.reloadData(with: self?.nearByPlaces ?? [])
+            }
+        }
+    }
+    
+    func searchPlaces(for query: String) {
+        guard let userLocation = locationManager.location?.coordinate else { return }
+        locationNetworkService.searchPlaces(for: query, with: userLocation) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.nearByPlaces = result
+                    .compactMap { Place(result: $0) }
+                    .sorted { $0.distance < $1.distance }
+                self?.adapter.reloadData(with: self?.nearByPlaces ?? [])
+            }
+        }
+    }
+    
+    
+    private func bind() {
+        adapter.didSelectRow = { [weak self] place in
+            self?.locationDidSelect?(place.location)
+        }
     }
 }
 
