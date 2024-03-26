@@ -117,6 +117,8 @@ extension String {
         static var select: String { "select".localized }
         static var confirm: String { "confirm".localized }
         static var location: String { "location".localized }
+        static var add_location: String { "add_location".localized }
+        
     }
 }
 

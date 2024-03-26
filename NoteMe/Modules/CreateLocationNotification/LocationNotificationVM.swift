@@ -70,6 +70,7 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
     }
     
     func viewDidLoad() {
+        imageDidSet?(image)
         guard let dto else { return }
         shouldEditeDTO?(dto)
         self.image = imageStorage.loadImage(id: dto.id)

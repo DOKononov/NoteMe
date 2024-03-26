@@ -24,6 +24,12 @@ import Storage
 }
 
 final class LocationNotificationVC: UIViewController {
+    
+    private enum Const {
+        static let imageViewHeight: CGFloat = 147
+        static let buttonHeight: CGFloat = 45
+    }
+    
     private var viewModel: LocationNotificationViewModelProtocol
     private lazy var contentView: UIView = .contentView()
     private lazy var titleLabel: UILabel =
@@ -54,10 +60,14 @@ final class LocationNotificationVC: UIViewController {
         return label
     }()
     
+    
+    private lazy var addLocationButton: UIButton =
+        .yellowRoundedButton(.Map.add_location)
+        .withAction(self, #selector(mapDidTap))
+    
     private lazy var imageView: UIImageView = {
-        let imageView = UIImageView(image: .Location.locationPlaceholder)
+        let imageView = UIImageView()
         imageView.tintColor = .secondaryLabel
-        imageView.backgroundColor = .secondaryItemBackground
         imageView.contentMode = .scaleAspectFit
         imageView.addGestureRecognizer(UITapGestureRecognizer(
             target: self, action: #selector(mapDidTap)))
@@ -89,9 +99,17 @@ final class LocationNotificationVC: UIViewController {
     }
     
     private func bind() {
-        viewModel.imageDidSet = { [weak imageView] image in
-            imageView?.image = image
-            imageView?.backgroundColor = (image != nil) ? .clear : .secondaryItemBackground
+        viewModel.imageDidSet = { [weak self] image in
+            if let image {
+                self?.addLocationButton.isHidden = true
+                self?.imageView.isHidden = false
+                self?.imageView.image = image
+            } else {
+                self?.addLocationButton.isHidden = false
+                self?.imageView.isHidden = true
+            }
+            self?.addLocationButton.snp.updateConstraints { $0.height.equalTo((image == nil) ? Const.buttonHeight : .zero) }
+            self?.imageView.snp.updateConstraints { $0.height.equalTo((image == nil) ? .zero : Const.imageViewHeight) }
         }
         
         viewModel.catchTitleError = { [weak titleView] error in
@@ -118,6 +136,7 @@ private extension LocationNotificationVC {
         infoView.addSubview(titleView)
         infoView.addSubview(commentView)
         infoView.addSubview(locationLabel)
+        infoView.addSubview(addLocationButton)
         infoView.addSubview(imageView)
         view.addSubview(createButton)
         view.addSubview(cancelButton)
@@ -156,23 +175,29 @@ private extension LocationNotificationVC {
             make.horizontalEdges.equalToSuperview().inset(16)
         }
         
-        imageView.snp.makeConstraints { make in
+        addLocationButton.snp.makeConstraints { make in
             make.top.equalTo(locationLabel.snp.bottom).inset(-8)
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.equalTo(147)
+            make.height.equalTo(Const.buttonHeight)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(addLocationButton.snp.bottom).inset(-8)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(Const.imageViewHeight)
             make.bottom.equalToSuperview().inset(16)
         }
 
         createButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(45)
+            make.height.equalTo(Const.buttonHeight)
             make.bottom.equalTo(cancelButton.snp.top).inset(-8)
         }
         
         cancelButton.snp.makeConstraints { make in
             make.horizontalEdges.greaterThanOrEqualToSuperview().inset(20)
             make.centerX.equalToSuperview()
-            make.height.equalTo(45)
+            make.height.equalTo(Const.buttonHeight)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
     }
