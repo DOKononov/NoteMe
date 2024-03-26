@@ -47,7 +47,7 @@ final class MapVM: MapViewModelProtocol {
     private var snapshot: UIImage? { didSet { snapshotDidChanged?(snapshot) } }
     private let region: MKCoordinateRegion?
     private var adapter: MapAdapterProtocol
-    private var nearByPlaces: [Place] = []
+    private var places: [Place] = [] 
     
     
     init(coordinator: MapCoordinatorProtocol,
@@ -133,20 +133,24 @@ final class MapVM: MapViewModelProtocol {
         guard let userLocation = locationManager.location?.coordinate else { return }
         locationNetworkService.getNearBy(coordinates: userLocation) { [weak self] result in
             DispatchQueue.main.async {
-                self?.nearByPlaces =  result.compactMap { Place(result: $0) }
-                self?.adapter.reloadData(with: self?.nearByPlaces ?? [])
+                self?.places =  result.compactMap { Place(result: $0) }
+                self?.adapter.reloadData(with: self?.places ?? [])
             }
         }
     }
     
     func searchPlaces(for query: String) {
-        guard let userLocation = locationManager.location?.coordinate else { return }
-        locationNetworkService.searchPlaces(for: query, with: userLocation) { [weak self] result in
-            DispatchQueue.main.async {
-                self?.nearByPlaces = result
-                    .compactMap { Place(result: $0) }
-                    .sorted { $0.distance < $1.distance }
-                self?.adapter.reloadData(with: self?.nearByPlaces ?? [])
+        if query.isEmpty {
+            getNearBy()
+        } else {
+            guard let userLocation = locationManager.location?.coordinate else { return }
+            locationNetworkService.searchPlaces(for: query, with: userLocation) { [weak self] result in
+                DispatchQueue.main.async {
+                    self?.places = result
+                        .compactMap { Place(result: $0) }
+                        .sorted { $0.distance < $1.distance }
+                    self?.adapter.reloadData(with: self?.places ?? [])
+                }
             }
         }
     }
