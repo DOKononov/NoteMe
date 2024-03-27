@@ -25,6 +25,17 @@ protocol HomeCoordinatorProtocol {
     func showMenu(_ sender: UIView, delegate: MenuPopoverDelegate)
 }
 
+protocol HomeStorageUseCase {
+    func delete(dto: any DTODescription)
+}
+
+protocol HomeFRCServiceUseCase {
+    var didChangeContent: (([any DTODescription]) -> Void)? { get set }
+    var fetchedDTOs: [any DTODescription] { get }
+    func startHandle()
+    
+}
+
 final class HomeVM: HomeViewModelProtocol {
     func viewDidLoad() {
         frcService.startHandle()
@@ -32,8 +43,8 @@ final class HomeVM: HomeViewModelProtocol {
         adapter.relodeData(dtos)
     }
     
-    private let frcService: FRCService<BaseNotificationDTO>
-    private let storage: AllNotificationStorage
+    private var frcService: HomeFRCServiceUseCase
+    private let storage: HomeStorageUseCase
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
     private var selectedDTO: (any DTODescription)?
@@ -44,9 +55,9 @@ final class HomeVM: HomeViewModelProtocol {
     }
     
     init(adapter: HomeAdapterProtocol,
-         storage: AllNotificationStorage,
+         storage: HomeStorageUseCase,
          coordinator: HomeCoordinatorProtocol,
-         frcService: FRCService<BaseNotificationDTO>
+         frcService: HomeFRCServiceUseCase
     ) {
         self.adapter = adapter
         self.storage = storage

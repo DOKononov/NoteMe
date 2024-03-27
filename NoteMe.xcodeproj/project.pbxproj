@@ -115,6 +115,15 @@
 		568F97252B8514CB00E1DEEA /* AllNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */; };
 		568F97272B851DC000E1DEEA /* NSSortDescriptor+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */; };
 		56A0B4872BB00DDA005ED1C5 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */; };
+		56A0B4982BB32BCE005ED1C5 /* InputValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4972BB32BCD005ED1C5 /* InputValidatorTests.swift */; };
+		56A0B49A2BB331D0005ED1C5 /* HomeVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4992BB331D0005ED1C5 /* HomeVMTests.swift */; };
+		56A0B49E2BB33309005ED1C5 /* HomeAdapterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B49D2BB33309005ED1C5 /* HomeAdapterSpy.swift */; };
+		56A0B4A02BB333B4005ED1C5 /* HomeCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B49F2BB333B4005ED1C5 /* HomeCoordinatorSpy.swift */; };
+		56A0B4A22BB33412005ED1C5 /* HomeStorageSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A12BB33412005ED1C5 /* HomeStorageSpy.swift */; };
+		56A0B4A52BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A42BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift */; };
+		56A0B4A72BB335FB005ED1C5 /* FRCService+HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */; };
+		56A0B4A92BB336B3005ED1C5 /* HomeFRCServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */; };
+		56A0B4AC2BB33DF9005ED1C5 /* HomeDTOMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */; };
 		56BFC9782B69563E00B47FE2 /* Collection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC9772B69563E00B47FE2 /* Collection+Register.swift */; };
 		56BFC9812B695AC400B47FE2 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 56BFC9802B695AC400B47FE2 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56BFC9842B695AC400B47FE2 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BFC97E2B695AC400B47FE2 /* Storage.framework */; };
@@ -177,6 +186,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		56A0B4922BB32B2D005ED1C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56E67DB22AE824E900248F85 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56E67DB92AE824E900248F85;
+			remoteInfo = NoteMe;
+		};
 		56BFC9822B695AC400B47FE2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 56E67DB22AE824E900248F85 /* Project object */;
@@ -211,7 +227,6 @@
 		560F245F2B052F4400226BAD /* ResetPasswordAssambler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordAssambler.swift; sourceTree = "<group>"; };
 		560F24622B05319200226BAD /* AuthService+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+ResetPassword.swift"; sourceTree = "<group>"; };
 		560F24642B05351600226BAD /* InputValidator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InputValidator+ResetPassword.swift"; sourceTree = "<group>"; };
-		560F24682B0539B400226BAD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		560F246A2B0539FF00226BAD /* AuthService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+Login.swift"; sourceTree = "<group>"; };
 		560F246C2B05ED0900226BAD /* KeyboardHelper+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+Register.swift"; sourceTree = "<group>"; };
 		560F246E2B05EEC800226BAD /* KeyboardHelper+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHelper+ResetPassword.swift"; sourceTree = "<group>"; };
@@ -307,6 +322,16 @@
 		568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotificationStorage.swift; sourceTree = "<group>"; };
 		568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Const.swift"; sourceTree = "<group>"; };
 		56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
+		56A0B48E2BB32B2D005ED1C5 /* NoteMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		56A0B4972BB32BCD005ED1C5 /* InputValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidatorTests.swift; sourceTree = "<group>"; };
+		56A0B4992BB331D0005ED1C5 /* HomeVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVMTests.swift; sourceTree = "<group>"; };
+		56A0B49D2BB33309005ED1C5 /* HomeAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdapterSpy.swift; sourceTree = "<group>"; };
+		56A0B49F2BB333B4005ED1C5 /* HomeCoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorSpy.swift; sourceTree = "<group>"; };
+		56A0B4A12BB33412005ED1C5 /* HomeStorageSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStorageSpy.swift; sourceTree = "<group>"; };
+		56A0B4A42BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllNotificationStorage+HomeVM.swift"; sourceTree = "<group>"; };
+		56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FRCService+HomeVM.swift"; sourceTree = "<group>"; };
+		56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFRCServiceSpy.swift; sourceTree = "<group>"; };
+		56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTOMock.swift; sourceTree = "<group>"; };
 		56BFC9772B69563E00B47FE2 /* Collection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Register.swift"; sourceTree = "<group>"; };
 		56BFC97E2B695AC400B47FE2 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BFC9802B695AC400B47FE2 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
@@ -370,6 +395,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		56A0B48B2BB32B2D005ED1C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56BFC97B2B695AC400B47FE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,14 +461,6 @@
 				560F24562B04B16B00226BAD /* AnimatorService.swift */,
 			);
 			path = AnimatorService;
-			sourceTree = "<group>";
-		};
-		560F24672B0539A100226BAD /* AuthService */ = {
-			isa = PBXGroup;
-			children = (
-				560F24682B0539B400226BAD /* AuthService.swift */,
-			);
-			path = AuthService;
 			sourceTree = "<group>";
 		};
 		56197EC92B73E32200414DD4 /* Protocols */ = {
@@ -559,19 +583,18 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5630BCA92BA9F41B006EE839 /* NetworkLayer */,
-				568DDFD22B9CA991004F488B /* ImageStorage */,
-				56DDA7F22B987DA300CA94F7 /* NotificationService */,
-				5673B3B42B56EFE5004ABFDA /* WindowManager */,
-				5673B3AF2B56E0BB004ABFDA /* Container */,
 				566730E52B1F98D00085D83F /* AlertService */,
-				566730E22B1F95B50085D83F /* AuthService */,
-				56D733E32B164B450025283C /* ParametersHelper */,
-				565E7E3F2B0D129100590556 /* Coordinator */,
-				560F24672B0539A100226BAD /* AuthService */,
-				560F24512B03E50C00226BAD /* KeyboardHelper */,
-				563BF7232AFEA16600150C98 /* InputValidator */,
 				560F24662B05399900226BAD /* AnimatorService */,
+				566730E22B1F95B50085D83F /* AuthService */,
+				5673B3AF2B56E0BB004ABFDA /* Container */,
+				565E7E3F2B0D129100590556 /* Coordinator */,
+				568DDFD22B9CA991004F488B /* ImageStorage */,
+				563BF7232AFEA16600150C98 /* InputValidator */,
+				560F24512B03E50C00226BAD /* KeyboardHelper */,
+				5630BCA92BA9F41B006EE839 /* NetworkLayer */,
+				56DDA7F22B987DA300CA94F7 /* NotificationService */,
+				56D733E32B164B450025283C /* ParametersHelper */,
+				5673B3B42B56EFE5004ABFDA /* WindowManager */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -834,6 +857,53 @@
 			path = ImageStorage;
 			sourceTree = "<group>";
 		};
+		56A0B48F2BB32B2D005ED1C5 /* NoteMeTests */ = {
+			isa = PBXGroup;
+			children = (
+				56A0B4972BB32BCD005ED1C5 /* InputValidatorTests.swift */,
+				56A0B49B2BB332B4005ED1C5 /* HomeViewModel */,
+			);
+			path = NoteMeTests;
+			sourceTree = "<group>";
+		};
+		56A0B49B2BB332B4005ED1C5 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				56A0B4AA2BB33DDA005ED1C5 /* Mocks */,
+				56A0B49C2BB332C1005ED1C5 /* Spies */,
+				56A0B4992BB331D0005ED1C5 /* HomeVMTests.swift */,
+			);
+			path = HomeViewModel;
+			sourceTree = "<group>";
+		};
+		56A0B49C2BB332C1005ED1C5 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				56A0B49D2BB33309005ED1C5 /* HomeAdapterSpy.swift */,
+				56A0B49F2BB333B4005ED1C5 /* HomeCoordinatorSpy.swift */,
+				56A0B4A12BB33412005ED1C5 /* HomeStorageSpy.swift */,
+				56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		56A0B4A32BB334BD005ED1C5 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				56A0B4A42BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift */,
+				56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		56A0B4AA2BB33DDA005ED1C5 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		56BFC97F2B695AC400B47FE2 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1066,6 +1136,7 @@
 		56D7EAED2B28D2BD00F72D2D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				56A0B4A32BB334BD005ED1C5 /* UseCases */,
 				56C07DBA2B80ADAC00340152 /* Adapter */,
 				56D7EAEE2B28D2C800F72D2D /* Coordinator */,
 				56D7EAEF2B28D2DB00F72D2D /* HomeVC.swift */,
@@ -1117,6 +1188,7 @@
 			children = (
 				56E67DBC2AE824E900248F85 /* NoteMe */,
 				56BFC97F2B695AC400B47FE2 /* Storage */,
+				56A0B48F2BB32B2D005ED1C5 /* NoteMeTests */,
 				56E67DBB2AE824E900248F85 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -1126,6 +1198,7 @@
 			children = (
 				56E67DBA2AE824E900248F85 /* NoteMe.app */,
 				56BFC97E2B695AC400B47FE2 /* Storage.framework */,
+				56A0B48E2BB32B2D005ED1C5 /* NoteMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1241,6 +1314,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		56A0B48D2BB32B2D005ED1C5 /* NoteMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56A0B4942BB32B2D005ED1C5 /* Build configuration list for PBXNativeTarget "NoteMeTests" */;
+			buildPhases = (
+				56A0B48A2BB32B2D005ED1C5 /* Sources */,
+				56A0B48B2BB32B2D005ED1C5 /* Frameworks */,
+				56A0B48C2BB32B2D005ED1C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56A0B4932BB32B2D005ED1C5 /* PBXTargetDependency */,
+			);
+			name = NoteMeTests;
+			productName = NoteMeTests;
+			productReference = 56A0B48E2BB32B2D005ED1C5 /* NoteMeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		56BFC97D2B695AC400B47FE2 /* Storage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56BFC9862B695AC400B47FE2 /* Build configuration list for PBXNativeTarget "Storage" */;
@@ -1291,9 +1382,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					56A0B48D2BB32B2D005ED1C5 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 56E67DB92AE824E900248F85;
+					};
 					56BFC97D2B695AC400B47FE2 = {
 						CreatedOnToolsVersion = 15.2;
 						LastSwiftMigration = 1520;
@@ -1323,11 +1418,19 @@
 			targets = (
 				56E67DB92AE824E900248F85 /* NoteMe */,
 				56BFC97D2B695AC400B47FE2 /* Storage */,
+				56A0B48D2BB32B2D005ED1C5 /* NoteMeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		56A0B48C2BB32B2D005ED1C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56BFC97C2B695AC400B47FE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1349,6 +1452,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		56A0B48A2BB32B2D005ED1C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56A0B4A02BB333B4005ED1C5 /* HomeCoordinatorSpy.swift in Sources */,
+				56A0B49E2BB33309005ED1C5 /* HomeAdapterSpy.swift in Sources */,
+				56A0B4982BB32BCE005ED1C5 /* InputValidatorTests.swift in Sources */,
+				56A0B4AC2BB33DF9005ED1C5 /* HomeDTOMock.swift in Sources */,
+				56A0B4A92BB336B3005ED1C5 /* HomeFRCServiceSpy.swift in Sources */,
+				56A0B49A2BB331D0005ED1C5 /* HomeVMTests.swift in Sources */,
+				56A0B4A22BB33412005ED1C5 /* HomeStorageSpy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		56BFC97A2B695AC400B47FE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1409,6 +1526,7 @@
 				56D7EAE52B28C1DB00F72D2D /* AlertService.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
 				56D733F82B165D860025283C /* OnboardSecondStepAssembler.swift in Sources */,
+				56A0B4A72BB335FB005ED1C5 /* FRCService+HomeVM.swift in Sources */,
 				560F24632B05319200226BAD /* AuthService+ResetPassword.swift in Sources */,
 				56D7EB002B2987A700F72D2D /* ProfileCoordinator.swift in Sources */,
 				566730E42B1F95DD0085D83F /* AuthService.swift in Sources */,
@@ -1435,6 +1553,7 @@
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
+				56A0B4A52BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift in Sources */,
 				5630BCAE2BA9F4D2006EE839 /* NetworkRequest.swift in Sources */,
 				56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */,
 				565E7E472B0D24C000590556 /* RegisterCoordinator.swift in Sources */,
@@ -1522,6 +1641,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		56A0B4932BB32B2D005ED1C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 56E67DB92AE824E900248F85 /* NoteMe */;
+			targetProxy = 56A0B4922BB32B2D005ED1C5 /* PBXContainerItemProxy */;
+		};
 		56BFC9832B695AC400B47FE2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 56BFC97D2B695AC400B47FE2 /* Storage */;
@@ -1550,6 +1674,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		56A0B4952BB32B2D005ED1C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CK7G8B5AC6;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = d.o.kononov.NoteMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoteMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NoteMe";
+			};
+			name = Debug;
+		};
+		56A0B4962BB32B2D005ED1C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CK7G8B5AC6;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = d.o.kononov.NoteMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoteMe.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NoteMe";
+			};
+			name = Release;
+		};
 		56BFC9872B695AC400B47FE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1815,6 +1984,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		56A0B4942BB32B2D005ED1C5 /* Build configuration list for PBXNativeTarget "NoteMeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				56A0B4952BB32B2D005ED1C5 /* Debug */,
+				56A0B4962BB32B2D005ED1C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		56BFC9862B695AC400B47FE2 /* Build configuration list for PBXNativeTarget "Storage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
