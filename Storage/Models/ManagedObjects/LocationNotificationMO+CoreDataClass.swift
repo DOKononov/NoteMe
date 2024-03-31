@@ -28,6 +28,9 @@ public class LocationNotificationMO: BaseNotificationMO {
         self.mapSpanLatitude = dto.mapSpanLatitude
         self.mapSpanLongitude = dto.mapSpanLongitude
         self.circularRadius = dto.circularRadius
+        self.notifyOnEntry = dto.notifyOnEntry
+        self.notifyOnExit = dto.notifyOnExit
+        self.repeats = dto.repeats
     }
 }
 

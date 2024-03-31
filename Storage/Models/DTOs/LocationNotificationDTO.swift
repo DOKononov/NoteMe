@@ -21,6 +21,9 @@ public struct LocationNotificationDTO: DTODescription {
     public var mapSpanLatitude: Double
     public var mapSpanLongitude: Double
     public var circularRadius: Double
+    public var repeats: Bool
+    public var notifyOnEntry: Bool
+    public var notifyOnExit: Bool
     
     
     public init(date: Date,
@@ -32,7 +35,10 @@ public struct LocationNotificationDTO: DTODescription {
                 mapCenterLongitude: Double,
                 mapSpanLatitude: Double,
                 mapSpanLongitude: Double,
-                circularRadius: Double
+                circularRadius: Double,
+                repeats: Bool,
+                notifyOnEntry: Bool,
+                notifyOnExit: Bool
     ) {
         self.date = date
         self.id = id
@@ -44,6 +50,9 @@ public struct LocationNotificationDTO: DTODescription {
         self.mapSpanLatitude = mapSpanLatitude
         self.mapSpanLongitude = mapSpanLongitude
         self.circularRadius = circularRadius
+        self.repeats = repeats
+        self.notifyOnExit = notifyOnExit
+        self.notifyOnEntry = notifyOnEntry
     }
     
     public static func fromMO(_ mo: LocationNotificationMO) -> LocationNotificationDTO? {
@@ -62,7 +71,10 @@ public struct LocationNotificationDTO: DTODescription {
             mapCenterLongitude: mo.mapCenterLongitude,
             mapSpanLatitude: mo.mapSpanLatitude,
             mapSpanLongitude: mo.mapSpanLongitude, 
-            circularRadius: mo.circularRadius
+            circularRadius: mo.circularRadius,
+            repeats: mo.repeats,
+            notifyOnEntry: mo.notifyOnEntry,
+            notifyOnExit: mo.notifyOnExit
         )
     }
 }

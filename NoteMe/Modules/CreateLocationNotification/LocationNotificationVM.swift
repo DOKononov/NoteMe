@@ -72,6 +72,7 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
         self.imageStorage = imageStorage
         self.notificationService = notificationService
         bind()
+        setSwitchers()
     }
     
     func viewDidLoad() {
@@ -81,6 +82,13 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
         self.image = imageStorage.loadImage(id: dto.id)
         setRegion(for: dto)
         self.circularRadius = dto.circularRadius
+    }
+    
+    private func setSwitchers() {
+        guard let dto else { return }
+        self.repeats = dto.repeats
+        self.notifyOnExit = dto.notifyOnExit
+        self.notifyOnEntry = dto.notifyOnEntry
     }
     
     private func setRegion(for dto: LocationNotificationDTO) {
@@ -135,6 +143,10 @@ extension LocationNotificationVM {
             dto?.mapCenterLongitude = region.center.longitude
             dto?.mapSpanLatitude = region.span.latitudeDelta
             dto?.mapSpanLongitude = region.span.longitudeDelta
+            dto?.notifyOnExit = notifyOnExit
+            dto?.notifyOnEntry = notifyOnEntry
+            dto?.repeats = repeats
+            dto?.circularRadius = circularRadius
             imageStorage.saveImage(id: id, image: image)
             
             let region = CLCircularRegion(center: region.center,
@@ -158,7 +170,11 @@ extension LocationNotificationVM {
                 mapCenterLongitude: region.center.longitude,
                 mapSpanLatitude: region.span.latitudeDelta,
                 mapSpanLongitude: region.span.longitudeDelta, 
-                circularRadius: circularRadius)
+                circularRadius: circularRadius,
+                repeats: repeats,
+                notifyOnEntry: notifyOnEntry,
+                notifyOnExit: notifyOnExit
+                )
             imageStorage.saveImage(id: dto.id, image: image)
             storage.updateOrCreate(dto: dto, completion: nil)
             
