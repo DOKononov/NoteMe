@@ -32,6 +32,9 @@ protocol LocationImageStorageUsecase {
 protocol LocationNotificationServiceUseCase {
     func makeLocationNotification(
         circleRegion: CLCircularRegion,
+        notifyOnEntry: Bool,
+        notifyOnExit: Bool,
+        repeats: Bool,
         dto: LocationNotificationDTO
     )
 }
@@ -44,11 +47,13 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
     var catchTitleError: ((String?) -> Void)?
     var locationDidSet: ((LocationData) -> Void)?
     var shouldEditeDTO: ((LocationNotificationDTO) -> Void)?
+    var notifyOnEntry: Bool = true
+    var notifyOnExit: Bool = false
+    var repeats: Bool = false
     
     private var image: UIImage? { didSet{ imageDidSet?(image) } }
     private var region: MKCoordinateRegion?
-    private var circularRegionCenter: CLLocationCoordinate2D?
-    private var circularRegionRadius: CLLocationDistance?
+    private var circularRadius: CLLocationDistance?
     private var dto: LocationNotificationDTO?
     private let storage: LocationNotificationStorageUseCase
     private let imageStorage: LocationImageStorageUsecase
@@ -75,6 +80,7 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
         shouldEditeDTO?(dto)
         self.image = imageStorage.loadImage(id: dto.id)
         setRegion(for: dto)
+        self.circularRadius = dto.circularRadius
     }
     
     private func setRegion(for dto: LocationNotificationDTO) {
@@ -121,8 +127,7 @@ extension LocationNotificationVM {
             let title,
             let image,
             let region,
-            let circularRegionCenter,
-            let circularRegionRadius
+            let circularRadius
         else { return }
         
         if dto != nil, let id = dto?.id {
@@ -132,11 +137,15 @@ extension LocationNotificationVM {
             dto?.mapSpanLongitude = region.span.longitudeDelta
             imageStorage.saveImage(id: id, image: image)
             
-            let region = CLCircularRegion(center: circularRegionCenter,
-                                          radius: circularRegionRadius,
+            let region = CLCircularRegion(center: region.center,
+                                          radius: circularRadius,
                                           identifier: id)
             
-            notificationService.makeLocationNotification(circleRegion: region, dto: dto!)
+            notificationService.makeLocationNotification(circleRegion: region,
+                                                         notifyOnEntry: notifyOnEntry,
+                                                         notifyOnExit: notifyOnExit,
+                                                         repeats: repeats,
+                                                         dto: dto!)
             
             storage.updateOrCreate(dto: dto!, completion: nil)
         } else {
@@ -148,15 +157,20 @@ extension LocationNotificationVM {
                 mapCenterLatitude: region.center.latitude,
                 mapCenterLongitude: region.center.longitude,
                 mapSpanLatitude: region.span.latitudeDelta,
-                mapSpanLongitude: region.span.longitudeDelta)
+                mapSpanLongitude: region.span.longitudeDelta, 
+                circularRadius: circularRadius)
             imageStorage.saveImage(id: dto.id, image: image)
             storage.updateOrCreate(dto: dto, completion: nil)
             
-            let region = CLCircularRegion(center: circularRegionCenter,
-                                           radius: circularRegionRadius,
+            let region = CLCircularRegion(center: region.center,
+                                           radius: circularRadius,
                                            identifier: dto.id)
             
-            notificationService.makeLocationNotification(circleRegion: region, dto: dto)
+            notificationService.makeLocationNotification(circleRegion: region,
+                                                         notifyOnEntry: notifyOnEntry,
+                                                         notifyOnExit: notifyOnExit,
+                                                         repeats: repeats,
+                                                         dto: dto)
         }
         coordinator?.finish()
     }
@@ -165,8 +179,7 @@ extension LocationNotificationVM {
         locationDidSet = { [weak self] data in
             self?.image = data.image
             self?.region = data.mapRegion
-            self?.circularRegionCenter = data.captureCenter
-            self?.circularRegionRadius = data.captureRadius
+            self?.circularRadius = data.captureRadius
         }
     }
 }

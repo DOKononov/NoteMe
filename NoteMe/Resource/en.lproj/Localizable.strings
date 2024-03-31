@@ -68,4 +68,6 @@
 "location" = "Location";
 "map" = "Map";
 "add_location" = "Add Location";
-
+"notify_on_entry" = "Notify on entry";
+"notify_on_exit" = "Notify on exit";
+"repeats" = "Repeats";

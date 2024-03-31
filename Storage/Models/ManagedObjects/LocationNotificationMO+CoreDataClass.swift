@@ -27,6 +27,7 @@ public class LocationNotificationMO: BaseNotificationMO {
         self.mapCenterLongitude = dto.mapCenterLongitude
         self.mapSpanLatitude = dto.mapSpanLatitude
         self.mapSpanLongitude = dto.mapSpanLongitude
+        self.circularRadius = dto.circularRadius
     }
 }
 

@@ -109,6 +109,9 @@ extension String {
         static var enter_comment: String { "enter_comment".localized }
         static var timer: String { "timer".localized }
         static var enter_timer: String { "enter_timer".localized }
+        static var notify_on_entry: String { "notify_on_entry".localized }
+        static var notify_on_exit: String { "notify_on_exit".localized }
+        static var repeats: String { "repeats".localized }
     }
     
     //MARK: -Map

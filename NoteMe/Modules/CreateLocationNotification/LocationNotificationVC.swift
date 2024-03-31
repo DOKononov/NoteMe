@@ -15,7 +15,10 @@ import Storage
     var imageDidSet: ((UIImage?)-> Void)? {get set}
     var catchTitleError: ((String?) -> Void)? {get set}
     var shouldEditeDTO: ((LocationNotificationDTO) -> Void)? {get set}
-
+     var notifyOnEntry: Bool {get set}
+     var notifyOnExit: Bool {get set}
+     var repeats: Bool {get set}
+     
     func dismissDidTap()
     func mapDidTap()
     func createDidTap()
@@ -42,6 +45,60 @@ final class LocationNotificationVC: UIViewController {
         titleView.delegate = self
         titleView.placeholder = .Notification.enter_title
         return titleView
+    }()
+    
+    private lazy var notifyOnEntryLabel: UILabel = {
+        let label = UILabel()
+        label.font = .appBoldFont.withSize(13)
+        label.textColor = .label
+        label.text = .Notification.notify_on_entry
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private lazy var notifyOnEntrySwitcher: UISwitch = {
+        let switcher = UISwitch()
+        switcher.isOn = viewModel.notifyOnEntry
+        switcher.onTintColor = .appYellow
+        switcher.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        return switcher
+    }()
+    
+    private lazy var notifyOnExitLabel: UILabel = {
+        let label = UILabel()
+        label.font = .appBoldFont.withSize(13)
+        label.textColor = .label
+        label.text = .Notification.notify_on_exit
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private lazy var notifyOnExitSwitcher: UISwitch = {
+        let switcher = UISwitch()
+        switcher.isOn = viewModel.notifyOnExit
+        switcher.onTintColor = .appYellow
+        switcher.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        return switcher
+    }()
+    
+    private lazy var repeatsLabel: UILabel = {
+        let label = UILabel()
+        label.font = .appBoldFont.withSize(13)
+        label.textColor = .label
+        label.text = .Notification.repeats
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private lazy var repeatsSwitcher: UISwitch = {
+        let switcher = UISwitch()
+        switcher.isOn = viewModel.repeats
+        switcher.onTintColor = .appYellow
+        switcher.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        return switcher
     }()
     
     private lazy var commentView: CommentTextView = {
@@ -134,6 +191,12 @@ private extension LocationNotificationVC {
         contentView.addSubview(titleLabel)
         contentView.addSubview(infoView)
         infoView.addSubview(titleView)
+        infoView.addSubview(notifyOnEntryLabel)
+        infoView.addSubview(notifyOnEntrySwitcher)
+        infoView.addSubview(notifyOnExitLabel)
+        infoView.addSubview(notifyOnExitSwitcher)
+        infoView.addSubview(repeatsLabel)
+        infoView.addSubview(repeatsSwitcher)
         infoView.addSubview(commentView)
         infoView.addSubview(locationLabel)
         infoView.addSubview(addLocationButton)
@@ -165,9 +228,42 @@ private extension LocationNotificationVC {
             make.top.equalToSuperview().inset(16)
         }
         
+        notifyOnEntrySwitcher.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(titleView.snp.bottom).inset(-8)
+            make.leading.greaterThanOrEqualTo(notifyOnEntryLabel.snp.trailing).offset(16)
+        }
+        
+        notifyOnEntryLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().inset(16)
+            make.centerY.equalTo(notifyOnEntrySwitcher.snp.centerY)
+        }
+
+        notifyOnExitSwitcher.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(notifyOnEntrySwitcher.snp.bottom).inset(-8)
+            make.leading.greaterThanOrEqualTo(notifyOnExitLabel.snp.trailing).offset(16)
+        }
+        
+        notifyOnExitLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(notifyOnExitSwitcher.snp.centerY)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        repeatsSwitcher.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(16)
+            make.top.equalTo(notifyOnExitSwitcher.snp.bottom).inset(-8)
+            make.leading.greaterThanOrEqualTo(repeatsLabel.snp.trailing).offset(16)
+        }
+        
+        repeatsLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(repeatsSwitcher.snp.centerY)
+            make.leading.equalToSuperview().inset(16)
+        }
+        
         commentView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.top.equalTo(titleView.snp.bottom).inset(-16)
+            make.top.equalTo(repeatsSwitcher.snp.bottom).inset(-16)
         }
         
         locationLabel.snp.makeConstraints { make in
@@ -212,6 +308,15 @@ private extension LocationNotificationVC {
     
     @objc private func dismissDidTap() {
         viewModel.dismissDidTap()
+    }
+    
+    @objc func switchChanged(switcher: UISwitch) {
+        switch switcher {
+        case repeatsSwitcher: viewModel.repeats = switcher.isOn
+        case notifyOnEntrySwitcher: viewModel.notifyOnEntry = switcher.isOn
+        case notifyOnExitSwitcher: viewModel.notifyOnExit = switcher.isOn
+        default: break
+        }
     }
     
 }

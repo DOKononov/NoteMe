@@ -20,6 +20,8 @@ public struct LocationNotificationDTO: DTODescription {
     public var mapCenterLongitude: Double
     public var mapSpanLatitude: Double
     public var mapSpanLongitude: Double
+    public var circularRadius: Double
+    
     
     public init(date: Date,
                 id: String = UUID().uuidString,
@@ -29,7 +31,8 @@ public struct LocationNotificationDTO: DTODescription {
                 mapCenterLatitude: Double,
                 mapCenterLongitude: Double,
                 mapSpanLatitude: Double,
-                mapSpanLongitude: Double
+                mapSpanLongitude: Double,
+                circularRadius: Double
     ) {
         self.date = date
         self.id = id
@@ -40,6 +43,7 @@ public struct LocationNotificationDTO: DTODescription {
         self.mapCenterLongitude = mapCenterLongitude
         self.mapSpanLatitude = mapSpanLatitude
         self.mapSpanLongitude = mapSpanLongitude
+        self.circularRadius = circularRadius
     }
     
     public static func fromMO(_ mo: LocationNotificationMO) -> LocationNotificationDTO? {
@@ -57,7 +61,8 @@ public struct LocationNotificationDTO: DTODescription {
             mapCenterLatitude: mo.mapCenterLatitude,
             mapCenterLongitude: mo.mapCenterLongitude,
             mapSpanLatitude: mo.mapSpanLatitude,
-            mapSpanLongitude: mo.mapSpanLongitude
+            mapSpanLongitude: mo.mapSpanLongitude, 
+            circularRadius: mo.circularRadius
         )
     }
 }

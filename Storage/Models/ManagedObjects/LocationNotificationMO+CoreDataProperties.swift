@@ -20,4 +20,5 @@ extension LocationNotificationMO {
     @NSManaged public var mapCenterLongitude: Double
     @NSManaged public var mapSpanLatitude: Double
     @NSManaged public var mapSpanLongitude: Double
+    @NSManaged public var circularRadius: Double
 }
