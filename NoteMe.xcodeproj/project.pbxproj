@@ -170,6 +170,7 @@
 		56D7EB042B2A090000F72D2D /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EB032B2A090000F72D2D /* HomeVM.swift */; };
 		56D7EB062B2A09F100F72D2D /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D7EB052B2A09F100F72D2D /* ProfileVM.swift */; };
 		56DDA7F42B987DB400CA94F7 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DDA7F32B987DB400CA94F7 /* NotificationService.swift */; };
+		56DE121F2BBB1E29002B716C /* LocationNotificationEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DE121E2BBB1E29002B716C /* LocationNotificationEditVM.swift */; };
 		56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E5DF092B77C74D007F8FB6 /* CommentTextView.swift */; };
 		56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBD2AE824E900248F85 /* AppDelegate.swift */; };
 		56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DBF2AE824E900248F85 /* SceneDelegate.swift */; };
@@ -377,6 +378,7 @@
 		56D7EB032B2A090000F72D2D /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		56D7EB052B2A09F100F72D2D /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		56DDA7F32B987DB400CA94F7 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		56DE121E2BBB1E29002B716C /* LocationNotificationEditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationEditVM.swift; sourceTree = "<group>"; };
 		56E5DF092B77C74D007F8FB6 /* CommentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextView.swift; sourceTree = "<group>"; };
 		56E67DBA2AE824E900248F85 /* NoteMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E67DBD2AE824E900248F85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -742,6 +744,7 @@
 				564BBF692B76339000B53A66 /* Coordinator */,
 				564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */,
 				564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */,
+				56DE121E2BBB1E29002B716C /* LocationNotificationEditVM.swift */,
 			);
 			path = CreateLocationNotification;
 			sourceTree = "<group>";
@@ -1516,6 +1519,7 @@
 				5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				563C32382BA20C6F00FCD351 /* NotificationFilterView.swift in Sources */,
+				56DE121F2BBB1E29002B716C /* LocationNotificationEditVM.swift in Sources */,
 				564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */,
 				56D733FA2B165E440025283C /* OnboardSecondStepCoordinator.swift in Sources */,
 				5630BCA12BA87008006EE839 /* LocationNotificationVM+NotificationService.swift in Sources */,

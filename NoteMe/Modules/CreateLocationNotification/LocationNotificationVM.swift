@@ -39,14 +39,15 @@ protocol LocationNotificationServiceUseCase {
     )
 }
 
-final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapModuleDelegate {
+final class LocationNotificationCreateVM: LocationNotificationViewModelProtocol, MapModuleDelegate {
     
     var title: String?
     var comment: String?
     var imageDidSet: ((UIImage?) -> Void)?
     var catchTitleError: ((String?) -> Void)?
+    var catchLocationError: ((Bool) -> Void)?
     var locationDidSet: ((LocationData) -> Void)?
-    var shouldEditeDTO: ((LocationNotificationDTO) -> Void)?
+    var shouldEditeDTO: ((LocationNotificationDTO?) -> Void)?
     var notifyOnEntry: Bool = true
     var notifyOnExit: Bool = false
     var repeats: Bool = false
@@ -54,51 +55,26 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
     private var image: UIImage? { didSet{ imageDidSet?(image) } }
     private var region: MKCoordinateRegion?
     private var circularRadius: CLLocationDistance?
-    private var dto: LocationNotificationDTO?
     private let storage: LocationNotificationStorageUseCase
     private let imageStorage: LocationImageStorageUsecase
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
     private let notificationService: LocationNotificationServiceUseCase
     
     init(coordinator: LocationNotificatioCoordinatorProtocol,
-         dto: LocationNotificationDTO?,
          storage: LocationNotificationStorageUseCase,
          imageStorage: LocationImageStorageUsecase,
          notificationService: LocationNotificationServiceUseCase
     ) {
         self.coordinator = coordinator
-        self.dto = dto
         self.storage = storage
         self.imageStorage = imageStorage
         self.notificationService = notificationService
         bind()
-        setSwitchers()
     }
     
     func viewDidLoad() {
         imageDidSet?(image)
-        guard let dto else { return }
-        shouldEditeDTO?(dto)
-        self.image = imageStorage.loadImage(id: dto.id)
-        setRegion(for: dto)
-        self.circularRadius = dto.circularRadius
-    }
-    
-    private func setSwitchers() {
-        guard let dto else { return }
-        self.repeats = dto.repeats
-        self.notifyOnExit = dto.notifyOnExit
-        self.notifyOnEntry = dto.notifyOnEntry
-    }
-    
-    private func setRegion(for dto: LocationNotificationDTO) {
-        self.region = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(
-                latitude: dto.mapCenterLatitude,
-                longitude: dto.mapCenterLongitude),
-            span: MKCoordinateSpan(
-                latitudeDelta: dto.mapSpanLatitude,
-                longitudeDelta: dto.mapSpanLongitude))
+        shouldEditeDTO?(nil)
     }
     
     func createDidTap() {
@@ -115,13 +91,9 @@ final class LocationNotificationVM: LocationNotificationViewModelProtocol, MapMo
 }
 
 //MARK: -private methods
-extension LocationNotificationVM {
+extension LocationNotificationCreateVM {
     private func isValidTitle() -> Bool {
-        guard
-            let title,
-            !title.isEmpty,
-            title != ""
-        else {
+        guard let title, !title.isEmpty, title != "" else {
             catchTitleError?(.Notification.enter_title)
             return false
         }
@@ -129,65 +101,29 @@ extension LocationNotificationVM {
         return true
     }
     
-    private func saveDTO() {
-        guard isValidTitle() else { return }
-        guard
-            let title,
-            let image,
-            let region,
-            let circularRadius
-        else { return }
-        
-        if dto != nil, let id = dto?.id {
-            dto?.mapCenterLatitude = region.center.latitude
-            dto?.mapCenterLongitude = region.center.longitude
-            dto?.mapSpanLatitude = region.span.latitudeDelta
-            dto?.mapSpanLongitude = region.span.longitudeDelta
-            dto?.notifyOnExit = notifyOnExit
-            dto?.notifyOnEntry = notifyOnEntry
-            dto?.repeats = repeats
-            dto?.circularRadius = circularRadius
-            imageStorage.saveImage(id: id, image: image)
-            
-            let region = CLCircularRegion(center: region.center,
-                                          radius: circularRadius,
-                                          identifier: id)
-            
-            notificationService.makeLocationNotification(circleRegion: region,
-                                                         notifyOnEntry: notifyOnEntry,
-                                                         notifyOnExit: notifyOnExit,
-                                                         repeats: repeats,
-                                                         dto: dto!)
-            
-            storage.updateOrCreate(dto: dto!, completion: nil)
+    private func isValidLocation() -> Bool {
+        if  region != nil && circularRadius != nil {
+            catchLocationError?(false)
+            return false
         } else {
-            let dto = LocationNotificationDTO(
-                date: Date(),
-                title: title,
-                subtitle: comment,
-                completedDate: nil,
-                mapCenterLatitude: region.center.latitude,
-                mapCenterLongitude: region.center.longitude,
-                mapSpanLatitude: region.span.latitudeDelta,
-                mapSpanLongitude: region.span.longitudeDelta, 
-                circularRadius: circularRadius,
-                repeats: repeats,
-                notifyOnEntry: notifyOnEntry,
-                notifyOnExit: notifyOnExit
-                )
-            imageStorage.saveImage(id: dto.id, image: image)
-            storage.updateOrCreate(dto: dto, completion: nil)
-            
-            let region = CLCircularRegion(center: region.center,
-                                           radius: circularRadius,
-                                           identifier: dto.id)
-            
-            notificationService.makeLocationNotification(circleRegion: region,
-                                                         notifyOnEntry: notifyOnEntry,
-                                                         notifyOnExit: notifyOnExit,
-                                                         repeats: repeats,
-                                                         dto: dto)
+            catchLocationError?(true)
+            return true
         }
+    }
+    
+    private func saveDTO() {
+        guard isValidTitle() && isValidLocation() else { return }
+        guard let title, let image, let region, let circularRadius else { return }
+        
+        let dto = makeDTO(region: region, title: title, circularRadius: circularRadius)
+        imageStorage.saveImage(id: dto.id, image: image)
+        storage.updateOrCreate(dto: dto, completion: nil)
+        
+        let circleRegion = CLCircularRegion(center: region.center,
+                                            radius: circularRadius,
+                                            identifier: dto.id)
+        
+        makeNotification(circleRegion: circleRegion, dto: dto)
         coordinator?.finish()
     }
     
@@ -197,6 +133,35 @@ extension LocationNotificationVM {
             self?.region = data.mapRegion
             self?.circularRadius = data.captureRadius
         }
+    }
+    
+    private func makeDTO(
+        region: MKCoordinateRegion,
+        title: String,
+        circularRadius: CLLocationDistance) -> LocationNotificationDTO {
+            return LocationNotificationDTO(
+                date: Date(),
+                title: title,
+                subtitle: comment,
+                completedDate: nil,
+                mapCenterLatitude: region.center.latitude,
+                mapCenterLongitude: region.center.longitude,
+                mapSpanLatitude: region.span.latitudeDelta,
+                mapSpanLongitude: region.span.longitudeDelta,
+                circularRadius: circularRadius,
+                repeats: repeats,
+                notifyOnEntry: notifyOnEntry,
+                notifyOnExit: notifyOnExit
+            )
+        }
+    
+    private func makeNotification(circleRegion: CLCircularRegion, dto: LocationNotificationDTO) {
+        notificationService.makeLocationNotification(
+            circleRegion: circleRegion,
+            notifyOnEntry: notifyOnEntry,
+            notifyOnExit: notifyOnExit,
+            repeats: repeats,
+            dto: dto)
     }
 }
 

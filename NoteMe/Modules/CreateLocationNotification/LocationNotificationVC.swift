@@ -9,16 +9,17 @@ import UIKit
 import SnapKit
 import Storage
 
- protocol LocationNotificationViewModelProtocol: AnyObject {
+protocol LocationNotificationViewModelProtocol: AnyObject {
     var title: String? {get set}
     var comment: String? {get set}
     var imageDidSet: ((UIImage?)-> Void)? {get set}
     var catchTitleError: ((String?) -> Void)? {get set}
-    var shouldEditeDTO: ((LocationNotificationDTO) -> Void)? {get set}
-     var notifyOnEntry: Bool {get set}
-     var notifyOnExit: Bool {get set}
-     var repeats: Bool {get set}
-     
+    var catchLocationError: ((Bool) -> Void)? {get set}
+    var shouldEditeDTO: ((LocationNotificationDTO?) -> Void)? {get set}
+    var notifyOnEntry: Bool {get set}
+    var notifyOnExit: Bool {get set}
+    var repeats: Bool {get set}
+    
     func dismissDidTap()
     func mapDidTap()
     func createDidTap()
@@ -174,11 +175,19 @@ final class LocationNotificationVC: UIViewController {
         }
         
         viewModel.shouldEditeDTO = { [weak self] dto in
+            guard let dto else { return }
             self?.titleView.text = dto.title
             self?.viewModel.title = dto.title
             self?.commentView.text = dto.subtitle
             self?.viewModel.comment = dto.subtitle
             self?.createButton.setTitle(.MainTabBar.edit, for: .normal)
+        }
+        
+        viewModel.catchLocationError = { [weak self] error in
+            error ?
+            self?.addLocationButton.setTitleColor(.appRed, for: .normal) :
+            self?.addLocationButton.setTitleColor(.appYellow, for: .normal)
+            
         }
     }
 }
@@ -238,7 +247,7 @@ private extension LocationNotificationVC {
             make.leading.equalToSuperview().inset(16)
             make.centerY.equalTo(notifyOnEntrySwitcher.snp.centerY)
         }
-
+        
         notifyOnExitSwitcher.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(16)
             make.top.equalTo(notifyOnEntrySwitcher.snp.bottom).inset(-8)
@@ -283,7 +292,7 @@ private extension LocationNotificationVC {
             make.height.equalTo(Const.imageViewHeight)
             make.bottom.equalToSuperview().inset(16)
         }
-
+        
         createButton.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(Const.buttonHeight)

@@ -22,11 +22,20 @@ final class LocationNotificationCoordinator: Coordinator {
     }
     
     override func start() -> UIViewController {
-        let vc = LocationNotificationAssembler.make(self,
-                                                    container: container,
-                                                    dto: dto)
-        rootVC = vc
-        return vc
+        
+        if let dto {
+            let vc = LocationNotificationAssembler.makeEdit(self,
+                                                            container: container,
+                                                            dto: dto)
+            rootVC = vc
+            return vc
+        } else {
+            let vc = LocationNotificationAssembler.makeCreate(self,
+                                                              container: container)
+            rootVC = vc
+            return vc
+        }
+        
     }
 }
 
@@ -48,5 +57,5 @@ extension LocationNotificationCoordinator: LocationNotificatioCoordinatorProtoco
         }
         vc.modalPresentationStyle = .fullScreen
         rootVC?.present(vc, animated: true)
-    } 
+    }
 }
