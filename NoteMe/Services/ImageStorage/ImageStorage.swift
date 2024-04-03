@@ -13,12 +13,11 @@ final class ImageStorage {
         FileManager.default
     }
     
-    func saveImage(id: String, image: UIImage?) {
+    func saveImage(id: String, image: UIImage) {
         let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first
         
         if
             let fileURL = directory?.appendingPathComponent(id),
-            let image,
             let imageData = image.pngData() {
             do {
                 try imageData.write(to: fileURL)
@@ -29,7 +28,7 @@ final class ImageStorage {
     }
     
     func loadImage(id: String) -> UIImage? {
-
+        
         if
             let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first,
             let imageData = try? Data(contentsOf: directory.appendingPathComponent(id)){
@@ -42,5 +41,18 @@ final class ImageStorage {
             print("[IS]", "\(Self.self) failed to load data")
         }
         return nil
+    }
+    
+    func deleteImage(id: String) {
+        guard
+            let directory = manager
+                .urls(for: .documentDirectory, in: .userDomainMask)
+                .first
+        else { return }
+        do {
+            try manager.removeItem(at: directory.appendingPathComponent(id))
+        } catch {
+            print("[IS]", "\(Self.self) uneble to delete image")
+        }
     }
 }

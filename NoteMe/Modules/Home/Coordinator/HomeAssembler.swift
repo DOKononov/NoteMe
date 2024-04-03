@@ -15,12 +15,12 @@ final class HomeAssembler {
                      container: Container
     ) -> UIViewController {
         let adapter = HomeAdapter()
-        let storage: AllNotificationStorage = container.resolve()
+        let worker: NotificationWorker = container.resolve()
         
         let viewModel = HomeVM(adapter: adapter,
-                               storage: storage,
                                coordinator: coordinator,
-                               frcService: makeFRC())
+                               frcService: makeFRC(), 
+                               worker: worker)
 
         let vc = HomeVC(viewModel: viewModel)
         return vc

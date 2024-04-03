@@ -84,7 +84,7 @@
 		564BBF622B76304600B53A66 /* DateNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */; };
 		564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */; };
 		564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */; };
-		564BBF682B76338A00B53A66 /* LocationNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */; };
+		564BBF682B76338A00B53A66 /* LocationNotificationCreateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF672B76338A00B53A66 /* LocationNotificationCreateVM.swift */; };
 		564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */; };
 		564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */; };
 		564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */; };
@@ -120,10 +120,11 @@
 		56A0B49E2BB33309005ED1C5 /* HomeAdapterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B49D2BB33309005ED1C5 /* HomeAdapterSpy.swift */; };
 		56A0B4A02BB333B4005ED1C5 /* HomeCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B49F2BB333B4005ED1C5 /* HomeCoordinatorSpy.swift */; };
 		56A0B4A22BB33412005ED1C5 /* HomeStorageSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A12BB33412005ED1C5 /* HomeStorageSpy.swift */; };
-		56A0B4A52BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A42BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift */; };
 		56A0B4A72BB335FB005ED1C5 /* FRCService+HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */; };
 		56A0B4A92BB336B3005ED1C5 /* HomeFRCServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */; };
 		56A0B4AC2BB33DF9005ED1C5 /* HomeDTOMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */; };
+		56B35F6D2BBD98CC00160759 /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */; };
+		56B35F6F2BBDA1C500160759 /* NotificarionWorker+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */; };
 		56BFC9782B69563E00B47FE2 /* Collection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC9772B69563E00B47FE2 /* Collection+Register.swift */; };
 		56BFC9812B695AC400B47FE2 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 56BFC9802B695AC400B47FE2 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56BFC9842B695AC400B47FE2 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BFC97E2B695AC400B47FE2 /* Storage.framework */; };
@@ -296,7 +297,7 @@
 		564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationAssembler.swift; sourceTree = "<group>"; };
 		564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationVC.swift; sourceTree = "<group>"; };
-		564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationVM.swift; sourceTree = "<group>"; };
+		564BBF672B76338A00B53A66 /* LocationNotificationCreateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationCreateVM.swift; sourceTree = "<group>"; };
 		564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationAssembler.swift; sourceTree = "<group>"; };
 		564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationVC.swift; sourceTree = "<group>"; };
@@ -330,10 +331,11 @@
 		56A0B49D2BB33309005ED1C5 /* HomeAdapterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdapterSpy.swift; sourceTree = "<group>"; };
 		56A0B49F2BB333B4005ED1C5 /* HomeCoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorSpy.swift; sourceTree = "<group>"; };
 		56A0B4A12BB33412005ED1C5 /* HomeStorageSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStorageSpy.swift; sourceTree = "<group>"; };
-		56A0B4A42BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AllNotificationStorage+HomeVM.swift"; sourceTree = "<group>"; };
 		56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FRCService+HomeVM.swift"; sourceTree = "<group>"; };
 		56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFRCServiceSpy.swift; sourceTree = "<group>"; };
 		56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTOMock.swift; sourceTree = "<group>"; };
+		56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
+		56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificarionWorker+UseCase.swift"; sourceTree = "<group>"; };
 		56BFC9772B69563E00B47FE2 /* Collection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Register.swift"; sourceTree = "<group>"; };
 		56BFC97E2B695AC400B47FE2 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BFC9802B695AC400B47FE2 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				56B35F6B2BBD98CC00160759 /* NotificationWorker */,
 				56EB87A02BBC733200E61CE5 /* NotificationHandler */,
 				566730E52B1F98D00085D83F /* AlertService */,
 				560F24662B05399900226BAD /* AnimatorService */,
@@ -746,7 +749,7 @@
 				563C32322BA1784200FCD351 /* UseCases */,
 				564BBF692B76339000B53A66 /* Coordinator */,
 				564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */,
-				564BBF672B76338A00B53A66 /* LocationNotificationVM.swift */,
+				564BBF672B76338A00B53A66 /* LocationNotificationCreateVM.swift */,
 				56DE121E2BBB1E29002B716C /* LocationNotificationEditVM.swift */,
 			);
 			path = CreateLocationNotification;
@@ -896,8 +899,8 @@
 		56A0B4A32BB334BD005ED1C5 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				56A0B4A42BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift */,
 				56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */,
+				56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -908,6 +911,14 @@
 				56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		56B35F6B2BBD98CC00160759 /* NotificationWorker */ = {
+			isa = PBXGroup;
+			children = (
+				56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */,
+			);
+			path = NotificationWorker;
 			sourceTree = "<group>";
 		};
 		56BFC97F2B695AC400B47FE2 /* Storage */ = {
@@ -1526,6 +1537,7 @@
 				5673B3B62B56EFF8004ABFDA /* WindowManager.swift in Sources */,
 				564906ED2B9EDF0300C26922 /* LocationData.swift in Sources */,
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
+				56B35F6F2BBDA1C500160759 /* NotificarionWorker+UseCase.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
@@ -1566,9 +1578,9 @@
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,
 				56D7EAFB2B29867300F72D2D /* ProfileVC.swift in Sources */,
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
+				56B35F6D2BBD98CC00160759 /* NotificationWorker.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
-				56A0B4A52BB334D7005ED1C5 /* AllNotificationStorage+HomeVM.swift in Sources */,
 				5630BCAE2BA9F4D2006EE839 /* NetworkRequest.swift in Sources */,
 				56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */,
 				565E7E472B0D24C000590556 /* RegisterCoordinator.swift in Sources */,
@@ -1633,7 +1645,7 @@
 				5673B3B12B56E0CA004ABFDA /* Container.swift in Sources */,
 				560F245C2B04F74200226BAD /* InputValidator+Register.swift in Sources */,
 				565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */,
-				564BBF682B76338A00B53A66 /* LocationNotificationVM.swift in Sources */,
+				564BBF682B76338A00B53A66 /* LocationNotificationCreateVM.swift in Sources */,
 				56D733EE2B16572A0025283C /* OnboardFirstStepAssembler.swift in Sources */,
 				5645759A2B8B396D00B4891E /* TimerCell.swift in Sources */,
 				56CA73362B98A78800ADC325 /* MapAssembler.swift in Sources */,

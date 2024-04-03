@@ -23,7 +23,6 @@ public extension NSPredicate {
         
         public static func notifications(in ids: [String]) -> NSPredicate {
             let idKeypath = #keyPath(BaseNotificationMO.identifier)
-            let complitedDateKeyPath = #keyPath (BaseNotificationMO.completedDate)
 
             return NSCompoundPredicate(andPredicateWithSubpredicates: [
                 .init(format: "\(idKeypath) IN %@", ids),

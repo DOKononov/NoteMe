@@ -121,15 +121,11 @@ extension LocationNotificationEditVM {
         dto.circularRadius = circularRadius
         imageStorage.saveImage(id: dto.id, image: image)
         
-        let circleRegion = CLCircularRegion(center: region.center,
-                                            radius: circularRadius,
-                                            identifier: dto.id)
-        
-        notificationService.makeLocationNotification(circleRegion: circleRegion,
-                                                     notifyOnEntry: notifyOnEntry,
-                                                     notifyOnExit: notifyOnExit,
-                                                     repeats: repeats,
-                                                     dto: dto)
+        notificationService.makeLocationNotification(
+            dto: dto, 
+            notifyOnEntry: notifyOnEntry,
+            notifyOnExit: notifyOnExit,
+            repeats: repeats)
         
         storage.updateOrCreate(dto: dto, completion: nil)
         coordinator?.finish()

@@ -26,16 +26,15 @@ protocol LocationNotificationStorageUseCase {
 }
 protocol LocationImageStorageUsecase {
     func loadImage(id: String) -> UIImage?
-    func saveImage(id: String, image: UIImage?)
+    func saveImage(id: String, image: UIImage)
 }
 
 protocol LocationNotificationServiceUseCase {
     func makeLocationNotification(
-        circleRegion: CLCircularRegion,
+        dto: LocationNotificationDTO,
         notifyOnEntry: Bool,
         notifyOnExit: Bool,
-        repeats: Bool,
-        dto: LocationNotificationDTO
+        repeats: Bool
     )
 }
 
@@ -104,10 +103,10 @@ extension LocationNotificationCreateVM {
     private func isValidLocation() -> Bool {
         if  region != nil && circularRadius != nil {
             catchLocationError?(false)
-            return false
+            return true
         } else {
             catchLocationError?(true)
-            return true
+            return false
         }
     }
     
@@ -119,11 +118,12 @@ extension LocationNotificationCreateVM {
         imageStorage.saveImage(id: dto.id, image: image)
         storage.updateOrCreate(dto: dto, completion: nil)
         
-        let circleRegion = CLCircularRegion(center: region.center,
-                                            radius: circularRadius,
-                                            identifier: dto.id)
+        notificationService.makeLocationNotification(
+            dto: dto,
+            notifyOnEntry: notifyOnEntry,
+            notifyOnExit: notifyOnExit,
+            repeats: repeats)
         
-        makeNotification(circleRegion: circleRegion, dto: dto)
         coordinator?.finish()
     }
     
@@ -154,14 +154,5 @@ extension LocationNotificationCreateVM {
                 notifyOnExit: notifyOnExit
             )
         }
-    
-    private func makeNotification(circleRegion: CLCircularRegion, dto: LocationNotificationDTO) {
-        notificationService.makeLocationNotification(
-            circleRegion: circleRegion,
-            notifyOnEntry: notifyOnEntry,
-            notifyOnExit: notifyOnExit,
-            repeats: repeats,
-            dto: dto)
-    }
 }
 

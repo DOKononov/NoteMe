@@ -25,6 +25,7 @@ final class ContainerRegistrator {
         container.register { ImageStorage() }
         container.register { NotificationService() }
         container.register { LocationNetworkService() }
+        container.register { NotificationWorker() }
         return container
     }
 }

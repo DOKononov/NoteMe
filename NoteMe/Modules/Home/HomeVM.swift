@@ -25,8 +25,8 @@ protocol HomeCoordinatorProtocol {
     func showMenu(_ sender: UIView, delegate: MenuPopoverDelegate)
 }
 
-protocol HomeStorageUseCase {
-    func delete(dto: any DTODescription)
+protocol HomeNotificationWorkerUseCase {
+    func delete(notification: any DTODescription)
 }
 
 protocol HomeFRCServiceUseCase {
@@ -44,7 +44,7 @@ final class HomeVM: HomeViewModelProtocol {
     }
     
     private var frcService: HomeFRCServiceUseCase
-    private let storage: HomeStorageUseCase
+    private let worker: HomeNotificationWorkerUseCase
     private let adapter: HomeAdapterProtocol
     private let coordinator: HomeCoordinatorProtocol
     private var selectedDTO: (any DTODescription)?
@@ -55,14 +55,14 @@ final class HomeVM: HomeViewModelProtocol {
     }
     
     init(adapter: HomeAdapterProtocol,
-         storage: HomeStorageUseCase,
          coordinator: HomeCoordinatorProtocol,
-         frcService: HomeFRCServiceUseCase
+         frcService: HomeFRCServiceUseCase,
+         worker: HomeNotificationWorkerUseCase
     ) {
         self.adapter = adapter
-        self.storage = storage
         self.coordinator = coordinator
         self.frcService = frcService
+        self.worker = worker
         bind()
     }
     
@@ -120,7 +120,8 @@ extension HomeVM: MenuPopoverDelegate {
                 break
             default: break
             }
-        case .delete: storage.delete(dto: selectedDTO)
+        case .delete: 
+            worker.delete(notification: selectedDTO)
         default: break
         }
     }

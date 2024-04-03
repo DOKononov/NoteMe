@@ -14,11 +14,12 @@ final class NotificationService {
     
     private lazy var notificationCenter = UNUserNotificationCenter.current()
     
-    func makeLocationNotification(circleRegion: CLCircularRegion,
-                                  notifyOnEntry: Bool = true,
-                                  notifyOnExit: Bool = false,
-                                  repeats: Bool = false,
-                                  dto: LocationNotificationDTO) {
+    func makeLocationNotification(dto: LocationNotificationDTO,
+                                   notifyOnEntry: Bool = true,
+                                   notifyOnExit: Bool = false,
+                                   repeats: Bool = false
+    ) {
+        let circleRegion = makeCircleRegion(dto: dto)
         circleRegion.notifyOnEntry = notifyOnEntry
         circleRegion.notifyOnExit = notifyOnExit
         let triger = UNLocationNotificationTrigger(
@@ -31,6 +32,15 @@ final class NotificationService {
             content: content,
             trigger: triger)
         notificationCenter.add(request)
+    }
+    
+    private func makeCircleRegion(dto: LocationNotificationDTO) -> CLCircularRegion {
+        return CLCircularRegion(
+            center: CLLocationCoordinate2D(
+                latitude: dto.mapCenterLatitude,
+                longitude: dto.mapCenterLongitude),
+            radius: dto.circularRadius,
+            identifier: dto.id)
     }
     
     func makeTimerNotification(dto: TimerNotificationDTO) {

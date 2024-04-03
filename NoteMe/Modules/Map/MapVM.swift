@@ -111,7 +111,6 @@ final class MapVM: MapViewModelProtocol {
     }
     
     func confirmDidTap(mapView: MKMapView, captureView: UIView) {
-        let center = calculateCenter(for: captureView, in: mapView)
         let radius = calculateRadius(for: captureView, in: mapView)
         let region = mapView.region
         
@@ -164,17 +163,6 @@ final class MapVM: MapViewModelProtocol {
 
 //MARK: -private methods
 extension MapVM {
-    private func makeCircularRegion(for captureView: UIView,
-                                    in mapView: MKMapView,
-                                    with id: String) -> CLCircularRegion {
-        let center = calculateCenter(for: captureView, in: mapView)
-        let radius = calculateRadius(for: captureView, in: mapView)
-        let circularRegion = CLCircularRegion(center: center,
-                                              radius: radius,
-                                              identifier: id)
-        return circularRegion
-    }
-    
     private func calculateRadius(for captureView: UIView,
                                  in mapView: MKMapView) -> CLLocationDistance {
         let mapRegion = mapView.convert(captureView.bounds,
@@ -186,12 +174,5 @@ extension MapVM {
             longitude: mapRegion.center.longitude)
         let radius = centerPoint.distance(from: topPoint)
         return radius
-    }
-    
-    private func calculateCenter(for captureView: UIView,
-                                 in mapView: MKMapView) ->  CLLocationCoordinate2D {
-        let mapRegion = mapView.convert(captureView.bounds,
-                                        toRegionFrom: captureView)
-        return mapRegion.center
     }
 }
