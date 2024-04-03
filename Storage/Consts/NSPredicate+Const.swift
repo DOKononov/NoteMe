@@ -20,5 +20,15 @@ public extension NSPredicate {
             let idKeypath = #keyPath(BaseNotificationMO.identifier)
             return .init(format: "\(idKeypath) CONTAINS[cd] %@", id)
         }
+        
+        public static func notifications(in ids: [String]) -> NSPredicate {
+            let idKeypath = #keyPath(BaseNotificationMO.identifier)
+            let complitedDateKeyPath = #keyPath (BaseNotificationMO.completedDate)
+
+            return NSCompoundPredicate(andPredicateWithSubpredicates: [
+                .init(format: "\(idKeypath) IN %@", ids),
+                allNotComplited
+            ])
+        }
     }
 }

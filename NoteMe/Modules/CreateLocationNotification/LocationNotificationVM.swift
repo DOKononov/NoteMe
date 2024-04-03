@@ -20,7 +20,7 @@ protocol LocationNotificatioCoordinatorProtocol: AnyObject {
 
 protocol LocationNotificationStorageUseCase {
     func updateOrCreate(
-        dto: LocationNotificationDTO,
+        dto: any DTODescription,
         completion: ((Bool) -> Void)?
     )
 }

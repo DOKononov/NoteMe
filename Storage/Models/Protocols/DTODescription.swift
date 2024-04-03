@@ -21,6 +21,7 @@ public protocol DTODescription {
 }
 
 public protocol MODescription: NSManagedObject, NSFetchRequestResult {
+    var identifier: String? { get }
     func toDTO() -> (any DTODescription)?
     func apply(dto: any DTODescription)
 }

@@ -75,7 +75,3 @@ final class NotificationService {
         return content
     }
 }
-
-//UNUserNotificationCenter.current().getDeliveredNotifications { notifications in
-//    notifications.first?.date
-//}

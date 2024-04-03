@@ -35,8 +35,8 @@ public class NotificationStorage<DTO: DTODescription> {
         }
     
     //MARK: -create
-    private func create(
-        dto: DTO,
+    public func create(
+        dto: any DTODescription,
         completion: CompletionHandler? = nil,
         context: NSManagedObjectContext) {
             context.perform {
@@ -49,7 +49,7 @@ public class NotificationStorage<DTO: DTODescription> {
         }
     
     //MARK: -update
-    private func update(dto: DTO,
+    public func update(dto: any DTODescription,
                        completion: CompletionHandler? = nil,
                        context: NSManagedObjectContext) {
         context.perform { [weak self] in
@@ -64,7 +64,7 @@ public class NotificationStorage<DTO: DTODescription> {
         }
     }
     
-    public func updateOrCreate(dto: DTO,
+    public func updateOrCreate(dto: any DTODescription,
                                completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.backgroundContext
 
@@ -72,6 +72,26 @@ public class NotificationStorage<DTO: DTODescription> {
             create(dto: dto, completion: completion, context: context)
         } else {
             update(dto: dto, completion: completion, context: context)
+        }
+    }
+    
+    public func updateDTOs(dtos: [any DTODescription], 
+                           completion: CompletionHandler? = nil) {
+        let context = CoreDataService.shared.backgroundContext
+        let ids = dtos.map { $0.id }
+        context.perform { [weak self] in
+            guard
+                let mos = self?.fetchMO(predicate: .Notification.notifications(in: ids),
+                                        context: context)
+            else { return }
+            
+            mos.forEach { model in
+                guard
+                    let dto = dtos.first(where: { $0.id == model.identifier })
+                else { return }
+                model.apply(dto: dto)
+            }
+            CoreDataService.shared.saveContext(context: context, completion: completion)
         }
     }
     

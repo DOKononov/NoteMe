@@ -13,7 +13,7 @@ protocol DateNotificationCoordinatorProtocol: AnyObject {
 }
 
 protocol DateNotificationStorageUseCase {
-    func updateOrCreate(dto: DateNotificationDTO, completion: ((Bool) -> Void)?)
+    func updateOrCreate(dto: any DTODescription, completion: ((Bool) -> Void)?)
 }
 
 protocol DateNotificationServiceUseCase {

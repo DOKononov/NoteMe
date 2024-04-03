@@ -13,7 +13,7 @@ protocol TimerNotificationCoordinatorProtocol: AnyObject {
 }
 
 protocol TimerNotificationStorageUseCase {
-    func updateOrCreate(dto: TimerNotificationDTO, completion: ((Bool) -> Void)?)
+    func updateOrCreate(dto: any DTODescription, completion: ((Bool) -> Void)?)
 }
 
 protocol TimerNotificationServiceUseCase {
