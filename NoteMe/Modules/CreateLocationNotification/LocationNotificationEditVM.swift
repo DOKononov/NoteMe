@@ -26,22 +26,25 @@ final class LocationNotificationEditVM: LocationNotificationViewModelProtocol, M
     private var region: MKCoordinateRegion?
     private var circularRadius: CLLocationDistance?
     private var dto: LocationNotificationDTO
-    private let storage: LocationNotificationStorageUseCase
+    private let worker: LocationNotificationWorkerUseCase
+//    private let storage: LocationNotificationStorageUseCase
     private let imageStorage: LocationImageStorageUsecase
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
-    private let notificationService: LocationNotificationServiceUseCase
+//    private let notificationService: LocationNotificationServiceUseCase
     
     init(coordinator: LocationNotificatioCoordinatorProtocol,
          dto: LocationNotificationDTO,
-         storage: LocationNotificationStorageUseCase,
+//         storage: LocationNotificationStorageUseCase,
          imageStorage: LocationImageStorageUsecase,
-         notificationService: LocationNotificationServiceUseCase
+//         notificationService: LocationNotificationServiceUseCase
+         worker: LocationNotificationWorkerUseCase
     ) {
         self.coordinator = coordinator
         self.dto = dto
-        self.storage = storage
+//        self.storage = storage
         self.imageStorage = imageStorage
-        self.notificationService = notificationService
+//        self.notificationService = notificationService
+        self.worker = worker
         bind()
         setSwitchers()
     }
@@ -119,15 +122,18 @@ extension LocationNotificationEditVM {
         dto.notifyOnEntry = notifyOnEntry
         dto.repeats = repeats
         dto.circularRadius = circularRadius
-        imageStorage.saveImage(id: dto.id, image: image)
         
-        notificationService.makeLocationNotification(
-            dto: dto, 
-            notifyOnEntry: notifyOnEntry,
-            notifyOnExit: notifyOnExit,
-            repeats: repeats)
+        worker.makeLocationNotification(dto: dto, image: image)
         
-        storage.updateOrCreate(dto: dto, completion: nil)
+//        imageStorage.saveImage(id: dto.id, image: image)
+        
+//        notificationService.makeLocationNotification(
+//            dto: dto, 
+//            notifyOnEntry: notifyOnEntry,
+//            notifyOnExit: notifyOnExit,
+//            repeats: repeats)
+        
+//        storage.updateOrCreate(dto: dto, completion: nil)
         coordinator?.finish()
     }
     

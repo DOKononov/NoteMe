@@ -10,12 +10,16 @@ import Storage
 import CoreLocation
 
 final class NotificationWorker {
-    private let storage = AllNotificationStorage()
+    private let baseStorage = AllNotificationStorage()
+    private let locationStorage = LocationNotificationStorage()
+    private let dateStorage = LocationNotificationStorage()
+    private let timerStorage = LocationNotificationStorage()
+    
     private let notificationService = NotificationService()
     private let imageStorage = ImageStorage()
     
     func delete(notification: any DTODescription) {
-        storage.delete(dto: notification)
+        baseStorage.delete(dto: notification)
         notificationService.deleteNotification(for: notification)
         if notification is LocationNotificationDTO {
             imageStorage.deleteImage(id: notification.id)
@@ -23,29 +27,24 @@ final class NotificationWorker {
     }
     
     
-    func makeLocationNotification(dto: LocationNotificationDTO,
-                                  image: UIImage,
-                                  notifyOnEntry: Bool = true,
-                                  notifyOnExit: Bool = false,
-                                  repeats: Bool = false
-    ) {
-        storage.updateOrCreate(dto: dto)
+    func makeLocationNotification(dto: LocationNotificationDTO, image: UIImage) {
+        locationStorage.updateOrCreate(dto: dto)
         notificationService.makeLocationNotification(
             dto: dto,
-            notifyOnEntry: notifyOnEntry,
-            notifyOnExit: notifyOnExit,
-            repeats: repeats)
+            notifyOnEntry: dto.notifyOnEntry,
+            notifyOnExit: dto.notifyOnExit,
+            repeats: dto.repeats)
         
         imageStorage.saveImage(id: dto.id, image: image)
     }
     
     func makeTimerNotification(dto: TimerNotificationDTO) {
-        storage.updateOrCreate(dto: dto)
+        timerStorage.updateOrCreate(dto: dto)
         notificationService.makeTimerNotification(dto: dto)
     }
     
     func makeDateNotification(dto: DateNotificationDTO) {
-        storage.updateOrCreate(dto: dto)
+        dateStorage.updateOrCreate(dto: dto)
         notificationService.makeDateNotification(dto: dto)
     }
     

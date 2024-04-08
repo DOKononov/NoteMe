@@ -18,24 +18,12 @@ protocol LocationNotificatioCoordinatorProtocol: AnyObject {
     )
 }
 
-protocol LocationNotificationStorageUseCase {
-    func updateOrCreate(
-        dto: any DTODescription,
-        completion: ((Bool) -> Void)?
-    )
-}
 protocol LocationImageStorageUsecase {
     func loadImage(id: String) -> UIImage?
-    func saveImage(id: String, image: UIImage)
 }
 
-protocol LocationNotificationServiceUseCase {
-    func makeLocationNotification(
-        dto: LocationNotificationDTO,
-        notifyOnEntry: Bool,
-        notifyOnExit: Bool,
-        repeats: Bool
-    )
+protocol LocationNotificationWorkerUseCase {
+    func makeLocationNotification(dto: LocationNotificationDTO, image: UIImage)
 }
 
 final class LocationNotificationCreateVM: LocationNotificationViewModelProtocol, MapModuleDelegate {
@@ -54,20 +42,15 @@ final class LocationNotificationCreateVM: LocationNotificationViewModelProtocol,
     private var image: UIImage? { didSet{ imageDidSet?(image) } }
     private var region: MKCoordinateRegion?
     private var circularRadius: CLLocationDistance?
-    private let storage: LocationNotificationStorageUseCase
-    private let imageStorage: LocationImageStorageUsecase
+    
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
-    private let notificationService: LocationNotificationServiceUseCase
+    private let worker: LocationNotificationWorkerUseCase
     
     init(coordinator: LocationNotificatioCoordinatorProtocol,
-         storage: LocationNotificationStorageUseCase,
-         imageStorage: LocationImageStorageUsecase,
-         notificationService: LocationNotificationServiceUseCase
+         worker: LocationNotificationWorkerUseCase
     ) {
         self.coordinator = coordinator
-        self.storage = storage
-        self.imageStorage = imageStorage
-        self.notificationService = notificationService
+        self.worker = worker
         bind()
     }
     
@@ -114,16 +97,11 @@ extension LocationNotificationCreateVM {
         guard isValidTitle() && isValidLocation() else { return }
         guard let title, let image, let region, let circularRadius else { return }
         
-        let dto = makeDTO(region: region, title: title, circularRadius: circularRadius)
-        imageStorage.saveImage(id: dto.id, image: image)
-        storage.updateOrCreate(dto: dto, completion: nil)
+        let dto = makeDTO(region: region, 
+                          title: title,
+                          circularRadius: circularRadius)
         
-        notificationService.makeLocationNotification(
-            dto: dto,
-            notifyOnEntry: notifyOnEntry,
-            notifyOnExit: notifyOnExit,
-            repeats: repeats)
-        
+        worker.makeLocationNotification(dto: dto, image: image)
         coordinator?.finish()
     }
     

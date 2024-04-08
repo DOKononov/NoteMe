@@ -90,6 +90,7 @@ extension CommentTextView: UITextViewDelegate {
     }
     
     func textViewDidChangeSelection(_ textView: UITextView) {
+        guard textView.text != placeholder else { return }
         delegate?.commentTextViewDidChangeSelection(self)
     }
     
