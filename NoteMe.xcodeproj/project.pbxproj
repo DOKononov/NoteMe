@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		560990EE2BC3E53700DC0EA6 /* LocationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560990ED2BC3E53700DC0EA6 /* LocationPin.swift */; };
+		560990F02BC3E7C200DC0EA6 /* LocationPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560990EF2BC3E7C200DC0EA6 /* LocationPinView.swift */; };
+		560990F32BC4003500DC0EA6 /* FRCService+NotificationsMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560990F22BC4003500DC0EA6 /* FRCService+NotificationsMap.swift */; };
 		560F244E2B03DB8700226BAD /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F244D2B03DB8700226BAD /* RegisterPresenter.swift */; };
 		560F24502B03E0B500226BAD /* RegisterAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F244F2B03E0B500226BAD /* RegisterAssembler.swift */; };
 		560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F24522B03E52C00226BAD /* KeyboardHelper.swift */; };
@@ -219,6 +222,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		560990ED2BC3E53700DC0EA6 /* LocationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPin.swift; sourceTree = "<group>"; };
+		560990EF2BC3E7C200DC0EA6 /* LocationPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPinView.swift; sourceTree = "<group>"; };
+		560990F22BC4003500DC0EA6 /* FRCService+NotificationsMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FRCService+NotificationsMap.swift"; sourceTree = "<group>"; };
 		560F244D2B03DB8700226BAD /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		560F244F2B03E0B500226BAD /* RegisterAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAssembler.swift; sourceTree = "<group>"; };
 		560F24522B03E52C00226BAD /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
@@ -428,6 +434,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		560990F12BC4001200DC0EA6 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				560990F22BC4003500DC0EA6 /* FRCService+NotificationsMap.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		560F24512B03E50C00226BAD /* KeyboardHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +519,7 @@
 		5630BC962BA838D3006EE839 /* NotificationsMap */ = {
 			isa = PBXGroup;
 			children = (
+				560990F12BC4001200DC0EA6 /* UseCases */,
 				5630BC9B2BA84C86006EE839 /* Coordinator */,
 				5630BC972BA838EF006EE839 /* NotificationsMapVC.swift */,
 				5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */,
@@ -679,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				56414AEA2AF16EC200A79CDC /* LineTextField.swift */,
+				560990EF2BC3E7C200DC0EA6 /* LocationPinView.swift */,
 				56E5DF092B77C74D007F8FB6 /* CommentTextView.swift */,
 				5615B69B2AEF922D007CA590 /* AppDatePickerView.swift */,
 				563C32392BA20F9D00FCD351 /* NotificationFilterView */,
@@ -713,6 +729,7 @@
 			isa = PBXGroup;
 			children = (
 				564906EC2B9EDF0300C26922 /* LocationData.swift */,
+				560990ED2BC3E53700DC0EA6 /* LocationPin.swift */,
 				5630BCC22BAF07AF006EE839 /* Place.swift */,
 			);
 			path = Models;
@@ -1564,6 +1581,7 @@
 				5627C14D2B8E436D0078CBF9 /* MenuPopoverBuilder.swift in Sources */,
 				56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */,
 				56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */,
+				560990EE2BC3E53700DC0EA6 /* LocationPin.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
 				5627C14F2B8E44F20078CBF9 /* MenuPopoverAdapter.swift in Sources */,
@@ -1623,6 +1641,7 @@
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
 				5673B3B32B56E544004ABFDA /* ContainerRegistrator.swift in Sources */,
+				560990F02BC3E7C200DC0EA6 /* LocationPinView.swift in Sources */,
 				56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */,
 				56D733E52B164B620025283C /* ParametersHelper.swift in Sources */,
 				5630BCAB2BA9F43F006EE839 /* ApiPaths.swift in Sources */,
@@ -1653,6 +1672,7 @@
 				56CA73332B98A75B00ADC325 /* MapVM.swift in Sources */,
 				5630BCBB2BAEBA16006EE839 /* MapPlaceCell.swift in Sources */,
 				56DDA7F42B987DB400CA94F7 /* NotificationService.swift in Sources */,
+				560990F32BC4003500DC0EA6 /* FRCService+NotificationsMap.swift in Sources */,
 				564BBF5D2B762F0500B53A66 /* DateNotificationVC.swift in Sources */,
 				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,
 				5630BC9A2BA84C54006EE839 /* NotificationsMapVM.swift in Sources */,

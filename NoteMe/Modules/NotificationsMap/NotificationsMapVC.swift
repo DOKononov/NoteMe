@@ -11,6 +11,10 @@ import MapKit
 
 protocol NotificationsMapViewModelProtocol {
     func dismissDidTap()
+    func viewDidLoad()
+    var updateAnatations: (([LocationAnnotation]) -> Void)? { get set }
+    func didSelectLocation(id: String)
+    var defaultRegion: ((MKCoordinateRegion) -> Void)? { get set }
 }
 
 final class NotificationsMapVC: UIViewController {
@@ -21,6 +25,8 @@ final class NotificationsMapVC: UIViewController {
         let mapView = MKMapView()
         mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
+        mapView.delegate = self
+        mapView.shouldGroupAccessibilityChildren = true
         return mapView
     }()
     
@@ -32,7 +38,10 @@ final class NotificationsMapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bind()
+        viewmodel.viewDidLoad()
     }
+    
     
     init(viewmodel: NotificationsMapViewModelProtocol) {
         self.viewmodel = viewmodel
@@ -63,7 +72,49 @@ final class NotificationsMapVC: UIViewController {
         }
     }
     
-   @objc private func dismissDidTap() {
+    private func bind() {
+        viewmodel.updateAnatations = { [weak self] pins in
+            if let oldAnnotations = self?.mapView.annotations {
+                self?.mapView.removeAnnotations(oldAnnotations)
+            }
+            
+            self?.mapView.addAnnotations(pins)
+        }
+        
+        viewmodel.defaultRegion = { [weak self] region in
+            self?.mapView.setRegion(region, animated: true)
+        }
+    }
+    
+    @objc private func dismissDidTap() {
         viewmodel.dismissDidTap()
+    }
+}
+
+
+extension NotificationsMapVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView,
+                 viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        guard !(annotation is MKUserLocation) else { return nil }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "\(LocationPinView.self)")
+        
+        if annotationView == nil {
+            annotationView = LocationPinView(annotation: annotation, reuseIdentifier: "\(LocationPinView.self)")
+            annotationView?.canShowCallout = true
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        } else {
+            annotationView?.annotation = annotation
+        }
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, 
+                 annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        guard let location = view.annotation as? LocationAnnotation else { return }
+        let id = location.id
+        viewmodel.didSelectLocation(id: id)
     }
 }
