@@ -90,12 +90,13 @@ final class NotificationsMapVM: NotificationsMapViewModelProtocol {
     private func convertToPins(dtos: [LocationNotificationDTO]) -> [LocationAnnotation] {
         var pins: [LocationAnnotation] = []
         dtos.forEach { dto in
-            let pin = LocationAnnotation(coordinate: CLLocationCoordinate2D(
-                latitude: dto.mapCenterLatitude,
-                longitude: dto.mapCenterLongitude),
-                                         id: dto.id,
-                                         title: dto.title,
-                                         subtitle: dto.subtitle)
+            let pin = LocationAnnotation(
+                coordinate: CLLocationCoordinate2D(
+                    latitude: dto.mapCenterLatitude,
+                    longitude: dto.mapCenterLongitude),
+                id: dto.id,
+                title: dto.title,
+                subtitle: dto.subtitle)
             
             pins.append(pin)
         }

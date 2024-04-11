@@ -26,5 +26,7 @@
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:907694828757:ios:9f9b21a42f82aab788465c</string>
+	<key>DATABASE_URL</key>
+	<string>https://noteme-755e1-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

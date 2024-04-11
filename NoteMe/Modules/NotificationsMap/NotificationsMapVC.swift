@@ -98,10 +98,14 @@ extension NotificationsMapVC: MKMapViewDelegate {
         
         guard !(annotation is MKUserLocation) else { return nil }
         
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "\(LocationPinView.self)")
+        var annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: "\(LocationPinView.self)"
+        )
         
         if annotationView == nil {
-            annotationView = LocationPinView(annotation: annotation, reuseIdentifier: "\(LocationPinView.self)")
+            annotationView = LocationPinView(
+                annotation: annotation,
+                reuseIdentifier: "\(LocationPinView.self)")
             annotationView?.canShowCallout = true
             annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {

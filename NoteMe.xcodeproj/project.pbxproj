@@ -99,7 +99,6 @@
 		565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E482B0F665F00590556 /* AnimatorService+Login.swift */; };
 		565E7E4B2B0F69D100590556 /* Animator+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E4A2B0F69D100590556 /* Animator+Register.swift */; };
 		565E7E4D2B0F6A7B00590556 /* Animator+ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */; };
-		566730DA2B1F846A0085D83F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 566730D92B1F846A0085D83F /* GoogleService-Info.plist */; };
 		566730DD2B1F87F80085D83F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 566730DC2B1F87F80085D83F /* FirebaseAnalytics */; };
 		566730DF2B1F87F80085D83F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 566730DE2B1F87F80085D83F /* FirebaseAuth */; };
 		566730E12B1F87F80085D83F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 566730E02B1F87F80085D83F /* FirebaseCrashlytics */; };
@@ -110,6 +109,12 @@
 		56741D552B3413AD005C43A8 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */; };
 		56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D562B342878005C43A8 /* ProfileAccountCell.swift */; };
 		56741D5A2B3447F2005C43A8 /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */; };
+		5681644F2BC5A190007AF9CA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 5681644E2BC5A190007AF9CA /* FirebaseDatabase */; };
+		568164512BC5A190007AF9CA /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 568164502BC5A190007AF9CA /* FirebaseDatabaseSwift */; };
+		568164542BC5A2EC007AF9CA /* FirebaseBackupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164532BC5A2EC007AF9CA /* FirebaseBackupService.swift */; };
+		568164592BC5A65E007AF9CA /* BackupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568164582BC5A65E007AF9CA /* BackupModel.swift */; };
+		5681645B2BC5ABAF007AF9CA /* Date+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5681645A2BC5ABAF007AF9CA /* Date+Optional.swift */; };
+		5681645D2BC6491A007AF9CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5681645C2BC6491A007AF9CA /* GoogleService-Info.plist */; };
 		568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */; };
 		568DDFD42B9CA9A3004F488B /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568DDFD32B9CA9A3004F488B /* ImageStorage.swift */; };
 		568F97232B850AD900E1DEEA /* BaseNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */; };
@@ -314,7 +319,6 @@
 		565E7E482B0F665F00590556 /* AnimatorService+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimatorService+Login.swift"; sourceTree = "<group>"; };
 		565E7E4A2B0F69D100590556 /* Animator+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+Register.swift"; sourceTree = "<group>"; };
 		565E7E4C2B0F6A7B00590556 /* Animator+ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animator+ResetPassword.swift"; sourceTree = "<group>"; };
-		566730D92B1F846A0085D83F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		566730E32B1F95DD0085D83F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5673B3B02B56E0CA004ABFDA /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		5673B3B22B56E544004ABFDA /* ContainerRegistrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerRegistrator.swift; sourceTree = "<group>"; };
@@ -322,6 +326,10 @@
 		56741D542B3413AD005C43A8 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
 		56741D562B342878005C43A8 /* ProfileAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAccountCell.swift; sourceTree = "<group>"; };
 		56741D592B3447F2005C43A8 /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
+		568164532BC5A2EC007AF9CA /* FirebaseBackupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseBackupService.swift; sourceTree = "<group>"; };
+		568164582BC5A65E007AF9CA /* BackupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupModel.swift; sourceTree = "<group>"; };
+		5681645A2BC5ABAF007AF9CA /* Date+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Optional.swift"; sourceTree = "<group>"; };
+		5681645C2BC6491A007AF9CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		568AE0B72B109377002C83E0 /* ResetPasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordCoordinator.swift; sourceTree = "<group>"; };
 		568DDFD32B9CA9A3004F488B /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNotificationDTO.swift; sourceTree = "<group>"; };
@@ -423,6 +431,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568164512BC5A190007AF9CA /* FirebaseDatabaseSwift in Frameworks */,
+				5681644F2BC5A190007AF9CA /* FirebaseDatabase in Frameworks */,
 				566730DD2B1F87F80085D83F /* FirebaseAnalytics in Frameworks */,
 				566730E12B1F87F80085D83F /* FirebaseCrashlytics in Frameworks */,
 				56BFC9842B695AC400B47FE2 /* Storage.framework in Frameworks */,
@@ -602,6 +612,7 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				568164522BC5A2CB007AF9CA /* Firebase */,
 				56B35F6B2BBD98CC00160759 /* NotificationWorker */,
 				56EB87A02BBC733200E61CE5 /* NotificationHandler */,
 				566730E52B1F98D00085D83F /* AlertService */,
@@ -672,6 +683,7 @@
 			children = (
 				56414AE42AF15EE400A79CDC /* View+Layer.swift */,
 				56BFC9772B69563E00B47FE2 /* Collection+Register.swift */,
+				5681645A2BC5ABAF007AF9CA /* Date+Optional.swift */,
 				563C323C2BA2173B00FCD351 /* String+Size.swift */,
 				56CD845D2B2631FB00DBBA2B /* AttributedString+parse.swift */,
 				563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */,
@@ -861,6 +873,23 @@
 				5673B3B52B56EFF8004ABFDA /* WindowManager.swift */,
 			);
 			path = WindowManager;
+			sourceTree = "<group>";
+		};
+		568164522BC5A2CB007AF9CA /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				568164572BC5A64B007AF9CA /* Models */,
+				568164532BC5A2EC007AF9CA /* FirebaseBackupService.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		568164572BC5A64B007AF9CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				568164582BC5A65E007AF9CA /* BackupModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		568AE0B62B109361002C83E0 /* Coordinator */ = {
@@ -1237,6 +1266,7 @@
 		56E67DBC2AE824E900248F85 /* NoteMe */ = {
 			isa = PBXGroup;
 			children = (
+				5681645C2BC6491A007AF9CA /* GoogleService-Info.plist */,
 				564906EB2B9EDEE500C26922 /* Models */,
 				56E67DD32AE82D0A00248F85 /* App */,
 				56414AE92AF16EAB00A79CDC /* Custom */,
@@ -1245,7 +1275,6 @@
 				563BF7222AFEA14700150C98 /* Services */,
 				56414AE62AF1600900A79CDC /* Styles */,
 				56414AE32AF15EC800A79CDC /* Utils */,
-				566730D92B1F846A0085D83F /* GoogleService-Info.plist */,
 			);
 			path = NoteMe;
 			sourceTree = "<group>";
@@ -1409,6 +1438,8 @@
 				566730DC2B1F87F80085D83F /* FirebaseAnalytics */,
 				566730DE2B1F87F80085D83F /* FirebaseAuth */,
 				566730E02B1F87F80085D83F /* FirebaseCrashlytics */,
+				5681644E2BC5A190007AF9CA /* FirebaseDatabase */,
+				568164502BC5A190007AF9CA /* FirebaseDatabaseSwift */,
 			);
 			productName = NoteMe;
 			productReference = 56E67DBA2AE824E900248F85 /* NoteMe.app */;
@@ -1482,7 +1513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E67DCA2AE824EA00248F85 /* LaunchScreen.storyboard in Resources */,
-				566730DA2B1F846A0085D83F /* GoogleService-Info.plist in Resources */,
+				5681645D2BC6491A007AF9CA /* GoogleService-Info.plist in Resources */,
 				56E67DEB2AE9062500248F85 /* Localizable.strings in Resources */,
 				56E67DC72AE824EA00248F85 /* Assets.xcassets in Resources */,
 			);
@@ -1552,6 +1583,7 @@
 				564906ED2B9EDF0300C26922 /* LocationData.swift in Sources */,
 				56CD845E2B2631FB00DBBA2B /* AttributedString+parse.swift in Sources */,
 				56B35F6F2BBDA1C500160759 /* NotificarionWorker+UseCase.swift in Sources */,
+				568164542BC5A2EC007AF9CA /* FirebaseBackupService.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
@@ -1562,6 +1594,7 @@
 				563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */,
 				56D7EAF02B28D2DB00F72D2D /* HomeVC.swift in Sources */,
 				563BF7252AFEA1B600150C98 /* InputValidator.swift in Sources */,
+				5681645B2BC5ABAF007AF9CA /* Date+Optional.swift in Sources */,
 				564BBF622B76304600B53A66 /* DateNotificationCoordinator.swift in Sources */,
 				56D7EAE52B28C1DB00F72D2D /* AlertService.swift in Sources */,
 				56E67DD92AE834E300248F85 /* UIFont+Consts.swift in Sources */,
@@ -1583,6 +1616,7 @@
 				56302FCF2B36BCF60051E331 /* AlertService+Profile.swift in Sources */,
 				560990EE2BC3E53700DC0EA6 /* LocationPin.swift in Sources */,
 				56414AF32AF29D4900A79CDC /* UILabel+Styles.swift in Sources */,
+				568164592BC5A65E007AF9CA /* BackupModel.swift in Sources */,
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
 				5627C14F2B8E44F20078CBF9 /* MenuPopoverAdapter.swift in Sources */,
 				56C07DB92B80AD2100340152 /* DateCell.swift in Sources */,
@@ -2100,6 +2134,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 566730DB2B1F87F80085D83F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
+		};
+		5681644E2BC5A190007AF9CA /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 566730DB2B1F87F80085D83F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		568164502BC5A190007AF9CA /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 566730DB2B1F87F80085D83F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 		56E67DDE2AE83AF400248F85 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
