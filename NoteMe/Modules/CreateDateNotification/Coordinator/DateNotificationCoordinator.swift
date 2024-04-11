@@ -14,20 +14,30 @@ final class DateNotificationCoordinator: Coordinator {
     private let dto: DateNotificationDTO?
     
     init(container: Container,
-         dto: DateNotificationDTO? = nil) {
+         dto: DateNotificationDTO?) {
         self.container = container
         self.dto = dto
     }
-
+    
     override func start() -> UIViewController {
-        let vc = DateNotificationAssembler.make(self,
-                                                container: container,
-                                                dto: dto)
-        rootVC = vc
-        return vc
+        
+        if let dto {
+            let vc = DateNotificationAssembler.makeEdit(
+                self,
+                container: container,
+                dto: dto
+            )
+            rootVC = vc
+            return vc
+        } else {
+            let vc = DateNotificationAssembler.makeCreate(
+                self,
+                container: container
+            )
+            rootVC = vc
+            return vc
+        }  
     }
 }
 
-extension DateNotificationCoordinator: DateNotificationCoordinatorProtocol {
-    
-}
+extension DateNotificationCoordinator: DateNotificationCoordinatorProtocol {}

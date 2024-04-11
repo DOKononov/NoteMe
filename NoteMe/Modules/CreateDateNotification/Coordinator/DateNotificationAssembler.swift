@@ -11,16 +11,26 @@ import Storage
 final class DateNotificationAssembler {
     private init() {}
     
-    static func make(_ coordinator: DateNotificationCoordinatorProtocol,
-                     container: Container,
-                     dto: DateNotificationDTO?) -> UIViewController {
-        let storage: DateNotificationStorage = container.resolve()
-        let notificationService: NotificationService = container.resolve()
-        let viewModel = DateNotificationVM(
+    static func makeCreate(_ coordinator: DateNotificationCoordinatorProtocol,
+                           container: Container) -> UIViewController {
+        let worker: NotificationWorker = container.resolve()
+        let viewModel = DateNotificationCreateVM(
             coordinator: coordinator,
-            storage: storage,
-            dto: dto,
-            notificationService: notificationService)
+            worker: worker
+        )
+        let vc = DateNotificationVC(viewModel: viewModel)
+        return vc
+    }
+    
+    static func makeEdit(_ coordinator: DateNotificationCoordinatorProtocol,
+                         container: Container,
+                         dto: DateNotificationDTO) -> UIViewController {
+        let worker: NotificationWorker = container.resolve()
+        let viewModel = DateNotificationEditVM(
+            coordinator: coordinator,
+            worker: worker,
+            dto: dto
+        )
         let vc = DateNotificationVC(viewModel: viewModel)
         return vc
     }

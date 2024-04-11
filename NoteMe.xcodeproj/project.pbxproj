@@ -46,7 +46,6 @@
 		5630BC9A2BA84C54006EE839 /* NotificationsMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */; };
 		5630BC9D2BA84CA3006EE839 /* NotificationsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */; };
 		5630BC9F2BA84CBF006EE839 /* NotificationsMapAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */; };
-		5630BCA32BA8A769006EE839 /* DateNotification+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA22BA8A769006EE839 /* DateNotification+NotificationService.swift */; };
 		5630BCA62BA8A8C3006EE839 /* TimerNotification+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */; };
 		5630BCA82BA8A980006EE839 /* TimerNotification+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */; };
 		5630BCAB2BA9F43F006EE839 /* ApiPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCAA2BA9F43F006EE839 /* ApiPaths.swift */; };
@@ -81,7 +80,7 @@
 		5645759E2B8B9B2900B4891E /* AppTimerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5645759D2B8B9B2900B4891E /* AppTimerPickerView.swift */; };
 		564906ED2B9EDF0300C26922 /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564906EC2B9EDF0300C26922 /* LocationData.swift */; };
 		564BBF5D2B762F0500B53A66 /* DateNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF5C2B762F0500B53A66 /* DateNotificationVC.swift */; };
-		564BBF5F2B762F1300B53A66 /* DateNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF5E2B762F1300B53A66 /* DateNotificationVM.swift */; };
+		564BBF5F2B762F1300B53A66 /* DateNotificationCreateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF5E2B762F1300B53A66 /* DateNotificationCreateVM.swift */; };
 		564BBF622B76304600B53A66 /* DateNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */; };
 		564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */; };
 		564BBF662B76337D00B53A66 /* LocationNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */; };
@@ -120,6 +119,10 @@
 		568F97232B850AD900E1DEEA /* BaseNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */; };
 		568F97252B8514CB00E1DEEA /* AllNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */; };
 		568F97272B851DC000E1DEEA /* NSSortDescriptor+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */; };
+		569DB4F32BC7EA0700BF3842 /* NotificationWorkerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F22BC7EA0700BF3842 /* NotificationWorkerAssembler.swift */; };
+		569DB4F62BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F52BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift */; };
+		569DB4F82BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F72BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift */; };
+		569DB4FA2BC7F89400BF3842 /* DateNotificationEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F92BC7F89400BF3842 /* DateNotificationEditVM.swift */; };
 		56A0B4872BB00DDA005ED1C5 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */; };
 		56A0B4982BB32BCE005ED1C5 /* InputValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4972BB32BCD005ED1C5 /* InputValidatorTests.swift */; };
 		56A0B49A2BB331D0005ED1C5 /* HomeVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4992BB331D0005ED1C5 /* HomeVMTests.swift */; };
@@ -192,7 +195,6 @@
 		56E67DEB2AE9062500248F85 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56E67DED2AE9062500248F85 /* Localizable.strings */; };
 		56E67DF12AE906F900248F85 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E67DF02AE906F900248F85 /* String+localized.swift */; };
 		56EB87A22BBC734200E61CE5 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EB87A12BBC734200E61CE5 /* NotificationHandler.swift */; };
-		56F80B9C2B7DFFB40061B328 /* DateNotification+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F80B9B2B7DFFB40061B328 /* DateNotification+Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,7 +268,6 @@
 		5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapVM.swift; sourceTree = "<group>"; };
 		5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapCoordinator.swift; sourceTree = "<group>"; };
 		5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapAssembler.swift; sourceTree = "<group>"; };
-		5630BCA22BA8A769006EE839 /* DateNotification+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateNotification+NotificationService.swift"; sourceTree = "<group>"; };
 		5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotification+Storage.swift"; sourceTree = "<group>"; };
 		5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotification+NotificationService.swift"; sourceTree = "<group>"; };
 		5630BCAA2BA9F43F006EE839 /* ApiPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPaths.swift; sourceTree = "<group>"; };
@@ -301,7 +302,7 @@
 		5645759D2B8B9B2900B4891E /* AppTimerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTimerPickerView.swift; sourceTree = "<group>"; };
 		564906EC2B9EDF0300C26922 /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
 		564BBF5C2B762F0500B53A66 /* DateNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationVC.swift; sourceTree = "<group>"; };
-		564BBF5E2B762F1300B53A66 /* DateNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationVM.swift; sourceTree = "<group>"; };
+		564BBF5E2B762F1300B53A66 /* DateNotificationCreateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationCreateVM.swift; sourceTree = "<group>"; };
 		564BBF612B76304600B53A66 /* DateNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF632B7630D200B53A66 /* DateNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationAssembler.swift; sourceTree = "<group>"; };
 		564BBF652B76337D00B53A66 /* LocationNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationVC.swift; sourceTree = "<group>"; };
@@ -335,6 +336,10 @@
 		568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNotificationDTO.swift; sourceTree = "<group>"; };
 		568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotificationStorage.swift; sourceTree = "<group>"; };
 		568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Const.swift"; sourceTree = "<group>"; };
+		569DB4F22BC7EA0700BF3842 /* NotificationWorkerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorkerAssembler.swift; sourceTree = "<group>"; };
+		569DB4F52BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorkerUseCases.swift; sourceTree = "<group>"; };
+		569DB4F72BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateNotifications+NotificationsWorker.swift"; sourceTree = "<group>"; };
+		569DB4F92BC7F89400BF3842 /* DateNotificationEditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationEditVM.swift; sourceTree = "<group>"; };
 		56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
 		56A0B48E2BB32B2D005ED1C5 /* NoteMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A0B4972BB32BCD005ED1C5 /* InputValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidatorTests.swift; sourceTree = "<group>"; };
@@ -409,7 +414,6 @@
 		56E67DEE2AE9065300248F85 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		56E67DF02AE906F900248F85 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		56EB87A12BBC734200E61CE5 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
-		56F80B9B2B7DFFB40061B328 /* DateNotification+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateNotification+Storage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -753,7 +757,8 @@
 				56F80B9A2B7DFF9B0061B328 /* UseCases */,
 				564BBF602B76302B00B53A66 /* Coordinator */,
 				564BBF5C2B762F0500B53A66 /* DateNotificationVC.swift */,
-				564BBF5E2B762F1300B53A66 /* DateNotificationVM.swift */,
+				564BBF5E2B762F1300B53A66 /* DateNotificationCreateVM.swift */,
+				569DB4F92BC7F89400BF3842 /* DateNotificationEditVM.swift */,
 			);
 			path = CreateDateNotification;
 			sourceTree = "<group>";
@@ -909,6 +914,14 @@
 			path = ImageStorage;
 			sourceTree = "<group>";
 		};
+		569DB4F42BC7EB3700BF3842 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				569DB4F52BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		56A0B48F2BB32B2D005ED1C5 /* NoteMeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -959,7 +972,9 @@
 		56B35F6B2BBD98CC00160759 /* NotificationWorker */ = {
 			isa = PBXGroup;
 			children = (
+				569DB4F42BC7EB3700BF3842 /* UseCases */,
 				56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */,
+				569DB4F22BC7EA0700BF3842 /* NotificationWorkerAssembler.swift */,
 			);
 			path = NotificationWorker;
 			sourceTree = "<group>";
@@ -1362,8 +1377,7 @@
 		56F80B9A2B7DFF9B0061B328 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				56F80B9B2B7DFFB40061B328 /* DateNotification+Storage.swift */,
-				5630BCA22BA8A769006EE839 /* DateNotification+NotificationService.swift */,
+				569DB4F72BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1619,6 +1633,7 @@
 				568164592BC5A65E007AF9CA /* BackupModel.swift in Sources */,
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
 				5627C14F2B8E44F20078CBF9 /* MenuPopoverAdapter.swift in Sources */,
+				569DB4F32BC7EA0700BF3842 /* NotificationWorkerAssembler.swift in Sources */,
 				56C07DB92B80AD2100340152 /* DateCell.swift in Sources */,
 				5630BCB82BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
@@ -1632,12 +1647,12 @@
 				5630BCAE2BA9F4D2006EE839 /* NetworkRequest.swift in Sources */,
 				56414AFD2AF3B05B00A79CDC /* ResetPasswordVC.swift in Sources */,
 				565E7E472B0D24C000590556 /* RegisterCoordinator.swift in Sources */,
+				569DB4FA2BC7F89400BF3842 /* DateNotificationEditVM.swift in Sources */,
 				56414AF82AF3A47700A79CDC /* RegisterVC.swift in Sources */,
-				56F80B9C2B7DFFB40061B328 /* DateNotification+Storage.swift in Sources */,
 				56D7EAEC2B28D1A600F72D2D /* MainTabBarCoordinator.swift in Sources */,
 				5615B69C2AEF922D007CA590 /* AppDatePickerView.swift in Sources */,
 				56D7EB042B2A090000F72D2D /* HomeVM.swift in Sources */,
-				564BBF5F2B762F1300B53A66 /* DateNotificationVM.swift in Sources */,
+				564BBF5F2B762F1300B53A66 /* DateNotificationCreateVM.swift in Sources */,
 				563C323B2BA20FBB00FCD351 /* NotificationFilterCell.swift in Sources */,
 				56741D572B342878005C43A8 /* ProfileAccountCell.swift in Sources */,
 				565E7E442B0D1B6E00590556 /* LoginCoordinator.swift in Sources */,
@@ -1664,14 +1679,15 @@
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */,
 				56C3CAF02B7D46D1003841AE /* HomeAdapter.swift in Sources */,
-				5630BCA32BA8A769006EE839 /* DateNotification+NotificationService.swift in Sources */,
 				565E7E492B0F665F00590556 /* AnimatorService+Login.swift in Sources */,
+				569DB4F82BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift in Sources */,
 				563C323D2BA2173B00FCD351 /* String+Size.swift in Sources */,
 				560F24532B03E52C00226BAD /* KeyboardHelper.swift in Sources */,
 				560F244E2B03DB8700226BAD /* RegisterPresenter.swift in Sources */,
 				565E7E4D2B0F6A7B00590556 /* Animator+ResetPassword.swift in Sources */,
 				56D7EAEA2B28D10600F72D2D /* MainTabBarAssembler.swift in Sources */,
 				5645759C2B8B40A900B4891E /* LocationCell.swift in Sources */,
+				569DB4F62BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift in Sources */,
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
 				5673B3B32B56E544004ABFDA /* ContainerRegistrator.swift in Sources */,

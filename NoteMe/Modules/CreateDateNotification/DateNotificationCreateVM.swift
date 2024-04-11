@@ -1,5 +1,5 @@
 //
-//  DateNotificationVM.swift
+//  DateNotificationCreateVM.swift
 //  NoteMe
 //
 //  Created by Dmitry Kononov on 9.02.24.
@@ -20,12 +20,18 @@ protocol DateNotificationServiceUseCase {
     func makeDateNotification(dto: DateNotificationDTO)
 }
 
-final class DateNotificationVM: DateNotificationViewModelProtocol {
+protocol DateNotificationFirebaseBackupUseCase {
+    func backup(dto: any DTODescription)
+}
+
+protocol DateNotificationWorkerUsecase {
+    func makeDateNotification(dto: DateNotificationDTO)
+}
+
+final class DateNotificationCreateVM {
     
     private weak var coordinator: DateNotificationCoordinatorProtocol?
-    private let storage: DateNotificationStorageUseCase
-    private let notificationService: DateNotificationServiceUseCase
-    var dto: DateNotificationDTO?
+    private let worker: DateNotificationWorkerUsecase
     var shouldEditeDTO: ((DateNotificationDTO) -> Void)?
     
     var title: String? { didSet {isValidTitle()} }
@@ -36,14 +42,10 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
     var catchDateError: ((String?) -> Void)?
     
     init(coordinator: DateNotificationCoordinatorProtocol,
-         storage: DateNotificationStorageUseCase,
-         dto: DateNotificationDTO?,
-         notificationService: DateNotificationServiceUseCase
+         worker: DateNotificationWorkerUsecase
     ) {
         self.coordinator = coordinator
-        self.storage = storage
-        self.dto = dto
-        self.notificationService = notificationService
+        self.worker = worker
     }
     
     func createDidTapped() {
@@ -53,13 +55,19 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
                                       title: title,
                                       subtitle: comment,
                                       targetDate: date)
-        dto?.title = title
-        dto?.targetDate = date
-        dto?.subtitle = comment
-        storage.updateOrCreate(dto: dto ?? newDTO, completion: nil)
-        notificationService.makeDateNotification(dto: dto ?? newDTO)
+        worker.makeDateNotification(dto: newDTO)
         coordinator?.finish()
     }
+}
+
+//MARK: VM protocol
+extension DateNotificationCreateVM: DateNotificationViewModelProtocol {
+    @discardableResult
+    func checkValidation() -> Bool {
+        return isValidTitle() && isValidDate()
+    }
+    
+    func viewDidLoad() {}
     
     func string(from date: Date?) -> String? {
         let dateFormatter = DateFormatter()
@@ -68,23 +76,13 @@ final class DateNotificationVM: DateNotificationViewModelProtocol {
         return dateFormatter.string(from: date)
     }
     
-    func viewDidLoad() {
-        guard let dto else { return }
-        shouldEditeDTO?(dto)
-    }
-    
     func dismissDidTapped() {
         coordinator?.finish()
     }
 }
 
 //MARK: -private methods
-private extension DateNotificationVM {
-    @discardableResult
-    func checkValidation() -> Bool {
-        return isValidTitle() && isValidDate()
-    }
-    
+private extension DateNotificationCreateVM {
     @discardableResult
     func isValidTitle() -> Bool {
         guard

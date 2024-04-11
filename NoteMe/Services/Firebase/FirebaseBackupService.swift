@@ -13,6 +13,7 @@ import Storage
 final class FirebaseBackupService {
     //TODO: threads
     //TODO: setup Realtime Database rules
+    //TODO: add delete method
     
     private var ref: DatabaseReference {
         Database.database().reference()

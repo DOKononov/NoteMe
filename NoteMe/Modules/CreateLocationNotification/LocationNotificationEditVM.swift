@@ -27,23 +27,17 @@ final class LocationNotificationEditVM: LocationNotificationViewModelProtocol, M
     private var circularRadius: CLLocationDistance?
     private var dto: LocationNotificationDTO
     private let worker: LocationNotificationWorkerUseCase
-//    private let storage: LocationNotificationStorageUseCase
     private let imageStorage: LocationImageStorageUsecase
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
-//    private let notificationService: LocationNotificationServiceUseCase
     
     init(coordinator: LocationNotificatioCoordinatorProtocol,
          dto: LocationNotificationDTO,
-//         storage: LocationNotificationStorageUseCase,
          imageStorage: LocationImageStorageUsecase,
-//         notificationService: LocationNotificationServiceUseCase
          worker: LocationNotificationWorkerUseCase
     ) {
         self.coordinator = coordinator
         self.dto = dto
-//        self.storage = storage
         self.imageStorage = imageStorage
-//        self.notificationService = notificationService
         self.worker = worker
         bind()
         setSwitchers()
@@ -124,16 +118,6 @@ extension LocationNotificationEditVM {
         dto.circularRadius = circularRadius
         
         worker.makeLocationNotification(dto: dto, image: image)
-        
-//        imageStorage.saveImage(id: dto.id, image: image)
-        
-//        notificationService.makeLocationNotification(
-//            dto: dto, 
-//            notifyOnEntry: notifyOnEntry,
-//            notifyOnExit: notifyOnExit,
-//            repeats: repeats)
-        
-//        storage.updateOrCreate(dto: dto, completion: nil)
         coordinator?.finish()
     }
     
