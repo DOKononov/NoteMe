@@ -22,7 +22,11 @@ final class MenuActionCell: UITableViewCell {
         return label
     }()
     
-    private lazy var iconView = UIImageView()
+    private lazy var iconView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     func setup(_ item: MenuActionItem) {
         titleLabel.text = item.title

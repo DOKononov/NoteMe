@@ -46,8 +46,6 @@
 		5630BC9A2BA84C54006EE839 /* NotificationsMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */; };
 		5630BC9D2BA84CA3006EE839 /* NotificationsMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */; };
 		5630BC9F2BA84CBF006EE839 /* NotificationsMapAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */; };
-		5630BCA62BA8A8C3006EE839 /* TimerNotification+Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */; };
-		5630BCA82BA8A980006EE839 /* TimerNotification+NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */; };
 		5630BCAB2BA9F43F006EE839 /* ApiPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCAA2BA9F43F006EE839 /* ApiPaths.swift */; };
 		5630BCAE2BA9F4D2006EE839 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCAD2BA9F4D2006EE839 /* NetworkRequest.swift */; };
 		5630BCB02BA9F5AD006EE839 /* NetworkSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCAF2BA9F5AD006EE839 /* NetworkSessionProvider.swift */; };
@@ -88,7 +86,7 @@
 		564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */; };
 		564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */; };
 		564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */; };
-		564BBF712B76378000B53A66 /* TimerNotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF702B76378000B53A66 /* TimerNotificationVM.swift */; };
+		564BBF712B76378000B53A66 /* TimerNotificationCreateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF702B76378000B53A66 /* TimerNotificationCreateVM.swift */; };
 		564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */; };
 		564BBF762B76386300B53A66 /* TimerNotificationAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */; };
 		565E7E3E2B0D124600590556 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E7E3D2B0D124600590556 /* AppCoordinator.swift */; };
@@ -134,6 +132,8 @@
 		56A0B4AC2BB33DF9005ED1C5 /* HomeDTOMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */; };
 		56B35F6D2BBD98CC00160759 /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */; };
 		56B35F6F2BBDA1C500160759 /* NotificarionWorker+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */; };
+		56BDAE802BCD26AB0088129C /* TimerNotificationEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDAE7F2BCD26AB0088129C /* TimerNotificationEditVM.swift */; };
+		56BDAE822BCD289D0088129C /* NotificationWorker+TimerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDAE812BCD289D0088129C /* NotificationWorker+TimerNotifications.swift */; };
 		56BFC9782B69563E00B47FE2 /* Collection+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BFC9772B69563E00B47FE2 /* Collection+Register.swift */; };
 		56BFC9812B695AC400B47FE2 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = 56BFC9802B695AC400B47FE2 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56BFC9842B695AC400B47FE2 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BFC97E2B695AC400B47FE2 /* Storage.framework */; };
@@ -268,8 +268,6 @@
 		5630BC992BA84C54006EE839 /* NotificationsMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapVM.swift; sourceTree = "<group>"; };
 		5630BC9C2BA84CA3006EE839 /* NotificationsMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapCoordinator.swift; sourceTree = "<group>"; };
 		5630BC9E2BA84CBF006EE839 /* NotificationsMapAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsMapAssembler.swift; sourceTree = "<group>"; };
-		5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotification+Storage.swift"; sourceTree = "<group>"; };
-		5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimerNotification+NotificationService.swift"; sourceTree = "<group>"; };
 		5630BCAA2BA9F43F006EE839 /* ApiPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPaths.swift; sourceTree = "<group>"; };
 		5630BCAD2BA9F4D2006EE839 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		5630BCAF2BA9F5AD006EE839 /* NetworkSessionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProvider.swift; sourceTree = "<group>"; };
@@ -310,7 +308,7 @@
 		564BBF6A2B7633A600B53A66 /* LocationNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationAssembler.swift; sourceTree = "<group>"; };
 		564BBF6C2B7633B000B53A66 /* LocationNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationVC.swift; sourceTree = "<group>"; };
-		564BBF702B76378000B53A66 /* TimerNotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationVM.swift; sourceTree = "<group>"; };
+		564BBF702B76378000B53A66 /* TimerNotificationCreateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationCreateVM.swift; sourceTree = "<group>"; };
 		564BBF732B76385300B53A66 /* TimerNotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationCoordinator.swift; sourceTree = "<group>"; };
 		564BBF752B76386300B53A66 /* TimerNotificationAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationAssembler.swift; sourceTree = "<group>"; };
 		565E7E3D2B0D124600590556 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -352,6 +350,8 @@
 		56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTOMock.swift; sourceTree = "<group>"; };
 		56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
 		56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificarionWorker+UseCase.swift"; sourceTree = "<group>"; };
+		56BDAE7F2BCD26AB0088129C /* TimerNotificationEditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationEditVM.swift; sourceTree = "<group>"; };
+		56BDAE812BCD289D0088129C /* NotificationWorker+TimerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationWorker+TimerNotifications.swift"; sourceTree = "<group>"; };
 		56BFC9772B69563E00B47FE2 /* Collection+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Register.swift"; sourceTree = "<group>"; };
 		56BFC97E2B695AC400B47FE2 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56BFC9802B695AC400B47FE2 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
@@ -553,8 +553,7 @@
 		5630BCA42BA8A8A7006EE839 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				5630BCA52BA8A8C3006EE839 /* TimerNotification+Storage.swift */,
-				5630BCA72BA8A980006EE839 /* TimerNotification+NotificationService.swift */,
+				56BDAE812BCD289D0088129C /* NotificationWorker+TimerNotifications.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -769,7 +768,8 @@
 				5630BCA42BA8A8A7006EE839 /* UseCases */,
 				564BBF722B76384400B53A66 /* Coordinator */,
 				564BBF6E2B7636E600B53A66 /* TimerNotificationVC.swift */,
-				564BBF702B76378000B53A66 /* TimerNotificationVM.swift */,
+				564BBF702B76378000B53A66 /* TimerNotificationCreateVM.swift */,
+				56BDAE7F2BCD26AB0088129C /* TimerNotificationEditVM.swift */,
 			);
 			path = CreateTimerNotification;
 			sourceTree = "<group>";
@@ -1600,6 +1600,7 @@
 				568164542BC5A2EC007AF9CA /* FirebaseBackupService.swift in Sources */,
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */,
+				56BDAE822BCD289D0088129C /* NotificationWorker+TimerNotifications.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				563C32382BA20C6F00FCD351 /* NotificationFilterView.swift in Sources */,
 				56DE121F2BBB1E29002B716C /* LocationNotificationEditVM.swift in Sources */,
@@ -1659,13 +1660,11 @@
 				56E67DBE2AE824E900248F85 /* AppDelegate.swift in Sources */,
 				564BBF642B7630D200B53A66 /* DateNotificationAssembler.swift in Sources */,
 				564BBF6B2B7633A600B53A66 /* LocationNotificationAssembler.swift in Sources */,
-				5630BCA62BA8A8C3006EE839 /* TimerNotification+Storage.swift in Sources */,
 				56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */,
 				560F246B2B0539FF00226BAD /* AuthService+Login.swift in Sources */,
 				568AE0B82B109377002C83E0 /* ResetPasswordCoordinator.swift in Sources */,
 				5627C14B2B8E405E0078CBF9 /* MenuPopoverVC.swift in Sources */,
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
-				5630BCA82BA8A980006EE839 /* TimerNotification+NotificationService.swift in Sources */,
 				56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */,
 				5630BCC32BAF07AF006EE839 /* Place.swift in Sources */,
 				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
@@ -1675,6 +1674,7 @@
 				563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */,
 				56D7EAE72B28C95200F72D2D /* AlertService+Login.swift in Sources */,
 				563C32362BA17A1E00FCD351 /* Location+ImageStorage.swift in Sources */,
+				56BDAE802BCD26AB0088129C /* TimerNotificationEditVM.swift in Sources */,
 				5630BCB02BA9F5AD006EE839 /* NetworkSessionProvider.swift in Sources */,
 				56E67DD72AE82E7400248F85 /* UIColor+Consts.swift in Sources */,
 				56D733F52B165C9E0025283C /* OnboardSecondStepVM.swift in Sources */,
@@ -1727,7 +1727,7 @@
 				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,
 				5630BC9A2BA84C54006EE839 /* NotificationsMapVM.swift in Sources */,
 				568DDFD42B9CA9A3004F488B /* ImageStorage.swift in Sources */,
-				564BBF712B76378000B53A66 /* TimerNotificationVM.swift in Sources */,
+				564BBF712B76378000B53A66 /* TimerNotificationCreateVM.swift in Sources */,
 				56CA73312B98A66500ADC325 /* MapVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

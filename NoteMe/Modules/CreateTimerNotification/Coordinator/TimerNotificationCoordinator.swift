@@ -20,15 +20,23 @@ final class TimerNotificationCoordinator: Coordinator {
     }
     
     override func start() -> UIViewController {
-        let vc = TimerNotificationAssembler.make(self,
-                                                 container: container,
-                                                 dto: dto)
-        rootVC = vc
-        return vc
+        if let dto {
+            let vc = TimerNotificationAssembler.makeEdit(
+                self,
+                container: container,
+                dto: dto
+            )
+            rootVC = vc
+            return vc
+        } else {
+            let vc = TimerNotificationAssembler.makeCreate(
+                self,
+                container: container
+            )
+            rootVC = vc
+            return vc
+        }
     }
-    
 }
 
-extension TimerNotificationCoordinator: TimerNotificationCoordinatorProtocol {
-    
-}
+extension TimerNotificationCoordinator: TimerNotificationCoordinatorProtocol {}
