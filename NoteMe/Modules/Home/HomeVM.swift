@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 
 protocol HomeAdapterProtocol: AnyObject {
-    func relodeData(_ dtoList: [any DTODescription])
+    func relodeData(_ dtoList: [[any DTODescription]])
     func makeTableView() -> UITableView
     
     var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)? { get set }
@@ -33,14 +33,20 @@ protocol HomeFRCServiceUseCase {
     var didChangeContent: (([any DTODescription]) -> Void)? { get set }
     var fetchedDTOs: [any DTODescription] { get }
     func startHandle()
-    
 }
 
 final class HomeVM: HomeViewModelProtocol {
+    
+    var dtos: [any DTODescription] = [] {
+        didSet {
+            let sortedDTOs = sortByCompleeteDate(dtos: dtos)
+            adapter.relodeData(sortedDTOs)
+        }
+    }
+    
     func viewDidLoad() {
         frcService.startHandle()
-        let dtos = frcService.fetchedDTOs
-        adapter.relodeData(dtos)
+        dtos = frcService.fetchedDTOs
     }
     
     private var frcService: HomeFRCServiceUseCase
@@ -50,7 +56,7 @@ final class HomeVM: HomeViewModelProtocol {
     private var selectedDTO: (any DTODescription)?
     private var selectedFilter: NotificationFilterType = .all {
         didSet {
-            adapter.relodeData(filterResults())
+            dtos = filterResults()
         }
     }
     
@@ -68,7 +74,7 @@ final class HomeVM: HomeViewModelProtocol {
     
     private func bind() {
         frcService.didChangeContent = { [weak self] _ in
-            self?.adapter.relodeData(self?.filterResults() ?? [])
+            self?.dtos = self?.filterResults() ?? []
         }
         
         adapter.tapButtonOnDTO = { [weak self] sender, dto in
@@ -100,6 +106,12 @@ final class HomeVM: HomeViewModelProtocol {
                 return true
             }
         }
+    }
+    
+    private func sortByCompleeteDate(dtos: [any DTODescription]) -> [[any DTODescription]] {
+        let complete:  [any DTODescription] = dtos.filter{ $0.completedDate != nil }
+        let notComplete:  [any DTODescription] = dtos.filter{ $0.completedDate == nil }
+        return [notComplete, complete]
     }
 }
 

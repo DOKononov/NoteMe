@@ -85,7 +85,7 @@ private extension DateNotificationEditVM {
     @discardableResult
     func isValidDate() -> Bool {
         guard
-             date != nil
+            date != nil
         else {
             catchDateError?(.Notification.enter_date)
             return false

@@ -18,7 +18,7 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
     
     var tapButtonOnDTO: ((_ sender: UIButton, _ dto: any DTODescription) -> Void)?
     
-    private var dtoList: [any DTODescription] = [] { didSet {tableView.reloadData()} }
+    private var dtoList: [[any DTODescription]] = [] { didSet {tableView.reloadData()} }
     
     private lazy var tableHeaderView: NotificationFilterView = {
         let frame = CGRect(x: .zero, y: .zero, width: .zero, height: Const.headerHeight)
@@ -49,7 +49,7 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
         tableView.register(LocationCell.self)
     }
     
-    func relodeData(_ dtoList: [any DTODescription]) {
+    func relodeData(_ dtoList: [[any DTODescription]]) {
         self.dtoList = dtoList
     }
     
@@ -58,22 +58,42 @@ final class HomeAdapter: NSObject, HomeAdapterProtocol {
     }
 }
 
-extension HomeAdapter: UITableViewDelegate {
-    
-}
+extension HomeAdapter: UITableViewDelegate {}
 
 extension HomeAdapter: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return dtoList.count
-
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dtoList[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        section == 1 ? "completed" : nil //TODO: fix
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dto = dtoList[indexPath.section]
+        let dto = dtoList[indexPath.section][indexPath.row]
+        return configCell(for: dto, in: indexPath)
+    }
+}
+
+
+extension HomeAdapter: NotificationFilterViewDelegate {
+    func notificationFilterView(
+        _ filterView: NotificationFilterView,
+        didSelect type: NotificationFilterType
+    ) {
+        filterDidSelect?(type)
+    } 
+}
+
+//MARK: -private methods
+private extension HomeAdapter {
+     func configCell(for dto: any DTODescription, in indexPath: IndexPath) -> UITableViewCell {
         switch dto {
         case is DateNotificationDTO:
             let cell: DateCell =  tableView.dequeue(at: indexPath)
@@ -102,14 +122,4 @@ extension HomeAdapter: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-}
-
-
-extension HomeAdapter: NotificationFilterViewDelegate {
-    func notificationFilterView(
-        _ filterView: NotificationFilterView,
-        didSelect type: NotificationFilterType
-    ) {
-        filterDidSelect?(type)
-    } 
 }

@@ -28,7 +28,7 @@ final class HomeAssembler {
     
     private static func makeFRC() -> FRCService<BaseNotificationDTO> {
         .init { request in
-            request.predicate = .Notification.allNotComplited
+//            request.predicate = .Notification.allNotComplited
             request.sortDescriptors = [.Notification.byDate]
         }
     }
