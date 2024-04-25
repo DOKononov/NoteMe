@@ -20,10 +20,11 @@ protocol LocationNotificatioCoordinatorProtocol: AnyObject {
 
 protocol LocationImageStorageUsecase {
     func loadImage(id: String) -> UIImage?
+    func saveImage(id: String, image: UIImage)
 }
 
 protocol LocationNotificationWorkerUseCase {
-    func makeLocationNotification(dto: LocationNotificationDTO, image: UIImage)
+    func createOrUpdate(dto: any DTODescription, completion: ((Bool) -> Void)?)
 }
 
 final class LocationNotificationCreateVM: LocationNotificationViewModelProtocol, MapModuleDelegate {
@@ -45,12 +46,15 @@ final class LocationNotificationCreateVM: LocationNotificationViewModelProtocol,
     
     private weak var coordinator: LocationNotificatioCoordinatorProtocol?
     private let worker: LocationNotificationWorkerUseCase
+    private let imageStorage: LocationImageStorageUsecase
     
     init(coordinator: LocationNotificatioCoordinatorProtocol,
-         worker: LocationNotificationWorkerUseCase
+         worker: LocationNotificationWorkerUseCase,
+         imageStorage: LocationImageStorageUsecase
     ) {
         self.coordinator = coordinator
         self.worker = worker
+        self.imageStorage = imageStorage
         bind()
     }
     
@@ -101,7 +105,8 @@ extension LocationNotificationCreateVM {
                           title: title,
                           circularRadius: circularRadius)
         
-        worker.makeLocationNotification(dto: dto, image: image)
+        worker.createOrUpdate(dto: dto, completion: nil)
+        imageStorage.saveImage(id: dto.id, image: image)
         coordinator?.finish()
     }
     

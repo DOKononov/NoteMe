@@ -26,7 +26,7 @@ final class ContainerRegistrator {
         container.register { NotificationService() }
         container.register { LocationNetworkService() }
         container.register { FirebaseBackupService() }
-        container.register { NotificationWorkerAssembler.make(container: container) }
+        container.register { NotificationDataWorkerAssembler.make(container: container)}
         
         return container
     }

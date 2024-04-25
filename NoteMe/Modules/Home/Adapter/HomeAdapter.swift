@@ -72,7 +72,7 @@ extension HomeAdapter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        section == 1 ? "completed" : nil //TODO: fix
+        (dtoList[section].count > 1 && section == 1) ? "completed" : nil //TODO: fix
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,12 +88,12 @@ extension HomeAdapter: NotificationFilterViewDelegate {
         didSelect type: NotificationFilterType
     ) {
         filterDidSelect?(type)
-    } 
+    }
 }
 
 //MARK: -private methods
 private extension HomeAdapter {
-     func configCell(for dto: any DTODescription, in indexPath: IndexPath) -> UITableViewCell {
+    func configCell(for dto: any DTODescription, in indexPath: IndexPath) -> UITableViewCell {
         switch dto {
         case is DateNotificationDTO:
             let cell: DateCell =  tableView.dequeue(at: indexPath)

@@ -117,8 +117,7 @@
 		568F97232B850AD900E1DEEA /* BaseNotificationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */; };
 		568F97252B8514CB00E1DEEA /* AllNotificationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */; };
 		568F97272B851DC000E1DEEA /* NSSortDescriptor+Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */; };
-		569DB4F32BC7EA0700BF3842 /* NotificationWorkerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F22BC7EA0700BF3842 /* NotificationWorkerAssembler.swift */; };
-		569DB4F62BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F52BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift */; };
+		569D50292BD81BE500DB06D0 /* NotificationDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569D50282BD81BE500DB06D0 /* NotificationDataWorker.swift */; };
 		569DB4F82BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F72BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift */; };
 		569DB4FA2BC7F89400BF3842 /* DateNotificationEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569DB4F92BC7F89400BF3842 /* DateNotificationEditVM.swift */; };
 		56A0B4872BB00DDA005ED1C5 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */; };
@@ -130,7 +129,8 @@
 		56A0B4A72BB335FB005ED1C5 /* FRCService+HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */; };
 		56A0B4A92BB336B3005ED1C5 /* HomeFRCServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */; };
 		56A0B4AC2BB33DF9005ED1C5 /* HomeDTOMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */; };
-		56B35F6D2BBD98CC00160759 /* NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */; };
+		56ACAC292BDA3FAC00078B8B /* NotificationDataWorkerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACAC282BDA3FAC00078B8B /* NotificationDataWorkerAssembler.swift */; };
+		56ACAC2C2BDA408C00078B8B /* NotificationService+NotificationDataWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ACAC2B2BDA408C00078B8B /* NotificationService+NotificationDataWorker.swift */; };
 		56B35F6F2BBDA1C500160759 /* NotificarionWorker+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */; };
 		56BDAE802BCD26AB0088129C /* TimerNotificationEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDAE7F2BCD26AB0088129C /* TimerNotificationEditVM.swift */; };
 		56BDAE822BCD289D0088129C /* NotificationWorker+TimerNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BDAE812BCD289D0088129C /* NotificationWorker+TimerNotifications.swift */; };
@@ -334,8 +334,7 @@
 		568F97222B850AD900E1DEEA /* BaseNotificationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNotificationDTO.swift; sourceTree = "<group>"; };
 		568F97242B8514CB00E1DEEA /* AllNotificationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNotificationStorage.swift; sourceTree = "<group>"; };
 		568F97262B851DC000E1DEEA /* NSSortDescriptor+Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Const.swift"; sourceTree = "<group>"; };
-		569DB4F22BC7EA0700BF3842 /* NotificationWorkerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorkerAssembler.swift; sourceTree = "<group>"; };
-		569DB4F52BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationWorkerUseCases.swift; sourceTree = "<group>"; };
+		569D50282BD81BE500DB06D0 /* NotificationDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataWorker.swift; sourceTree = "<group>"; };
 		569DB4F72BC7F60400BF3842 /* DateNotifications+NotificationsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateNotifications+NotificationsWorker.swift"; sourceTree = "<group>"; };
 		569DB4F92BC7F89400BF3842 /* DateNotificationEditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateNotificationEditVM.swift; sourceTree = "<group>"; };
 		56A0B4862BB00DDA005ED1C5 /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
@@ -348,7 +347,8 @@
 		56A0B4A62BB335FB005ED1C5 /* FRCService+HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FRCService+HomeVM.swift"; sourceTree = "<group>"; };
 		56A0B4A82BB336B3005ED1C5 /* HomeFRCServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFRCServiceSpy.swift; sourceTree = "<group>"; };
 		56A0B4AB2BB33DF9005ED1C5 /* HomeDTOMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDTOMock.swift; sourceTree = "<group>"; };
-		56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationWorker.swift; sourceTree = "<group>"; };
+		56ACAC282BDA3FAC00078B8B /* NotificationDataWorkerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDataWorkerAssembler.swift; sourceTree = "<group>"; };
+		56ACAC2B2BDA408C00078B8B /* NotificationService+NotificationDataWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationService+NotificationDataWorker.swift"; sourceTree = "<group>"; };
 		56B35F6E2BBDA1C500160759 /* NotificarionWorker+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificarionWorker+UseCase.swift"; sourceTree = "<group>"; };
 		56BDAE7F2BCD26AB0088129C /* TimerNotificationEditVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerNotificationEditVM.swift; sourceTree = "<group>"; };
 		56BDAE812BCD289D0088129C /* NotificationWorker+TimerNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationWorker+TimerNotifications.swift"; sourceTree = "<group>"; };
@@ -615,18 +615,18 @@
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				568164522BC5A2CB007AF9CA /* Firebase */,
-				56B35F6B2BBD98CC00160759 /* NotificationWorker */,
-				56EB87A02BBC733200E61CE5 /* NotificationHandler */,
 				566730E52B1F98D00085D83F /* AlertService */,
 				560F24662B05399900226BAD /* AnimatorService */,
 				566730E22B1F95B50085D83F /* AuthService */,
 				5673B3AF2B56E0BB004ABFDA /* Container */,
 				565E7E3F2B0D129100590556 /* Coordinator */,
+				568164522BC5A2CB007AF9CA /* Firebase */,
 				568DDFD22B9CA991004F488B /* ImageStorage */,
 				563BF7232AFEA16600150C98 /* InputValidator */,
 				560F24512B03E50C00226BAD /* KeyboardHelper */,
 				5630BCA92BA9F41B006EE839 /* NetworkLayer */,
+				569D50272BD81BCD00DB06D0 /* NotificationDataWorker */,
+				56EB87A02BBC733200E61CE5 /* NotificationHandler */,
 				56DDA7F22B987DA300CA94F7 /* NotificationService */,
 				56D733E32B164B450025283C /* ParametersHelper */,
 				5673B3B42B56EFE5004ABFDA /* WindowManager */,
@@ -914,12 +914,14 @@
 			path = ImageStorage;
 			sourceTree = "<group>";
 		};
-		569DB4F42BC7EB3700BF3842 /* UseCases */ = {
+		569D50272BD81BCD00DB06D0 /* NotificationDataWorker */ = {
 			isa = PBXGroup;
 			children = (
-				569DB4F52BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift */,
+				56ACAC2A2BDA405800078B8B /* UseCases */,
+				569D50282BD81BE500DB06D0 /* NotificationDataWorker.swift */,
+				56ACAC282BDA3FAC00078B8B /* NotificationDataWorkerAssembler.swift */,
 			);
-			path = UseCases;
+			path = NotificationDataWorker;
 			sourceTree = "<group>";
 		};
 		56A0B48F2BB32B2D005ED1C5 /* NoteMeTests */ = {
@@ -969,14 +971,12 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		56B35F6B2BBD98CC00160759 /* NotificationWorker */ = {
+		56ACAC2A2BDA405800078B8B /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				569DB4F42BC7EB3700BF3842 /* UseCases */,
-				56B35F6C2BBD98CC00160759 /* NotificationWorker.swift */,
-				569DB4F22BC7EA0700BF3842 /* NotificationWorkerAssembler.swift */,
+				56ACAC2B2BDA408C00078B8B /* NotificationService+NotificationDataWorker.swift */,
 			);
-			path = NotificationWorker;
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		56BFC97F2B695AC400B47FE2 /* Storage */ = {
@@ -1601,6 +1601,7 @@
 				560F24572B04B16B00226BAD /* AnimatorService.swift in Sources */,
 				5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */,
 				56BDAE822BCD289D0088129C /* NotificationWorker+TimerNotifications.swift in Sources */,
+				56ACAC2C2BDA408C00078B8B /* NotificationService+NotificationDataWorker.swift in Sources */,
 				560F24652B05351600226BAD /* InputValidator+ResetPassword.swift in Sources */,
 				563C32382BA20C6F00FCD351 /* NotificationFilterView.swift in Sources */,
 				56DE121F2BBB1E29002B716C /* LocationNotificationEditVM.swift in Sources */,
@@ -1634,7 +1635,6 @@
 				568164592BC5A65E007AF9CA /* BackupModel.swift in Sources */,
 				564BBF6D2B7633B000B53A66 /* LocationNotificationCoordinator.swift in Sources */,
 				5627C14F2B8E44F20078CBF9 /* MenuPopoverAdapter.swift in Sources */,
-				569DB4F32BC7EA0700BF3842 /* NotificationWorkerAssembler.swift in Sources */,
 				56C07DB92B80AD2100340152 /* DateCell.swift in Sources */,
 				5630BCB82BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
@@ -1642,7 +1642,6 @@
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,
 				56D7EAFB2B29867300F72D2D /* ProfileVC.swift in Sources */,
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
-				56B35F6D2BBD98CC00160759 /* NotificationWorker.swift in Sources */,
 				560F24712B05F4E300226BAD /* KeyboardHelper+Login.swift in Sources */,
 				560F245E2B052E6F00226BAD /* ResetPasswordVM.swift in Sources */,
 				5630BCAE2BA9F4D2006EE839 /* NetworkRequest.swift in Sources */,
@@ -1687,7 +1686,6 @@
 				565E7E4D2B0F6A7B00590556 /* Animator+ResetPassword.swift in Sources */,
 				56D7EAEA2B28D10600F72D2D /* MainTabBarAssembler.swift in Sources */,
 				5645759C2B8B40A900B4891E /* LocationCell.swift in Sources */,
-				569DB4F62BC7EB7A00BF3842 /* NotificationWorkerUseCases.swift in Sources */,
 				560F24602B052F4400226BAD /* ResetPasswordAssambler.swift in Sources */,
 				56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */,
 				5673B3B32B56E544004ABFDA /* ContainerRegistrator.swift in Sources */,
@@ -1720,6 +1718,8 @@
 				56D734042B1799300025283C /* MainTabBarVC.swift in Sources */,
 				56E67DC02AE824E900248F85 /* SceneDelegate.swift in Sources */,
 				56CA73332B98A75B00ADC325 /* MapVM.swift in Sources */,
+				569D50292BD81BE500DB06D0 /* NotificationDataWorker.swift in Sources */,
+				56ACAC292BDA3FAC00078B8B /* NotificationDataWorkerAssembler.swift in Sources */,
 				5630BCBB2BAEBA16006EE839 /* MapPlaceCell.swift in Sources */,
 				56DDA7F42B987DB400CA94F7 /* NotificationService.swift in Sources */,
 				560990F32BC4003500DC0EA6 /* FRCService+NotificationsMap.swift in Sources */,

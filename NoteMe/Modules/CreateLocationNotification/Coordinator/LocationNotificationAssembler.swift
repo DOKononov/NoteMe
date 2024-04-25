@@ -14,11 +14,13 @@ final class LocationNotificationAssembler {
     
     static func makeCreate(_ coordinator: LocationNotificatioCoordinatorProtocol,
                      container: Container) -> UIViewController {
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
+        let imageStorage: ImageStorage = container.resolve()
         
         let vm = LocationNotificationCreateVM(
             coordinator: coordinator,
-            worker: worker)
+            worker: worker, 
+            imageStorage: imageStorage)
         
         let vc = LocationNotificationVC(viewModel: vm)
         return vc
@@ -29,7 +31,7 @@ final class LocationNotificationAssembler {
                      dto: LocationNotificationDTO) -> UIViewController {
         
         let imageStorage: ImageStorage = container.resolve()
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         
         let vm = LocationNotificationEditVM(
             coordinator: coordinator,

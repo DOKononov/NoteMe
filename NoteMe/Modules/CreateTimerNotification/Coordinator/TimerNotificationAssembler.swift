@@ -13,7 +13,7 @@ final class TimerNotificationAssembler {
     
     static func makeCreate(_ coordinator: TimerNotificationCoordinatorProtocol,
                      container: Container) -> UIViewController {
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         let vm = TimerNotificationCreateVM(
             coordinator: coordinator,
             worker: worker)
@@ -24,7 +24,7 @@ final class TimerNotificationAssembler {
     static func makeEdit(_ coordinator: TimerNotificationCoordinatorProtocol,
                      container: Container,
                      dto: TimerNotificationDTO) -> UIViewController {
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         let vm = TimerNotificationEditVM(
             coordinator: coordinator,
             dto: dto,

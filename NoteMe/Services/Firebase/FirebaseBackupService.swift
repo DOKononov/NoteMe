@@ -11,9 +11,12 @@ import FirebaseAuth
 import Storage
 
 final class FirebaseBackupService {
-    //TODO: threads
     //TODO: setup Realtime Database rules
-    //TODO: add delete method
+    
+    private let backupQueue: DispatchQueue = .init(
+        label: "com.noteme.backup",
+        qos: .background,
+        attributes: .concurrent)
     
     private var ref: DatabaseReference {
         Database.database().reference()
@@ -25,23 +28,27 @@ final class FirebaseBackupService {
     
     func backup(dto: any DTODescription) {
         guard let userId else { return }
-        let backupModel = BackupModel(dto: dto)
+        backupQueue.async { [weak ref] in
+            let backupModel = BackupModel(dto: dto)
+            ref?
+                .child("notifications")
+                .child(userId)
+                .child(dto.id)
+                .setValue(backupModel.buildDict())
+        }
+    }
+    
+    func loadBackup(completion: @escaping (([any DTODescription]) -> Void)) {
+        guard let userId else { return }
         ref
             .child("notifications")
             .child(userId)
-            .child(dto.id)
-            .setValue(backupModel.buildDict())
-    }
-    
-    func loadBackup() {
-            guard let userId else { return }
-            ref
-                .child("notifications")
-                .child(userId)
-                .getData { error, snapshot in
+            .getData { [weak self] error, snapshot in
+                self?.backupQueue.async {
                     guard
                         let snapshotDict = snapshot?.value as? [String: Any]
                     else {
+                        completion([])
                         return
                     }
                     
@@ -55,11 +62,24 @@ final class FirebaseBackupService {
                         )
                     else {
                         //log error
+                        completion([])
                         return
                     }
-                    print(backupModels, "count: \(backupModels.count)")
+                    completion(backupModels.map { $0.dto } )
                 }
+            }
+    }
+    
+    func delete(id: String) {
+        guard let userId else { return }
+        backupQueue.async { [ref] in
+            ref
+                .child("notifications")
+                .child(userId)
+                .child(id)
+                .removeValue()
         }
+    }
 }
 
 

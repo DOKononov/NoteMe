@@ -14,17 +14,13 @@ final class NotificationService {
     
     private lazy var notificationCenter = UNUserNotificationCenter.current()
     
-    func makeLocationNotification(dto: LocationNotificationDTO,
-                                   notifyOnEntry: Bool = true,
-                                   notifyOnExit: Bool = false,
-                                   repeats: Bool = false
-    ) {
+    func makeLocationNotification(dto: LocationNotificationDTO) {
         let circleRegion = makeCircleRegion(dto: dto)
-        circleRegion.notifyOnEntry = notifyOnEntry
-        circleRegion.notifyOnExit = notifyOnExit
+        circleRegion.notifyOnEntry = dto.notifyOnEntry
+        circleRegion.notifyOnExit = dto.notifyOnExit
         let triger = UNLocationNotificationTrigger(
             region: circleRegion,
-            repeats: repeats)
+            repeats: dto.repeats)
         
         let content = setContent(dto)
         let request = UNNotificationRequest(
@@ -32,15 +28,6 @@ final class NotificationService {
             content: content,
             trigger: triger)
         notificationCenter.add(request)
-    }
-    
-    private func makeCircleRegion(dto: LocationNotificationDTO) -> CLCircularRegion {
-        return CLCircularRegion(
-            center: CLLocationCoordinate2D(
-                latitude: dto.mapCenterLatitude,
-                longitude: dto.mapCenterLongitude),
-            radius: dto.circularRadius,
-            identifier: dto.id)
     }
     
     func makeTimerNotification(dto: TimerNotificationDTO) {
@@ -70,9 +57,9 @@ final class NotificationService {
         notificationCenter.add(request)
     }
     
-    func deleteNotification(for dto: any DTODescription) {
-        notificationCenter.removeDeliveredNotifications(withIdentifiers: [dto.id])
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: [dto.id])
+    func deleteNotification(for id: [String]) {
+        notificationCenter.removeDeliveredNotifications(withIdentifiers: id)
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: id)
     }
     
     private func setContent(_ dto: any DTODescription) -> UNMutableNotificationContent {
@@ -83,5 +70,14 @@ final class NotificationService {
             content.body = subtitle
         }
         return content
+    }
+    
+    private func makeCircleRegion(dto: LocationNotificationDTO) -> CLCircularRegion {
+        return CLCircularRegion(
+            center: CLLocationCoordinate2D(
+                latitude: dto.mapCenterLatitude,
+                longitude: dto.mapCenterLongitude),
+            radius: dto.circularRadius,
+            identifier: dto.id)
     }
 }

@@ -33,7 +33,7 @@ final class TimerNotificationEditVM: TimerNotificationViewModelProtocol {
         dto.title = title
         dto.subtitle = comment
         dto.timeLeft = timeinterval
-        worker.makeTimerNotification(dto: dto)
+        worker.createOrUpdate(dto: dto, completion: nil)
         coordinator?.finish()
     }
     

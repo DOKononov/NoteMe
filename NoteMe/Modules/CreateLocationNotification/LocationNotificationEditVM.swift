@@ -117,7 +117,8 @@ extension LocationNotificationEditVM {
         dto.repeats = repeats
         dto.circularRadius = circularRadius
         
-        worker.makeLocationNotification(dto: dto, image: image)
+        worker.createOrUpdate(dto: dto, completion: nil)
+        imageStorage.saveImage(id: dto.id, image: image)
         coordinator?.finish()
     }
     

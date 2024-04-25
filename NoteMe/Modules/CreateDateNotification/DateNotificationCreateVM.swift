@@ -25,7 +25,7 @@ protocol DateNotificationFirebaseBackupUseCase {
 }
 
 protocol DateNotificationWorkerUsecase {
-    func makeDateNotification(dto: DateNotificationDTO)
+    func createOrUpdate(dto: any DTODescription, completion: ((Bool) -> Void)?)
 }
 
 final class DateNotificationCreateVM {
@@ -55,7 +55,7 @@ final class DateNotificationCreateVM {
                                       title: title,
                                       subtitle: comment,
                                       targetDate: date)
-        worker.makeDateNotification(dto: newDTO)
+        worker.createOrUpdate(dto: newDTO, completion: nil)
         coordinator?.finish()
     }
 }

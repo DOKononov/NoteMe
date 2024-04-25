@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 public struct LocationNotificationDTO: DTODescription {
     public typealias MO = LocationNotificationMO
@@ -77,4 +78,11 @@ public struct LocationNotificationDTO: DTODescription {
             notifyOnExit: mo.notifyOnExit
         )
     }
+    
+    public func createMO(context: NSManagedObjectContext) -> LocationNotificationMO? {
+        let mo = LocationNotificationMO(context: context)
+        mo.apply(dto: self)
+        return mo
+    }
+    
 }

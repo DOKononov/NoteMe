@@ -26,7 +26,7 @@ protocol HomeCoordinatorProtocol {
 }
 
 protocol HomeNotificationWorkerUseCase {
-    func delete(notification: any DTODescription)
+    func deleteByUser(dto: any DTODescription, completion: ((Bool) -> Void)?)
 }
 
 protocol HomeFRCServiceUseCase {
@@ -133,7 +133,7 @@ extension HomeVM: MenuPopoverDelegate {
             default: break
             }
         case .delete: 
-            worker.delete(notification: selectedDTO)
+            worker.deleteByUser(dto: selectedDTO, completion: nil)
         default: break
         }
     }

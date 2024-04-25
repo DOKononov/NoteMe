@@ -77,6 +77,7 @@ extension LoginVM: LoginViewModelProtocol {
                           password: password) { [weak self] isSuccess in
             if isSuccess {
                 ParametersHelper.set(.authenticated, value: true)
+                //TODO: -start load backup
                 self?.coordinator?.finish()
             } else {
                 self?.alertService.showAlert(title: .AlertBuilder.error,

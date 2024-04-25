@@ -7,4 +7,4 @@
 
 import Foundation
 
-extension NotificationWorker: TimerNotificationWorkerUseCase {}
+extension NotificationDataWorker: TimerNotificationWorkerUseCase {}

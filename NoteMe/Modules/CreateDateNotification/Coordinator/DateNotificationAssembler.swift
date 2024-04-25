@@ -13,7 +13,7 @@ final class DateNotificationAssembler {
     
     static func makeCreate(_ coordinator: DateNotificationCoordinatorProtocol,
                            container: Container) -> UIViewController {
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         let viewModel = DateNotificationCreateVM(
             coordinator: coordinator,
             worker: worker
@@ -25,7 +25,7 @@ final class DateNotificationAssembler {
     static func makeEdit(_ coordinator: DateNotificationCoordinatorProtocol,
                          container: Container,
                          dto: DateNotificationDTO) -> UIViewController {
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         let viewModel = DateNotificationEditVM(
             coordinator: coordinator,
             worker: worker,

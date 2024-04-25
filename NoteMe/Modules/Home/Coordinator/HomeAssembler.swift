@@ -15,7 +15,7 @@ final class HomeAssembler {
                      container: Container
     ) -> UIViewController {
         let adapter = HomeAdapter()
-        let worker: NotificationWorker = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         
         let viewModel = HomeVM(adapter: adapter,
                                coordinator: coordinator,

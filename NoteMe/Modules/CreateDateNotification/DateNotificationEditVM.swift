@@ -38,7 +38,10 @@ final class DateNotificationEditVM {
         dto.title = title
         dto.targetDate = date
         dto.subtitle = comment
-        worker.makeDateNotification(dto: dto)
+        if date > Date() {
+            dto.completedDate = nil
+        }
+        worker.createOrUpdate(dto: dto, completion: nil)
         coordinator?.finish()
     }
 }

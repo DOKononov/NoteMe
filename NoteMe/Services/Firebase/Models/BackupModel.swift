@@ -21,7 +21,7 @@ struct BackupModel: Codable {
         static let location = "location"
     }
     
-    private let dto: any DTODescription
+    let dto: any DTODescription
     
     enum CodingKeys: CodingKey {
         //main attribudes

@@ -13,7 +13,7 @@ protocol TimerNotificationCoordinatorProtocol: AnyObject {
 }
 
 protocol TimerNotificationWorkerUseCase {
-    func makeTimerNotification(dto: TimerNotificationDTO)
+    func createOrUpdate(dto: any DTODescription, completion: ((Bool) -> Void)?)
 }
 
 final class TimerNotificationCreateVM: TimerNotificationViewModelProtocol {
@@ -39,7 +39,7 @@ final class TimerNotificationCreateVM: TimerNotificationViewModelProtocol {
             title: title,
             subtitle: comment,
             targetDate: targetDate)
-        worker.makeTimerNotification(dto: newDTO)
+        worker.createOrUpdate(dto: newDTO, completion: nil)
         coordinator?.finish()
     }
     

@@ -7,4 +7,4 @@
 
 import Foundation
 
-extension NotificationWorker: HomeNotificationWorkerUseCase {}
+extension NotificationDataWorker: HomeNotificationWorkerUseCase {}

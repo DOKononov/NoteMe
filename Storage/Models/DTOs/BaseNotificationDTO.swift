@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 public struct BaseNotificationDTO: DTODescription {
     public typealias MO = BaseNotificationMO
@@ -42,5 +43,11 @@ public struct BaseNotificationDTO: DTODescription {
             subtitle: mo.subtitle,
             completedDate: mo.completedDate
         )
+    }
+    
+    public func createMO(context: NSManagedObjectContext) -> BaseNotificationMO? {
+        let mo = BaseNotificationMO(context: context)
+        mo.apply(dto: self)
+        return mo
     }
 }
