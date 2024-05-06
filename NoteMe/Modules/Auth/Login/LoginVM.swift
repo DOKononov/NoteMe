@@ -37,6 +37,10 @@ protocol LoginKeyboardHelperUseCase {
     func onWillHide(_ handler: @escaping KeyboardFrameHandler) -> Self
 }
 
+protocol LoginNotificationDataWorkerUsecase {
+    func restore(completion: ((Bool) -> Void)?)
+}
+
 final class LoginVM {
     var catchEmailError: ((String?) -> Void)?
     var catchPasswordError: ((String?) -> Void)?
@@ -48,17 +52,21 @@ final class LoginVM {
     private let inputValidator: LoginInputValidatorUseCase
     private let keyboardHelper: LoginKeyboardHelperUseCase
     private let alertService: LoginAlertServiceUseCase
+    private let worker: LoginNotificationDataWorkerUsecase
     
     init(authService: LoginAuthServiceUseCase,
          inputValidator: LoginInputValidatorUseCase,
          keyboardHelper: LoginKeyboardHelperUseCase,
          coordinator: LoginCoordinatorProtocol,
-         alertService: LoginAlertServiceUseCase) {
+         alertService: LoginAlertServiceUseCase,
+         worker: LoginNotificationDataWorkerUsecase
+    ) {
         self.authService = authService
         self.inputValidator = inputValidator
         self.keyboardHelper = keyboardHelper
         self.coordinator = coordinator
         self.alertService = alertService
+        self.worker = worker
         bind()
     }
 }
@@ -78,7 +86,11 @@ extension LoginVM: LoginViewModelProtocol {
             if isSuccess {
                 ParametersHelper.set(.authenticated, value: true)
                 //TODO: -start load backup
-                self?.coordinator?.finish()
+                self?.worker.restore { isSuccess in
+                    DispatchQueue.main.async {
+                        self?.coordinator?.finish()
+                    }
+                }
             } else {
                 self?.alertService.showAlert(title: .AlertBuilder.error,
                                        message: .AlertBuilder.invalid_email_or_password,

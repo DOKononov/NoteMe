@@ -14,11 +14,14 @@ final class ProfileAssembler {
                      container: Container) -> UIViewController {
         let authService: AuthService = container.resolve()
         let alertService: AlertService = container.resolve()
-        let adapter = ProfileAdapter() //TODO: fix
+        let worker: NotificationDataWorker = container.resolve()
+        let adapter: ProfileAdapter = container.resolve()
         let viewModel = ProfileVM(authService: authService,
                                   coordinator: coordinator,
                                   alertService: alertService,
-                                  adapter: adapter)
+                                  adapter: adapter,
+                                  worker: worker
+        )
         let vc = ProfileVC(viewModel: viewModel)
         return vc
     }

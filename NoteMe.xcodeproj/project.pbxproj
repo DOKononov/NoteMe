@@ -157,6 +157,8 @@
 		56CF55C92BBF0D4700864530 /* LocationNotificationVM+NotificationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF55C82BBF0D4700864530 /* LocationNotificationVM+NotificationWorker.swift */; };
 		56D11F392B601CDC0013FE32 /* ProfileSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D11F382B601CDC0013FE32 /* ProfileSections.swift */; };
 		56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D11F3C2B602CD30013FE32 /* ProfileAdapter.swift */; };
+		56D3BE672BE3D15400A06496 /* Worker+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3BE662BE3D15400A06496 /* Worker+Profile.swift */; };
+		56D3BE692BE3D1B000A06496 /* Worker+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3BE682BE3D1B000A06496 /* Worker+Login.swift */; };
 		56D733E52B164B620025283C /* ParametersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733E42B164B620025283C /* ParametersHelper.swift */; };
 		56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733E92B16547B0025283C /* ObnoardFirstStepVC.swift */; };
 		56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D733EB2B1656760025283C /* OnboardFirstStepVM.swift */; };
@@ -374,6 +376,8 @@
 		56CF55C82BBF0D4700864530 /* LocationNotificationVM+NotificationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationNotificationVM+NotificationWorker.swift"; sourceTree = "<group>"; };
 		56D11F382B601CDC0013FE32 /* ProfileSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSections.swift; sourceTree = "<group>"; };
 		56D11F3C2B602CD30013FE32 /* ProfileAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAdapter.swift; sourceTree = "<group>"; };
+		56D3BE662BE3D15400A06496 /* Worker+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Worker+Profile.swift"; sourceTree = "<group>"; };
+		56D3BE682BE3D1B000A06496 /* Worker+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Worker+Login.swift"; sourceTree = "<group>"; };
 		56D733E42B164B620025283C /* ParametersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersHelper.swift; sourceTree = "<group>"; };
 		56D733E92B16547B0025283C /* ObnoardFirstStepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObnoardFirstStepVC.swift; sourceTree = "<group>"; };
 		56D733EB2B1656760025283C /* OnboardFirstStepVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardFirstStepVM.swift; sourceTree = "<group>"; };
@@ -650,6 +654,7 @@
 				565E7E482B0F665F00590556 /* AnimatorService+Login.swift */,
 				560F24702B05F4E300226BAD /* KeyboardHelper+Login.swift */,
 				56D7EAE62B28C95200F72D2D /* AlertService+Login.swift */,
+				56D3BE682BE3D1B000A06496 /* Worker+Login.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -677,6 +682,7 @@
 			children = (
 				5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */,
 				56302FCE2B36BCF60051E331 /* AlertService+Profile.swift */,
+				56D3BE662BE3D15400A06496 /* Worker+Profile.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1639,6 +1645,7 @@
 				5630BCB82BAE0A1D006EE839 /* MapVM+LocationNetworkService.swift in Sources */,
 				56D733EC2B1656760025283C /* OnboardFirstStepVM.swift in Sources */,
 				56D733EA2B16547B0025283C /* ObnoardFirstStepVC.swift in Sources */,
+				56D3BE672BE3D15400A06496 /* Worker+Profile.swift in Sources */,
 				564BBF6F2B7636E600B53A66 /* TimerNotificationVC.swift in Sources */,
 				56D7EAFB2B29867300F72D2D /* ProfileVC.swift in Sources */,
 				560F246D2B05ED0900226BAD /* KeyboardHelper+Register.swift in Sources */,
@@ -1666,6 +1673,7 @@
 				56D11F3D2B602CD30013FE32 /* ProfileAdapter.swift in Sources */,
 				56E5DF0A2B77C74D007F8FB6 /* CommentTextView.swift in Sources */,
 				5630BCC32BAF07AF006EE839 /* Place.swift in Sources */,
+				56D3BE692BE3D1B000A06496 /* Worker+Login.swift in Sources */,
 				564BBF742B76385300B53A66 /* TimerNotificationCoordinator.swift in Sources */,
 				5645759E2B8B9B2900B4891E /* AppTimerPickerView.swift in Sources */,
 				56CA73382B98A7EE00ADC325 /* MapCoordinator.swift in Sources */,

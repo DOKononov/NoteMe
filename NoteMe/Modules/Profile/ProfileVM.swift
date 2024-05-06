@@ -34,11 +34,16 @@ protocol ProfileAuthServiceUseCase {
     func logout(completion: @escaping  ((Result<Void, Error>) -> Void))
 }
 
+protocol ProfileWorkerUsecase {
+    func deleteAllByLogout(completion: ((Bool) -> Void)?)
+}
+
 final class ProfileVM: ProfileViewModelProtocol {
     private weak var coordinator: ProfileCoordinatorProtocol?
     private let authService: ProfileAuthServiceUseCase
     private let alertService: ProfileAlertServiceUseCase
     private var adapter: ProfileAdapterProtocol
+    private let worker: ProfileWorkerUsecase
     
     private var username: String = .Profile.unregistered_user
     
@@ -55,11 +60,14 @@ final class ProfileVM: ProfileViewModelProtocol {
     init(authService: ProfileAuthServiceUseCase,
          coordinator: ProfileCoordinatorProtocol,
          alertService: ProfileAlertServiceUseCase,
-         adapter: ProfileAdapterProtocol) {
+         adapter: ProfileAdapterProtocol,
+         worker: ProfileWorkerUsecase
+    ) {
         self.authService = authService
         self.coordinator = coordinator
         self.alertService = alertService
         self.adapter = adapter
+        self.worker = worker
         commonInit()
         bind()
     }
@@ -102,7 +110,11 @@ private extension ProfileVM {
             switch result {
             case .success(_):
                 ParametersHelper.set(.authenticated, value: false)
-                self?.coordinator?.finish()
+                self?.worker.deleteAllByLogout { isSuccess in
+                    DispatchQueue.main.async {
+                        self?.coordinator?.finish()
+                    }
+                }
             case .failure(let error):
                 self?.alertService.showAlert(title: .AlertBuilder.error,
                                              message: error.localizedDescription,

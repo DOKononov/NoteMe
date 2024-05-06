@@ -18,12 +18,15 @@ final class LoginAssembler {
         let inputValidator: InputValidator = container.resolve()
         let animatorService: AnimatorService = container.resolve()
         let alertService: AlertService = container.resolve()
+        let worker: NotificationDataWorker = container.resolve()
         
         let viewModel = LoginVM(authService: authService,
                                 inputValidator: inputValidator,
                                 keyboardHelper: keybordHelper,
                                 coordinator: coordinator,
-                                alertService: alertService)
+                                alertService: alertService,
+                                worker: worker
+            )
         let view =  LoginVC(viewModel: viewModel,
                             animatorService: animatorService)
         

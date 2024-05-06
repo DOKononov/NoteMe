@@ -58,6 +58,8 @@ final class CoreDataService {
                 completion?(false)
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        } else {
+            completion?(false)
         }
     }
 }

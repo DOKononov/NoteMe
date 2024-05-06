@@ -40,7 +40,7 @@ public class NotificationStorage<DTO: DTODescription> {
         completion: CompletionHandler? = nil,
         context: NSManagedObjectContext) {
             context.perform {
-                let mo = dto.createMO(context: context)
+                let _ = dto.createMO(context: context)
                 CoreDataService.shared.saveContext(context: context,
                                                    completion: completion)
             }
@@ -49,9 +49,7 @@ public class NotificationStorage<DTO: DTODescription> {
     public func createDTOs(dtos:[any DTODescription], completion: CompletionHandler? = nil) {
         let context = CoreDataService.shared.backgroundContext
         context.perform {
-            let mos = dtos.map {
-                $0.createMO(context: context)
-            }
+            let _ = dtos.map { $0.createMO(context: context) }
             CoreDataService.shared.saveContext(context: context,
                                                completion: completion)
         }
@@ -122,7 +120,7 @@ public class NotificationStorage<DTO: DTODescription> {
     
     public func deleteAll(dtos: [any DTODescription],
                           completion: CompletionHandler? = nil) {
-        let context = CoreDataService.shared.backgroundContext
+         let context = CoreDataService.shared.backgroundContext
         context.perform { [weak self] in
             let ids = dtos.map{ $0.id }
             let mos = self?.fetchMO(
