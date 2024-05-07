@@ -28,13 +28,15 @@ final class FirebaseBackupService {
     
     func backup(dto: any DTODescription) {
         guard let userId else { return }
-        backupQueue.async { [weak ref] in
+        backupQueue.async { [weak self] in
             let backupModel = BackupModel(dto: dto)
-            ref?
+            let dict = backupModel.buildDict()
+            self?.ref
                 .child("notifications")
                 .child(userId)
-                .child(dto.id)
-                .setValue(backupModel.buildDict())
+                .child(dto.id).setValue(dict) { error, ref in
+                    print(error, ref)
+                }
         }
     }
     
@@ -72,8 +74,8 @@ final class FirebaseBackupService {
     
     func delete(id: String) {
         guard let userId else { return }
-        backupQueue.async { [ref] in
-            ref
+        backupQueue.async { [weak self] in
+            self?.ref
                 .child("notifications")
                 .child(userId)
                 .child(id)

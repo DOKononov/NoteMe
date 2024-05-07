@@ -101,12 +101,20 @@ extension LocationNotificationCreateVM {
         guard isValidTitle() && isValidLocation() else { return }
         guard let title, let image, let region, let circularRadius else { return }
         
-        let dto = makeDTO(region: region, 
+        let dto = makeDTO(region: region,
                           title: title,
                           circularRadius: circularRadius)
         
         worker.createOrUpdate(dto: dto, completion: nil)
         imageStorage.saveImage(id: dto.id, image: image)
+        //TODO: -
+        /// Написать воркер для сохранения файлов в две системы:
+        /// - В файлменеджер
+        /// - В FirebaseStorage
+        ///
+        /// Загрузка изображения
+        /// - если на телефоне есть  то заугрзка идет с fileManager
+        /// - иначе загрузка идет с облака (firebaseStorage)
         coordinator?.finish()
     }
     
