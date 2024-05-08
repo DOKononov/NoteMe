@@ -15,9 +15,7 @@ enum FirebaseStorageError: String, LocalizedError {
     case dataToImageFailed = "Data can not be used as image"
     case dataIsNil = "Download data successed, BUT data is nil"
     
-    var errorDescription: String? {
-        return self.rawValue
-    }
+    var errorDescription: String? { self.rawValue }
 }
 
 final class FirebaseStorageService {
@@ -64,6 +62,7 @@ final class FirebaseStorageService {
                     return
                 }
                 
+                //TODO: - remove???
                 ref?.downloadURL { fileURL, error in
                     guard error == nil  else {
                         error?.log()

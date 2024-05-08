@@ -12,7 +12,7 @@ final class LocationCell: UITableViewCell {
     
     var buttonDidTapped: ((_ sender: UIButton) -> Void)?
     private let imageStorage = ImageStorage() //TODO: fix
-        
+    
     private lazy var cellContentView: UIView = {
         let view = UIView()
         view.backgroundColor = .itemBackground
@@ -76,8 +76,11 @@ final class LocationCell: UITableViewCell {
     func config(for dto: LocationNotificationDTO) {
         title.text = dto.title
         subTitle.text = dto.subtitle
-        let image = imageStorage.loadImage(id: dto.id)
-        locationImageView.image = image
+        imageStorage.loadImage(id: dto.id) { [weak self] image in
+            DispatchQueue.main.async {
+                self?.locationImageView.image = image
+            }
+        }
     }
     
     

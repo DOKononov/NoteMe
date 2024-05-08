@@ -19,8 +19,8 @@ protocol LocationNotificatioCoordinatorProtocol: AnyObject {
 }
 
 protocol LocationImageStorageUsecase {
-    func loadImage(id: String) -> UIImage?
-    func saveImage(id: String, image: UIImage)
+    func loadImage(id: String, completion: @escaping ((UIImage?)-> Void))
+    func saveImage(id: String, image: UIImage, completion: ((Bool) -> Void)?)
 }
 
 protocol LocationNotificationWorkerUseCase {
@@ -106,7 +106,11 @@ extension LocationNotificationCreateVM {
                           circularRadius: circularRadius)
         
         worker.createOrUpdate(dto: dto, completion: nil)
-        imageStorage.saveImage(id: dto.id, image: image)
+        imageStorage.saveImage(id: dto.id, image: image) { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.coordinator?.finish()
+            }
+        }
         //TODO: -
         /// Написать воркер для сохранения файлов в две системы:
         /// - В файлменеджер
@@ -115,7 +119,6 @@ extension LocationNotificationCreateVM {
         /// Загрузка изображения
         /// - если на телефоне есть  то заугрзка идет с fileManager
         /// - иначе загрузка идет с облака (firebaseStorage)
-        coordinator?.finish()
     }
     
     private func bind() {

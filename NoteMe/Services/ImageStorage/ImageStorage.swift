@@ -7,52 +7,88 @@
 
 import UIKit
 
+enum ImageStorageError: String, LocalizedError {
+    case dataLoadingFailed = "Failed to load data"
+    case dataToImageFailed = "Data can not be used as image"
+    case imageToDataError = "Failed to convert image to data"
+    case deleteImageError = "Uneble to delete image"
+    case fileURLPathError = "failed to make file path URL"
+    
+    var errorDescription: String? { self.rawValue }
+}
+
 final class ImageStorage {
     
-    private var manager: FileManager {
-        FileManager.default
+    private var manager: FileManager { FileManager.default }
+    private var directory: URL? {
+        manager.urls(for: .documentDirectory, in: .userDomainMask).first
     }
+    private let queue = DispatchQueue(label: "com.noteme.localStorage",
+                                      qos: .utility,
+                                      attributes: .concurrent)
     
-    func saveImage(id: String, image: UIImage) {
-        let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first
-        
-        if
-            let fileURL = directory?.appendingPathComponent(id),
-            let imageData = image.pngData() {
+    func saveImage(id: String, image: UIImage,
+                   completion: ((Bool) -> Void)?) {
+        guard let fileURL = directory?.appendingPathComponent(id) else {
+            ImageStorageError.fileURLPathError.log()
+            completion?(false)
+            return
+        }
+        queue.async {
+            guard let imageData = image.pngData() else {
+                ImageStorageError.imageToDataError.log()
+                completion?(false)
+                return
+            }
+            
             do {
                 try imageData.write(to: fileURL)
+                completion?(true)
             } catch {
-                print("[IS]", "\(Self.self) failed to save image \(error)")
+                error.log()
+                completion?(false)
             }
         }
     }
     
-    func loadImage(id: String) -> UIImage? {
-        
-        if
-            let directory = manager.urls(for: .documentDirectory, in: .userDomainMask).first,
-            let imageData = try? Data(contentsOf: directory.appendingPathComponent(id)){
-            if let loadedImage = UIImage(data: imageData) {
-                return loadedImage
-            } else {
-                print("[IS]", "\(Self.self) failed to convert data to image")
+    func loadImage(id: String, completion: @escaping ((UIImage?)-> Void)) {
+        queue.async { [weak self] in
+            guard
+                let directory = self?.directory,
+                let imageData = try? Data(contentsOf: directory.appendingPathComponent(id))
+            else {
+                ImageStorageError.dataLoadingFailed.log()
+                completion(nil)
+                return
             }
-        } else {
-            print("[IS]", "\(Self.self) failed to load data")
+            
+            guard
+                let image = UIImage(data: imageData)
+            else {
+                ImageStorageError.dataToImageFailed.log()
+                completion(nil)
+                return
+            }
+            completion(image)
         }
-        return nil
     }
     
-    func deleteImage(id: String) {
+    
+    func deleteImage(id: String, completion: ((Bool) -> Void)?) {
         guard
-            let directory = manager
-                .urls(for: .documentDirectory, in: .userDomainMask)
-                .first
-        else { return }
+            let directory
+        else {
+            ImageStorageError.fileURLPathError.log()
+            completion?(false)
+            return
+        }
+        
         do {
             try manager.removeItem(at: directory.appendingPathComponent(id))
+            completion?(true)
         } catch {
-            print("[IS]", "\(Self.self) uneble to delete image")
+            ImageStorageError.deleteImageError.log()
+            completion?(false)
         }
     }
 }
