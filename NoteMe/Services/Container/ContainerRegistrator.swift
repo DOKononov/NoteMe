@@ -23,6 +23,8 @@ final class ContainerRegistrator {
         container.register { TimerNotificationStorage() }
         container.register { AllNotificationStorage() }
         container.register { ImageStorage() }
+        container.register { FirebaseStorageService() }
+        container.register { ImageStorageWorkerAssembler.make(container: container) }
         container.register { NotificationService() }
         container.register { LocationNetworkService() }
         container.register { FirebaseBackupService() }

@@ -55,6 +55,7 @@
 		5630BCBB2BAEBA16006EE839 /* MapPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCBA2BAEBA16006EE839 /* MapPlaceCell.swift */; };
 		5630BCBE2BAEEA92006EE839 /* MapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCBD2BAEEA92006EE839 /* MapAdapter.swift */; };
 		5630BCC32BAF07AF006EE839 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5630BCC22BAF07AF006EE839 /* Place.swift */; };
+		563AC13D2BEB6DFB00746E07 /* ImageStorageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563AC13C2BEB6DFB00746E07 /* ImageStorageWorker.swift */; };
 		563BF71D2AFE942D00150C98 /* UIButton+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */; };
 		563BF71F2AFE977C00150C98 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF71E2AFE977C00150C98 /* LoginVM.swift */; };
 		563BF7212AFE97F400150C98 /* LoginAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563BF7202AFE97F400150C98 /* LoginAssembler.swift */; };
@@ -64,6 +65,7 @@
 		563C32382BA20C6F00FCD351 /* NotificationFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563C32372BA20C6F00FCD351 /* NotificationFilterView.swift */; };
 		563C323B2BA20FBB00FCD351 /* NotificationFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563C323A2BA20FBB00FCD351 /* NotificationFilterCell.swift */; };
 		563C323D2BA2173B00FCD351 /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563C323C2BA2173B00FCD351 /* String+Size.swift */; };
+		563CAB212BECCF5200593F09 /* ImageStorageWorkerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563CAB202BECCF5200593F09 /* ImageStorageWorkerAssembler.swift */; };
 		5640A34A2B35C9D00052E7D0 /* AuthService+Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */; };
 		56414AE52AF15EE400A79CDC /* View+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE42AF15EE400A79CDC /* View+Layer.swift */; };
 		56414AE82AF1602B00A79CDC /* UIButton+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */; };
@@ -283,6 +285,7 @@
 		5630BCBA2BAEBA16006EE839 /* MapPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPlaceCell.swift; sourceTree = "<group>"; };
 		5630BCBD2BAEEA92006EE839 /* MapAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAdapter.swift; sourceTree = "<group>"; };
 		5630BCC22BAF07AF006EE839 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		563AC13C2BEB6DFB00746E07 /* ImageStorageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageWorker.swift; sourceTree = "<group>"; };
 		563BF71C2AFE942D00150C98 /* UIButton+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Actions.swift"; sourceTree = "<group>"; };
 		563BF71E2AFE977C00150C98 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		563BF7202AFE97F400150C98 /* LoginAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembler.swift; sourceTree = "<group>"; };
@@ -292,6 +295,7 @@
 		563C32372BA20C6F00FCD351 /* NotificationFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFilterView.swift; sourceTree = "<group>"; };
 		563C323A2BA20FBB00FCD351 /* NotificationFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationFilterCell.swift; sourceTree = "<group>"; };
 		563C323C2BA2173B00FCD351 /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
+		563CAB202BECCF5200593F09 /* ImageStorageWorkerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageWorkerAssembler.swift; sourceTree = "<group>"; };
 		5640A3492B35C9D00052E7D0 /* AuthService+Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthService+Profile.swift"; sourceTree = "<group>"; };
 		56414AE42AF15EE400A79CDC /* View+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Layer.swift"; sourceTree = "<group>"; };
 		56414AE72AF1602B00A79CDC /* UIButton+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Styles.swift"; sourceTree = "<group>"; };
@@ -624,9 +628,19 @@
 			path = Adapter;
 			sourceTree = "<group>";
 		};
+		563AC13B2BEB6DE000746E07 /* ImageStorageWorker */ = {
+			isa = PBXGroup;
+			children = (
+				563AC13C2BEB6DFB00746E07 /* ImageStorageWorker.swift */,
+				563CAB202BECCF5200593F09 /* ImageStorageWorkerAssembler.swift */,
+			);
+			path = ImageStorageWorker;
+			sourceTree = "<group>";
+		};
 		563BF7222AFEA14700150C98 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				563AC13B2BEB6DE000746E07 /* ImageStorageWorker */,
 				566730E52B1F98D00085D83F /* AlertService */,
 				560F24662B05399900226BAD /* AnimatorService */,
 				566730E22B1F95B50085D83F /* AuthService */,
@@ -1611,6 +1625,7 @@
 				562A72352B75091000755314 /* MainTabBarVM.swift in Sources */,
 				56E67DDC2AE8382800248F85 /* UIImage+Consts.swift in Sources */,
 				56D7EAFE2B29874700F72D2D /* ProfileAssembler.swift in Sources */,
+				563CAB212BECCF5200593F09 /* ImageStorageWorkerAssembler.swift in Sources */,
 				5673B3B62B56EFF8004ABFDA /* WindowManager.swift in Sources */,
 				56B2C80B2BEA8D2B008BE440 /* FirebaseStorageService.swift in Sources */,
 				564906ED2B9EDF0300C26922 /* LocationData.swift in Sources */,
@@ -1749,6 +1764,7 @@
 				56D7EAF42B28D34200F72D2D /* HomeCoordinator.swift in Sources */,
 				5630BC9A2BA84C54006EE839 /* NotificationsMapVM.swift in Sources */,
 				568DDFD42B9CA9A3004F488B /* ImageStorage.swift in Sources */,
+				563AC13D2BEB6DFB00746E07 /* ImageStorageWorker.swift in Sources */,
 				564BBF712B76378000B53A66 /* TimerNotificationCreateVM.swift in Sources */,
 				56CA73312B98A66500ADC325 /* MapVC.swift in Sources */,
 			);

@@ -11,7 +11,9 @@ import Storage
 final class LocationCell: UITableViewCell {
     
     var buttonDidTapped: ((_ sender: UIButton) -> Void)?
-    private let imageStorage = ImageStorage() //TODO: fix
+    private let imageStorage = ImageStorageWorker( //TODO: fix
+        cloudStorage: FirebaseStorageService(),
+        localStorage: ImageStorage())
     
     private lazy var cellContentView: UIView = {
         let view = UIView()
@@ -76,7 +78,7 @@ final class LocationCell: UITableViewCell {
     func config(for dto: LocationNotificationDTO) {
         title.text = dto.title
         subTitle.text = dto.subtitle
-        imageStorage.loadImage(id: dto.id) { [weak self] image in
+        imageStorage.download(id: dto.id) { [weak self] image in
             DispatchQueue.main.async {
                 self?.locationImageView.image = image
             }

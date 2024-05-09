@@ -19,8 +19,8 @@ protocol LocationNotificatioCoordinatorProtocol: AnyObject {
 }
 
 protocol LocationImageStorageUsecase {
-    func loadImage(id: String, completion: @escaping ((UIImage?)-> Void))
-    func saveImage(id: String, image: UIImage, completion: ((Bool) -> Void)?)
+    func download(id: String, completion: @escaping ((UIImage?)-> Void))
+    func upload(id: String, image: UIImage, completion: ((Bool) -> Void)?)
 }
 
 protocol LocationNotificationWorkerUseCase {
@@ -106,7 +106,7 @@ extension LocationNotificationCreateVM {
                           circularRadius: circularRadius)
         
         worker.createOrUpdate(dto: dto, completion: nil)
-        imageStorage.saveImage(id: dto.id, image: image) { [weak self] _ in
+        imageStorage.upload(id: dto.id, image: image) { [weak self] _ in
             DispatchQueue.main.async {
                 self?.coordinator?.finish()
             }

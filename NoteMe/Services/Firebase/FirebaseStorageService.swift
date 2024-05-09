@@ -23,10 +23,7 @@ final class FirebaseStorageService {
     private enum Path {
         static let location = "locationNotifications"
     }
-    
-    typealias UploadImageModel = (id: String, image: UIImage)
-    typealias UploadCompletion = (Bool, URL?) -> Void
-    typealias DownloadImageCompletion = (Bool, UIImage?) -> Void
+
     
     private let queue = DispatchQueue(label: "com.noteme.firebase.storage",
                                       qos: .utility,
@@ -40,7 +37,7 @@ final class FirebaseStorageService {
         Auth.auth().currentUser?.uid
     }
     
-    func upload(model: UploadImageModel, completion: UploadCompletion?) {
+    func upload(id: String, image: UIImage, completion: ((Bool, URL?) -> Void)?) {
         guard let clientId else {
             FirebaseStorageError.clientIdIsNil.log()
             completion?(false, nil)
@@ -48,13 +45,13 @@ final class FirebaseStorageService {
         }
         
         queue.async { [weak self] in
-            guard let data = model.image.pngData() else {
+            guard let data = image.pngData() else {
                 FirebaseStorageError.imageToDataFailed.log()
                 completion?(false, nil)
                 return
             }
             
-            let ref = self?.storage.child("\(Path.location)/\(clientId)/\(model.id).png")
+            let ref = self?.storage.child("\(Path.location)/\(clientId)/\(id).png")
             ref?.putData(data) { metaData, error in
                 guard error == nil  else {
                     error?.log()
@@ -75,10 +72,10 @@ final class FirebaseStorageService {
         }
     }
     
-    func download(fileName: String, completion: DownloadImageCompletion? ) {
+    func download(fileName: String, completion: ((UIImage?) -> Void)? ) {
         guard let clientId else {
             FirebaseStorageError.clientIdIsNil.log()
-            completion?(false, nil)
+            completion?(nil)
             return
         }
         let ref = storage.child("\(Path.location)/\(clientId)/\(fileName).png")
@@ -87,17 +84,17 @@ final class FirebaseStorageService {
             queue?.async {
                 if error != nil {
                     error?.log()
-                    completion?(false, nil)
+                    completion?(nil)
                 } else if let data {
                     guard let image = UIImage(data: data) else {
                         FirebaseStorageError.dataToImageFailed.log()
-                        completion?(false, nil)
+                        completion?(nil)
                         return
                     }
-                    completion?(true, image)
+                    completion?(image)
                 } else {
                     FirebaseStorageError.dataIsNil.log()
-                    completion?(false, nil)
+                    completion?(nil)
                 }
             }
         }

@@ -7,4 +7,4 @@
 
 import Foundation
 
-extension ImageStorage: LocationImageStorageUsecase {}
+extension ImageStorageWorker: LocationImageStorageUsecase {}

@@ -46,7 +46,7 @@ final class LocationNotificationEditVM: LocationNotificationViewModelProtocol, M
     func viewDidLoad() {
         imageDidSet?(image)
         shouldEditeDTO?(dto)
-        imageStorage.loadImage(id: dto.id) { [weak self] image in
+        imageStorage.download(id: dto.id) { [weak self] image in
             DispatchQueue.main.async {
                 self?.image = image
             }
@@ -122,7 +122,7 @@ extension LocationNotificationEditVM {
         dto.circularRadius = circularRadius
         
         worker.createOrUpdate(dto: dto, completion: nil)
-        imageStorage.saveImage(id: dto.id, image: image) { [weak self] _ in
+        imageStorage.upload(id: dto.id, image: image) { [weak self] _ in
             DispatchQueue.main.async {
                 self?.coordinator?.finish()
             }
