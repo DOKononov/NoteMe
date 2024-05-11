@@ -23,7 +23,6 @@ final class FirebaseStorageService {
     private enum Path {
         static let location = "locationNotifications"
     }
-
     
     private let queue = DispatchQueue(label: "com.noteme.firebase.storage",
                                       qos: .utility,
@@ -37,17 +36,17 @@ final class FirebaseStorageService {
         Auth.auth().currentUser?.uid
     }
     
-    func upload(id: String, image: UIImage, completion: ((Bool, URL?) -> Void)?) {
+    func upload(id: String, image: UIImage, completion: ((Bool) -> Void)?) {
         guard let clientId else {
             FirebaseStorageError.clientIdIsNil.log()
-            completion?(false, nil)
+            completion?(false)
             return
         }
         
         queue.async { [weak self] in
             guard let data = image.pngData() else {
                 FirebaseStorageError.imageToDataFailed.log()
-                completion?(false, nil)
+                completion?(false)
                 return
             }
             
@@ -55,32 +54,23 @@ final class FirebaseStorageService {
             ref?.putData(data) { metaData, error in
                 guard error == nil  else {
                     error?.log()
-                    completion?(false, nil)
+                    completion?(false)
                     return
                 }
-                
-                //TODO: - remove???
-                ref?.downloadURL { fileURL, error in
-                    guard error == nil  else {
-                        error?.log()
-                        completion?(false, nil)
-                        return
-                    }
-                    completion?(true, fileURL)
-                }
+                completion?(true)
             }
         }
     }
     
-    func download(fileName: String, completion: ((UIImage?) -> Void)? ) {
+    func download(id: String, completion: ((UIImage?) -> Void)? ) {
         guard let clientId else {
             FirebaseStorageError.clientIdIsNil.log()
             completion?(nil)
             return
         }
-        let ref = storage.child("\(Path.location)/\(clientId)/\(fileName).png")
-        //max file size 10mb
-        ref.getData(maxSize: 10 * 1024 * 1024) { [weak queue] data, error in
+        let ref = storage.child("\(Path.location)/\(clientId)/\(id).png")
+        //max file size 1mb
+        ref.getData(maxSize: 1 * 1024 * 1024) { [weak queue] data, error in
             queue?.async {
                 if error != nil {
                     error?.log()
@@ -101,4 +91,26 @@ final class FirebaseStorageService {
     }
     
     
+    func delete(id: String, completion: ((Bool) -> Void)?) {
+        guard let clientId else {
+            FirebaseStorageError.clientIdIsNil.log()
+            completion?(false)
+            return
+        }
+        let ref = storage.child("\(Path.location)/\(clientId)/\(id).png")
+        ref.delete { [weak self] error in
+            self?.queue.async {
+                if let error {
+                    error.log()
+                    completion?(false)
+                    return
+                } else {
+                    completion?(true)
+                    return
+                }
+            }
+         
+        }
+
+    }
 }

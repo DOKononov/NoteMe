@@ -15,11 +15,12 @@ final class NotificationDataWorkerAssembler {
         let backupService: FirebaseBackupService = container.resolve()
         let storage: AllNotificationStorage = container.resolve()
         let notoficationService: NotificationService = container.resolve()
-        
+        let imageWorker: ImageStorageWorker = ImageStorageWorkerAssembler.make(container: container)
         
         let worker = NotificationDataWorker(backupService: backupService,
                                             storage: storage,
-                                            notoficationService: notoficationService)
+                                            notoficationService: notoficationService, 
+                                            imageWorker: imageWorker)
         return worker
     }
 }

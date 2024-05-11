@@ -27,7 +27,7 @@ final class ImageStorageWorker {
             if let localImage {
                 completion(localImage)
             } else {
-                self?.cloudStorage.download(fileName: id) { cloudImage in
+                self?.cloudStorage.download(id: id) { cloudImage in
                     completion(cloudImage)
                 }
             }
@@ -36,6 +36,6 @@ final class ImageStorageWorker {
     
     func delete(id: String, completion: ((Bool) -> Void)? ) {
         localStorage.deleteImage(id: id, completion: nil)
-        
+        cloudStorage.delete(id: id, completion: nil)
     }
 }

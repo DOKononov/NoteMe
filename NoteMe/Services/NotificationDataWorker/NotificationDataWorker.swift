@@ -20,30 +20,34 @@ final class NotificationDataWorker {
     private let backupService: FirebaseBackupService
     private let storage: AllNotificationStorage
     private let notoficationService: NotificationServiceDataWorkerUsecase
+    private let imageWorker: ImageStorageWorker
     
     init(backupService: FirebaseBackupService, 
          storage: AllNotificationStorage,
-         notoficationService: NotificationServiceDataWorkerUsecase) {
+         notoficationService: NotificationServiceDataWorkerUsecase,
+         imageWorker: ImageStorageWorker) {
         self.backupService = backupService
         self.storage = storage
         self.notoficationService = notoficationService
+        self.imageWorker = imageWorker
     }
     
     func createOrUpdate(dto: any DTODescription, completion: CompletionHandler? = nil) {
-        storage.updateOrCreate(dto: dto) { [notoficationService, backupService] isSuccess in
+        storage.updateOrCreate(dto: dto) { [weak self] isSuccess in
             defer { completion?(isSuccess) }
             guard isSuccess else { return }
-            notoficationService.makeNotifications(from: [dto])
-            backupService.backup(dto: dto)
+            self?.notoficationService.makeNotifications(from: [dto])
+            self?.backupService.backup(dto: dto)
         }
     }
     
     func deleteByUser(dto: any DTODescription, completion: CompletionHandler? = nil) {
-        storage.delete(dto: dto) { [notoficationService, backupService] isSuccess in
+        storage.delete(dto: dto) { [weak self] isSuccess in
             defer { completion?(isSuccess) }
             guard isSuccess else { return }
-            notoficationService.removeNotifications(id: [dto.id])
-            backupService.delete(id: dto.id)
+            self?.notoficationService.removeNotifications(id: [dto.id])
+            self?.backupService.delete(id: dto.id)
+            self?.imageWorker.delete(id: dto.id, completion: nil)
         }
     }
     
