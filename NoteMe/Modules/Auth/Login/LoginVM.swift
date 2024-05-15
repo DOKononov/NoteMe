@@ -85,7 +85,7 @@ extension LoginVM: LoginViewModelProtocol {
                           password: password) { [weak self] isSuccess in
             if isSuccess {
                 ParametersHelper.set(.authenticated, value: true)
-                //TODO: -start load backup
+                //start load backup
                 self?.worker.restore { isSuccess in
                     DispatchQueue.main.async {
                         self?.coordinator?.finish()

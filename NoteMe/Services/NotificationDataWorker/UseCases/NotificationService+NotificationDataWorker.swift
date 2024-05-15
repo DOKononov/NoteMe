@@ -8,6 +8,12 @@
 import Foundation
 import Storage
 
+enum NotificationServiceError: String, LocalizedError {
+    case unknownDTOType = "Unknown DTO type"
+    
+    var errorDescription: String? { self.rawValue }
+}
+
 extension NotificationService: NotificationServiceDataWorkerUsecase {
     func makeNotifications(from dtos: [any DTODescription]) {
         dtos.forEach { dto in
@@ -19,7 +25,7 @@ extension NotificationService: NotificationServiceDataWorkerUsecase {
             case is LocationNotificationDTO:
                 makeLocationNotification(dto: dto as! LocationNotificationDTO)
             default:
-                print("[NotificationService+NotificationDataWorker] unknown case")
+                NotificationServiceError.unknownDTOType.log()
                 break
             }
         }

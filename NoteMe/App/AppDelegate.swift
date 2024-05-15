@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         notificationHandler.checkIsCompleted()
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            guard error == nil else {
-                print("[Notification]: ", error?.localizedDescription ?? "nil")
+            if let error {
+                error.log()
                 return
             }
         }

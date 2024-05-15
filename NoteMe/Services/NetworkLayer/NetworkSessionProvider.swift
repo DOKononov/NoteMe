@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum NetworkLayerError: String, LocalizedError {
+    case decoderError = "Could not decode responce mosel"
+    
+    var errorDescription: String? { self.rawValue }
+}
+
 final class NetworkSessionProvider {
     
     func send<Request: NetworkRequest>(
@@ -22,7 +28,7 @@ final class NetworkSessionProvider {
             with: urlRequest
         ) { responseData, response, error in
             if let error {
-                print("[NetworkLayer]: Error -", error.localizedDescription)
+                error.log()
                 completion(nil)
             } else if let responseData,
                       let responceModel = try? JSONDecoder().decode(
@@ -30,7 +36,7 @@ final class NetworkSessionProvider {
                         from: responseData) {
                 completion(responceModel)
             } else {
-                print("[NetworkLayer]: Decode error to type \(Request.ResponseModel.self)")
+                NetworkLayerError.decoderError.log()
                 completion(nil)
             }
         }.resume()

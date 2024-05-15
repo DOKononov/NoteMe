@@ -90,5 +90,24 @@ final class ImageStorage {
             ImageStorageError.deleteImageError.log()
             completion?(false)
         }
+    }  
+    
+    func deleteAll(completion: ((Bool) -> Void)?) {
+        guard let directory else {
+            ImageStorageError.fileURLPathError.log()
+            completion?(false)
+            return
+        }
+        
+        do {
+            let urls = try manager.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
+            try urls.forEach { [weak self] url in
+                try self?.manager.removeItem(at: url)
+            }
+            completion?(true)
+        } catch {
+            ImageStorageError.deleteImageError.log()
+            completion?(false)
+        }
     }
 }

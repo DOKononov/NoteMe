@@ -29,6 +29,10 @@ final class ImageStorageWorker {
             } else {
                 self?.cloudStorage.download(id: id) { cloudImage in
                     completion(cloudImage)
+                    
+                    if let cloudImage {
+                        self?.localStorage.saveImage(id: id, image: cloudImage, completion: nil)
+                    }
                 }
             }
         }

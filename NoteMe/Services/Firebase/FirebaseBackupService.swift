@@ -34,8 +34,10 @@ final class FirebaseBackupService {
             self?.ref
                 .child("notifications")
                 .child(userId)
-                .child(dto.id).setValue(dict) { error, ref in
-                    print(error, ref)
+                .child(dto.id).setValue(dict) { error, _ in
+                    if let error {
+                        error.log()
+                    }
                 }
         }
     }
