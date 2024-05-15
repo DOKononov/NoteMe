@@ -62,10 +62,17 @@ final class LocationCell: UITableViewCell {
     }()
     
     private lazy var locationImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(systemName: "photo"))
+        let imageView = UIImageView()
         imageView.tintColor = .label
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.hidesWhenStopped = true
+        view.color = .appYellow
+        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -78,9 +85,19 @@ final class LocationCell: UITableViewCell {
     func config(for dto: LocationNotificationDTO) {
         title.text = dto.title
         subTitle.text = dto.subtitle
-        imageStorage.download(id: dto.id) { [weak self] image in
+        setImage(for: dto.id)
+    }
+    
+    private func setImage(for id: String) {
+        locationImageView.isHidden = true
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        
+        imageStorage.download(id: id) { [weak self] image in
             DispatchQueue.main.async {
-                self?.locationImageView.image = image
+                self?.locationImageView.image = image ?? UIImage(systemName: "photo")
+                self?.locationImageView.isHidden = false
+                self?.activityIndicator.stopAnimating()
             }
         }
     }
@@ -98,6 +115,7 @@ final class LocationCell: UITableViewCell {
         cellContentView.addSubview(subTitle)
         cellContentView.addSubview(settingsButton)
         cellContentView.addSubview(locationImageView)
+        cellContentView.addSubview(activityIndicator)
         contentView.isUserInteractionEnabled = false
         backgroundColor = .clear
         
@@ -130,9 +148,14 @@ final class LocationCell: UITableViewCell {
         
         locationImageView.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.equalTo(147)
+            make.height.equalTo(locationImageView.snp.width).multipliedBy(0.4835) //correct snapshot aspectratio
             make.top.equalTo(iconView.snp.bottom).inset(-8)
             make.bottom.equalToSuperview().inset(16)
+        }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.size.equalTo(30)
+            make.center.equalTo(locationImageView.snp.center)
         }
         
         settingsButton.snp.makeConstraints { make in

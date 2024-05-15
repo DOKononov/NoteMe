@@ -56,6 +56,7 @@ final class NotificationDataWorker {
         let allIds = allDTOs.map { $0.id }
         notoficationService.removeNotifications(id: allIds)
         storage.deleteAll(dtos: allDTOs, completion: completion)
+        imageWorker.deleteByLogout(completion: nil)
     }
     
     func restore(completion: CompletionHandler? = nil) {

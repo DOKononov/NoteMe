@@ -8,7 +8,7 @@
 import UIKit
 
 enum ImageStorageError: String, LocalizedError {
-    case dataLoadingFailed = "Failed to load data"
+    case dataLoadingFailed = "Failed to load local image"
     case dataToImageFailed = "Data can not be used as image"
     case imageToDataError = "Failed to convert image to data"
     case deleteImageError = "Uneble to delete image"

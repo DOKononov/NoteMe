@@ -42,4 +42,8 @@ final class ImageStorageWorker {
         localStorage.deleteImage(id: id, completion: nil)
         cloudStorage.delete(id: id, completion: nil)
     }
+    
+    func deleteByLogout(completion: ((Bool) -> Void)?) {
+        localStorage.deleteAll(completion: completion)
+    }
 }
